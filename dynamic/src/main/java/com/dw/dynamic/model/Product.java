@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "product")
 public class Product {
 
@@ -21,7 +21,7 @@ public class Product {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "price")
+    @Column(name = "price",nullable = false)
     private double price;
 
     @ManyToOne

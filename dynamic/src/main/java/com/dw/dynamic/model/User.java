@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.enums.Gender;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,10 @@ public class User {
     @Column(name="password", nullable = false)
     private String password;
 
+    @Column(name = "gender",nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Gender gender; // ENUM 수정 필요
+
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
@@ -34,16 +39,16 @@ public class User {
     private String phoneNumber;
 
     @Column(name = "business_number")
-    private String businessNumber;
+    private String businessNumber; // 사업자번호
 
     @Column(name = "business_type")
-    private String businessType;
+    private String businessType; // 업종
 
-    @Column(name = "exist_business_operator")
-    private boolean existBusinessOperator;
+    @Column(name = "exist_business_operator", nullable = false)
+    private boolean existBusinessOperator; // 기존 사업자 여부
 
     @Column(name = "point")
-    private int point;
+    private Long point;
 
     @ManyToOne
     @JoinColumn(name = "user_authority")

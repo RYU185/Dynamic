@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.enums.Rating;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,13 +24,13 @@ public class Review {
 
     @Column(name = "rating",nullable = false)
     @Enumerated(EnumType.STRING)
-    private String rating; // ENUM 수정 필요
+    private Rating rating; // ENUM 수정 필요
     
     @Column(name = "date", updatable = false)
-    private LocalDate addDate;
+    private LocalDate addDate;  // 작성일
 
     @Column(name = "modified_date")
-    private LocalDate modifiedDate;
+    private LocalDate modifiedDate; // 수정일
 
     @ManyToOne
     @JoinColumn(name = "userName")
@@ -37,7 +38,7 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "purchase_detail_id")
-    private PurchaseDetails purchaseDetails;
+    private PurchaseDetails purchase_details;
 
 
 

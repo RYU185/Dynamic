@@ -19,7 +19,7 @@ public class Cart {
     private String cartId;
 
     @Column(name = "quantity")
-    private int quantity;
+    private Long quantity;
 
     @OneToOne
     @JoinColumn(name = "user_name")

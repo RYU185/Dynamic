@@ -21,16 +21,16 @@ public class Employee {
     private String name;
 
     @Column(name = "company_name")
-    private String companyName;
+    private String companyName;  // 회사명
 
     @Column(name = "department")
-    private String department;
+    private String department; // 부서명
 
     @Column(name = "position")
-    private String position;
+    private String position; // 직위
 
-    @Column(name = "hire_date", nullable = false)
-    private LocalDate hireDate;
+    @Column(name = "hire_date", nullable = false, updatable = false)
+    private LocalDate hireDate; // 입사일
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -39,7 +39,8 @@ public class Employee {
     @JoinColumn(name = "user_name")
     private User user; // 단방향
 
-    @OneToOne(mappedBy = "payroll_template")
+    @OneToOne
+    @JoinColumn(name = "payroll_template")
     private PayrollTemplate payrollTemplate;
 
 }

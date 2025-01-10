@@ -3,6 +3,7 @@ package com.dw.dynamic.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +16,16 @@ import java.util.List;
 @Entity
 @Table(name = "course")
 public class Course extends Product {
+//  추가 시 , product를 하나 만들고 추가해야함!!
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "title", nullable = false)
+    private String title;
 
-    @Column(name = "upload_date", length = 500, updatable = false)
-    private String description;
-//
-//    @Override
-//    public String getId() {
-//        return String.valueOf(id);  // Long을 String으로 변환
-//    }
+    @Column(name = "add_date", updatable = false)
+    private LocalDate addDate;// 강의 업로드 날짜
+
+    @Column(name = "description", length = 500, updatable = false)
+    private String description; // 상세 설명
+
 
 }

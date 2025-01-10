@@ -17,6 +17,9 @@ public class Guide {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "title", length = 1000, nullable = false)
+    private String title;
+
     @Column(name = "text", length = 1000)
     private String text;
 
