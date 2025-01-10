@@ -18,8 +18,5 @@ public class Deduction {
     @Column(name = "formula")
     private String formula;
 
-    @OneToOne(mappedBy = "payrollTemplate")
-    private PayrollTemplate payrollTemplate;
-
 
 }

@@ -19,9 +19,8 @@ public class PayrollTemplate {
     @JoinColumn(name = "deduction")
     private Deduction deduction;
 
-    @OneToOne
-    @JoinColumn(name = "employee")
-    private Employee employee;
+
+
 
 
 
