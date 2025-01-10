@@ -18,11 +18,14 @@ public class PurchaseDetails {
     @Column(name = "id")
     private String id;
 
-    @OneToMany(mappedBy = "purchaseDetails")
+    @OneToMany(mappedBy = "purchase_details")
     private List<Review> reviewList = new ArrayList<>(); // 구매내역 - 리뷰 (양방향)
 
     @ManyToOne
     @JoinColumn(name = "payment")
     private Payment payment_fk; // 결제 - 구매내역 (단방향)
+
+    @OneToMany(mappedBy = "purchaseDetails_fk")
+    private List<PayrollTemplate> payrollTemplateList = new ArrayList<>(); // 구매내역 - 급여명세서 양식(양방향)
 
 }

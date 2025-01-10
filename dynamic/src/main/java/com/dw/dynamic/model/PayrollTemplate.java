@@ -19,9 +19,10 @@ public class PayrollTemplate {
     @JoinColumn(name = "deduction")
     private Deduction deduction;
 
-    @OneToOne
-    @JoinColumn(name = "employee")
-    private Employee employee;
+    @ManyToOne
+    @JoinColumn(name = "purchase_details_id")
+    private PurchaseDetails purchaseDetails_fk; // 급여명세서 양식 - 구매내역 (양방향)
+
 
 
 
