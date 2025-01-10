@@ -18,11 +18,11 @@ public class Cart {
     @Column(name = "cart_id")
     private String cartId;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 }
