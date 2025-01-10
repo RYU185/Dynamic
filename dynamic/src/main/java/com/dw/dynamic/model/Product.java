@@ -28,8 +28,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category; // 제품 - 카테고리 (단방향)
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart_fk; // 장바구니(양방향)
+
+
 
 }

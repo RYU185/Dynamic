@@ -22,6 +22,9 @@ public class User {
     @Column(name="user_id")
     private String id;
 
+    @Column(name = "company_name")
+    private String companyName;
+
     @Column(name = "name", nullable = false)
     private String name;
 

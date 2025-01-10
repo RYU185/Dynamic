@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.mapping.Join;
 
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,10 +30,4 @@ public class Notice {
     @Column(name = "add_date", nullable = false)
     private LocalDate addDate; // 작성일자
 
-    @Column(name = "formation_data")
-    private String formationData; // 외부 파일( 서식 자료)
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user; // 유저(단방향)
 }

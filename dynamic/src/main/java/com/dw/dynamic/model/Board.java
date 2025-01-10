@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,4 +31,7 @@ public class Board {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user; // 유저(단방향)
+
+    @OneToMany(mappedBy = "board_fk")
+    private List<Comment> commentList = new ArrayList<>();
 }

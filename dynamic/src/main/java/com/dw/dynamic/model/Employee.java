@@ -20,9 +20,6 @@ public class Employee {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "company_name")
-    private String companyName;  // 회사명
-
     @Column(name = "department")
     private String department; // 부서명
 
