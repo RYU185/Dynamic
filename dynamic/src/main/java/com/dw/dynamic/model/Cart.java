@@ -26,7 +26,7 @@ public class Cart {
     private User user; // 장바구니 - 유저(단방향 1:1)
 
     @OneToMany(mappedBy = "cart_fk")
-    private List<Product> product = new ArrayList<>();  // 장바구니 - 제품 (양방향)
+    private List<Product> productList = new ArrayList<>();  // 장바구니 - 제품 (양방향)
 
     @OneToMany(mappedBy = "cart_fk")
     private List<Payment> paymentList = new ArrayList<>();  // 장바구니 - 결제 (양방향)

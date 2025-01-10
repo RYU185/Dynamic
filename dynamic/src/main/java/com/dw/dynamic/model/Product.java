@@ -26,7 +26,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category")
-    private Category category;
+    private Category category; // 제품 - 카테고리 (단방향)
 
     @ManyToOne
     @JoinColumn(name = "cart_id")

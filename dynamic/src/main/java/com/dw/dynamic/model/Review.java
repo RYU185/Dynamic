@@ -18,10 +18,6 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "purchase_details")
-    private PurchaseDetails purchaseDetails;
-
     @Column(name = "text", length = 1000, nullable = false)
     private String text;
 
@@ -38,6 +34,10 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "userName")
     private User user; // 유저(단방향)
+
+    @ManyToOne
+    @JoinColumn(name = "purchase_detail_id")
+    private PurchaseDetails purchaseDetails;
 
 
 
