@@ -33,7 +33,7 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "userName")
-    private User user; // 유저(단방향)
+    private User user; // 유저 - 리뷰 (단방향)
 
     @ManyToOne
     @JoinColumn(name = "purchase_detail_id")
