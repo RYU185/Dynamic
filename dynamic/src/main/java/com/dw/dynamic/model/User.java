@@ -45,25 +45,7 @@ public class User {
     @Column(name = "point")
     private int point;
 
-    @OneToOne(mappedBy = "user")
-    private Cart cart; // 장바구니
-
     @ManyToOne
     @JoinColumn(name = "user_authority")
     private Authority authority; // 권한
-
-    @OneToMany(mappedBy = "guide")
-    private List<Guide> guide; // 가이드
-
-    @OneToMany(mappedBy = "notice")
-    private List<Notice> notice; // 공지사항
-
-    @OneToMany(mappedBy = "review")
-    private List<Review> review;  // 리뷰
-
-    @OneToMany(mappedBy = "board")
-    private List<Board> board;  // 게시판
-
-    @OneToMany(mappedBy = "employee")
-    private List<Employee> employee; // 직원 관리
 }

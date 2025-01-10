@@ -23,7 +23,7 @@ public class Cart {
 
     @OneToOne
     @JoinColumn(name = "user_name")
-    private User user;
+    private User user; // 유저(단방향 1:1)
 
     @OneToMany(mappedBy = "product")
     private List<Product> product;

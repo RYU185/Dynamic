@@ -18,5 +18,5 @@ public class Notice {
 
     @ManyToOne
     @JoinColumn(name = "userName")
-    private User user;
+    private User user; // 유저(단방향)
 }
