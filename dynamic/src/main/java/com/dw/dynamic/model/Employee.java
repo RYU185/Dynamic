@@ -37,7 +37,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "user_name")
-    private User user;
+    private User user; // 단방향
 
     @OneToOne(mappedBy = "payroll_template")
     private PayrollTemplate payrollTemplate;
