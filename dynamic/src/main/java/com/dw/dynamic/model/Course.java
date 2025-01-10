@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
+@Table(name = "course")
 public class Course extends Product {
 
     @Id
@@ -22,5 +23,10 @@ public class Course extends Product {
 
     @Column(name = "upload_date", length = 500, updatable = false)
     private String description;
+//
+//    @Override
+//    public String getId() {
+//        return String.valueOf(id);  // Long을 String으로 변환
+//    }
 
 }

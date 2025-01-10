@@ -12,11 +12,13 @@ import lombok.*;
 @Setter
 @Entity
 @ToString
+@Table(name = "payroll_subscription")
 public class PayrollSubscription extends Product {
 
     @Id
     @Column(name = "sub_payroll_name")
     private String subPayrollName;
+
 
 
 }
