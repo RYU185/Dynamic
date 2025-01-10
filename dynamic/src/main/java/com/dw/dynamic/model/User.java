@@ -44,7 +44,7 @@ public class User {
 
     @Column(name = "point")
     private int point;
-    
+
     @OneToOne(mappedBy = "user")
     private Cart cart; // 장바구니
 
