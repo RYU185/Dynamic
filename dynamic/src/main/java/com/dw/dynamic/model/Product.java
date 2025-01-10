@@ -30,6 +30,6 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
-    private Cart cart;
+    private Cart cart_fk; // 장바구니(양방향)
 
 }

@@ -16,6 +16,10 @@ public class Payment {
     private String paymentName;
 
     @ManyToOne
-    @JoinColumn(name = "cart")
-    private Cart cart;
+    @JoinColumn(name = "cart_id")
+    private Cart cart_fk; // 장바구니 - 제품 (양방향)
+
+
+
+
 }
