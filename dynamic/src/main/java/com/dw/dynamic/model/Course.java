@@ -20,12 +20,7 @@ public class Course extends Product {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "upload_date",length = 500, updatable = false)
+    @Column(name = "upload_date", length = 500, updatable = false)
     private String description;
 
-    @ManyToMany
-    @JoinTable(name = "course_user",
-            joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> userList = new ArrayList<>();
 }

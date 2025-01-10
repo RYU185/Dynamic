@@ -45,8 +45,6 @@ public class User {
     @Column(name = "point")
     private int point;
 
-    @ManyToMany(mappedBy = "userList")
-    private List<Course> courseList = new ArrayList<>();
 
 
     @OneToOne(mappedBy = "user")
