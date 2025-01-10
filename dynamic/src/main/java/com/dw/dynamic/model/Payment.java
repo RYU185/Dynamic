@@ -15,8 +15,8 @@ import java.time.LocalDate;
 @Table(name = "payment")
 public class Payment {
     @Id
-    @Column(name = "payment_name")
-    private String paymentName;
+    @Column(name = "payment_id")
+    private Long paymentId;
 
     @Column(name = "total_amount", nullable = false)
     private Long totalAmount;// 총금액

@@ -42,7 +42,7 @@ public class PayrollTemplate {
     private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
 
     @OneToOne
-    @JoinColumn(name = "deduction")
+    @JoinColumn(name = "deduction_name")
     private Deduction deduction;
 
     @ManyToOne

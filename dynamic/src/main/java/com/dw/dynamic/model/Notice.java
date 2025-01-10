@@ -31,6 +31,6 @@ public class Notice {
     private String formationData; // 외부 파일( 서식 자료)
 
     @ManyToOne
-    @JoinColumn(name = "userName")
+    @JoinColumn(name = "user_id")
     private User user; // 유저(단방향)
 }

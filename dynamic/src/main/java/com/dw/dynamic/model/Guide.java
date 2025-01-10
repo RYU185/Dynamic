@@ -24,6 +24,6 @@ public class Guide {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "userName")
+    @JoinColumn(name = "user_id")
     private User user;
 }

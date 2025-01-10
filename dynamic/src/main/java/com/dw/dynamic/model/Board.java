@@ -27,6 +27,6 @@ public class Board {
     private LocalDateTime addDate; // 작성일
 
     @ManyToOne
-    @JoinColumn(name = "user_name")
+    @JoinColumn(name = "user_id")
     private User user; // 유저(단방향)
 }

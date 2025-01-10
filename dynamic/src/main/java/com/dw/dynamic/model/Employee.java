@@ -36,7 +36,7 @@ public class Employee {
     private String phoneNumber;
 
     @ManyToOne
-    @JoinColumn(name = "user_name")
+    @JoinColumn(name = "user_id")
     private User user; // 단방향
 
     @OneToOne

@@ -22,7 +22,7 @@ public class PurchaseDetails {
     private List<Review> reviewList = new ArrayList<>(); // 구매내역 - 리뷰 (양방향)
 
     @ManyToOne
-    @JoinColumn(name = "payment")
+    @JoinColumn(name = "payment_id")
     private Payment payment_fk; // 결제 - 구매내역 (단방향)
 
     @OneToMany(mappedBy = "purchaseDetails_fk")

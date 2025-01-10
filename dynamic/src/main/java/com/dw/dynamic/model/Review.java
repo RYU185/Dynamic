@@ -33,7 +33,7 @@ public class Review {
     private LocalDate modifiedDate; // 수정일
 
     @ManyToOne
-    @JoinColumn(name = "userName")
+    @JoinColumn(name = "user_id")
     private User user; // 유저 - 리뷰 (단방향)
 
     @ManyToOne

@@ -22,7 +22,7 @@ public class Cart {
     private Long quantity;
 
     @OneToOne
-    @JoinColumn(name = "user_name")
+    @JoinColumn(name = "user_id")
     private User user; // 장바구니 - 유저(단방향 1:1)
 
     @OneToMany(mappedBy = "cart_fk")
