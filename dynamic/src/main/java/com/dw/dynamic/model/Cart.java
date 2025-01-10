@@ -20,7 +20,7 @@ public class Cart {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user; // 장바구니 - 유저(단방향 1:1)
+    private User user;
 
     @OneToOne
     @JoinColumn(name = "product_id")

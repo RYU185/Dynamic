@@ -14,20 +14,23 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "history")
-public class History {
+@Table(name = "purchase_history")
+public class PurchaseHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @Column(name="price")
+    private double price;
 
     @Column(name="purchase_date")
     private LocalDate purchaseDate; // 구매일

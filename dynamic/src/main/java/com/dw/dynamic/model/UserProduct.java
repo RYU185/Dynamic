@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @Entity
-@Table(name = "payment")
+@Table(name = "user_product")
 public class UserProduct {
 
     @Id
