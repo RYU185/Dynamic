@@ -12,7 +12,6 @@ import lombok.*;
 @Entity
 @Table(name = "formation_data")
 public class FormationData {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
