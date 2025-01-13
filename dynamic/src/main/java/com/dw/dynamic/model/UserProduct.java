@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @Entity
-@Table(name = "user_product")
+@Table(name = "user_product") // 현재 사용중인 제품
 public class UserProduct {
 
     @Id

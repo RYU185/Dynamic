@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "purchase_history")
+@Table(name = "purchase_history") // 구매내역
 public class PurchaseHistory {
 
     @Id

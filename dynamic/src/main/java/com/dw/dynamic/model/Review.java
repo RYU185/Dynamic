@@ -26,7 +26,7 @@ public class Review {
     @Enumerated(EnumType.STRING)
     private Rating rating; // ENUM 수정 필요
     
-    @Column(name = "date", updatable = false)
+    @Column(name = "add_date", updatable = false)
     private LocalDate addDate;  // 작성일
 
     @Column(name = "modified_date")

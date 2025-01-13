@@ -24,7 +24,4 @@ public class Deduction {
     @Column(name =  "tax")
     private Long tax; // 세금
 
-    @Column(name = "other_3.3%")
-    private Long other; // 3.3%
-
 }

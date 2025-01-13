@@ -15,8 +15,8 @@ import java.util.List;
 @Table(name = "cart")
 public class Cart {
     @Id
-    @Column(name = "cart_id")
-    private String cartId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long cartId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

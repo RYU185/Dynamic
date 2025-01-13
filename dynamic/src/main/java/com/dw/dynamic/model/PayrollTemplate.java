@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +15,8 @@ import java.time.LocalDate;
 @Table(name = "payroll_template")
 public class PayrollTemplate {
     @Id
-    @Column(name = "id")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "start_payroll_period",nullable = false)
     private LocalDate startPayrollPeriod;  // 급여 측정 시작 날짜
@@ -41,9 +42,15 @@ public class PayrollTemplate {
     @Column(name = "other_allowance")
     private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
 
+    @ManyToMany
+    @JoinTable(name = "template_detail",
+    joinColumns = @JoinColumn(name = "payroll_template"),
+    inverseJoinColumns = @JoinColumn(name = "deduction_name"))
+    private List<Deduction> deduction;
+
     @OneToOne
-    @JoinColumn(name = "deduction_name")
-    private Deduction deduction;
+    @JoinColumn(name = "3.3%")
+    private FreeLancer freeLancer;
 
 
 
