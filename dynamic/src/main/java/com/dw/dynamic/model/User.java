@@ -19,14 +19,14 @@ import java.util.List;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name="user_id")
-    private String id;
+    @Column(name="user_name")
+    private String userName;
 
     @Column(name = "company_name")
     private String companyName;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "real_name", nullable = false)
+    private String real_name;
 
     @Column(name="password", nullable = false)
     private String password;
