@@ -29,5 +29,7 @@ public class Comment {
     @Column(name = "add_date")
     private LocalDate addDate;
 
+    @Column(name="is_active")
+    private Boolean isActive = true;
 
 }

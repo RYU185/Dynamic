@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public class PayrollSubscription extends Product {
     //  추가 시 , product를 하나 만들고 추가해야함!!
 
-    @Column(name = "title")
+    @Column(name = "title",nullable = false)
     private String title; // 구독권 제목(ex. 3개월 구독권)
 
     @Column(name = "start_date", updatable = false)

@@ -49,7 +49,7 @@ public class PayrollTemplate {
     private List<Deduction> deduction;
 
     @OneToOne
-    @JoinColumn(name = "3.3%")
+    @JoinColumn(name = "freelancer")
     private FreeLancer freeLancer;
 
 

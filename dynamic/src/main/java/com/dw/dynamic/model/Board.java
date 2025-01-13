@@ -19,7 +19,7 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title",nullable = false)
     private String title;
 
     @Column(name = "answer", nullable = false, length = 3000)
@@ -27,6 +27,9 @@ public class Board {
 
     @Column(name = "add_date", updatable = false)
     private LocalDateTime addDate; // 작성일
+
+    @Column(name="is_active")
+    private Boolean isActive = true;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

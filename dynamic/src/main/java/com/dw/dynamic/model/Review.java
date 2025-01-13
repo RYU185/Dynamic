@@ -32,6 +32,9 @@ public class Review {
     @Column(name = "modified_date")
     private LocalDate modifiedDate; // 수정일
 
+    @Column(name="is_active")
+    private Boolean isActive = true;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user; // 유저 - 리뷰 (단방향)

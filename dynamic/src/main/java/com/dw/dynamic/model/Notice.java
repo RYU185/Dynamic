@@ -30,4 +30,5 @@ public class Notice {
     @Column(name = "add_date", nullable = false)
     private LocalDate addDate; // 작성일자
 
+
 }

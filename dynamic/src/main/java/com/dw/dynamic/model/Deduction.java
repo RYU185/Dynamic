@@ -12,9 +12,6 @@ import lombok.*;
 @Table(name = "deduction")
 public class Deduction {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long deductionName;
-
     @Column(name = "insurance_name", nullable = false, unique = true)
     private String name;// 공제 명칭
 
