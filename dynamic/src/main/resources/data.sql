@@ -1,42 +1,42 @@
---INSERT INTO authority (authority_name) VALUES ('ADMIN');
---INSERT INTO authority (authority_name) VALUES ('USER');
---INSERT INTO authority (authority_name) VALUES ('NON-USER');
---
--- INSERT INTO user(user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
---    VALUES
---        ('admin', NULL,'관리자', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','admin@gmail.com', '010-1111-1111', NULL,NULL,false , 0, 'ADMIN');
---
---INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
---VALUES
---    ('sangsu1234', '좋은상사', '이상수', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','sangsu@gmail.com', '010-9123-4567', '123-45-67890','도소매업', true, 100, 'USER');
-----
---
---INSERT INTO notice (notice_title, text, add_date)
---VALUES
---( '안녕하세요. 회원님의 첫 가입을 축하드립니다!', '안녕하세요. 저희 사이트에 가입해주셔서 감사합니다. 저희 사이트에서 무엇보다 편리하고 다양한 서비스를 즐기시길 바랍니다.', '2025-01-13');
---
---INSERT INTO guide (title,text)
---VALUES
---('무료 급여명세서 이용 가이드','메인 화면에 있는 무료 급여명세서 상에 근무 날짜 , 근무 시간, 시급을 작성 후 계산하기 버튼을 눌러주세요') ;
---
---INSERT INTO formation_data (title)
---VALUES
---('급여명세서 양식');
---
---
---
---INSERT INTO category (id) VALUES('강의');
---INSERT INTO category (id) VALUES('정기 구독권');
---
---INSERT INTO product (id,price,category_id) VALUES('C1',15000,'강의');
---INSERT INTO product (id,price,category_id) VALUES('S1',30000,'정기 구독권');
---
---INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개월 구독권','2025-01-13','2025-04-12','S1');
---INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','급여 계산 방법 및  공제 방법에 대한 설명','C1');
+INSERT INTO authority (authority_name) VALUES ('ADMIN');
+INSERT INTO authority (authority_name) VALUES ('USER');
+INSERT INTO authority (authority_name) VALUES ('NON-USER');
 
---INSERT INTO review(text,rating,add_date,modified_date,user_id,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
---INSERT INTO board(title,answer,add_date,user_id,is_active) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', true,'2025-01-13','sangsu1234',true);
---INSERT INTO comment(board_id,text,add_date,is_active) VALUES(1,'저도 궁금해요','2025-01-13',true);
+ INSERT INTO user(user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
+    VALUES
+        ('admin', NULL,'관리자', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','admin@gmail.com', '010-1111-1111', NULL,NULL,false , 0, 'ADMIN');
+
+INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
+VALUES
+    ('sangsu1234', '좋은상사', '이상수', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','sangsu@gmail.com', '010-9123-4567', '123-45-67890','도소매업', true, 100, 'USER');
+--
+
+INSERT INTO notice (notice_title, text, add_date)
+VALUES
+( '안녕하세요. 회원님의 첫 가입을 축하드립니다!', '안녕하세요. 저희 사이트에 가입해주셔서 감사합니다. 저희 사이트에서 무엇보다 편리하고 다양한 서비스를 즐기시길 바랍니다.', '2025-01-13');
+
+INSERT INTO guide (title,text)
+VALUES
+('무료 급여명세서 이용 가이드','메인 화면에 있는 무료 급여명세서 상에 근무 날짜 , 근무 시간, 시급을 작성 후 계산하기 버튼을 눌러주세요') ;
+
+INSERT INTO formation_data (title)
+VALUES
+('급여명세서 양식');
+
+
+
+INSERT INTO category (id) VALUES('강의');
+INSERT INTO category (id) VALUES('정기 구독권');
+
+INSERT INTO product (id,price,category_id) VALUES('C1',15000,'강의');
+INSERT INTO product (id,price,category_id) VALUES('S1',30000,'정기 구독권');
+
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개월 구독권','2025-01-13','2025-04-12','S1');
+INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','급여 계산 방법 및  공제 방법에 대한 설명','C1');
+
+INSERT INTO review(text,rating,add_date,modified_date,user_id,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
+INSERT INTO board(title,answer,add_date,user_id,is_active) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', true,'2025-01-13','sangsu1234',true);
+INSERT INTO comment(board_id,text,add_date,is_active) VALUES(1,'저도 궁금해요','2025-01-13',true);
 
 INSERT INTO cart(user_id,product_id) VALUES ('sangsu1234','S1');
 
