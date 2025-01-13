@@ -1,10 +1,7 @@
 package com.dw.dynamic.model;
 
-import com.dw.dynamic.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
