@@ -41,6 +41,6 @@ public class Employee {
 
     @OneToOne
     @JoinColumn(name = "payroll_template")
-    private PayrollTemplate payrollTemplate;
+    private PayrollTemplate payrollTemplate_fk;
 
 }

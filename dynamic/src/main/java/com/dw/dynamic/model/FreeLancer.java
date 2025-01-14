@@ -19,5 +19,5 @@ public class FreeLancer {
     private String name;
 
     @Column(name = "amount", updatable = false)
-    private double amount;
+    private Double amount;
 }

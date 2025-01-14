@@ -30,7 +30,7 @@ public class PurchaseHistory {
     private User user;
 
     @Column(name="price")
-    private double price;
+    private Double price;
 
     @Column(name="purchase_date")
     private LocalDate purchaseDate; // 구매일

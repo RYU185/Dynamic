@@ -26,7 +26,7 @@ public class User {
     private String companyName;
 
     @Column(name = "real_name", nullable = false)
-    private String real_name;
+    private String realName;
 
     @Column(name="password", nullable = false)
     private String password;
@@ -48,7 +48,7 @@ public class User {
     private String businessType; // 업종
 
     @Column(name = "exist_business_operator", nullable = false)
-    private boolean existBusinessOperator; // 기존 사업자 여부
+    private Boolean existBusinessOperator= false; // 기존 사업자 여부
 
     @Column(name = "point")
     private Long point;
