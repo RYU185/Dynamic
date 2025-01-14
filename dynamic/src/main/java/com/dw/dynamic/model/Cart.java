@@ -19,10 +19,13 @@ public class Cart {
     private Long cartId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_name")
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @Column(name="is_active")
+    private Boolean isActive = true;
 }

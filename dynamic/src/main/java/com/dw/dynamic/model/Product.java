@@ -25,7 +25,7 @@ public class Product {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_name")
     private Category category; // 제품 - 카테고리 (단방향)
 
 

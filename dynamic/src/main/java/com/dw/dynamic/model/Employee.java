@@ -32,8 +32,11 @@ public class Employee {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name="is_active")
+    private Boolean isActive = true;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_name")
     private User user; // 단방향
 
     @OneToOne

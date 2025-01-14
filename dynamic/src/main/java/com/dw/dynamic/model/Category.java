@@ -14,5 +14,5 @@ import java.util.List;
 @Table
 public class Category {
     @Id
-    private String id;
+    private String name;
 }

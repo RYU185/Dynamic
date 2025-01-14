@@ -42,6 +42,9 @@ public class PayrollTemplate {
     @Column(name = "other_allowance")
     private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
 
+    @Column(name="is_active")
+    private Boolean isActive = true;
+
     @ManyToMany
     @JoinTable(name = "template_detail",
     joinColumns = @JoinColumn(name = "payroll_template"),

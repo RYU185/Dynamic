@@ -26,7 +26,7 @@ public class PurchaseHistory {
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_name")
     private User user;
 
     @Column(name="price")

@@ -36,7 +36,7 @@ public class Review {
     private Boolean isActive = true;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_name")
     private User user; // 유저 - 리뷰 (단방향)
 
     @ManyToOne
