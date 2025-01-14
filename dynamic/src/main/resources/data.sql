@@ -4,7 +4,7 @@ INSERT INTO authority (authority_name) VALUES ('NON-USER');
 
  INSERT INTO user(user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
     VALUES
-        ('admin', NULL,'관리자', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','admin@gmail.com', '010-1111-1111', NULL,NULL,false , 0, 'ADMIN');
+        ('admin', '없음','관리자', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','admin@gmail.com', '010-1111-1111', '없음','없음',false , 0, 'ADMIN');
 
 INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
 VALUES
@@ -40,24 +40,27 @@ INSERT INTO comment(board_id,text,add_date,is_active) VALUES(1,'저도 궁금해
 
 INSERT INTO cart(user_id,product_id) VALUES ('sangsu1234','S1');
 
-INSERT INTO deduction(insurance_name, insurance_amount, tax) VALUES('건강보험',3.545,null);
-INSERT INTO deduction(insurance_name, insurance_amount, tax) VALUES('국민연금',4.5,null);
-INSERT INTO deduction(insurance_name, insurance_amount, tax) VALUES('장기요양',12.95,null);
-INSERT INTO deduction(insurance_name, insurance_amount, tax) VALUES('고용보험',0.9,null);
+INSERT INTO deduction_and_tax(name, amount) VALUES('건강보험',3.545);
+INSERT INTO deduction_and_tax(name, amount) VALUES('국민연금',4.5);
+INSERT INTO deduction_and_tax(name, amount) VALUES('장기요양',12.95);
+INSERT INTO deduction_and_tax(name, amount) VALUES('고용보험',0.09);
+INSERT INTO deduction_and_tax(name, amount) VALUES('소득세',0);
+INSERT INTO deduction_and_tax(name, amount) VALUES('지방세',0);
 
 INSERT INTO freelancer(name, amount) VALUES('3.3%',3.3);
 INSERT INTO freelancer(name, amount) VALUES('not freelancer',0);
 
 
+
 INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_date,salary,bonus,meal_allowance,transport_allowance,other_allowance,freelancer)
 VALUES ('2025-01-13','2025-02-12','2025-02-12',2500000,100000,100000,0,0,'not freelancer');
 
-INSERT INTO template_detail(payroll_template,deduction_name)
-VALUES(1,'건강보험'),(1,'국민연금'),(1,'장기요양'),(1,'고용보험');
+INSERT INTO template_detail(payroll_template,deduction_and_taxname)
+VALUES(1,'건강보험'),(1,'국민연금'),(1,'장기요양'),(1,'고용보험'),(1,'소득세'),(1,'지방세');
 
 INSERT INTO employee (name, department,position,hire_date, phone_number, user_id,payroll_template)
 VALUES
-('김철수', NULL, '직원', '2025-01-13','010-1234-5678', 'sangsu1234',1);
+('김철수', '없음', '직원', '2025-01-13','010-1234-5678', 'sangsu1234',1);
 
 INSERT INTO purchase_history(product_id,user_id,price,purchase_date) VALUES('S1','sangsu1234',15000,'2025-01-13');
 

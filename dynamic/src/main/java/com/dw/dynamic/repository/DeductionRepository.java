@@ -1,7 +1,7 @@
 package com.dw.dynamic.repository;
 
-import com.dw.dynamic.model.Deduction;
+import com.dw.dynamic.model.DeductionAndTax;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DeductionRepository extends JpaRepository<Deduction, Long> {
+public interface DeductionRepository extends JpaRepository<DeductionAndTax, Long> {
 }

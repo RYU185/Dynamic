@@ -45,8 +45,8 @@ public class PayrollTemplate {
     @ManyToMany
     @JoinTable(name = "template_detail",
     joinColumns = @JoinColumn(name = "payroll_template"),
-    inverseJoinColumns = @JoinColumn(name = "deduction_name"))
-    private List<Deduction> deduction;
+    inverseJoinColumns = @JoinColumn(name = "deduction_and_taxname"))
+    private List<DeductionAndTax> deductionAndTax;
 
     @OneToOne
     @JoinColumn(name = "freelancer")
