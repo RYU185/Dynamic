@@ -1,6 +1,7 @@
 package com.dw.dynamic.model;
 
 
+import com.dw.dynamic.DTO.CommentDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,4 +33,12 @@ public class Comment {
     @Column(name="is_active")
     private Boolean isActive = true;
 
+    public CommentDTO toDTO(){
+        return new CommentDTO(
+                this.id,
+                this.board_fk.getTitle(),
+                this.text,
+                this.addDate
+        );
+    }
 }

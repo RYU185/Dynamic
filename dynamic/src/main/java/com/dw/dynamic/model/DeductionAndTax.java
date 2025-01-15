@@ -18,4 +18,6 @@ public class DeductionAndTax {
     @Column(name = "amount", nullable = false)
     private double amount; // 공제 항목별 금액
 
+
+
 }

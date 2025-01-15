@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.ReviewDTO;
 import com.dw.dynamic.enums.Rating;
 import jakarta.persistence.*;
 import lombok.*;
@@ -42,6 +43,18 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    public ReviewDTO toDTO(){
+        return new ReviewDTO(
+                this.id,
+                this.text,
+                this.rating.name(),
+                this.addDate,
+                this.modifiedDate,
+                this.user.getUserName(),
+                this.product.getId()
+        );
+    }
 
 
 

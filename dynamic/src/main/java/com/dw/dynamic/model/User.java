@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.UserDTO;
 import com.dw.dynamic.enums.Gender;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -56,4 +57,21 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "user_authority")
     private Authority authority; // 권한
+
+    public UserDTO toDTO(){
+        return new UserDTO(
+                this.userName,
+                this.companyName,
+                this.realName,
+                null,
+                this.gender.name(),
+                this.email,
+                this.phoneNumber,
+                this.businessNumber,
+                this.businessType,
+                this.existBusinessOperator,
+                this.point,
+                this.authority.getAuthorityName()
+        );
+    }
 }

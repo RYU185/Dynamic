@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.EmployeeDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -43,4 +44,16 @@ public class Employee {
     @JoinColumn(name = "payroll_template")
     private PayrollTemplate payrollTemplate_fk;
 
+    public EmployeeDTO toDTO(){
+        return new EmployeeDTO(
+                this.id,
+                this.name,
+                this.department,
+                this.position,
+                this.hireDate,
+                this.phoneNumber,
+                this.user.getUserName(),
+                this.payrollTemplate_fk.getId()
+        );
+    }
 }

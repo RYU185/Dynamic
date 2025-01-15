@@ -1,9 +1,12 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.EmployeeDTO;
+import com.dw.dynamic.DTO.PayrollTemplateDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -58,7 +61,28 @@ public class PayrollTemplate {
     @OneToOne(mappedBy = "payrollTemplate_fk")
     private Employee employee;
 
+    public PayrollTemplateDTO toDTO(){
+       List<String> deductionAndTaxName = new ArrayList<>();
+       for (DeductionAndTax data : deductionAndTax) {
+           deductionAndTaxName.add(data.getName());
+       }
+        EmployeeDTO employeeDTO= this.employee !=null ?this.employee.toDTO() : null;
 
+       return  new PayrollTemplateDTO(
+               this.id,
+               this.startPayrollPeriod,
+               this.lastPayrollPeriod,
+               this.paymentDate,
+               this.salary,
+               this.bonus,
+               this.mealAllowance,
+               this.transportAllowance,
+               this.otherAllowance,
+               deductionAndTaxName,
+               this.freeLancer.getName(),
+               employeeDTO
+       );
 
+    }
 
 }

@@ -26,6 +26,6 @@ public class BoardDTO {
 
     private LocalDateTime addDate; // 작성일
 
-    private String userId; // 유저(단방향)
+    private String userName; // 유저(단방향)
 
 }

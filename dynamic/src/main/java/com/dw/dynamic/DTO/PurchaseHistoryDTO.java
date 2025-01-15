@@ -1,7 +1,7 @@
 package com.dw.dynamic.DTO;
 
-
-import com.dw.dynamic.model.Board;
+import com.dw.dynamic.model.Product;
+import com.dw.dynamic.model.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,14 +14,14 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
-public class CommentDTO {
+public class PurchaseHistoryDTO {
 
     private Long id;
 
-    private String boardTitle;
+    private ProductDTO product;
 
-    private String text;
+    private String username;
 
-    private LocalDate addDate;
+    private LocalDate purchaseDate; // 구매일
 
 }

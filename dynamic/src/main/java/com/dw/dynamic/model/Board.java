@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.BoardDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,4 +38,14 @@ public class Board {
 
     @OneToMany(mappedBy = "board_fk")
     private List<Comment> commentList = new ArrayList<>();
+
+    public BoardDTO toDTO(){
+        return new BoardDTO(
+                this.id,
+                this.title,
+                this.answer,
+                this.addDate,
+                this.user.getUserName()
+        );
+    }
 }

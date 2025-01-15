@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.CartDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,4 +29,13 @@ public class Cart {
 
     @Column(name="is_active")
     private Boolean isActive = true;
+
+    public CartDTO toDTO(){
+        return new CartDTO(
+                this.cartId,
+                this.user.getUserName(),
+                this.product.toDTO()
+        );
+    }
+
 }

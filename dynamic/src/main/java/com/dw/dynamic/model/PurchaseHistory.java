@@ -1,6 +1,7 @@
 package com.dw.dynamic.model;
 
 
+import com.dw.dynamic.DTO.PurchaseHistoryDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,4 +36,12 @@ public class PurchaseHistory {
     @Column(name="purchase_date")
     private LocalDate purchaseDate; // 구매일
 
+    public PurchaseHistoryDTO toDTO(){
+        return new PurchaseHistoryDTO(
+                this.id,
+                this.product.toDTO(),
+                this.user.getUserName(),
+                this.purchaseDate
+        );
+    }
 }

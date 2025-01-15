@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.ProductDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,7 +29,13 @@ public class Product {
     @JoinColumn(name = "category_name")
     private Category category; // 제품 - 카테고리 (단방향)
 
-
+    public ProductDTO toDTO(){
+        return new ProductDTO(
+                this.id,
+                this.price,
+                this.category.getName()
+        );
+    }
 
 
 }

@@ -1,5 +1,6 @@
 package com.dw.dynamic.model;
 
+import com.dw.dynamic.DTO.UserProductDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,4 +24,12 @@ public class UserProduct {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    public UserProductDTO toDTO(){
+        return new UserProductDTO(
+          this.id,
+          this.user.getUserName(),
+          this.product.toDTO()
+        );
+    }
 }
