@@ -3,5 +3,9 @@ package com.dw.dynamic.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BoardController {
+public class
+
+
+
+BoardController {
 }
