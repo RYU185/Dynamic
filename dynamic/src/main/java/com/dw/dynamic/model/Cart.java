@@ -14,7 +14,11 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "cart")
-public class Cart {
+public class
+
+
+
+Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
