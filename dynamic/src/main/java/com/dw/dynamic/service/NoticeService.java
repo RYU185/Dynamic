@@ -36,7 +36,7 @@ public class NoticeService {
 
     public List<Notice> getNoticesByTitle(String title){
         try {
-            return noticeRepository.findByNoticeTitle("%"+title+"%");
+            return noticeRepository.findByNoticeTitleLike("%"+title+"%");
         }catch (ResourceNotFoundException e){
             throw new ResourceNotFoundException("존재하지 않는 제목입니다");
         }

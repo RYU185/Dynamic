@@ -31,9 +31,10 @@ public class FormationDataService {
     public FormationData getFormationDataById(Long id){
         return formationDataRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("존재하지 않는 ID입니다"));
     }
+
     public List<FormationData> getFormationDataByTitle(String title){
         try {
-            return formationDataRepository.findByTitle("%"+title+"%");
+            return formationDataRepository.findByTitleLike("%"+title+"%");
         }catch (ResourceNotFoundException e){
             throw new ResourceNotFoundException("존재하지 않는 제목입니다");
         }

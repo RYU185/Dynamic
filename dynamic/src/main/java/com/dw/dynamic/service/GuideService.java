@@ -33,7 +33,7 @@ public class GuideService {
 
     public List<Guide>  getGuidesByTitle(String title){
         try {
-            return guideRepository.findByTitle("%"+title+"%");
+            return guideRepository.findByTitleLike("%"+title+"%");
         }catch (ResourceNotFoundException e){
             throw new ResourceNotFoundException("존재하지 않는 제목입니다");
         }
