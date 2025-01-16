@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,10 +27,10 @@ public class ReviewDTO {
     private String rating; // ENUM 수정 필요
 
 
-    private LocalDate addDate;  // 작성일
+    private LocalDateTime addDate;  // 작성일
 
 
-    private LocalDate modifiedDate; // 수정일
+    private LocalDateTime modifiedDate; // 수정일
 
 
 
@@ -37,5 +38,6 @@ public class ReviewDTO {
 
 
     private String productId;
+
 
 }

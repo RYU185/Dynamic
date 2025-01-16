@@ -1,6 +1,10 @@
 package com.dw.dynamic.service;
 
+import com.dw.dynamic.DTO.CategoryEnrollmentAndIncomeDTO;
+import com.dw.dynamic.DTO.CourseEnrollmentAndIncomeDTO;
+import com.dw.dynamic.DTO.PayrollSubscriptionsEnrollmentAndIncomeDTO;
 import com.dw.dynamic.DTO.ProductDTO;
+import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.model.Product;
@@ -73,5 +77,29 @@ public class ProductService {
                 })
                 .orElseThrow(()->new IllegalArgumentException("해당 ID의 제품을 찾을 수 없습니다"));
         }
+    public List<CourseEnrollmentAndIncomeDTO> getCoursesEnrollmentsAndIncomes(){
+        try {
+            return productRepository.getCoursesEnrollmentsAndIncomes();
+        }catch (InvalidRequestException e){
+            throw new InvalidRequestException("정상적인 요청이 아닙니다");
+        }
+
+    }
+
+    public List<PayrollSubscriptionsEnrollmentAndIncomeDTO> getPayrollSubscriptionsEnrollmentsAndIncomes(){
+        try {
+            return productRepository.getPayrollSubscriptionsEnrollmentsAndIncomes();
+        }catch (InvalidRequestException e){
+            throw new InvalidRequestException("정상적인 요청이 아닙니다");
+        }
+    }
+
+    public List<CategoryEnrollmentAndIncomeDTO> getCategoryEnrollmentsAndIncomes(){
+        try {
+            return productRepository.getCategoryEnrollmentsAndIncomes();
+        }catch (InvalidRequestException e){
+            throw new InvalidRequestException("정상적인 요청이 아닙니다");
+        }
+    }
     }
 

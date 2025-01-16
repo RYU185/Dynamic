@@ -28,10 +28,10 @@ public class Review {
     private Rating rating; // ENUM 수정 필요
     
     @Column(name = "add_date", updatable = false)
-    private LocalDate addDate;  // 작성일
+    private LocalDateTime addDate;  // 작성일
 
     @Column(name = "modified_date")
-    private LocalDate modifiedDate; // 수정일
+    private LocalDateTime modifiedDate; // 수정일
 
     @Column(name="is_active")
     private Boolean isActive = true;

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,10 +19,9 @@ public class CommentDTO {
 
     private Long id;
 
-    private String boardTitle;
+    private BoardDTO board;
 
     private String text;
 
-    private LocalDate addDate;
-
+    private LocalDateTime addDate;
 }

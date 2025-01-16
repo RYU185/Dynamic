@@ -27,8 +27,11 @@ public class Notice {
     @Column(name ="text",length = 3000, nullable = false)
     private String text; // 본문
 
-    @Column(name = "add_date", nullable = false)
+    @Column(name = "add_date", nullable = false,updatable = false)
     private LocalDate addDate; // 작성일자
+
+    @Column(name = "modified_date")
+    private LocalDate modifiedDate;
 
 
 }

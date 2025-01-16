@@ -20,7 +20,7 @@ public class Guide {
     @Column(name = "title", length = 1000, nullable = false)
     private String title;
 
-    @Column(name = "text", length = 1000)
+    @Column(name = "text", length = 1000,nullable = false)
     private String text;
 
 }
