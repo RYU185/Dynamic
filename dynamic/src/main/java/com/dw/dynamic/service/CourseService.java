@@ -21,5 +21,5 @@ public class CourseService {
         return courseRepository.findByTitleLike("%"+title+"%").stream().toList();
     }
 
-    public
+
 }

@@ -29,7 +29,7 @@ public class UserProductService {
                 .orElseThrow(()-> new ResourceNotFoundException("ID가 없습니다"));
     }
 
-    public List<UserProductDTO> getUserProductByProductName(String productId){
-        return userProductRepository.findByProductIdLike(productId).stream().map(UserProduct::toDTO).toList();
-    }
+//    public List<UserProductDTO> getUserProductByProductName(String productId){
+//        return userProductRepository.findByProductIdLike(productId).stream().map(UserProduct::toDTO).toList();
+//    }
 }

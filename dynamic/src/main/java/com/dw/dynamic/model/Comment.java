@@ -34,12 +34,12 @@ public class Comment {
     @Column(name="is_active")
     private Boolean isActive = true;
 
-    public CommentDTO toDTO(){
-        return new CommentDTO(
-                this.id,
-                this.board_fk,
-                this.text,
-                this.addDate
-        );
-    }
+//    public CommentDTO toDTO(){
+//        return new CommentDTO(
+//                this.id,
+//                this.board_fk,
+//                this.text,
+//                this.addDate
+//        );
+//    }
 }

@@ -37,9 +37,9 @@ public class ProductService {
         return productRepository.findAll().stream().map(Product::toDTO).toList();
     }
 
-    public List<ProductDTO> getProductsByTitle(String title){
-        return productRepository.findByTitleLike(title).stream().map(Product::toDTO).toList();
-    }
+//    public List<ProductDTO> getProductsByTitle(String title){
+//        return productRepository.findByTitleLike(title).stream().map(Product::toDTO).toList();
+//    }
 
     public ProductDTO getProductById(String id){
         return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 ID입니다.")).toDTO();
@@ -77,7 +77,7 @@ public class ProductService {
                 })
                 .orElseThrow(()->new IllegalArgumentException("해당 ID의 제품을 찾을 수 없습니다"));
         }
-    public List<CourseEnrollmentAndIncomeDTO> getCoursesEnrollmentsAndIncomes(){
+    public List<CourseEnrollmentAndIncomeDTO> getCoursesEnrollmentsAndIncomes(HttpServletRequest request){
         try {
             return productRepository.getCoursesEnrollmentsAndIncomes();
         }catch (InvalidRequestException e){
@@ -86,7 +86,11 @@ public class ProductService {
 
     }
 
-    public List<PayrollSubscriptionsEnrollmentAndIncomeDTO> getPayrollSubscriptionsEnrollmentsAndIncomes(){
+    public List<PayrollSubscriptionsEnrollmentAndIncomeDTO> getPayrollSubscriptionsEnrollmentsAndIncomes(HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        if(!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+            throw new PermissionDeniedException("권한이 없습니다");
+        }
         try {
             return productRepository.getPayrollSubscriptionsEnrollmentsAndIncomes();
         }catch (InvalidRequestException e){
@@ -94,7 +98,11 @@ public class ProductService {
         }
     }
 
-    public List<CategoryEnrollmentAndIncomeDTO> getCategoryEnrollmentsAndIncomes(){
+    public List<CategoryEnrollmentAndIncomeDTO> getCategoryEnrollmentsAndIncomes(HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        if(!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+            throw new PermissionDeniedException("권한이 없습니다");
+        }
         try {
             return productRepository.getCategoryEnrollmentsAndIncomes();
         }catch (InvalidRequestException e){

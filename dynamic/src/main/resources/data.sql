@@ -11,9 +11,9 @@ VALUES
     ('sangsu1234', '좋은상사', '이상수', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','sangsu@gmail.com', '010-9123-4567', '123-45-67890','도소매업', true, 100, 'USER');
 --
 
-INSERT INTO notice (notice_title, text, add_date)
+INSERT INTO notice (notice_title, text, add_date,modified_date)
 VALUES
-( '안녕하세요. 회원님의 첫 가입을 축하드립니다!', '안녕하세요. 저희 사이트에 가입해주셔서 감사합니다. 저희 사이트에서 무엇보다 편리하고 다양한 서비스를 즐기시길 바랍니다.', '2025-01-13');
+( '안녕하세요. 회원님의 첫 가입을 축하드립니다!', '안녕하세요. 저희 사이트에 가입해주셔서 감사합니다. 저희 사이트에서 무엇보다 편리하고 다양한 서비스를 즐기시길 바랍니다.', '2025-01-13','2025-01-14');
 
 INSERT INTO guide (title,text)
 VALUES
@@ -35,7 +35,7 @@ INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개�
 INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','급여 계산 방법 및  공제 방법에 대한 설명','C1');
 
 INSERT INTO review(text,rating,add_date,modified_date,user_name,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
-INSERT INTO board(title,answer,add_date,user_name,is_active) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', true,'2025-01-13','sangsu1234',true);
+INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', false,'2025-01-13','2025-01-16',true,'sangsu1234');
 INSERT INTO comment(board_id,text,add_date,is_active) VALUES(1,'저도 궁금해요','2025-01-13',true);
 
 INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S1',true);

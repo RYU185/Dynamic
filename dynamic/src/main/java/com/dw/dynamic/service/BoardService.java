@@ -61,8 +61,8 @@ public class BoardService {
                             boardDTO.getTitle(),
                             false,
                             LocalDateTime.now(),
-                            true,
                             LocalDateTime.now(),
+                            true,
                             userRepository.findById(boardDTO.getUserName()).orElseThrow(() -> new ResourceNotFoundException("없는 유저입니다.")),
                             null
                     );

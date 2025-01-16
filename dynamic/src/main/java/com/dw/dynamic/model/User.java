@@ -52,11 +52,15 @@ public class User {
     private Boolean existBusinessOperator= false; // 기존 사업자 여부
 
     @Column(name = "point")
-    private Long point;
+    private long point;
 
     @ManyToOne
     @JoinColumn(name = "user_authority")
     private Authority authority; // 권한
+
+    public void setPoint(long point) {
+        this.point = point;
+    }
 
     public UserDTO toDTO(){
         return new UserDTO(

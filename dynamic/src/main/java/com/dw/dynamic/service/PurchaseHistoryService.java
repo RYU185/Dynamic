@@ -30,13 +30,13 @@ public class PurchaseHistoryService {
         return purchaseHistory.toDTO();
     }
 
-    public List<PurchaseHistoryDTO> getPurchaseHistoryByProductName(String productName){
-        List<PurchaseHistory> purchaseHistory = purchaseHistoryRepository.findByProductNameLike("%"+productName+"%");
-
-        if (purchaseHistory.isEmpty()){
-            throw new ResourceNotFoundException("존재하지 않는 제품명입니다");
-        }
-        return purchaseHistory.stream().map(PurchaseHistory::toDTO).toList();
-    }
+//    public List<PurchaseHistoryDTO> getPurchaseHistoryByProductName(String productName){
+//        List<PurchaseHistory> purchaseHistory = purchaseHistoryRepository.findByProductNameLike("%"+productName+"%");
+//
+//        if (purchaseHistory.isEmpty()){
+//            throw new ResourceNotFoundException("존재하지 않는 제품명입니다");
+//        }
+//        return purchaseHistory.stream().map(PurchaseHistory::toDTO).toList();
+//    }
 
 }

@@ -51,7 +51,7 @@ public class UserService {
                         userDTO.getBusinessNumber(),
                         userDTO.getBusinessType(),
                         userDTO.isExistBusinessOperator(),
-                        userDTO.getPoint(),
+                        0,
                         authorityRepository.findById("USER")
                                 .orElseThrow(() -> new ResourceNotFoundException("No role"))
                 )
@@ -150,7 +150,7 @@ public class UserService {
                 userDTO.getGender() != null ||
                 userDTO.getBusinessNumber() != null ||
                 userDTO.getBusinessType() != null ||
-                userDTO.getPoint() != null ||
+                userDTO.getPoint() <0 ||
                 userDTO.getCompanyName() != null
         ) {
             throw new InvalidRequestException("이름, 이메일, 전화번호 이외로는 수정이 불가능합니다");
@@ -170,7 +170,7 @@ public class UserService {
                     userDTO.getBusinessNumber(),
                     userDTO.getBusinessType(),
                     userDTO.isExistBusinessOperator(),
-                    null,
+                    userDTO.getPoint(),
                     authorityRepository.findById("USER")
                             .orElseThrow(() -> new ResourceNotFoundException("권한이 없습니다"))
             );

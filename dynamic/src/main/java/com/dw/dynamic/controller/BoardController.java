@@ -27,11 +27,11 @@ public class BoardController {
                 boardService.saveBoard(boardDTO),
                 HttpStatus.CREATED);
     }
-    @PostMapping("/delete/{id}")
-    public ResponseEntity<String> deleteBoard(@PathVariable Long id) {
-        return new ResponseEntity<>(
-                boardService.deleteBoard(id),
-                HttpStatus.OK);
-    }
+//    @PostMapping("/delete/{id}")
+//    public ResponseEntity<String> deleteBoard(@PathVariable Long id) {
+//        return new ResponseEntity<>(
+//                boardService.deleteBoard(id),
+//                HttpStatus.OK);
+//    }
 
 }

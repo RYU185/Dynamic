@@ -15,24 +15,24 @@ public class ReviewController {
     @Autowired
     ReviewService reviewService;
 
-    @PostMapping("/save")
-    public ResponseEntity<ReviewDTO> saveReview(@RequestBody ReviewDTO reviewDTO) {
-        return new ResponseEntity<>(
-                reviewService.saveReview(reviewDTO),
-                HttpStatus.OK);
-    }
-
-    @GetMapping("/all")
-    public ResponseEntity<List<ReviewDTO>> getReviewAll() {
-        return new ResponseEntity<>(
-                reviewService.getReviewAll(),
-                HttpStatus.OK);
-    }
-
-    @GetMapping("/product/id/{productid}")
-    public ResponseEntity<List<ReviewDTO>> getReviewsByProductId(@PathVariable long gameId) {
-        return new ResponseEntity<>(
-        reviewService.getReviewsByProductId(productId),
-        HttpStatus.OK);
-    }
+//    @PostMapping("/save")
+//    public ResponseEntity<ReviewDTO> saveReview(@RequestBody ReviewDTO reviewDTO) {
+//        return new ResponseEntity<>(
+//                reviewService.saveReview(reviewDTO),
+//                HttpStatus.OK);
+//    }
+//
+//    @GetMapping("/all")
+//    public ResponseEntity<List<ReviewDTO>> getReviewAll() {
+//        return new ResponseEntity<>(
+//                reviewService.getReviewAll(),
+//                HttpStatus.OK);
+//    }
+//
+//    @GetMapping("/product/id/{productid}")
+//    public ResponseEntity<List<ReviewDTO>> getReviewsByProductId(@PathVariable long gameId) {
+//        return new ResponseEntity<>(
+//        reviewService.getReviewsByProductId(productId),
+//        HttpStatus.OK);
+//    }
 }

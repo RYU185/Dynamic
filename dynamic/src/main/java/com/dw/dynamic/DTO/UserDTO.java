@@ -34,7 +34,11 @@ public class UserDTO {
 
     private boolean existBusinessOperator; // 기존 사업자 여부
 
-    private Long point;
+    private long point;
 
     private String role; // 권한
+
+    public void setPoint(long point) {
+        this.point = point;
+    }
 }

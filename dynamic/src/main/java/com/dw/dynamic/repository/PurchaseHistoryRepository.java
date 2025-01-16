@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PurchaseHistoryRepository extends JpaRepository<PurchaseHistory,Long> {
 
-    List<PurchaseHistory> findByProductNameLike(String productName);
+    //List<PurchaseHistory> findByProductNameLike(String productName);
 }

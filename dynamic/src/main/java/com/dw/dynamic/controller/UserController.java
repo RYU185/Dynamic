@@ -19,8 +19,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/register")
-    public ResponseEntity<UserDTO> registerUser(@RequestParam UserDTO userDTO) {
+    @PostMapping ("/register")
+    public ResponseEntity<UserDTO> registerUser(@RequestBody UserDTO userDTO) {
         return new ResponseEntity<>(
                 userService.registerUser(userDTO),
                 HttpStatus.CREATED);
@@ -106,10 +106,10 @@ public class UserController {
                 HttpStatus.OK);
     }
 
-    @PostMapping("/use/point")
-    public ResponseEntity<UserDTO> usePoint(@RequestBody UserDTO userDTO) {
-        return new ResponseEntity<>(
-                userService.usePoint(userDTO),
-                HttpStatus.OK);
-    }
+//    @PostMapping("/use/point")
+//    public ResponseEntity<UserDTO> usePoint(@RequestBody UserDTO userDTO) {
+//        return new ResponseEntity<>(
+//                userService.usePoint(userDTO),
+//                HttpStatus.OK);
+//    }
 }

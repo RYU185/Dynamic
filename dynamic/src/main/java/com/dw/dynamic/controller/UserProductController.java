@@ -29,12 +29,12 @@ UserProductController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/product-id/{product-name}")
-    public ResponseEntity<List<UserProductDTO>> getUserProductByProductName(@PathVariable String name) {
-        return new ResponseEntity<>(
-                userProductService.getUserProductByProductName(name),
-                HttpStatus.OK);
-    }
+//    @GetMapping("/product-id/{product-name}")
+//    public ResponseEntity<List<UserProductDTO>> getUserProductByProductName(@PathVariable String name) {
+//        return new ResponseEntity<>(
+//                userProductService.getUserProductByProductName(name),
+//                HttpStatus.OK);
+//    }
 }
 
 
