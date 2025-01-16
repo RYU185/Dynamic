@@ -33,7 +33,7 @@ public class AuthorityController {
         );
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/name/{authorityName}")
     public ResponseEntity<List<Authority>>  getAuthorityByName(@PathVariable String authorityName,HttpServletRequest request){
         return new ResponseEntity<>(
                 authorityService.getAuthoritysByName(authorityName,request),HttpStatus.OK
