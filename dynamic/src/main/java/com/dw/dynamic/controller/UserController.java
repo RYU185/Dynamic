@@ -32,20 +32,20 @@ public class UserController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/id/{userName}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable String userName, HttpServletRequest request) {
         return new ResponseEntity<>(
                 userService.getUserById(userName, request),
                 HttpStatus.OK);
     }
-    @GetMapping("/realname/{realname}")
+    @GetMapping("/realname/{realName}")
     public ResponseEntity<List<UserDTO>> getUserByRealName (@PathVariable String realName, HttpServletRequest request) {
         return new ResponseEntity<>(
                 userService.getUserByRealName(realName, request),
                 HttpStatus.OK);
     }
 
-    @GetMapping("/exist-business-operator/{exist-business-operator}")
+    @GetMapping("/exist-business-operator/{existBusinessOperator}")
     public ResponseEntity<List<UserDTO>>getUserByExistBusinessOperator (@PathVariable boolean existBusinessOperator, HttpServletRequest request ) {
         return new ResponseEntity<>(
                 userService.getUserByExistBusinessOperator(existBusinessOperator, request),
