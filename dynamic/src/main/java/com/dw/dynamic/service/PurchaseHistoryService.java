@@ -19,7 +19,7 @@ public class PurchaseHistoryService {
     @Autowired
     UserService userService;
 
-    public List<PurchaseHistoryDTO> getAllPurchaseHistories(){
+    public List<PurchaseHistoryDTO> getAllPurchaseHistorys(){
         return purchaseHistoryRepository.findAll().stream().map(PurchaseHistory::toDTO).toList();
     }
 

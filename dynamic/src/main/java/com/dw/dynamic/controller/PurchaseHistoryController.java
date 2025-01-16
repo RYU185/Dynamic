@@ -25,15 +25,15 @@ public class PurchaseHistoryController {
     @GetMapping("/id/{id}")
     public ResponseEntity<PurchaseHistoryDTO> getPurchaseHistoryById(@PathVariable Long id) {
         return new ResponseEntity<>(
-                PurchaseHistoryService.getPurchaseHistoryById(),
+                purchaseHistoryService.getPurchaseHistoryById(id),
                 HttpStatus.OK);
     }
 
     @GetMapping("/product-name/{product-name}")
-    public ResponseEntity<List<PurchaseHistoryDTO>> getPurchaseHistoryByProductName() {
+    public ResponseEntity<List<PurchaseHistoryDTO>> getPurchaseHistoryByProductName(String productName) {
         return new ResponseEntity<>(
-            PurchaseHistoryService.getPurchaseHistoryByProductName(),
-            HttpStatus.OK);
+                purchaseHistoryService.getPurchaseHistoryByProductName(productName),
+                HttpStatus.OK);
     }
 
 }

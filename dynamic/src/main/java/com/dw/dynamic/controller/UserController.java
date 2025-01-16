@@ -19,38 +19,31 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/registeruser")
+    @GetMapping("/register")
     public ResponseEntity<UserDTO> registerUser(@RequestParam UserDTO userDTO) {
         return new ResponseEntity<>(
-                UserDTO.registerUser(userDTO),
+                userService.registerUser(userDTO),
                 HttpStatus.CREATED);
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<UserDTO> getUserById(@PathVariable UserDTO userDTO) {
+    public ResponseEntity<UserDTO> getUserById(@PathVariable String userName, HttpServletRequest request) {
         return new ResponseEntity<>(
-                userService.getUserById,
+                userService.getUserById(userName, request),
                 HttpStatus.OK);
     }
     @GetMapping("/realname/{realname}")
-    public ResponseEntity<List<UserDTO>> getUserByRealName (@PathVariable UserDTO userDTO) {
+    public ResponseEntity<List<UserDTO>> getUserByRealName (@PathVariable String realName, HttpServletRequest request) {
         return new ResponseEntity<>(
-                userService.getUserByRealName,
+                userService.getUserByRealName(realName, request),
                 HttpStatus.OK);
     }
 
     @GetMapping("/exist-business-operator/{exist-business-operator}")
-    public ResponseEntity<List<UserDTO>>getUserByExistBusinessOperator (@PathVariable boolean existBusinessOperator ) {
+    public ResponseEntity<List<UserDTO>>getUserByExistBusinessOperator (@PathVariable boolean existBusinessOperator, HttpServletRequest request ) {
         return new ResponseEntity<>(
-                userService.getUserByExistBusinessOperator,
+                userService.getUserByExistBusinessOperator(existBusinessOperator, request),
                 HttpStatus.OK);
-    }
-
-    @GetMapping("/register")
-    public ResponseEntity<UserDTO> register(@RequestParam UserDTO userDTO){
-        return new ResponseEntity<>(
-                userService.getAllUsers(userDTO),
-                HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
@@ -81,43 +74,42 @@ public class UserController {
     @GetMapping("/find-user/email/{email}")
     public ResponseEntity<UserDTO> getIdByEmail(@PathVariable String email) {
         return new ResponseEntity<>(
-                UserService.getIdByEmail,
+                userService.getIdByEmail(email),
                 HttpStatus.OK);
     }
 
     @PostMapping("/modify-pw-by-id-and-phonenumber")
-    public ResponseEntity<UserDTO> ModifyPwByIDAndPhoneNumber(@RequestBody User userDTO) {
+    public ResponseEntity<UserDTO> ModifyPwByIDAndPhoneNumber(@RequestBody String id, @RequestBody String phoneNumber) {
         return new ResponseEntity<>(
-                UserService.ModifyPwByIDAndPhoneNumber,
+                userService.ModifyPwByIDAndPhoneNumber(id, phoneNumber),
                 HttpStatus.OK);
     }
 
     @PostMapping("/user-data")
     public ResponseEntity<UserDTO> ModifyUserData(@RequestBody UserDTO userDTO) {
         return new ResponseEntity<>(
-                UserService.ModifyUserData,
+                userService.ModifyUserData(userDTO),
                 HttpStatus.OK);
     }
 
     @PostMapping("/user-business-number")
     public ResponseEntity<UserDTO> saveUserBusinessNumber(@RequestBody UserDTO userDTO) {
         return new ResponseEntity<>(
-                UserService.saveUserBusinessNumber,
+                userService.saveUserBusinessNumber(userDTO),
                 HttpStatus.OK);
     }
 
     @PostMapping("/add/point")
     public ResponseEntity<UserDTO> addPoint(@RequestBody UserDTO userDTO) {
         return new ResponseEntity<>(
-                UserService.addPoint,
+                userService.addPoint(userDTO),
                 HttpStatus.OK);
     }
 
     @PostMapping("/use/point")
     public ResponseEntity<UserDTO> usePoint(@RequestBody UserDTO userDTO) {
         return new ResponseEntity<>(
-                UserService.usePoint,
+                userService.usePoint(userDTO),
                 HttpStatus.OK);
     }
 }
-

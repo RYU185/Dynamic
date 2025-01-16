@@ -20,9 +20,6 @@ public class UserProductService {
     @Autowired
     PurchaseHistoryRepository purchaseHistoryRepository;
 
-    // 너무 어렵다....
-    // 구매기록이 존재하는 유저의 내 강의/구독권 목록을 조회?
-
     public List<UserProductDTO> getAllUserProducts (){
         return userProductRepository.findAll().stream().map(UserProduct::toDTO).toList();
     }

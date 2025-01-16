@@ -17,25 +17,24 @@ UserProductController {
     UserProductService userProductService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<UserProductDTO>> getAllUserProduct(){
+    public ResponseEntity<List<UserProductDTO>> getAllUserProducts(){
         return new ResponseEntity<>(
-                UserProductService.getAllUserProduct(),
+                userProductService.getAllUserProducts(),
                 HttpStatus.OK);
     }
     @GetMapping("/id/{id}")
     public ResponseEntity<UserProductDTO> getUserProductById(@PathVariable Long id) {
         return new ResponseEntity<>(
-                UserProductService.getUserProductById(id),
+                userProductService.getUserProductById(id),
                 HttpStatus.OK);
     }
 
     @GetMapping("/product-id/{product-name}")
     public ResponseEntity<List<UserProductDTO>> getUserProductByProductName(@PathVariable String name) {
         return new ResponseEntity<>(
-                UserProductService.getUserProductByProductName(name),
+                userProductService.getUserProductByProductName(name),
                 HttpStatus.OK);
     }
 }
-
 
 
