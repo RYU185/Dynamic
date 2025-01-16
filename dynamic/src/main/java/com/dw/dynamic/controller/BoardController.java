@@ -28,7 +28,7 @@ public class BoardController {
                 HttpStatus.CREATED);
     }
     @PostMapping("/delete/{id}")
-    public ResponseEntity<String> deleteBoard(@PathVariable long id) {
+    public ResponseEntity<String> deleteBoard(@PathVariable Long id) {
         return new ResponseEntity<>(
                 boardService.deleteBoard(id),
                 HttpStatus.OK);

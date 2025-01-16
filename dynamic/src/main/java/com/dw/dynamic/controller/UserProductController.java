@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/apii/user-product")
-public class UserProductController {
+public class
+UserProductController {
     @Autowired
     UserProductService userProductService;
 
