@@ -25,6 +25,12 @@ public class UserController {
                 userService.registerUser(userDTO),
                 HttpStatus.CREATED);
     }
+    @GetMapping("/all")
+    public ResponseEntity<List<UserDTO>> getAllUser(HttpServletRequest request){
+        return new ResponseEntity<>(
+                userService.getAllUsers(request),
+                HttpStatus.OK);
+    }
 
     @GetMapping("/id/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable String userName, HttpServletRequest request) {
