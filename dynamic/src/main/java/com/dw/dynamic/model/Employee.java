@@ -40,7 +40,7 @@ public class Employee {
     @JoinColumn(name = "user_name")
     private User user; // 단방향
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payroll_template")
     private PayrollTemplate payrollTemplate_fk;
 
