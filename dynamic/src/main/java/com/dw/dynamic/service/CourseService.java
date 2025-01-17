@@ -31,7 +31,7 @@ public class CourseService {
 
     public Course getCourseById(String id) {
         return courseRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 제품ID입니다 : " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("존재하지 않는 제품ID입니다 : " + id));
     }
 
     public List<Course> getCoursesByTitle(String title) {
