@@ -33,12 +33,5 @@ public class PayrollSubscriptionController {
         );
     }
 
-//    @PostMapping("/save")
-//    public ResponseEntity<PayrollSubscription> savePayrollSubscription
-//            (@RequestBody PayrollSubscription payrollSubscription, HttpServletRequest request){
-//        return new ResponseEntity<>(
-//                payrollSubscriptionService.savePayrollSubscription(payrollSubscription,request),
-//                HttpStatus.CREATED);
-//    }
 }
 

@@ -41,18 +41,4 @@ public class CourseController {
         );
     }
 
-//    @PostMapping("/save")
-//    public ResponseEntity<Course> saveCourse(@RequestBody Course course,@RequestBody Product product,HttpServletRequest request){
-//        return new ResponseEntity<>(
-//                courseService.saveCourse(course,product,request),
-//                HttpStatus.CREATED
-//        );
-//    }
-
-    @DeleteMapping("/title/{title}")
-    public ResponseEntity<String> deleteCourse(@PathVariable String title, HttpServletRequest request){
-        return new ResponseEntity<>(
-                courseService.deleteCourse(title, request),
-                HttpStatus.OK);
-    }
 }

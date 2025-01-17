@@ -1,6 +1,8 @@
 package com.dw.dynamic.model;
 
 import com.dw.dynamic.DTO.ProductDTO;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,6 +17,15 @@ import java.util.List;
 @ToString
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo(
+        use= JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type"
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Course.class,name = "course"),
+        @JsonSubTypes.Type(value = PayrollSubscription.class,name = "payrollsubscription")}
+)
 @Table(name = "product")
 public class Product {
 
