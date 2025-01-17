@@ -50,7 +50,7 @@ public class AuthorityService {
             throw new PermissionDeniedException("권한이 없습니다");
         }
         try {
-            return authorityRepository.findByAuthorityName("%"+authorityName+"%");
+            return authorityRepository.findByAuthorityNameLike("%"+authorityName+"%");
         }catch (ResourceNotFoundException e){
             throw new ResourceNotFoundException("존재하지 않은 권한명입니다.");
         }

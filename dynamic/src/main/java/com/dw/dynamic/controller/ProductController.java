@@ -21,7 +21,7 @@ public class ProductController {
     ProductService productService;
 
 
-    @GetMapping("payrollsubscription/enrollments-and-income")
+    @GetMapping("/payrollsubscription/enrollments-and-income")
     public ResponseEntity<List<PayrollSubscriptionsEnrollmentAndIncomeDTO>> etPayrollSubscriptionsEnrollmentsAndIncomes(HttpServletRequest request){
         return new ResponseEntity<>(
                 productService.getPayrollSubscriptionsEnrollmentsAndIncomes(request),
@@ -29,7 +29,7 @@ public class ProductController {
         );
     }
 
-    @GetMapping("category/enrollments-and-income")
+    @GetMapping("/category/enrollments-and-income")
     public ResponseEntity<List<CategoryEnrollmentAndIncomeDTO>> getCategoryEnrollmentsAndIncomes(HttpServletRequest request){
         return new ResponseEntity<>(
                 productService.getCategoryEnrollmentsAndIncomes(request),
@@ -37,7 +37,7 @@ public class ProductController {
         );
     }
 
-    @GetMapping("courses/enrollments-and-income")
+    @GetMapping("/courses/enrollments-and-income")
     public ResponseEntity<List<CourseEnrollmentAndIncomeDTO>> getCoursesEnrollmentsAndIncomes(HttpServletRequest request){
         return new ResponseEntity<>(
                 productService.getCoursesEnrollmentsAndIncomes(request),

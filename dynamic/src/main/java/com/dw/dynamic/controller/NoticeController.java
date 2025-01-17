@@ -47,7 +47,7 @@ public class NoticeController {
         );
     }
     @PostMapping("/save")
-    public ResponseEntity<Notice> saveNotice(@RequestBody Notice notice,HttpServletRequest request){
+    public ResponseEntity<Notice> saveNotice(@RequestBody Notice notice,HttpServletRequest request){ // id도 직접 입력해서 json에서 할수 있음
         return new ResponseEntity<>(
                 noticeService.saveNotice(notice,request),
                 HttpStatus.OK

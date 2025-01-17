@@ -83,7 +83,6 @@ public class ProductService {
         }catch (InvalidRequestException e){
             throw new InvalidRequestException("정상적인 요청이 아닙니다");
         }
-
     }
 
     public List<PayrollSubscriptionsEnrollmentAndIncomeDTO> getPayrollSubscriptionsEnrollmentsAndIncomes(HttpServletRequest request){
