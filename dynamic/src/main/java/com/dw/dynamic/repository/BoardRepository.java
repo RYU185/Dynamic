@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BoardRepository extends JpaRepository<Board,Long> {
-    public List<BoardDTO> findByTitleLike(String title);
+    public List<Board> findByTitleLike(String title);
 
 }
