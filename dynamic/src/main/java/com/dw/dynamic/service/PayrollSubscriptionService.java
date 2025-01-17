@@ -26,7 +26,7 @@ public class PayrollSubscriptionService {
 
     public PayrollSubscription getPayrollSubscriptionById(String id){
         return payrollSubscriptionRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 제품ID 입니다 : " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("존재하지 않는 제품ID 입니다 : " + id));
     }
 
 //    public PayrollSubscription savePayrollSubscription(PayrollSubscription payrollSubscription, HttpServletRequest request){
