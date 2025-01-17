@@ -56,7 +56,7 @@ public class PayrollTemplate {
 
     @OneToOne
     @JoinColumn(name = "freelancer")
-    private FreeLancer freeLancer;
+    private Freelancer freeLancer;
 
     @OneToOne(mappedBy = "payrollTemplate_fk")
     private Employee employee;

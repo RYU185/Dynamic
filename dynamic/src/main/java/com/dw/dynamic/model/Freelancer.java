@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Table(name = "freelancer")
-public class FreeLancer {
+public class Freelancer {
     @Id
     @Column(name = "name", updatable = false)
     private String name;
