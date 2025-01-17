@@ -36,7 +36,7 @@ INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공�
 
 INSERT INTO review(text,rating,add_date,modified_date,user_name,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
 INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', false,'2025-01-13','2025-01-16',true,'sangsu1234');
-INSERT INTO comment(board_id,text,add_date,is_active) VALUES(1,'저도 궁금해요','2025-01-13',true);
+INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'저도 궁금해요','2025-01-13',true,'sangsu1234');
 
 INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S1',true);
 

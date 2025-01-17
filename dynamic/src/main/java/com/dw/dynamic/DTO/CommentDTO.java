@@ -19,7 +19,11 @@ public class CommentDTO {
 
     private Long id;
 
-    private BoardDTO board;
+    private Long boardId;
+
+    private String  boardTitle;
+
+    private String userName;
 
     private String text;
 

@@ -39,7 +39,7 @@ public class Board {
     @JoinColumn(name = "user_name")
     private User user; // 유저(단방향)
 
-    @OneToMany(mappedBy = "board_fk")
+    @OneToMany(mappedBy = "board")
     private List<Comment> commentList = new ArrayList<>();
 
     public BoardDTO toDTO(){

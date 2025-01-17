@@ -23,7 +23,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "board_id")
-    private Board board_fk;
+    private Board board;
 
     @Column(name = "text")
     private String text;
@@ -34,12 +34,18 @@ public class Comment {
     @Column(name="is_active")
     private Boolean isActive = true;
 
-//    public CommentDTO toDTO(){
-//        return new CommentDTO(
-//                this.id,
-//                this.board_fk,
-//                this.text,
-//                this.addDate
-//        );
-//    }
+    @ManyToOne
+    @JoinColumn(name = "user_name")
+    private User user;
+
+    public CommentDTO toDTO(){
+        return new CommentDTO(
+                this.id,
+                this.board.getId(),
+                this.board.getTitle(),
+                this.user.getUserName(),
+                this.text,
+                this.addDate
+        );
+    }
 }
