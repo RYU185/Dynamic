@@ -72,25 +72,6 @@ public class ProductService {
            return productRepository.save(newProduct);
         }
     }
-//           if (product.getCategory().equals(categoryRepository.findById()))
-//       }
-//
-//        return productRepository.findById(product.getId())
-//                .map((product1 -> {
-//                            return productRepository.save(product).toDTO();
-//                        })
-//                ).orElseGet(()->{
-//                    Category category = categoryRepository.findByName(productDTO.getCategory())
-//                            .orElseThrow(()->new IllegalArgumentException("존재하지 않는 카테고리입니다."));
-//
-//                    Product product1 = new Product(
-//                            productDTO.getId(),
-//                            productDTO.getPrice(),
-//                            category
-//                    );
-//                    return productRepository.save(product).toDTO();
-//                });
-//    }
 
     // 관리자 권한으로 제품 삭제
     public ProductDTO deleteProduct(String id,HttpServletRequest request){
