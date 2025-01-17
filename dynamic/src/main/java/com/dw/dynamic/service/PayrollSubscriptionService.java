@@ -29,13 +29,13 @@ public class PayrollSubscriptionService {
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 제품ID 입니다 : " + id));
     }
 
-    public PayrollSubscription savePayrollSubscription(PayrollSubscription payrollSubscription, HttpServletRequest request){
-        User currentUser = userService.getCurrentUser(request);
-        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
-            throw new PermissionDeniedException("권한이 없습니다.");
-        }
-        return payrollSubscriptionRepository.findById(payrollSubscription.getId())
-                .map(ps -> payrollSubscriptionRepository.save(payrollSubscription))
-                .orElseThrow(()-> new ResourceNotFoundException("없는 제품 ID입니다"));
-    }
+//    public PayrollSubscription savePayrollSubscription(PayrollSubscription payrollSubscription, HttpServletRequest request){
+//        User currentUser = userService.getCurrentUser(request);
+//        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+//            throw new PermissionDeniedException("권한이 없습니다.");
+//        }
+//        return payrollSubscriptionRepository.findById(payrollSubscription.getId())
+//                .map(ps -> payrollSubscriptionRepository.save(payrollSubscription))
+//                .orElseThrow(()-> new ResourceNotFoundException("없는 제품 ID입니다"));
+//    }
 }

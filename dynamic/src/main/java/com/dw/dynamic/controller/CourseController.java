@@ -1,6 +1,7 @@
 package com.dw.dynamic.controller;
 
 import com.dw.dynamic.model.Course;
+import com.dw.dynamic.model.Product;
 import com.dw.dynamic.service.CourseService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,13 +41,13 @@ public class CourseController {
         );
     }
 
-    @PostMapping("/save")
-    public ResponseEntity<Course> saveCourse(@RequestBody Course course, HttpServletRequest request){
-        return new ResponseEntity<>(
-                courseService.saveCourse(course, request),
-                HttpStatus.CREATED
-        );
-    }
+//    @PostMapping("/save")
+//    public ResponseEntity<Course> saveCourse(@RequestBody Course course,@RequestBody Product product,HttpServletRequest request){
+//        return new ResponseEntity<>(
+//                courseService.saveCourse(course,product,request),
+//                HttpStatus.CREATED
+//        );
+//    }
 
     @DeleteMapping("/title/{title}")
     public ResponseEntity<String> deleteCourse(@PathVariable String title, HttpServletRequest request){

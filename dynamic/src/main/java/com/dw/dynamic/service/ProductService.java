@@ -8,6 +8,7 @@ import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.model.Category;
+import com.dw.dynamic.model.Course;
 import com.dw.dynamic.model.Product;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.repository.CategoryRepository;
@@ -54,22 +55,34 @@ public class ProductService {
     }
 
     // 관리자 권한으로 제품 추가
-    public ProductDTO saveProduct(ProductDTO productDTO, HttpServletRequest request){
+    public Product saveProduct(Product product, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
 
         if(!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
             throw new PermissionDeniedException("권한이 없습니다");
         }
 
-        return productRepository.findById(productDTO.getId())
-                .map((product -> {
+       if(productRepository.findById(product.getId()).isPresent()){
+           productRepository.save(product);
+       }else {
+           Product newProduct = new Product(
+                   product.getId(),
+                   product.getPrice(),
+                   product.getCategory()
+           );
+           productRepository.save(newProduct);
+           if (product.getCategory().equals(categoryRepository.findById()))
+       }
+
+        return productRepository.findById(product.getId())
+                .map((product1 -> {
                             return productRepository.save(product).toDTO();
                         })
                 ).orElseGet(()->{
                     Category category = categoryRepository.findByName(productDTO.getCategory())
                             .orElseThrow(()->new IllegalArgumentException("존재하지 않는 카테고리입니다."));
 
-                    Product product = new Product(
+                    Product product1 = new Product(
                             productDTO.getId(),
                             productDTO.getPrice(),
                             category

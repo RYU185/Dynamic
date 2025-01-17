@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/freelancer")
 public class FreelancerController {
-    @Autowired
-    FreelancerService freelancerService;
-
-    @GetMapping("/all")
-    public ResponseEntity<Freelancer> getAllFreelancer() {
-        return new ResponseEntity<>(
-                freelancerService.getAllFreelancer(),
-                HttpStatus.OK);
-    }
+//    @Autowired
+//    FreelancerService freelancerService;
+//
+//    @GetMapping("/all")
+//    public ResponseEntity<Freelancer> getAllFreelancer() {
+//        return new ResponseEntity<>(
+//                freelancerService.getAllFreelancer(),
+//                HttpStatus.OK);
+//    }
 }

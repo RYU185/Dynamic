@@ -3,6 +3,7 @@ package com.dw.dynamic.service;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.model.Course;
+import com.dw.dynamic.model.Product;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.repository.CourseRepository;
 import com.dw.dynamic.repository.ProductRepository;
@@ -37,15 +38,16 @@ public class CourseService {
         return courseRepository.findByTitleLike("%" + title + "%").stream().toList();
     }
 
-    public Course saveCourse(Course course, HttpServletRequest request) {
-        User currentUser = userService.getCurrentUser(request);
-        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
-            throw new PermissionDeniedException("권한이 없습니다.");
-        }
-        return courseRepository.findById(course.getId())
-                .map(c-> courseRepository.save(course))
-                .orElseThrow(()-> new ResourceNotFoundException("없는 제품 ID입니다."));
-    }
+//    public Course saveCourse(Course course, Product product,HttpServletRequest request) {
+//        User currentUser = userService.getCurrentUser(request);
+//        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
+//            throw new PermissionDeniedException("권한이 없습니다.");
+//        }
+//        return courseRepository.findById(course.getId())
+//                .map(c-> courseRepository.save(course)).orElseGet(
+//                )
+//                .orElseThrow(()-> new ResourceNotFoundException("없는 제품 ID입니다."));
+//    }
 
 
     public String deleteCourse (String title, HttpServletRequest request){
