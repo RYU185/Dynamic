@@ -13,8 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController {
-//    @Autowired
-//    EmployeeService employeeService;
+    @Autowired
+    EmployeeService employeeService;
 //
 //    @GetMapping("/all")
 //    public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
@@ -43,12 +43,12 @@ public class EmployeeController {
 //                HttpStatus.OK);
 //    }
 //
-//    @PostMapping("/save")
-//    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
-//        return new ResponseEntity<>(
-//                employeeService.saveEmployee(employee),
-//                HttpStatus.OK);
-//    }
+    @PostMapping("/save")
+    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return new ResponseEntity<>(
+                employeeService.saveEmployee(employeeDTO),
+                HttpStatus.OK);
+    }
 //    @PostMapping("")
 //    public ResponseEntity<Employee>deleteEmployee() {
 //        return new ResponseEntity<>(

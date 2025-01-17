@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/payrolltemplate")
 public class PayrollTemplateController {
-//    @Autowired
-//    PayrollTemplateService payrollTemplateService;
+    @Autowired
+    PayrollTemplateService payrollTemplateService;
 //
 //    @GetMapping("/all")
 //    public ResponseEntity<PayrollTemplateDTO> getAllPayrollTemplates() {
@@ -27,12 +27,12 @@ public class PayrollTemplateController {
 //                HttpStatus.OK);
 //    }
 //
-//    @PostMapping("/save")
-//    public ResponseEntity<PayrollTemplateDTO> savePayrollTemplate(@RequestBody PayrollTemplateDTO payrollTemplateDTO ) {
-//        return new ResponseEntity<>(
-//                payrollTemplateService.savePayrollTemplate(payrollTemplateDTO),
-//                HttpStatus.CREATED);
-//    }
+    @PostMapping("/save")
+    public ResponseEntity<PayrollTemplateDTO> savePayrollTemplate(@RequestBody PayrollTemplateDTO payrollTemplateDTO ) {
+        return new ResponseEntity<>(
+                payrollTemplateService.savePayrollTemplate(payrollTemplateDTO),
+                HttpStatus.CREATED);
+    }
 //
 //    @PostMapping("/delete/{id}")
 //    public ResponseEntity<String> deletePayrollTemplate(@PathVariable Long id) {
