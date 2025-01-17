@@ -55,41 +55,42 @@ public class ProductService {
     }
 
     // 관리자 권한으로 제품 추가
-    public Product saveProduct(Product product, HttpServletRequest request){
+    public Product saveProduct(Product product, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-
-        if(!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
             throw new PermissionDeniedException("권한이 없습니다");
         }
 
-       if(productRepository.findById(product.getId()).isPresent()){
-           productRepository.save(product);
-       }else {
-           Product newProduct = new Product(
-                   product.getId(),
-                   product.getPrice(),
-                   product.getCategory()
-           );
-           productRepository.save(newProduct);
-           if (product.getCategory().equals(categoryRepository.findById()))
-       }
+        if (productRepository.findById(product.getId()).isPresent()) {
+           return productRepository.save(product);
+        } else {
+            Product newProduct = new Product(
+                    product.getId(),
+                    product.getPrice(),
+                    product.getCategory());
 
-        return productRepository.findById(product.getId())
-                .map((product1 -> {
-                            return productRepository.save(product).toDTO();
-                        })
-                ).orElseGet(()->{
-                    Category category = categoryRepository.findByName(productDTO.getCategory())
-                            .orElseThrow(()->new IllegalArgumentException("존재하지 않는 카테고리입니다."));
-
-                    Product product1 = new Product(
-                            productDTO.getId(),
-                            productDTO.getPrice(),
-                            category
-                    );
-                    return productRepository.save(product).toDTO();
-                });
+           return productRepository.save(newProduct);
+        }
     }
+//           if (product.getCategory().equals(categoryRepository.findById()))
+//       }
+//
+//        return productRepository.findById(product.getId())
+//                .map((product1 -> {
+//                            return productRepository.save(product).toDTO();
+//                        })
+//                ).orElseGet(()->{
+//                    Category category = categoryRepository.findByName(productDTO.getCategory())
+//                            .orElseThrow(()->new IllegalArgumentException("존재하지 않는 카테고리입니다."));
+//
+//                    Product product1 = new Product(
+//                            productDTO.getId(),
+//                            productDTO.getPrice(),
+//                            category
+//                    );
+//                    return productRepository.save(product).toDTO();
+//                });
+//    }
 
     // 관리자 권한으로 제품 삭제
     public ProductDTO deleteProduct(String id,HttpServletRequest request){

@@ -4,6 +4,7 @@ import com.dw.dynamic.DTO.CategoryEnrollmentAndIncomeDTO;
 import com.dw.dynamic.DTO.CourseEnrollmentAndIncomeDTO;
 import com.dw.dynamic.DTO.PayrollSubscriptionsEnrollmentAndIncomeDTO;
 import com.dw.dynamic.DTO.ProductDTO;
+import com.dw.dynamic.model.Product;
 import com.dw.dynamic.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,8 @@ public class ProductController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<ProductDTO> saveProduct(@RequestBody ProductDTO productDTO, HttpServletRequest request){
-        return new ResponseEntity<>(productService.saveProduct(productDTO, request), HttpStatus.CREATED);
+    public ResponseEntity<Product> saveProduct(@RequestBody Product product, HttpServletRequest request){
+        return new ResponseEntity<>(productService.saveProduct(product, request), HttpStatus.CREATED);
     }
 
 
