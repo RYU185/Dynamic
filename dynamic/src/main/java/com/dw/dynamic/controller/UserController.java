@@ -1,5 +1,6 @@
 package com.dw.dynamic.controller;
 
+import com.dw.dynamic.DTO.PasswordDTO;
 import com.dw.dynamic.DTO.UserDTO;
 import com.dw.dynamic.exception.UnauthorizedUserException;
 import com.dw.dynamic.model.User;
@@ -84,12 +85,12 @@ public class UserController {
                 HttpStatus.OK);
     }
 
-//    @PostMapping("/modify-pw")
-//    public ResponseEntity<UserDTO> ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
-//        return new ResponseEntity<>(
-//                userService.ModifyPw(passwordDTO, request),
-//                HttpStatus.OK);
-//    }
+    @PostMapping("/modify-pw")
+    public ResponseEntity<UserDTO> ModifyPw(@RequestBody PasswordDTO passwordDTO, HttpServletRequest request) {
+        return new ResponseEntity<>(
+                userService.ModifyPw(passwordDTO, request),
+                HttpStatus.OK);
+    }
 
     @PostMapping("/user-data")
     public ResponseEntity<UserDTO> ModifyUserData(@RequestBody UserDTO userDTO, HttpServletRequest request) {

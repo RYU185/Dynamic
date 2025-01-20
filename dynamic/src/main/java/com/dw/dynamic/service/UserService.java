@@ -1,4 +1,5 @@
 package com.dw.dynamic.service;
+import com.dw.dynamic.DTO.PasswordDTO;
 import com.dw.dynamic.DTO.UserDTO;
 import com.dw.dynamic.enums.Gender;
 import com.dw.dynamic.exception.PermissionDeniedException;
@@ -131,25 +132,26 @@ public class UserService {
         return user.toDTO();
     }
 
-//    public UserDTO ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
-//        User currentUser = getCurrentUser(request);
-//        if (currentUser == null){
-//            throw new IllegalArgumentException("올바르지 않은 접근입니다");
-//        }
-//
-//        if (!currentUser.getPassword().equals()){
-//            throw new IllegalArgumentException("현재 비밀번호가 올바르지 않습니다");
-//        }
-//
-//        if (!passwordDTO.getNewPassword().equals(passwordDTO.getConfirmNewPassword())){
-//            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다");
-//        }
-//
-//        currentUser.setPassword(passwordDTO.getNewPassword());
-//        userRepository.save(currentUser);
-//        return currentUser.toDTO();
-//
-//    }
+    public UserDTO ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
+        User currentUser = getCurrentUser(request);
+        if (currentUser == null){
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        }
+        if (passwordDTO.getCurrentPassword() == null) {
+            throw new IllegalArgumentException("현재 비밀번호를 입력해 주세요.");
+        }
+        if (!passwordEncoder.matches(passwordDTO.getCurrentPassword(), currentUser.getPassword())) {
+            throw new IllegalArgumentException("현재 비밀번호가 올바르지 않습니다.");
+        }
+
+        if (!passwordDTO.getNewPassword().equals(passwordDTO.getConfirmNewPassword())){
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다");
+        }
+
+        currentUser.setPassword(passwordEncoder.encode(passwordDTO.getNewPassword()));
+        userRepository.save(currentUser);
+        return currentUser.toDTO();
+    }
 
     public UserDTO ModifyUserData(UserDTO userDTO, HttpServletRequest request) { // 회원 정보 수정(이름, 이메일, 전화번호)
         User currentUser = getCurrentUser(request);
