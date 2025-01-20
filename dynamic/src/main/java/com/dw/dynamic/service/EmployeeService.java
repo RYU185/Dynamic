@@ -83,7 +83,6 @@ public class EmployeeService {
 
     public List<EmployeeDTO> getEmployeesByPosition(String position, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-        try {
             List<Employee> employee = employeeRepository.findByPosition(position);
             List<EmployeeDTO> employeeDTOList = employee.stream().filter(employee1 -> employee1.getUser().getUserName().equals(currentUser.getUserName())).map(Employee::toDTO).toList();
 
@@ -92,9 +91,6 @@ public class EmployeeService {
             } else {
                return employeeDTOList;
             }
-        } catch (InvalidRequestException e) {
-            throw new InvalidRequestException("올바른 직위를 작성해주십시오");
-        }
     }
 
     public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO,HttpServletRequest request) {
