@@ -16,7 +16,7 @@ public class DeductionAndTax {
     private String name;// 공제 명칭
 
     @Column(name = "amount", nullable = false)
-    private double amount; // 공제 항목별 금액
+    private Double amount; // 공제 항목별 금액
 
 
 

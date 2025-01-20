@@ -30,83 +30,98 @@ public class EmployeeService {
     PayrollTemplateRepository payrollTemplateRepository;
 
     @Autowired
-    DeductionRepository deductionRepository;
+    DeductionAndTaxRepository deductionAndTaxRepository;
 
     @Autowired
     FreelancerRepository freelancerRepository;
 
-    public List<EmployeeDTO> getAllEmployeesByAdmin(HttpServletRequest request){  // 관리자가 전체 직원 조회
+    public List<EmployeeDTO> getAllEmployeesByAdmin(HttpServletRequest request) {  // 관리자가 전체 직원 조회
         User currentUser = userService.getCurrentUser(request);
-        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
             throw new PermissionDeniedException("권한이 없습니다");
         }
         return employeeRepository.findAll().stream().map(Employee::toDTO).toList();
 
     }
-    public List<EmployeeDTO> getAllEmployees(HttpServletRequest request){
+
+    public List<EmployeeDTO> getAllEmployees(HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         try {
-            if (employeeRepository.findByUser(currentUser).isEmpty()){
+            if (employeeRepository.findByUser(currentUser).isEmpty()) {
                 throw new ResourceNotFoundException("작성한 직원 정보가 없습니다");
-            }else {
+            } else {
                 return employeeRepository.findByUser(currentUser).stream()
                         .map(Employee::toDTO).toList();
             }
-        }catch (InvalidRequestException e){
+        } catch (InvalidRequestException e) {
             throw new InvalidRequestException("정상적인 요청이 아닙니다");
         }
 
     }
-    public EmployeeDTO getEmployeeById(Long id, HttpServletRequest request){
+
+    public EmployeeDTO getEmployeeById(Long id, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-        Employee employee= employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 직원ID입니다."));
-        if(employee.getUser().equals(currentUser)){
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 직원ID입니다."));
+        if (employee.getUser().equals(currentUser)) {
             return employee.toDTO();
-        }else {
+        } else {
             throw new UnauthorizedUserException("해당 직원ID에 대한 조회 권한이 없습니다");
         }
     }
-    public List<EmployeeDTO> getEmployeesByName(String name, HttpServletRequest request){
+
+    public List<EmployeeDTO> getEmployeesByName(String name, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
 
-        List<Employee> employee= employeeRepository.findByNameLike("%"+name+"%");
-        if(employee.stream().map(Employee::getUser).equals(currentUser)){
+        List<Employee> employee = employeeRepository.findByNameLike("%" + name + "%");
+        if (employee.stream().map(Employee::getUser).equals(currentUser)) {
             return employee.stream().map(Employee::toDTO).toList();
-        }else {
+        } else {
             throw new ResourceNotFoundException("해당 이름으로 조회되는 직원이 없습니다");
         }
     }
-    public List<EmployeeDTO> getEmployeesByPosition(String position,HttpServletRequest request){
+
+    public List<EmployeeDTO> getEmployeesByPosition(String position, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         try {
-            List<Employee> employee= employeeRepository.findByPosition(position);
-            if (employee.stream().map(Employee::getUser).equals(currentUser)){
+            List<Employee> employee = employeeRepository.findByPosition(position);
+            if (employee.stream().map(Employee::getUser).equals(currentUser)) {
                 return employee.stream().map(Employee::toDTO).toList();
-            }else {
+            } else {
                 throw new ResourceNotFoundException("해당 직위로 조회되는 직원이 없습니다");
             }
-        }catch (InvalidRequestException e){
+        } catch (InvalidRequestException e) {
             throw new InvalidRequestException("올바른 직위를 작성해주십시오");
         }
     }
-//    public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO){
-//        return employeeRepository.findById(employeeDTO.getId())
-//                .map((employee) -> {
-//                    return employeeRepository.save(employee).toDTO();
-//                })
-//                .orElseGet(() -> {
-//                    Employee employee = new Employee(
-//                            null,
-//                            employeeDTO.getName(),
-//                            employeeDTO.getDepartment(),
-//                            employeeDTO.getPosition(),
-//                            employeeDTO.getHireDate(),
-//                            employeeDTO.getPhoneNumber(),
-//                            true,
-//                            userRepository.findById(employeeDTO.getUserName()).orElseThrow(()->new ResourceNotFoundException("유저ID 오류")),
-//                            payrollTemplateRepository.findById(employeeDTO.getPayrollTemplateId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 급여명세서 양식입니다"))
-//                    );
-//                    return employeeRepository.save(employee).toDTO();
-//                });
 
+    public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO,HttpServletRequest request) {
+        return employeeRepository.findById(employeeDTO.getId())
+                .map((employee) -> {
+                    return employeeRepository.save(employee).toDTO();
+                })
+                .orElseGet(() -> {
+                    Employee employee = new Employee(
+                            null,
+                            employeeDTO.getName(),
+                            employeeDTO.getDepartment(),
+                            employeeDTO.getPosition(),
+                            employeeDTO.getHireDate(),
+                            employeeDTO.getPhoneNumber(),
+                            true,
+                            userRepository.findById(employeeDTO.getUserName()).orElseThrow(() -> new ResourceNotFoundException("유저ID 오류")),
+                            payrollTemplateRepository.findById(employeeDTO.getPayrollTemplateId()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 급여명세서 양식입니다"))
+                    );
+                    return employeeRepository.save(employee).toDTO();
+                });
+    }
+    public String deleteEmployee(Long id, String name,HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        if (!currentUser.equals(employeeRepository.findById(id))){
+            throw new PermissionDeniedException("본인 직원에 대한 정보만 조회가 가능합니다.");
+        }
+        Employee employee = employeeRepository.findByIdAndName(id, name);
+        employee.setIsActive(false);
+        employeeRepository.save(employee);
+        return  "정상 삭제되었습니다";
+    }
 }

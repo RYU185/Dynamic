@@ -17,6 +17,14 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    @GetMapping("/all-by-admin")
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployeeByAdmin(HttpServletRequest request){
+        return new ResponseEntity<>(
+                employeeService.getAllEmployeesByAdmin(request),
+                HttpStatus.OK
+        );
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<EmployeeDTO>> getAllEmployees(HttpServletRequest request) {
         return new ResponseEntity<>(
@@ -44,16 +52,16 @@ public class EmployeeController {
                 HttpStatus.OK);
     }
 
-//    @PostMapping("/save")
-//    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
-//        return new ResponseEntity<>(
-//                employeeService.saveEmployee(employeeDTO),
-//                HttpStatus.OK);
-//    }
-//    @PostMapping("")
-//    public ResponseEntity<Employee>deleteEmployee() {
-//        return new ResponseEntity<>(
-//                employeeService.deleteEmployee(),
-//                HttpStatus.OK);
-//    }
+    @PostMapping("/save")
+    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO,HttpServletRequest request) {
+        return new ResponseEntity<>(
+                employeeService.saveEmployee(employeeDTO,request),
+                HttpStatus.OK);
+    }
+    @PostMapping("/delete")
+    public ResponseEntity<String>deleteEmployee(@RequestParam Long id, @RequestParam String name,HttpServletRequest request) {
+        return new ResponseEntity<>(
+                employeeService.deleteEmployee(id,name,request),
+                HttpStatus.OK);
+    }
 }
