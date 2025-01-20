@@ -37,6 +37,7 @@ public class PayrollTemplateService {
 
     public List<PayrollTemplateDTO> getAllPayrollTemplates(HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
+
         try {
             if (payrollTemplateRepository.findByUser(currentUser).isEmpty()){
                 throw new ResourceNotFoundException("작성한 급여명세서 양식이 없습니다");

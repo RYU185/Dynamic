@@ -28,7 +28,7 @@ public class DeductionAndTaxController {
                 deductionAndTaxService.getDeductionAndTaxById(id),
                 HttpStatus.OK);
     }
-    @GetMapping("/id/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<List<DeductionAndTax>> getDeductionAndTaxByName(@PathVariable String name) {
         return new ResponseEntity<>(
                 deductionAndTaxService.getDeductionAndTaxByName(name),

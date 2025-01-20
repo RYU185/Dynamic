@@ -54,7 +54,7 @@ public class PayrollTemplate {
     inverseJoinColumns = @JoinColumn(name = "deduction_and_taxname"))
     private List<DeductionAndTax> deductionAndTax;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "freelancer")
     private Freelancer freeLancer;
 
