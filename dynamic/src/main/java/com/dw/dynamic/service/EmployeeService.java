@@ -73,10 +73,11 @@ public class EmployeeService {
         User currentUser = userService.getCurrentUser(request);
 
         List<Employee> employee = employeeRepository.findByNameLike("%" + name + "%");
-        if (employee.stream().map(Employee::getUser).equals(currentUser)) {
-            return employee.stream().map(Employee::toDTO).toList();
-        } else {
+        List<EmployeeDTO> employeeDTOList = employee.stream().filter(employee1 -> employee1.getUser().getUserName().equals(currentUser.getUserName())).map(Employee::toDTO).toList();
+        if (employeeDTOList.isEmpty()) {
             throw new ResourceNotFoundException("해당 이름으로 조회되는 직원이 없습니다");
+        } else {
+            return employeeDTOList;
         }
     }
 
@@ -84,10 +85,12 @@ public class EmployeeService {
         User currentUser = userService.getCurrentUser(request);
         try {
             List<Employee> employee = employeeRepository.findByPosition(position);
-            if (employee.stream().map(Employee::getUser).equals(currentUser)) {
-                return employee.stream().map(Employee::toDTO).toList();
-            } else {
+            List<EmployeeDTO> employeeDTOList = employee.stream().filter(employee1 -> employee1.getUser().getUserName().equals(currentUser.getUserName())).map(Employee::toDTO).toList();
+
+            if (employeeDTOList.isEmpty()) {
                 throw new ResourceNotFoundException("해당 직위로 조회되는 직원이 없습니다");
+            } else {
+               return employeeDTOList;
             }
         } catch (InvalidRequestException e) {
             throw new InvalidRequestException("올바른 직위를 작성해주십시오");

@@ -33,7 +33,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<EmployeeDTO> getEmployeeById(Long id,HttpServletRequest request) {
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id,HttpServletRequest request) {
         return new ResponseEntity<>(
                 employeeService.getEmployeeById(id, request),
                 HttpStatus.OK);
