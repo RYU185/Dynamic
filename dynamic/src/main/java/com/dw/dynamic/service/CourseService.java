@@ -35,10 +35,11 @@ public class CourseService {
     }
 
     public List<Course> getCoursesByTitle(String title) {
-        return courseRepository.findByTitleLike("%" + title + "%").stream().toList();
+        if(courseRepository.findByTitleLike("%" + title + "%").isEmpty()){
+            throw new ResourceNotFoundException("존재하지 않는 제품명입니다: "+title);
+        }
+        return courseRepository.findByTitle("%" + title + "%");
     }
-
-
 
     public String deleteCourse (String title, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);

@@ -44,8 +44,9 @@ public class CartService {
 
         Cart cart = new Cart();
         cart.setUser(currentUser);
-        cart.setProduct(productRepository.findById(cartDTO.getProduct().getId())
-                .orElseThrow(()-> new IllegalArgumentException("올바른 요청이 아닙니다")));
+        if (cartDTO.getProduct() == null || cartDTO.getProduct().getId() == null) {
+            throw new IllegalArgumentException("제품 정보가 올바르지 않습니다.");
+        }
         cart.setIsActive(true);
 
         return cartRepository.save(cart).toDTO();
@@ -57,13 +58,20 @@ public class CartService {
         Cart cart = cartRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("id를 찾을 수 없습니다"));
 
-        if (!cart.getUser().equals(currentUser)){
-            throw new InvalidRequestException("장바구니는 로그인이 필요합니다");
+        if(!cart.getIsActive()){
+            throw new InvalidRequestException("이미 삭제된 장바구니입니다");
         }
+
+        if (!cart.getUser().equals(currentUser)){
+            throw new InvalidRequestException("장바구니는 로그인이 필요합니다.");
+        }
+
         cart.setIsActive(false);
         cartRepository.save(cart);
         return id + " 가 정상적으로 삭제되었습니다";
     }
+
+
 }
 
 
