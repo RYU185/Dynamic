@@ -79,7 +79,7 @@ public class EmployeeService {
     public List<EmployeeDTO> getEmployeesByPosition(String position,HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         try {
-            List<Employee> employee= employeeRepository.findByPostion(position);
+            List<Employee> employee= employeeRepository.findByPosition(position);
             if (employee.stream().map(Employee::getUser).equals(currentUser)){
                 return employee.stream().map(Employee::toDTO).toList();
             }else {
@@ -108,5 +108,5 @@ public class EmployeeService {
 //                    );
 //                    return employeeRepository.save(employee).toDTO();
 //                });
-    }
+
 }
