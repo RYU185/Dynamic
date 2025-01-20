@@ -114,12 +114,12 @@ public class EmployeeService {
                     return employeeRepository.save(employee).toDTO();
                 });
     }
-    public String deleteEmployee(Long id, String name,HttpServletRequest request){
+    public String deleteEmployee(Long id,HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
-        if (!currentUser.equals(employeeRepository.findById(id))){
+        Employee employee = employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 직원ID입니다"));
+        if (!employee.getUser().getUserName().equals(currentUser.getUserName())){
             throw new PermissionDeniedException("본인 직원에 대한 정보만 조회가 가능합니다.");
         }
-        Employee employee = employeeRepository.findByIdAndName(id, name);
         employee.setIsActive(false);
         employeeRepository.save(employee);
         return  "정상 삭제되었습니다";

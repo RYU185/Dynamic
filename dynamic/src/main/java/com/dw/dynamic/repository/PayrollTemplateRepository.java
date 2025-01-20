@@ -8,8 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PayrollTemplateRepository extends JpaRepository<PayrollTemplate,Long> {
-    @Query("select e.user from PayrollTemplate pt join Employee e on pt.employee.id = e.id")
-    public List<PayrollTemplate> findByUser(User user);
+
 
 
 }

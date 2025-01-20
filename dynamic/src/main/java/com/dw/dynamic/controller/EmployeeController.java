@@ -58,10 +58,10 @@ public class EmployeeController {
                 employeeService.saveEmployee(employeeDTO,request),
                 HttpStatus.OK);
     }
-    @PostMapping("/delete")
-    public ResponseEntity<String>deleteEmployee(@RequestParam Long id, @RequestParam String name,HttpServletRequest request) {
+    @PostMapping("/delete/{id}")
+    public ResponseEntity<String>deleteEmployee(@PathVariable Long id,HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.deleteEmployee(id,name,request),
+                employeeService.deleteEmployee(id,request),
                 HttpStatus.OK);
     }
 }
