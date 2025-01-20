@@ -40,38 +40,42 @@ public class CartService {
         return cart.toDTO();
     }
 
-    public CartDTO saveCart(CartDTO cartDTO, HttpServletRequest request){
+    public CartDTO saveCart(CartDTO cartDTO, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-            if (cartRepository.findById(cartDTO.getCartId()).isPresent()){
-                throw new InvalidRequestException("장바구니에 존재하는 제품입니다");
-            }
-            Cart cart = new Cart(
-                    null,
-                    currentUser,
-                    productRepository.findById(cartDTO.getProductId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 제품ID입니다")),
-                    true
-            );
-            return cartRepository.save(cart).toDTO();
+        if (currentUser == null) {
+            throw new UnauthorizedUserException("로그인이 필요합니다");
         }
 
+        if (cartRepository.findById(cartDTO.getCartId()).isPresent()) {
+            throw new InvalidRequestException("장바구니에 존재하는 제품입니다");
+        }
 
-    public String deleteCart(Long id, HttpServletRequest request){
+        Cart cart = new Cart(
+                null,
+                currentUser,
+                productRepository.findById(cartDTO.getProductId()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 제품ID입니다")),
+                true
+        );
+        cart.setUser(currentUser);
+
+        return cartRepository.save(cart).toDTO();
+    }
+
+
+    public String deleteCart(Long id, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-
         Cart cart = cartRepository.findById(id)
-                .orElseThrow(()-> new ResourceNotFoundException("id를 찾을 수 없습니다"));
-
-        if(!cart.getIsActive()){
+                .orElseThrow(() -> new ResourceNotFoundException("id를 찾을 수 없습니다"));
+        if (!cart.getIsActive()) {
             throw new InvalidRequestException("이미 삭제된 장바구니입니다");
         }
-
-        if (!cart.getUser().equals(currentUser)){
+        if (!cart.getUser().getUserName().equals(currentUser.getUserName())) {
             throw new InvalidRequestException("장바구니는 로그인이 필요합니다.");
         }
-
         cart.setIsActive(false);
         cartRepository.save(cart);
-        return id + " 가 정상적으로 삭제되었습니다";
+
+        return id + "가 정상적으로 삭제되었습니다.";
     }
 
 
