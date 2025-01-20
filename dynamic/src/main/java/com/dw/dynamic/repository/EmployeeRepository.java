@@ -12,5 +12,4 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
     public List<Employee> findByNameLike(String name);
     public List<Employee> findByPosition(String position);
-    public Employee findByIdAndName(Long id, String name);
 }

@@ -4,6 +4,7 @@ import com.dw.dynamic.DTO.PayrollTemplateDTO;
 import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
+import com.dw.dynamic.model.Employee;
 import com.dw.dynamic.model.PayrollTemplate;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.repository.DeductionAndTaxRepository;
@@ -37,17 +38,20 @@ public class PayrollTemplateService {
 
     public List<PayrollTemplateDTO> getAllPayrollTemplates(HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
+        if (currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+            return payrollTemplateRepository.findAll().stream().map(PayrollTemplate::toDTO).toList();
+        }
 
         try {
-            if (payrollTemplateRepository.findByUser(currentUser).isEmpty()){
-                throw new ResourceNotFoundException("작성한 급여명세서 양식이 없습니다");
+            if (employeeRepository.findByUser(currentUser).isEmpty()){
+                throw new ResourceNotFoundException("조회되는 직원이 없어, 급여명세서 양식 또한 없습니다");
             }else {
-                return payrollTemplateRepository.findByUser(currentUser).stream()
-                        .map(PayrollTemplate::toDTO).toList();
+                return employeeRepository.findByUser(currentUser).stream().map(Employee::getPayrollTemplate_fk).map(PayrollTemplate::toDTO).toList();
             }
         }catch (InvalidRequestException e){
             throw new InvalidRequestException("정상적인 요청이 아닙니다");
         }
+
     }
 
     public PayrollTemplateDTO getPayrollTemplateById(Long id){
