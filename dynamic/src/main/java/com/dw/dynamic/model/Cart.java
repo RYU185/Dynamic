@@ -1,7 +1,5 @@
 package com.dw.dynamic.model;
 
-package com.dw.dynamic.model;
-
 import com.dw.dynamic.DTO.CartDTO;
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,11 +14,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "cart")
-public class
-
-
-
-Cart {
+public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
