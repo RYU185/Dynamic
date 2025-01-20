@@ -95,6 +95,7 @@ public class EmployeeService {
     }
 
     public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO,HttpServletRequest request) {
+        User currentUser = userService.getCurrentUser(request);
         return employeeRepository.findById(employeeDTO.getId())
                 .map((employee) -> {
                     return employeeRepository.save(employee).toDTO();
@@ -108,7 +109,7 @@ public class EmployeeService {
                             employeeDTO.getHireDate(),
                             employeeDTO.getPhoneNumber(),
                             true,
-                            userRepository.findById(employeeDTO.getUserName()).orElseThrow(() -> new ResourceNotFoundException("유저ID 오류")),
+                            currentUser,
                             payrollTemplateRepository.findById(employeeDTO.getPayrollTemplateId()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 급여명세서 양식입니다"))
                     );
                     return employeeRepository.save(employee).toDTO();

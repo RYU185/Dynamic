@@ -38,9 +38,9 @@ public class PayrollTemplateController {
     }
 
     @PostMapping("/delete/{id}")
-    public ResponseEntity<String> deletePayrollTemplate(@RequestParam Long employeeId, @RequestParam Long payrolltemplateId, HttpServletRequest request) {
+    public ResponseEntity<String> deletePayrollTemplate(@RequestParam Long employeeId, @RequestParam Long payrollTemplateId, HttpServletRequest request) {
         return new ResponseEntity<>(
-                payrollTemplateService.deletePayrollTemplate(employeeId,payrolltemplateId,request),
+                payrollTemplateService.deletePayrollTemplate(employeeId,payrollTemplateId,request),
                 HttpStatus.OK);
     }
 }

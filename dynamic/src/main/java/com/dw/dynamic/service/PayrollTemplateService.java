@@ -97,7 +97,7 @@ public class PayrollTemplateService {
         if (!currentUser.equals(employeeRepository.findById(employeeId))){
             throw new PermissionDeniedException("본인 직원에 대한 정보만 조회가 가능합니다.");
         }
-        PayrollTemplate payrollTemplate = payrollTemplateRepository.findById(payrollTemplateId).orElseThrow(()-> new InvalidRequestException("존재하지 않은 ID입니다"));
+        PayrollTemplate payrollTemplate = payrollTemplateRepository.findById(payrollTemplateId).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 ID입니다"));
         payrollTemplate.setIsActive(false);
         payrollTemplateRepository.save(payrollTemplate);
         return  "정상 삭제되었습니다";
