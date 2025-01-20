@@ -62,7 +62,7 @@ public class EmployeeService {
     public EmployeeDTO getEmployeeById(Long id, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 직원ID입니다."));
-        if (employee.getUser().equals(currentUser)) {
+        if (employee.getUser().getUserName().equals(currentUser.getUserName())||currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
             return employee.toDTO();
         } else {
             throw new UnauthorizedUserException("해당 직원ID에 대한 조회 권한이 없습니다");

@@ -27,7 +27,7 @@ public interface ProductRepository extends JpaRepository<Product,String> {
     public List<PayrollSubscriptionsEnrollmentAndIncomeDTO> getPayrollSubscriptionsEnrollmentsAndIncomes();
 
     @Query("select new com.dw.dynamic.DTO.CategoryEnrollmentAndIncomeDTO(c.name,count(ph),sum(ph.product.price))" +
-            "from Category c join PurchaseHistory ph on c.id = ph.product.id group by c.name")
+            "from Category c join PurchaseHistory ph on c.id = ph.product.category.id group by c.name")
     public List<CategoryEnrollmentAndIncomeDTO> getCategoryEnrollmentsAndIncomes();
 
 }

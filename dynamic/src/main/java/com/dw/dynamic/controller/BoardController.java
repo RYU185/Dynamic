@@ -24,9 +24,9 @@ public class BoardController {
                 HttpStatus.OK);
     }
     @PostMapping("/save")
-    public ResponseEntity<BoardDTO> saveBoard(@RequestBody BoardDTO boardDTO) {
+    public ResponseEntity<BoardDTO> saveBoard(@RequestBody BoardDTO boardDTO,HttpServletRequest request) {
         return new ResponseEntity<>(
-                boardService.saveBoard(boardDTO),
+                boardService.saveBoard(boardDTO,request),
                 HttpStatus.CREATED);
     }
     @PostMapping("/delete/{id}")

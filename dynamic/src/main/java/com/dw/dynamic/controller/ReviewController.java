@@ -17,9 +17,9 @@ public class ReviewController {
     ReviewService reviewService;
 
     @PostMapping("/save")
-    public ResponseEntity<ReviewDTO> saveReview(@RequestBody ReviewDTO reviewDTO) {
+    public ResponseEntity<ReviewDTO> saveReview(@RequestBody ReviewDTO reviewDTO,HttpServletRequest request) {
         return new ResponseEntity<>(
-                reviewService.saveReview(reviewDTO),
+                reviewService.saveReview(reviewDTO,request),
                 HttpStatus.OK);
     }
 

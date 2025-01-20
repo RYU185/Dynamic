@@ -56,7 +56,8 @@ public class ReviewService {
             throw new ResourceNotFoundException("존재하지 않은 제품번호입니다");
         }
     }
-    public ReviewDTO saveReview(ReviewDTO reviewDTO){
+    public ReviewDTO saveReview(ReviewDTO reviewDTO,HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
         if ( reviewDTO.getProductId().equals(purchaseHistoryRepository.findByProductId(reviewDTO.getProductId()))){
             return reviewRepository.findById(reviewDTO.getId())
                     .map((review) -> {
@@ -71,7 +72,7 @@ public class ReviewService {
                                 LocalDateTime.now(),
                                 LocalDateTime.now(),
                                 true,
-                                userRepository.findById(reviewDTO.getUserName()).orElseThrow(() -> new ResourceNotFoundException("없는 유저입니다.")),
+                                currentUser,
                                 productRepository.findById(reviewDTO.getProductId()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 제품입니다"))
                         );
                         return reviewRepository.save(review).toDTO();

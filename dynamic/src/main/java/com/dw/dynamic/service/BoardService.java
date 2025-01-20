@@ -50,7 +50,8 @@ public class BoardService {
         }
     }
 
-    public BoardDTO saveBoard(BoardDTO boardDTO) {
+    public BoardDTO saveBoard(BoardDTO boardDTO,HttpServletRequest request) {
+        User currentUser = userService.getCurrentUser(request);
         return boardRepository.findById(boardDTO.getId())
                 .map((board) -> {
                     board.setModifyDate(LocalDateTime.now());
@@ -64,7 +65,7 @@ public class BoardService {
                             LocalDateTime.now(),
                             LocalDateTime.now(),
                             true,
-                            userRepository.findById(boardDTO.getUserName()).orElseThrow(() -> new ResourceNotFoundException("없는 유저입니다.")),
+                            currentUser,
                             null
                     );
                     return boardRepository.save(board).toDTO();
