@@ -9,6 +9,7 @@ import com.dw.dynamic.repository.FreelancerRepository;
 import com.dw.dynamic.repository.PayrollTemplateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PayrollTemplateService {
@@ -24,6 +25,7 @@ public class PayrollTemplateService {
     @Autowired
     DeductionRepository deductionRepository;
 
+    @Transactional
     public PayrollTemplateDTO savePayrollTemplate(PayrollTemplateDTO payrollTemplateDTO){
         if (payrollTemplateDTO.getId() != null) {
             return payrollTemplateRepository.findById(payrollTemplateDTO.getId())
@@ -48,7 +50,7 @@ public class PayrollTemplateService {
         } else {
             // ID가 없는 경우, 새로운 PayrollTemplate 생성
             PayrollTemplate payrollTemplate = new PayrollTemplate(
-                    null, // ID는 null로 두어 자동 생성되도록 함
+                    null,
                     payrollTemplateDTO.getStartPayrollPeriod(),
                     payrollTemplateDTO.getLastPayrollPeriod(),
                     payrollTemplateDTO.getPaymentDate(),

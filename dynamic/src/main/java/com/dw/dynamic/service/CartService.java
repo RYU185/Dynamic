@@ -3,6 +3,7 @@ package com.dw.dynamic.service;
 import com.dw.dynamic.DTO.CartDTO;
 import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
+import com.dw.dynamic.exception.UnauthorizedUserException;
 import com.dw.dynamic.model.Cart;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.repository.CartRepository;
@@ -41,16 +42,18 @@ public class CartService {
 
     public CartDTO saveCart(CartDTO cartDTO, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
-
-        Cart cart = new Cart();
-        cart.setUser(currentUser);
-        if (cartDTO.getProduct() == null || cartDTO.getProduct().getId() == null) {
-            throw new IllegalArgumentException("제품 정보가 올바르지 않습니다.");
+            if (cartRepository.findById(cartDTO.getCartId()).isPresent()){
+                throw new InvalidRequestException("장바구니에 존재하는 제품입니다");
+            }
+            Cart cart = new Cart(
+                    null,
+                    currentUser,
+                    productRepository.findById(cartDTO.getProductId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 제품ID입니다")),
+                    true
+            );
+            return cartRepository.save(cart).toDTO();
         }
-        cart.setIsActive(true);
 
-        return cartRepository.save(cart).toDTO();
-    }
 
     public String deleteCart(Long id, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);

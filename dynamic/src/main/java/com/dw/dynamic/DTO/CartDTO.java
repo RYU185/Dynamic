@@ -19,6 +19,6 @@ public class CartDTO {
 
     private String username;
 
-    private ProductDTO product;
+    private String productId;
 
 }
