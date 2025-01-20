@@ -84,24 +84,24 @@ public class UserController {
                 HttpStatus.OK);
     }
 
-    @PostMapping("/modify-pw-by-id-and-phonenumber")
-    public ResponseEntity<UserDTO> ModifyPwByIDAndPhoneNumber(@RequestBody String id, @RequestBody String phoneNumber) {
-        return new ResponseEntity<>(
-                userService.ModifyPwByIDAndPhoneNumber(id, phoneNumber),
-                HttpStatus.OK);
-    }
+//    @PostMapping("/modify-pw")
+//    public ResponseEntity<UserDTO> ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
+//        return new ResponseEntity<>(
+//                userService.ModifyPw(passwordDTO, request),
+//                HttpStatus.OK);
+//    }
 
     @PostMapping("/user-data")
-    public ResponseEntity<UserDTO> ModifyUserData(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> ModifyUserData(@RequestBody UserDTO userDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                userService.ModifyUserData(userDTO),
+                userService.ModifyUserData(userDTO, request),
                 HttpStatus.OK);
     }
 
     @PostMapping("/user-business-number")
-    public ResponseEntity<UserDTO> saveUserBusinessNumber(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> saveUserBusinessNumber(@RequestBody UserDTO userDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                userService.saveUserBusinessNumber(userDTO),
+                userService.saveUserBusinessNumber(userDTO, request),
                 HttpStatus.OK);
     }
 

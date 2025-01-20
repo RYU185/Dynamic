@@ -131,50 +131,114 @@ public class UserService {
         return user.toDTO();
     }
 
-    public UserDTO ModifyPwByIDAndPhoneNumber(String id, String phoneNumber) {
-        // 아이디와 전화번호를 통해 임시비밀번호 전송하여 비밀번호 수정
-        Optional<User> user = userRepository.findById(id);
-        User user1 = user.orElseThrow(() -> new ResourceNotFoundException("찾을 수 없는 ID입니다"));
+//    public UserDTO ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
+//        User currentUser = getCurrentUser(request);
+//        if (currentUser == null){
+//            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+//        }
+//
+//        if (!currentUser.getPassword().equals()){
+//            throw new IllegalArgumentException("현재 비밀번호가 올바르지 않습니다");
+//        }
+//
+//        if (!passwordDTO.getNewPassword().equals(passwordDTO.getConfirmNewPassword())){
+//            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다");
+//        }
+//
+//        currentUser.setPassword(passwordDTO.getNewPassword());
+//        userRepository.save(currentUser);
+//        return currentUser.toDTO();
+//
+//    }
 
-        if (!user1.getPhoneNumber().equals(phoneNumber)) {
-            throw new InvalidRequestException("옳지 않은 전화번호 입니다.");
+    public UserDTO ModifyUserData(UserDTO userDTO, HttpServletRequest request) { // 회원 정보 수정(이름, 이메일, 전화번호)
+        User currentUser = getCurrentUser(request);
+        if (currentUser == null){
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
         }
-        return null;
-    }
 
-    public UserDTO ModifyUserData(UserDTO userDTO) { // 회원 정보 수정(이름, 이메일, 전화번호)
-        User currentUser = userRepository.findById(userDTO.getUserName()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않는 유저 ID 입니다"));
-        if (userDTO.getUserName() != null ||
-                userDTO.getPassword() != null ||
-                userDTO.getRole() != null ||
-                userDTO.getGender() != null ||
-                userDTO.getBusinessNumber() != null ||
-                userDTO.getBusinessType() != null ||
-                userDTO.getPoint() <0 ||
-                userDTO.getCompanyName() != null
-        ) {
-            throw new InvalidRequestException("이름, 이메일, 전화번호 이외로는 수정이 불가능합니다");
+        //이름, 이메일, 전화번호 이외는 수정이 불가능
+        if (userDTO.getRealName() !=null){
+            currentUser.setRealName(userDTO.getRealName());
         }
+        if (userDTO.getEmail()!=null){
+            currentUser.setPhoneNumber(userDTO.getEmail());
+        }
+        if (userDTO.getPhoneNumber()!=null){
+            currentUser.setPhoneNumber(userDTO.getPhoneNumber());
+        }
+
+        if (userDTO.getUserName() !=null){
+            throw new IllegalArgumentException("이름, 이메일, 전화번호 외에는 수정할 수 없습니다.");
+        }
+        if (userDTO.getRole() !=null){
+            throw new IllegalArgumentException("이름, 이메일, 전화번호 외에는 수정할 수 없습니다.");
+        }
+        if (userDTO.getPassword() !=null){
+            throw new IllegalArgumentException("이름, 이메일, 전화번호 외에는 수정할 수 없습니다.");
+        }
+        if (userDTO.getGender() !=null){
+            throw new IllegalArgumentException("이름, 이메일, 전화번호 외에는 수정할 수 없습니다.");
+        }
+        if (userDTO.getPoint() != 0){
+            throw new IllegalArgumentException("이름, 이메일, 전화번호 외에는 수정할 수 없습니다.");
+        }
+        if (userDTO.getBusinessNumber() !=null){
+            throw new IllegalArgumentException("사업자 등록 번호 등록/수정을 이용해주세요");
+        }
+        if (userDTO.getBusinessType() !=null){
+            throw new IllegalArgumentException("사업자 등록 번호 등록/수정을 이용해주세요");
+        }
+        if (userDTO.getCompanyName() !=null){
+            throw new IllegalArgumentException("사업자 등록 번호 등록/수정을 이용해주세요");
+        }
+
         return userRepository.save(currentUser).toDTO();
     }
 
-        public UserDTO saveUserBusinessNumber(UserDTO userDTO){ // 사업자번호 등록
-            User user = new User(
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    userDTO.getBusinessNumber(),
-                    userDTO.getBusinessType(),
-                    userDTO.isExistBusinessOperator(),
-                    userDTO.getPoint(),
-                    authorityRepository.findById("USER")
-                            .orElseThrow(() -> new ResourceNotFoundException("권한이 없습니다"))
-            );
-            return userRepository.save(user).toDTO();
+    public UserDTO saveUserBusinessNumber(UserDTO userDTO, HttpServletRequest request){ // 사업자번호 등록
+        User currentUser = getCurrentUser(request);
+        if (currentUser == null){
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        }
+
+        if (userDTO.getRealName() !=null){
+            throw new IllegalArgumentException("회원 정보 수정을 이용해 주세요.");
+        }
+        if (userDTO.getEmail()!=null){
+            throw new IllegalArgumentException("회원 정보 수정을 이용해 주세요.");
+        }
+        if (userDTO.getPhoneNumber()!=null){
+            throw new IllegalArgumentException("회원 정보 수정을 이용해 주세요.");
+        }
+
+        if (userDTO.getUserName() !=null){
+            throw new IllegalArgumentException("회원 정보 수정을 이용해 주세요.");
+        }
+        if (userDTO.getRole() !=null){
+            throw new IllegalArgumentException("회원 정보 수정을 이용해 주세요.");
+        }
+        if (userDTO.getPassword() !=null){
+            throw new IllegalArgumentException("회원 정보 수정을 이용해 주세요.");
+        }
+        if (userDTO.getGender() !=null){
+            throw new IllegalArgumentException("성별은 수정할 수 없습니다.");
+        }
+        if (userDTO.getPoint() != 0){
+            throw new IllegalArgumentException("포인트는 수정할 수 없습니다.");
+        }
+
+        if (userDTO.getBusinessNumber() !=null){
+            currentUser.setBusinessNumber(userDTO.getBusinessNumber());
+        }
+        if (userDTO.getBusinessType() !=null){
+            currentUser.setBusinessType(userDTO.getBusinessType());
+        }
+        if (userDTO.getCompanyName() !=null){
+            currentUser.setCompanyName(userDTO.getCompanyName());
+        }
+
+        return userRepository.save(currentUser).toDTO();
     }
 
     public UserDTO addPoint(UserDTO userDTO) {
