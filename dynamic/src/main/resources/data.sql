@@ -58,9 +58,9 @@ VALUES ('2025-01-13','2025-02-12','2025-02-12',2500000,100000,100000,0,0,'not fr
 INSERT INTO template_detail(payroll_template,deduction_and_taxname)
 VALUES(1,'건강보험'),(1,'국민연금'),(1,'장기요양'),(1,'고용보험'),(1,'소득세'),(1,'지방세');
 
-INSERT INTO employee (name, department,position,hire_date, phone_number, user_name,payroll_template,is_active)
+INSERT INTO employee (name, department,position,hire_date, phone_number, user_name,payroll_template,is_active,free_template)
 VALUES
-('김철수', '없음', '직원', '2025-01-13','010-1234-5678', 'sangsu1234',1,true);
+('김철수', '없음', '직원', '2025-01-13','010-1234-5678', 'sangsu1234',1,true,false);
 
 INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('S1','sangsu1234',15000,'2025-01-13');
 

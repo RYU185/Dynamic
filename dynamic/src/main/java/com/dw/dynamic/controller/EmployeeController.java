@@ -1,6 +1,8 @@
 package com.dw.dynamic.controller;
 
 import com.dw.dynamic.DTO.EmployeeDTO;
+import com.dw.dynamic.DTO.FreeTemplateDTO;
+import com.dw.dynamic.DTO.PayrollTemplateDTO;
 import com.dw.dynamic.model.Employee;
 import com.dw.dynamic.service.EmployeeService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -63,5 +65,12 @@ public class EmployeeController {
         return new ResponseEntity<>(
                 employeeService.deleteEmployee(id,request),
                 HttpStatus.OK);
+    }
+    @PostMapping("/use/free-payrolltemplate")
+    public ResponseEntity<FreeTemplateDTO> saveFreePayrollTemplate(@RequestBody FreeTemplateDTO freeTemplateDTO, HttpServletRequest request){
+        return new ResponseEntity<>(
+                employeeService.saveFreePayrollTemplate(freeTemplateDTO,request),
+                HttpStatus.OK
+        );
     }
 }
