@@ -1,5 +1,7 @@
 package com.dw.dynamic.model;
 
+package com.dw.dynamic.model;
+
 import com.dw.dynamic.DTO.CartDTO;
 import jakarta.persistence.*;
 import lombok.*;
