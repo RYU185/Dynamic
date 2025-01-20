@@ -6,6 +6,7 @@ import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.exception.UnauthorizedUserException;
 import com.dw.dynamic.model.Employee;
+import com.dw.dynamic.model.PayrollTemplate;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.repository.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -120,8 +121,10 @@ public class EmployeeService {
         if (!employee.getUser().getUserName().equals(currentUser.getUserName())){
             throw new PermissionDeniedException("본인 직원에 대한 정보만 조회가 가능합니다.");
         }
+        employee.getPayrollTemplate_fk().setIsActive(false);
         employee.setIsActive(false);
         employeeRepository.save(employee);
+
         return  "정상 삭제되었습니다";
     }
 }
