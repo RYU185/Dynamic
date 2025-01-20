@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/freelancer")
 public class FreelancerController {
-//    @Autowired
-//    FreelancerService freelancerService;
-//
-//    @GetMapping("/all")
-//    public ResponseEntity<Freelancer> getAllFreelancer() {
-//        return new ResponseEntity<>(
-//                freelancerService.getAllFreelancer(),
-//                HttpStatus.OK);
-//    }
+    @Autowired
+    FreelancerService freelancerService;
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Freelancer>> getAllFreelancer() {
+        return new ResponseEntity<>(
+                freelancerService.getAllFreelancer(),
+                HttpStatus.OK);
+    }
 }
