@@ -177,24 +177,31 @@ public class UserService {
             return userRepository.save(user).toDTO();
     }
 
-    public UserDTO addPoint(UserDTO userDTO){
-        if (userDTO.getUserName() == null){
+    public UserDTO addPoint(UserDTO userDTO) {
+        if (userDTO.getUserName() == null) {
             throw new IllegalArgumentException("정상적인 요청이 아닙니다");
         }
         User user = userRepository.findById(userDTO.getUserName())
                 .orElse(new User());
-        return null;
-        // SETTER 없음?
+        Long point = user.getPoint() + userDTO.getPoint();
+        user.setPoint(point);
+
+        User savedPointUser = userRepository.save(user);
+        return savedPointUser.toDTO();
     }
 
-    public UserDTO userPoint(UserDTO userDTO){
+    public UserDTO usePoint(UserDTO userDTO){
         if (userDTO.getUserName() == null || userDTO.getPoint()<=0 ){
             throw new IllegalArgumentException("정상적인 요청이 아닙니다");
         }
         User user = userRepository.findById(userDTO.getUserName())
                 .orElse(new User());
-        return null;
-        }
+        Long point = user.getPoint() - userDTO.getPoint();
+        user.setPoint(point);
+
+        User savedPointUser = userRepository.save(user);
+        return savedPointUser.toDTO();
     }
+}
 
 

@@ -112,10 +112,10 @@ public class UserController {
                 HttpStatus.OK);
     }
 
-//    @PostMapping("/use/point")
-//    public ResponseEntity<UserDTO> usePoint(@RequestBody UserDTO userDTO) {
-//        return new ResponseEntity<>(
-//                userService.usePoint(userDTO),
-//                HttpStatus.OK);
-//    }
+    @PostMapping("/use/point")
+    public ResponseEntity<UserDTO> usePoint(@RequestBody UserDTO userDTO) {
+        return new ResponseEntity<>(
+                userService.usePoint(userDTO),
+                HttpStatus.OK);
+    }
 }
