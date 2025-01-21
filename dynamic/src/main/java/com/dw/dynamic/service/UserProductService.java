@@ -6,9 +6,7 @@ import com.dw.dynamic.DTO.UserProductDTO;
 import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
-import com.dw.dynamic.model.PurchaseHistory;
-import com.dw.dynamic.model.User;
-import com.dw.dynamic.model.UserProduct;
+import com.dw.dynamic.model.*;
 import com.dw.dynamic.repository.CartRepository;
 import com.dw.dynamic.repository.PurchaseHistoryRepository;
 import com.dw.dynamic.repository.UserProductRepository;
@@ -17,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -78,6 +77,20 @@ public class UserProductService {
         List<UserProduct> userProducts = userProductRepository.findByProductNameLike(currentUser.getUserName(), productName);
 
         return userProducts.stream().map(UserProduct::toDTO).toList();
+    }
+    public String deleteSubcription(HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        if (currentUser == null){
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        }
+       List<PayrollSubscription> payrollSubscription = userProductRepository.findPayrollSubscriptionByProduct();
+        for (PayrollSubscription data : payrollSubscription){
+             if (data.getExpireDate() == LocalDate.now()){
+                 UserProduct product = userProductRepository.findByProductId(data.getId());
+                 userProductRepository.delete(product);
+             }
+        }
+        return "정상 삭제되었습니다";
     }
 
 
