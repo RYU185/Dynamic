@@ -69,7 +69,6 @@ public class PurchaseHistoryService {
 
     }
 
-
     public List<PurchaseHistory> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {

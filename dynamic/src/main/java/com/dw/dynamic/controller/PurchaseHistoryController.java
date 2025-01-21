@@ -37,10 +37,10 @@ public class PurchaseHistoryController {
                 purchaseHistoryService.getPurchaseHistoryByProductName(productName,request),
                 HttpStatus.OK);
     }
-    @GetMapping("/product-id/{id}")
-    public ResponseEntity<PurchaseHistoryDTO> getPurchaseHistoryByProductId(@PathVariable String id,HttpServletRequest request){
+    @GetMapping("/product-id/{productId}")
+    public ResponseEntity<PurchaseHistoryDTO> getPurchaseHistoryByProductId(@PathVariable String productId,HttpServletRequest request){
         return new ResponseEntity<>(
-                purchaseHistoryService.getPurchaseHistoryByProductId(id,request),
+                purchaseHistoryService.getPurchaseHistoryByProductId(productId,request),
                 HttpStatus.OK
         );
     }
