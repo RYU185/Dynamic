@@ -39,7 +39,7 @@ public class PurchaseHistory {
     public PurchaseHistoryDTO toDTO(){
         return new PurchaseHistoryDTO(
                 this.id,
-                this.product.toDTO(),
+                this.product,
                 this.user.getUserName(),
                 this.purchaseDate
         );

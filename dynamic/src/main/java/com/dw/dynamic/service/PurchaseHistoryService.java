@@ -69,7 +69,7 @@ public class PurchaseHistoryService {
 
     }
 
-    public List<PurchaseHistory> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
+    public List<PurchaseHistoryDTO> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
@@ -79,6 +79,6 @@ public class PurchaseHistoryService {
         if (purchaseHistory.isEmpty()){
             throw new ResourceNotFoundException("해당 제품명으로 조회되는 구매내역이 없습니다");
         }
-        return purchaseHistory;
+        return purchaseHistory.stream().map(PurchaseHistory::toDTO).toList();
     }
 }

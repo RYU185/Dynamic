@@ -32,7 +32,7 @@ public class PurchaseHistoryController {
     }
 
     @GetMapping("/product-name/{productName}")
-    public ResponseEntity<List<PurchaseHistory>> getPurchaseHistoryByProductName(@PathVariable String productName, HttpServletRequest request) {
+    public ResponseEntity<List<PurchaseHistoryDTO>> getPurchaseHistoryByProductName(@PathVariable String productName, HttpServletRequest request) {
         return new ResponseEntity<>(
                 purchaseHistoryService.getPurchaseHistoryByProductName(productName,request),
                 HttpStatus.OK);

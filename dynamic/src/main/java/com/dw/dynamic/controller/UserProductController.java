@@ -1,6 +1,7 @@
 package com.dw.dynamic.controller;
 
 import com.dw.dynamic.DTO.UserProductDTO;
+import com.dw.dynamic.model.UserProduct;
 import com.dw.dynamic.service.UserProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ UserProductController {
     }
 
     @GetMapping("/product-id/{productId}")
-    public ResponseEntity<List<UserProductDTO>> getUserProductByProductId(@PathVariable String productId, HttpServletRequest request){
+    public ResponseEntity<UserProductDTO> getUserProductByProductId(@PathVariable String productId, HttpServletRequest request){
         return new ResponseEntity<>(
                 userProductService.getUserProductByProductId(productId, request),
                 HttpStatus.OK

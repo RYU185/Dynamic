@@ -29,7 +29,7 @@ public class UserProduct {
         return new UserProductDTO(
           this.id,
           this.user.getUserName(),
-          this.product.toDTO()
+          this.product
         );
     }
 }

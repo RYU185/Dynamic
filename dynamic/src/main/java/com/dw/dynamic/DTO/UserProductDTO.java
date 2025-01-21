@@ -16,6 +16,6 @@ public class UserProductDTO {
 
     private String username;
 
-    private ProductDTO product;
+    private Product product;
 
 }

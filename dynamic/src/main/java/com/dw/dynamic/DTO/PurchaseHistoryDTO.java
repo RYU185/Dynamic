@@ -18,7 +18,7 @@ public class PurchaseHistoryDTO {
 
     private Long id;
 
-    private ProductDTO product;
+    private Product product;
 
     private String username;
 
