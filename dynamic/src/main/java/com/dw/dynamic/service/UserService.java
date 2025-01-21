@@ -124,15 +124,16 @@ public class UserService {
                 .stream().map(User::toDTO).toList();
     }
 
-    public UserDTO getIdByEmail(String email) { // 이메일로 통하여 아이디 찾기
+    public String getIdByEmail(String email) { // 이메일로 통하여 아이디 찾기
+
         User user = userRepository.findByEmail(email);
         if (user == null) {
             throw new ResourceNotFoundException("존재하지 않는 이메일입니다");
         }
-        return user.toDTO();
+        return "아이디는 "+ user.getUserName()+" 입니다.";
     }
 
-    public UserDTO ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
+    public String ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
         User currentUser = getCurrentUser(request);
         if (currentUser == null){
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
@@ -150,7 +151,7 @@ public class UserService {
 
         currentUser.setPassword(passwordEncoder.encode(passwordDTO.getNewPassword()));
         userRepository.save(currentUser);
-        return currentUser.toDTO();
+        return "유저 id: "+ currentUser.getUserName() + " 님의 비밀번호가 정상적으로 변경되었습니다.";
     }
 
     public UserDTO ModifyUserData(UserDTO userDTO, HttpServletRequest request) { // 회원 정보 수정(이름, 이메일, 전화번호)
@@ -239,36 +240,46 @@ public class UserService {
         if (userDTO.getCompanyName() !=null){
             currentUser.setCompanyName(userDTO.getCompanyName());
         }
-        currentUser.setExistBusinessOperator(true);
 
         return userRepository.save(currentUser).toDTO();
     }
 
-    public UserDTO addPoint(UserDTO userDTO) {
+    public UserDTO addPoint(UserDTO userDTO, HttpServletRequest request) {
+        User currentUser = getCurrentUser(request);
+
         if (userDTO.getUserName() == null) {
             throw new IllegalArgumentException("정상적인 요청이 아닙니다");
         }
-        User user = userRepository.findById(userDTO.getUserName())
-                .orElse(new User());
-        Long point = user.getPoint() + userDTO.getPoint();
-        user.setPoint(point);
 
-        User savedPointUser = userRepository.save(user);
-        return savedPointUser.toDTO();
+        User pointUser = userRepository.findByUserName(userDTO.getUserName())
+                .orElseThrow(()->new ResourceNotFoundException("해당 유저를 찾을 수 없습니다"));
+
+        if (!currentUser.getUserName().equals(pointUser.getUserName())){
+            throw new IllegalArgumentException("포인트는 자신의 계정에서만 사용할 수 있습니다.");
+        }
+
+        pointUser.setPoint(pointUser.getPoint()+userDTO.getPoint());
+        userRepository.save(pointUser);
+
+        return pointUser.toDTO();
     }
 
-    public UserDTO usePoint(UserDTO userDTO){
-        if (userDTO.getUserName() == null || userDTO.getPoint()<=0 ){
+    public UserDTO usePoint(UserDTO userDTO, HttpServletRequest request){
+        User currentUser = getCurrentUser(request);
+        if (userDTO.getUserName() == null || userDTO.getPoint() <= 0) {
             throw new IllegalArgumentException("정상적인 요청이 아닙니다");
         }
-        User user = userRepository.findById(userDTO.getUserName())
-                .orElse(new User());
-        Long point = user.getPoint() - userDTO.getPoint();
-        user.setPoint(point);
 
-        User savedPointUser = userRepository.save(user);
-        return savedPointUser.toDTO();
+        User pointUser = userRepository.findByUserName(userDTO.getUserName())
+                .orElseThrow(()->new ResourceNotFoundException("해당 유저를 찾을 수 없습니다"));
+
+        if (!currentUser.getUserName().equals(pointUser.getUserName())){
+            throw new IllegalArgumentException("포인트는 자신의 계정에서만 사용할 수 있습니다.");
+        }
+
+        pointUser.setPoint(pointUser.getPoint() - userDTO.getPoint());
+        userRepository.save(pointUser);
+
+        return pointUser.toDTO();
     }
 }
-
-

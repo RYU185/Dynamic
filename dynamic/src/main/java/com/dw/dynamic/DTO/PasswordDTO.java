@@ -11,6 +11,8 @@ import lombok.Setter;
 @Setter
 public class PasswordDTO {
 
+    private String userId;
+
     private String currentPassword; // 현재 비밀번호
 
     private String newPassword;      // 변경된 비밀번호

@@ -79,14 +79,14 @@ public class UserController {
     }
 
     @GetMapping("/find-user/email/{email}")
-    public ResponseEntity<UserDTO> getIdByEmail(@PathVariable String email) {
+    public ResponseEntity<String> getIdByEmail(@PathVariable String email) {
         return new ResponseEntity<>(
                 userService.getIdByEmail(email),
                 HttpStatus.OK);
     }
 
     @PostMapping("/modify-pw")
-    public ResponseEntity<UserDTO> ModifyPw(@RequestBody PasswordDTO passwordDTO, HttpServletRequest request) {
+    public ResponseEntity<String> ModifyPw(@RequestBody PasswordDTO passwordDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
                 userService.ModifyPw(passwordDTO, request),
                 HttpStatus.OK);
@@ -107,16 +107,16 @@ public class UserController {
     }
 
     @PostMapping("/add/point")
-    public ResponseEntity<UserDTO> addPoint(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> addPoint(@RequestBody UserDTO userDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                userService.addPoint(userDTO),
+                userService.addPoint(userDTO, request),
                 HttpStatus.OK);
     }
 
     @PostMapping("/use/point")
-    public ResponseEntity<UserDTO> usePoint(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> usePoint(@RequestBody UserDTO userDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                userService.usePoint(userDTO),
+                userService.usePoint(userDTO, request),
                 HttpStatus.OK);
     }
 }
