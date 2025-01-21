@@ -37,4 +37,6 @@ public class PayrollTemplateDTO {
 
     private String freeLancerName;
 
+    private Long employeeId;
+
 }

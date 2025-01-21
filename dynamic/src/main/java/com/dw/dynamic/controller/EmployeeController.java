@@ -1,9 +1,7 @@
 package com.dw.dynamic.controller;
 
 import com.dw.dynamic.DTO.EmployeeDTO;
-import com.dw.dynamic.DTO.FreeTemplateDTO;
-import com.dw.dynamic.DTO.PayrollTemplateDTO;
-import com.dw.dynamic.model.Employee;
+import com.dw.dynamic.DTO.SaveEmployeeWithTemplateDTO;
 import com.dw.dynamic.service.EmployeeService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,9 +53,9 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO,HttpServletRequest request) {
+    public ResponseEntity<SaveEmployeeWithTemplateDTO> saveEmployee(@RequestBody SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO,HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.saveEmployee(employeeDTO,request),
+                employeeService.saveEmployee(saveEmployeeWithTemplateDTO,request),
                 HttpStatus.OK);
     }
     @PostMapping("/delete/{id}")
@@ -67,9 +65,9 @@ public class EmployeeController {
                 HttpStatus.OK);
     }
     @PostMapping("/use/free-payrolltemplate")
-    public ResponseEntity<FreeTemplateDTO> saveFreePayrollTemplate(@RequestBody FreeTemplateDTO freeTemplateDTO, HttpServletRequest request){
+    public ResponseEntity<SaveEmployeeWithTemplateDTO> saveFreePayrollTemplate(@RequestBody SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO, HttpServletRequest request){
         return new ResponseEntity<>(
-                employeeService.saveFreePayrollTemplate(freeTemplateDTO,request),
+                employeeService.saveFreePayrollTemplate(saveEmployeeWithTemplateDTO,request),
                 HttpStatus.OK
         );
     }

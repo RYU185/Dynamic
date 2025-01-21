@@ -1,7 +1,7 @@
 package com.dw.dynamic.service;
 
 import com.dw.dynamic.DTO.EmployeeDTO;
-import com.dw.dynamic.DTO.FreeTemplateDTO;
+import com.dw.dynamic.DTO.SaveEmployeeWithTemplateDTO;
 import com.dw.dynamic.DTO.PayrollTemplateDTO;
 import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 @Service
@@ -96,28 +97,61 @@ public class EmployeeService {
                return employeeDTOList;
             }
     }
-
-    public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO,HttpServletRequest request) {
+    @Transactional
+    public SaveEmployeeWithTemplateDTO saveEmployee(SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO,HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-        return employeeRepository.findById(employeeDTO.getId())
-                .map((employee) -> {
-                    return employeeRepository.save(employee).toDTO();
-                })
-                .orElseGet(() -> {
-                    Employee employee = new Employee(
-                            null,
-                            employeeDTO.getName(),
-                            employeeDTO.getDepartment(),
-                            employeeDTO.getPosition(),
-                            employeeDTO.getHireDate(),
-                            employeeDTO.getPhoneNumber(),
-                            true,
-                            false,
-                            currentUser,
-                            payrollTemplateRepository.findById(employeeDTO.getPayrollTemplateId()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 급여명세서 양식입니다"))
-                    );
-                    return employeeRepository.save(employee).toDTO();
-                });
+        if (currentUser==null){
+            throw new PermissionDeniedException("로그인 후 직원 등록이 가능합니다");
+        }
+        try {
+            return employeeRepository.findById(saveEmployeeWithTemplateDTO.getEmployeeDTO().getId())
+                    .map((employee) -> {
+                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
+                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO(),
+                                employeeDTO);
+                        return saveEmployeeWithTemplateDTO1;
+                    })
+                    .orElseGet(() -> {
+                        PayrollTemplate payrollTemplate = new PayrollTemplate(
+                                null,
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
+                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
+                                true,
+                                deductionAndTaxRepository.findAll(),
+                                freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()).orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
+                                null);
+                        PayrollTemplateDTO payrollTemplateDTO = payrollTemplateRepository.save(payrollTemplate).toDTO();
+                        Employee employee = new Employee(
+                                null,
+                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
+                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getDepartment(),
+                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPosition(),
+                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
+                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
+                                true,
+                                false,
+                                currentUser,
+                                payrollTemplate);
+                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
+                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
+                                payrollTemplateDTO,
+                                employeeDTO
+                        );
+                        return saveEmployeeWithTemplateDTO1;
+                    });
+        }catch (InvalidRequestException e){
+            throw new InvalidRequestException("직원 이름, 입사일은 필수 입력 사항입니다. 급여명세서 측정 날짜/지급일/기본급은 필수입력 사항입니다");
+        }catch (DateTimeParseException e){
+            throw new InvalidRequestException("날짜 입력이 올바르지 않습니다.");
+        }
+
     }
     public String deleteEmployee(Long id,HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
@@ -132,7 +166,7 @@ public class EmployeeService {
         return  "정상 삭제되었습니다";
     }
     @Transactional
-    public FreeTemplateDTO saveFreePayrollTemplate(FreeTemplateDTO freeTemplateDTO, HttpServletRequest request){
+    public SaveEmployeeWithTemplateDTO saveFreePayrollTemplate(SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if (!currentUser.getAuthority().getAuthorityName().equals("USER")&&!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
             throw new PermissionDeniedException("회원가입 후 이용이 가능합니다");
@@ -141,69 +175,69 @@ public class EmployeeService {
         if (currentUser.getAuthority().getAuthorityName().equals("USER")&&count<5){
             PayrollTemplate payrollTemplate = new PayrollTemplate(
                     null,
-                    freeTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getSalary(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getBonus(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
                     true,
                     deductionAndTaxRepository.findAll(),
-                    freelancerRepository.findById(freeTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()) .orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
+                    freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()) .orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
                     null);
             PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
             Employee employee = new Employee(
                     null,
-                    freeTemplateDTO.getEmployeeDTO().getName(),
-                    freeTemplateDTO.getEmployeeDTO().getDepartment(),
-                    freeTemplateDTO.getEmployeeDTO().getPosition(),
-                    freeTemplateDTO.getEmployeeDTO().getHireDate(),
-                    freeTemplateDTO.getEmployeeDTO().getPhoneNumber(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getDepartment(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getPosition(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
                     true,
                     true,
                     currentUser,
                     payrollTemplate);
             EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
-            FreeTemplateDTO freeTemplateDTO1 = new FreeTemplateDTO(
+            SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
                     payrollTemplateDTO,
                     employeeDTO
             );
-            return freeTemplateDTO1;
+            return saveEmployeeWithTemplateDTO1;
         }else if (currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
             PayrollTemplate payrollTemplate = new PayrollTemplate(
                     null,
-                    freeTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getSalary(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getBonus(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
-                    freeTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
                     true,
                     deductionAndTaxRepository.findAll(),
-                    freelancerRepository.findById(freeTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()) .orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
+                    freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()) .orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
                     null);
             PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
             Employee employee = new Employee(
                     null,
-                    freeTemplateDTO.getEmployeeDTO().getName(),
-                    freeTemplateDTO.getEmployeeDTO().getDepartment(),
-                    freeTemplateDTO.getEmployeeDTO().getPosition(),
-                    freeTemplateDTO.getEmployeeDTO().getHireDate(),
-                    freeTemplateDTO.getEmployeeDTO().getPhoneNumber(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getDepartment(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getPosition(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
+                    saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
                     true,
                     true,
                     currentUser,
                     payrollTemplate);
             EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
-            FreeTemplateDTO freeTemplateDTO1 = new FreeTemplateDTO(
+            SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
                     payrollTemplateDTO,
                     employeeDTO
             );
-            return freeTemplateDTO1;
+            return saveEmployeeWithTemplateDTO1;
         }else {
             throw new InvalidRequestException("무료 이용 횟수 5회를 초과하였습니다. 추가적인 사용을 원하시면 유료 서비스를 사용해주세요");
         }

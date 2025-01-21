@@ -1,6 +1,7 @@
 package com.dw.dynamic.controller;
 
 import com.dw.dynamic.DTO.PayrollTemplateDTO;
+import com.dw.dynamic.model.PayrollTemplate;
 import com.dw.dynamic.service.PayrollTemplateService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,10 @@ public class PayrollTemplateController {
                 HttpStatus.OK);
     }
 
-    @PostMapping("/save")
-    public ResponseEntity<PayrollTemplateDTO> savePayrollTemplate(@RequestBody PayrollTemplateDTO payrollTemplateDTO ) {
+    @PutMapping("/update")
+    public ResponseEntity<PayrollTemplateDTO> updatePayrollTemplate( @RequestBody PayrollTemplateDTO payrollTemplateDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                payrollTemplateService.savePayrollTemplate(payrollTemplateDTO),
+                payrollTemplateService.updatePayrollTemplate(payrollTemplateDTO,request),
                 HttpStatus.CREATED);
     }
 

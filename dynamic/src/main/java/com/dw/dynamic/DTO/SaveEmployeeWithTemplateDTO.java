@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class FreeTemplateDTO {
+public class SaveEmployeeWithTemplateDTO {
     private  PayrollTemplateDTO payrollTemplateDTO;
 
     private EmployeeDTO employeeDTO;
