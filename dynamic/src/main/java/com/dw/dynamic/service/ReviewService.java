@@ -51,7 +51,7 @@ public class ReviewService {
     public List<ReviewDTO> getReviewsByProductId(String productId) {
         //  Product product = productRepository.findById(productId).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 제품번호입니다"));
         try {
-            return reviewRepository.findByProductId(productId);
+            return reviewRepository.findByProductId(productId).stream().map(Review::toDTO).toList();
         } catch (ResourceNotFoundException e) {
             throw new ResourceNotFoundException("존재하지 않은 제품번호입니다");
         }
