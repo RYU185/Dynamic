@@ -79,8 +79,7 @@ public class PayrollTemplate {
                this.transportAllowance,
                this.otherAllowance,
                deductionAndTaxName,
-               this.freeLancer.getName(),
-               this.employee.getId()
+               this.freeLancer.getName()
        );
 
     }

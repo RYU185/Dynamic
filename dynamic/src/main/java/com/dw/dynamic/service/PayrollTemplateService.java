@@ -68,23 +68,18 @@ public class PayrollTemplateService {
         if (!payrollTemplate.getEmployee().getUser().getUserName().equals(currentUser.getUserName())){
             throw new PermissionDeniedException("다른 유저의 급여명세서를 수정할 수 없습니다");
         }
-        PayrollTemplate payrollTemplate1 = new PayrollTemplate(
-                payrollTemplateDTO.getId(),
-                payrollTemplateDTO.getStartPayrollPeriod(),
-                payrollTemplateDTO.getLastPayrollPeriod(),
-                payrollTemplateDTO.getPaymentDate(),
-                payrollTemplateDTO.getSalary(),
-                payrollTemplateDTO.getBonus(),
-                payrollTemplateDTO.getMealAllowance(),
-                payrollTemplateDTO.getTransportAllowance(),
-                payrollTemplateDTO.getOtherAllowance(),
-                true,
-                deductionAndTaxRepository.findAll(),
-                freelancerRepository.findById(payrollTemplateDTO.getFreeLancerName()).orElseThrow(()->new ResourceNotFoundException("3.3% 여부를 입력해주세요")),
-                employeeRepository.findById(payrollTemplateDTO.getEmployeeId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 직원ID입니다"))
+        List<Employee> employee =  employeeRepository.findByUser(currentUser);
 
-        );
-            return payrollTemplateRepository.save(payrollTemplate1).toDTO();
+        payrollTemplate.setStartPayrollPeriod(payrollTemplateDTO.getStartPayrollPeriod());
+        payrollTemplate.setLastPayrollPeriod(payrollTemplateDTO.getLastPayrollPeriod());
+        payrollTemplate.setSalary(payrollTemplateDTO.getSalary());
+        payrollTemplate.setBonus(payrollTemplateDTO.getBonus());
+        payrollTemplate.setMealAllowance(payrollTemplateDTO.getMealAllowance());
+        payrollTemplate.setTransportAllowance(payrollTemplateDTO.getTransportAllowance());
+        payrollTemplate.setOtherAllowance(payrollTemplateDTO.getOtherAllowance());
+
+
+            return payrollTemplateRepository.save(payrollTemplate).toDTO();
     }
 
 }
