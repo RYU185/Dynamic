@@ -1,6 +1,7 @@
 package com.dw.dynamic.controller;
 
 import com.dw.dynamic.DTO.PurchaseHistoryDTO;
+import com.dw.dynamic.model.PurchaseHistory;
 import com.dw.dynamic.service.PurchaseHistoryService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class PurchaseHistoryController {
     }
 
     @GetMapping("/product-name/{productName}")
-    public ResponseEntity<List<PurchaseHistoryDTO>> getPurchaseHistoryByProductName(@PathVariable String productName,HttpServletRequest request) {
+    public ResponseEntity<List<PurchaseHistory>> getPurchaseHistoryByProductName(@PathVariable String productName, HttpServletRequest request) {
         return new ResponseEntity<>(
                 purchaseHistoryService.getPurchaseHistoryByProductName(productName,request),
                 HttpStatus.OK);

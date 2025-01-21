@@ -44,19 +44,16 @@ public class PurchaseHistoryService {
                 .map(PurchaseHistory::toDTO).orElseThrow(()->new ResourceNotFoundException("찾는 제품 id가 없습니다."));
     }
 
-    public List<PurchaseHistoryDTO> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
+    public List<PurchaseHistory> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
         }
-            List<PurchaseHistoryDTO> courseList = purchaseHistoryRepository.findCourseByTitleLike(productName).stream().map(PurchaseHistory::toDTO).toList();
-            List<PurchaseHistoryDTO> subscriptionList = purchaseHistoryRepository.findPayrollSubscriptionByTitleLike(productName).stream().map(PurchaseHistory::toDTO).toList();
 
-
-            List<PurchaseHistoryDTO> resultAll = new ArrayList<>();
-            resultAll.addAll(courseList);
-            resultAll.addAll(subscriptionList);
-
-            return resultAll;
+        List<PurchaseHistory> purchaseHistory = purchaseHistoryRepository.findByProductNameLike(productName, currentUser.getUserName());
+        if (purchaseHistory.isEmpty()){
+            throw new ResourceNotFoundException("해당 제품명으로 조회되는 구매내역이 없습니다");
         }
+        return purchaseHistory;
+    }
 }
