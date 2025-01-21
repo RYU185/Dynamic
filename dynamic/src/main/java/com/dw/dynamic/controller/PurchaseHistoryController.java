@@ -46,10 +46,10 @@ public class PurchaseHistoryController {
                 HttpStatus.OK
         );
     }
-    @PostMapping("/save")
-    public ResponseEntity<List<PurchaseHistoryDTO>> savePurchaseHistory(@RequestBody List<CartDTO> carts, HttpServletRequest request){
+    @PostMapping("/save/purchase-history-and-user-product")
+    public ResponseEntity<List<PurchaseHistoryDTO>> savePurchaseHistoryAndUserProduct(@RequestBody List<CartDTO> carts, HttpServletRequest request){
         return new ResponseEntity<>(
-                purchaseHistoryService.savePurcharseHistory(carts,request),
+                purchaseHistoryService.savePurchaseHistoryAndUserProduct(carts,request),
                 HttpStatus.OK
         );
     }

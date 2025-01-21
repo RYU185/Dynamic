@@ -80,14 +80,5 @@ public class UserProductService {
         return userProducts.stream().map(UserProduct::toDTO).toList();
     }
 
-    public List<UserProductDTO> saveUserProduct(List<CartDTO> cartDTOS, HttpServletRequest request){
-        User currentUser = userService.getCurrentUser(request);
-        if (currentUser == null) {
-            throw new IllegalArgumentException("올바르지 않은 접근입니다");
-        }
-        List<PurchaseHistoryDTO> purchaseHistoryDTOS = purchaseHistoryService.savePurcharseHistory(cartDTOS, request);
-
-
-    }
 
 }

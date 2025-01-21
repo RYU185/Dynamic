@@ -35,6 +35,9 @@ public class PurchaseHistoryService {
     @Autowired
     CartRepository cartRepository;
 
+    @Autowired
+    UserProductRepository userProductRepository;
+
     public List<PurchaseHistoryDTO> getAllPurchaseHistorys(HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null){
@@ -88,12 +91,13 @@ public class PurchaseHistoryService {
         return purchaseHistory.stream().map(PurchaseHistory::toDTO).toList();
     }
 
-    public List<PurchaseHistoryDTO> savePurcharseHistory(List<CartDTO> cartDTOS, HttpServletRequest request){
+    public List<PurchaseHistoryDTO> savePurchaseHistoryAndUserProduct(List<CartDTO> cartDTOS, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
         }
         List<PurchaseHistory> purchaseHistories = new ArrayList<>();
+        List<UserProduct> userProductList = new ArrayList<>();
         for (CartDTO data : cartDTOS){
             Cart cart1 = cartRepository.findById(data.getCartId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 장바구니ID입니다"));
             if (cart1.getIsActive().equals(false)){
@@ -106,9 +110,15 @@ public class PurchaseHistoryService {
             purchaseHistory.setProduct(product);
             purchaseHistory.setPrice(product.getPrice());
 
+            UserProduct userProduct = new UserProduct();
+            userProduct.setUser(currentUser);
+            userProduct.setProduct(product);
+
             cart1.setIsActive(false);
             purchaseHistories.add(purchaseHistory);
+            userProductList.add(userProduct);
         }
+                    userProductRepository.saveAll(userProductList).stream().map(UserProduct::toDTO).toList();
             return purchaseHistoryRepository.saveAll(purchaseHistories).stream().map(PurchaseHistory::toDTO).toList();
         }
 }
