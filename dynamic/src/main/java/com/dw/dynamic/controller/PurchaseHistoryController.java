@@ -37,5 +37,12 @@ public class PurchaseHistoryController {
                 purchaseHistoryService.getPurchaseHistoryByProductName(productName,request),
                 HttpStatus.OK);
     }
+    @GetMapping("/product-id/{id}")
+    public ResponseEntity<PurchaseHistoryDTO> getPurchaseHistoryByProductId(@PathVariable String id,HttpServletRequest request){
+        return new ResponseEntity<>(
+                purchaseHistoryService.getPurchaseHistoryByProductId(id,request),
+                HttpStatus.OK
+        );
+    }
 
 }
