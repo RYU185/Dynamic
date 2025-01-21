@@ -1,5 +1,7 @@
 package com.dw.dynamic.service;
 
+import com.dw.dynamic.DTO.CartDTO;
+import com.dw.dynamic.DTO.PurchaseHistoryDTO;
 import com.dw.dynamic.DTO.UserProductDTO;
 import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
@@ -7,6 +9,7 @@ import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.model.PurchaseHistory;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.model.UserProduct;
+import com.dw.dynamic.repository.CartRepository;
 import com.dw.dynamic.repository.PurchaseHistoryRepository;
 import com.dw.dynamic.repository.UserProductRepository;
 import com.dw.dynamic.repository.UserRepository;
@@ -22,6 +25,8 @@ public class UserProductService {
     UserProductRepository userProductRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    PurchaseHistoryService purchaseHistoryService;
 
 
     public List<UserProductDTO> getAllUserProducts (HttpServletRequest request){
@@ -73,6 +78,16 @@ public class UserProductService {
         List<UserProduct> userProducts = userProductRepository.findByProductNameLike(currentUser.getUserName(), productName);
 
         return userProducts.stream().map(UserProduct::toDTO).toList();
+    }
+
+    public List<UserProductDTO> saveUserProduct(List<CartDTO> cartDTOS, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        if (currentUser == null) {
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        }
+        List<PurchaseHistoryDTO> purchaseHistoryDTOS = purchaseHistoryService.savePurcharseHistory(cartDTOS, request);
+
+
     }
 
 }
