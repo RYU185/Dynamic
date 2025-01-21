@@ -239,6 +239,7 @@ public class UserService {
         if (userDTO.getCompanyName() !=null){
             currentUser.setCompanyName(userDTO.getCompanyName());
         }
+        currentUser.setExistBusinessOperator(true);
 
         return userRepository.save(currentUser).toDTO();
     }
