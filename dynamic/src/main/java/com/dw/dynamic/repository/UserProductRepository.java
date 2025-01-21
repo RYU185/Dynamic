@@ -1,9 +1,6 @@
 package com.dw.dynamic.repository;
 
-import com.dw.dynamic.model.PayrollSubscription;
-import com.dw.dynamic.model.Product;
-import com.dw.dynamic.model.User;
-import com.dw.dynamic.model.UserProduct;
+import com.dw.dynamic.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -22,6 +19,7 @@ public interface UserProductRepository extends JpaRepository<UserProduct,Long> {
             "and (c.title like %:productName% or ps.title like %:productName%)")
     List<UserProduct> findByProductNameLike(String currentUser, String productName);
 
-    @Query("SELECT ps from PayrollSubscription ps where ps.id = :productId")
-    List<PayrollSubscription> findPayrollSubscriptionByProductId(String productId);
+
+
+
 }

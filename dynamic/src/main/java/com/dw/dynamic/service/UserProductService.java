@@ -33,7 +33,21 @@ public class UserProductService {
         if (currentUser == null){
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
         }
-        return userProductRepository.findByUser(currentUser).stream().map(UserProduct::toDTO).toList();
+
+        return userProductRepository.findByUser(currentUser).stream()
+                .filter(data->{
+                    Product p = data.getProduct();
+                    if (p instanceof PayrollSubscription) {
+                        if (((PayrollSubscription) p).getExpireDate().isBefore(LocalDate.now())) {
+                            return false;
+                        }else {
+                            return true;
+                        }
+                    }else {
+                        return true;
+                    }
+                })
+                .map(UserProduct::toDTO).toList();
 
     }
 
@@ -42,8 +56,19 @@ public class UserProductService {
         if (currentUser == null) {
             throw new IllegalArgumentException("올바르지 않은 접근입니다.");
         }
-        UserProduct userProduct = userProductRepository.findById(id)
-                .orElseThrow(()-> new IllegalArgumentException("올바르지 않은 접근입니다."));
+        UserProduct userProduct = userProductRepository.findById(id).filter(data->{
+            Product p = data.getProduct();
+            if (p instanceof PayrollSubscription) {
+                if (((PayrollSubscription) p).getExpireDate().isBefore(LocalDate.now())) {
+                    return false;
+                }else {
+                    return true;
+                }
+            }else {
+                return true;
+            }
+        })
+                .orElseThrow(()-> new ResourceNotFoundException("조회되지 않은 ID입니다"));
 
         if (!userProduct.getUser().getUserName().equals(currentUser.getUserName())) {
             throw new PermissionDeniedException("해당 유저제품ID로 존재하는 내역이 없습니다");
@@ -59,6 +84,7 @@ public class UserProductService {
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
         }
         UserProduct userProduct = userProductRepository.findByProductId(productId);
+
         if (userProduct==null){
             throw new ResourceNotFoundException("해당 제품을 찾을 수 없습니다");
         }
@@ -77,22 +103,6 @@ public class UserProductService {
         List<UserProduct> userProducts = userProductRepository.findByProductNameLike(currentUser.getUserName(), productName);
 
         return userProducts.stream().map(UserProduct::toDTO).toList();
-    }
-    public String deleteSubcription(String productId,HttpServletRequest request){
-        User currentUser = userService.getCurrentUser(request);
-        if (currentUser == null){
-            throw new IllegalArgumentException("올바르지 않은 접근입니다");
-        }
-       List<PayrollSubscription> payrollSubscriptions = userProductRepository.findPayrollSubscriptionByProductId(productId);
-        for (PayrollSubscription data :payrollSubscriptions){
-             if (data.getExpireDate().isBefore(LocalDate.now())){
-                 UserProduct product = userProductRepository.findByProductId(data.getId());
-                 userProductRepository.delete(product);
-             }else {
-                 throw new InvalidRequestException("아직 만료일이 지나지 않았습니다");
-             }
-        }
-        return "정상 삭제되었습니다";
     }
 
 
