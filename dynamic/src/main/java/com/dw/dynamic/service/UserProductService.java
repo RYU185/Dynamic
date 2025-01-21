@@ -78,16 +78,18 @@ public class UserProductService {
 
         return userProducts.stream().map(UserProduct::toDTO).toList();
     }
-    public String deleteSubcription(HttpServletRequest request){
+    public String deleteSubcription(String productId,HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null){
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
         }
-       List<PayrollSubscription> payrollSubscription = userProductRepository.findPayrollSubscriptionByProduct();
-        for (PayrollSubscription data : payrollSubscription){
-             if (data.getExpireDate() == LocalDate.now()){
+       List<PayrollSubscription> payrollSubscriptions = userProductRepository.findPayrollSubscriptionByProductId(productId);
+        for (PayrollSubscription data :payrollSubscriptions){
+             if (data.getExpireDate().isBefore(LocalDate.now())){
                  UserProduct product = userProductRepository.findByProductId(data.getId());
                  userProductRepository.delete(product);
+             }else {
+                 throw new InvalidRequestException("아직 만료일이 지나지 않았습니다");
              }
         }
         return "정상 삭제되었습니다";
