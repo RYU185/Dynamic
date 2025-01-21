@@ -1,7 +1,9 @@
 package com.dw.dynamic.service;
 
+import com.dw.dynamic.DTO.CartDTO;
 import com.dw.dynamic.DTO.ProductDTO;
 import com.dw.dynamic.DTO.PurchaseHistoryDTO;
+import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.exception.UnauthorizedUserException;
@@ -11,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +31,9 @@ public class PurchaseHistoryService {
     PayrollSubscriptionRepository payrollSubscriptionRepository;
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    CartRepository cartRepository;
 
     public List<PurchaseHistoryDTO> getAllPurchaseHistorys(HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
@@ -81,4 +87,28 @@ public class PurchaseHistoryService {
         }
         return purchaseHistory.stream().map(PurchaseHistory::toDTO).toList();
     }
+
+    public List<PurchaseHistoryDTO> savePurcharseHistory(List<CartDTO> cartDTOS, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        if (currentUser == null) {
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        }
+        List<PurchaseHistory> purchaseHistories = new ArrayList<>();
+        for (CartDTO data : cartDTOS){
+            Cart cart1 = cartRepository.findById(data.getCartId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 장바구니ID입니다"));
+            if (cart1.getIsActive().equals(false)){
+                throw new InvalidRequestException("이미 구매한 제품입니다");
+            }
+            PurchaseHistory purchaseHistory = new PurchaseHistory();
+            purchaseHistory.setPurchaseDate(LocalDate.now());
+            purchaseHistory.setUser(currentUser);
+            Product product = productRepository.findById(data.getProductId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 제품번호입니다"));
+            purchaseHistory.setProduct(product);
+            purchaseHistory.setPrice(product.getPrice());
+
+            cart1.setIsActive(false);
+            purchaseHistories.add(purchaseHistory);
+        }
+            return purchaseHistoryRepository.saveAll(purchaseHistories).stream().map(PurchaseHistory::toDTO).toList();
+        }
 }

@@ -1,6 +1,8 @@
 package com.dw.dynamic.controller;
 
+import com.dw.dynamic.DTO.CartDTO;
 import com.dw.dynamic.DTO.PurchaseHistoryDTO;
+import com.dw.dynamic.model.Cart;
 import com.dw.dynamic.model.PurchaseHistory;
 import com.dw.dynamic.service.PurchaseHistoryService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -41,6 +43,13 @@ public class PurchaseHistoryController {
     public ResponseEntity<PurchaseHistoryDTO> getPurchaseHistoryByProductId(@PathVariable String productId,HttpServletRequest request){
         return new ResponseEntity<>(
                 purchaseHistoryService.getPurchaseHistoryByProductId(productId,request),
+                HttpStatus.OK
+        );
+    }
+    @PostMapping("/save")
+    public ResponseEntity<List<PurchaseHistoryDTO>> savePurchaseHistory(@RequestBody List<CartDTO> carts, HttpServletRequest request){
+        return new ResponseEntity<>(
+                purchaseHistoryService.savePurcharseHistory(carts,request),
                 HttpStatus.OK
         );
     }
