@@ -75,11 +75,16 @@ public class BoardService {
     public String deleteBoard(Long id, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         Board board = boardRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 게시글입니다."));
-        if (!board.getUser().equals(currentUser)){
-            throw new UnauthorizedUserException("본인이 작성한 글에 대해서만 삭제할 수 있습니다");
+        if (board.getUser().equals(currentUser)){
+            board.setIsActive(false);
+            boardRepository.save(board);
+            return "게시판이 정상 삭제되었습니다";
         }
-        board.setIsActive(false);
-        boardRepository.save(board);
-        return "게시판이 정상 삭제되었습니다";
+        if (currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+            board.setIsActive(false);
+            boardRepository.save(board);
+            return "관리자가 게시글을 삭제했습니다";
+        }
+        throw new UnauthorizedUserException("삭제할 권한이 없습니다");
     }
 }
