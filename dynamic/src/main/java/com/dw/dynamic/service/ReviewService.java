@@ -86,11 +86,16 @@ public class ReviewService {
     public String deleteReview(Long id, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         Review review= reviewRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 리뷰입니다."));
-        if (!review.getUser().equals(currentUser)){
-            throw new UnauthorizedUserException("본인이 작성한 리뷰에 대해서만 삭제할 수 있습니다");
+        if (review.getUser().equals(currentUser)){
+            review.setIsActive(false);
+            reviewRepository.save(review);
+            return "리뷰가 정상 삭제되었습니다";
         }
-        review.setIsActive(false);
-        reviewRepository.save(review);
-        return "리뷰가 정상 삭제되었습니다";
+        if (currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+            review.setIsActive(false);
+            reviewRepository.save(review);
+            return "관리자가 해당 리뷰를 삭제하였습니다.";
+        }
+        throw new UnauthorizedUserException("리뷰를 삭제할 권한이 없습니다.");
     }
 }
