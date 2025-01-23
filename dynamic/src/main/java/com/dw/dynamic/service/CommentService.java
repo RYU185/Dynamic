@@ -87,11 +87,16 @@ public class CommentService {
     public String deleteComment(Long id, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         Comment comment = commentRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 댓글입니다."));
-        if (!comment.getUser().equals(currentUser)){
-            throw new UnauthorizedUserException("본인이 작성한 댓글에 대해서만 삭제할 수 있습니다");
+        if (comment.getUser().equals(currentUser)){
+            comment.setIsActive(false);
+            commentRepository.save(comment);
+            return "댓글이 정상 삭제되었습니다.";
         }
-        comment.setIsActive(false);
-        commentRepository.save(comment);
-        return "게시판이 정상 삭제되었습니다";
+        if (currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
+            comment.setIsActive(false);
+            commentRepository.save(comment);
+            return "관리자가 댓글을 삭제하였습니다.";
+        }
+        throw new UnauthorizedUserException("댓글을 삭제할 권한이 없습니다.");
     }
 }
