@@ -102,15 +102,29 @@ public class UserProductService {
         return userProduct.toDTO();
     }
 
-    public List<UserProductDTO> getUserProductByProductName(String productName, HttpServletRequest request){
+    public List<UserProductDTO> getUserProductByProductName(String productName, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-        if (currentUser == null){
-            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        if (currentUser == null) {
+            throw new PermissionDeniedException("올바르지 않은 접근입니다");
         }
 
-        List<UserProduct> userProducts = userProductRepository.findByProductNameLike(currentUser.getUserName(), productName);
+        List<UserProduct> userProduct = userProductRepository
+                .findByProductNameLike(currentUser.getUserName(), productName);
+        if (userProduct.isEmpty()) {
+            throw new ResourceNotFoundException("검색하신 이름의 제품이 없습니다");
+        }
 
-        return userProducts.stream().map(UserProduct::toDTO).toList();
+        for (UserProduct userProduct1 : userProduct) {
+            Product product = userProduct1.getProduct();
+
+            if (product instanceof PayrollSubscription) {
+                PayrollSubscription payrollSubscription = (PayrollSubscription) product;
+                if (payrollSubscription.getExpireDate().isBefore(LocalDate.now())) {
+                    throw new ResourceNotFoundException("구독이 만료된 제품입니다");
+                }
+            }
+        }
+        return userProduct.stream().map(UserProduct::toDTO).toList();
     }
     @Transactional
     public String expireUserProduct(HttpServletRequest request) {
