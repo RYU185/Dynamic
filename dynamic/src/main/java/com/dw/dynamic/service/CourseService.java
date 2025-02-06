@@ -2,6 +2,7 @@ package com.dw.dynamic.service;
 
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
+import com.dw.dynamic.model.Category;
 import com.dw.dynamic.model.Course;
 import com.dw.dynamic.model.Product;
 import com.dw.dynamic.model.User;
@@ -26,19 +27,22 @@ public class CourseService {
     ProductRepository productRepository;
 
     public List<Course> getAllCourses() {
-        return courseRepository.findAll().stream().toList();
+        return courseRepository.findAllWhereProductIsActiveIsTrue();
     }
 
     public Course getCourseById(String id) {
-        return courseRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("존재하지 않는 제품ID입니다 : " + id));
+        try {
+         return  courseRepository.findByIdWhereProductIsActiveIsTrue(id);
+        }catch (ResourceNotFoundException e){
+            throw new ResourceNotFoundException("존재하지 않는 제품ID입니다 : " + id);
+        }
     }
 
     public List<Course> getCoursesByTitle(String title) {
-        if(courseRepository.findByTitleLike("%" + title + "%").isEmpty()){
+        if(courseRepository.findByTitleWhereProductIsActiveIsTrue(title).isEmpty()){
             throw new ResourceNotFoundException("존재하지 않는 제품명입니다: "+title);
         }
-        return courseRepository.findByTitle("%" + title + "%");
+        return courseRepository.findByTitleWhereProductIsActiveIsTrue(title);
     }
 
 //    public String deleteCourse (String title, HttpServletRequest request){
