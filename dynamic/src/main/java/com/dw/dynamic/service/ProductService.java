@@ -8,13 +8,11 @@ import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.model.*;
-import com.dw.dynamic.repository.CategoryRepository;
-import com.dw.dynamic.repository.CourseRepository;
-import com.dw.dynamic.repository.PayrollSubscriptionRepository;
-import com.dw.dynamic.repository.ProductRepository;
+import com.dw.dynamic.repository.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +29,8 @@ public class ProductService {
     CategoryRepository categoryRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    CartRepository cartRepository;
 
     public List<ProductDTO> getAllProducts (){
         return productRepository.findAll().stream().map(Product::toDTO).toList();
@@ -65,16 +65,23 @@ public class ProductService {
         return productRepository.save(product);
     }
     // 관리자 권한으로 제품 삭제
+    @Transactional
     public String deleteProduct(String id,HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if(!currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
             throw new PermissionDeniedException("권한이 없습니다");
         }
         Product product = productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않는 ID입니다"));
+        List<Cart> carts = cartRepository.findByProductId(id);
+        for (Cart cart: carts){
+            if (cart.getIsActive().equals(true)) {
+                cart.setIsActive(false);
+            }
+            cartRepository.save(cart);
+        }
         productRepository.delete(product);
         return "정상 삭제되었습니다";
     }
-
 
     public List<CourseEnrollmentAndIncomeDTO> getCoursesEnrollmentsAndIncomes(HttpServletRequest request){
         try {

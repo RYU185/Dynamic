@@ -3,6 +3,8 @@ package com.dw.dynamic.model;
 import com.dw.dynamic.DTO.CartDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ public class Cart {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Product product;
 
     @Column(name="is_active")
