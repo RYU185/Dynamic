@@ -28,10 +28,10 @@ VALUES
 INSERT INTO category (name) VALUES('강의');
 INSERT INTO category (name) VALUES('정기 구독권');
 
-INSERT INTO product (id,price,category_name) VALUES('C1',15000,'강의');
-INSERT INTO product (id,price,category_name) VALUES('C2',17000,'강의');
-INSERT INTO product (id,price,category_name) VALUES('S1',30000,'정기 구독권');
-INSERT INTO product (id,price,category_name) VALUES('S2',55000,'정기 구독권');
+INSERT INTO product (id,price,category_name,is_active) VALUES('C1',15000,'강의',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('C2',17000,'강의',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S1',30000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S2',55000,'정기 구독권',true);
 
 INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개월 구독권','2025-01-13','2025-04-12','S1');
 INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('6개월 구독권','2025-01-13','2025-07-12','S2');

@@ -24,5 +24,6 @@ public class ProductDTO {
 
     private String category;
 
+    private Boolean isActive;
 
 }

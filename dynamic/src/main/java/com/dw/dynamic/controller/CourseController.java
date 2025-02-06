@@ -41,12 +41,12 @@ public class CourseController {
         );
     }
 
-    @DeleteMapping("/id/{id}")
-    public ResponseEntity<String> deleteCourse(@PathVariable String id, HttpServletRequest request){
-        return new ResponseEntity<>(
-                courseService.deleteCourse(id, request),
-                HttpStatus.OK
-        );
-    }
+//    @DeleteMapping("/id/{id}")
+//    public ResponseEntity<String> deleteCourse(@PathVariable String id, HttpServletRequest request){
+//        return new ResponseEntity<>(
+//                courseService.deleteCourse(id, request),
+//                HttpStatus.OK
+//        );
+//    }
 
 }

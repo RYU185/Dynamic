@@ -37,8 +37,8 @@ public class ProductService {
     }
 
     public List<ProductDTO> getProductsByTitle(String title){
-        List<ProductDTO> courseList = productRepository.findCourseByTitleLike(title).stream().map(Product::toDTO).toList();
-        List<ProductDTO> subscriptionList =productRepository.findPayrollSubscriptionByTitleLike(title).stream().map(Product::toDTO).toList();
+        List<ProductDTO> courseList = productRepository.findCourseByTitleLike(title).stream().map(Product::toDTO).filter(productDTO -> productDTO.getIsActive().equals(true)).toList();
+        List<ProductDTO> subscriptionList =productRepository.findPayrollSubscriptionByTitleLike(title).stream().map(Product::toDTO).filter(productDTO -> productDTO.getIsActive().equals(true)).toList();
 
         List<ProductDTO> resultAll = new ArrayList<>();
         resultAll.addAll(courseList);
@@ -48,7 +48,11 @@ public class ProductService {
     }
 
     public ProductDTO getProductById(String id){
-        return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 ID입니다.")).toDTO();
+        ProductDTO productDTO = productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 ID입니다.")).toDTO();
+        if (productDTO.getIsActive().equals(false)){
+            throw new ResourceNotFoundException("존재하지 않은 ID입니다");
+        }
+        return productDTO;
     }
 
     // 관리자 권한으로 제품 추가
@@ -79,7 +83,8 @@ public class ProductService {
             }
             cartRepository.save(cart);
         }
-        productRepository.delete(product);
+        product.setIsActive(false);
+        productRepository.save(product);
         return "정상 삭제되었습니다";
     }
 

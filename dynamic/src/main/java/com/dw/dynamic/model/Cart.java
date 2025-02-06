@@ -27,7 +27,6 @@ public class Cart {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Product product;
 
     @Column(name="is_active")

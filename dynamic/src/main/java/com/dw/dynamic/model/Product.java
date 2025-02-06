@@ -40,11 +40,15 @@ public class Product {
     @JoinColumn(name = "category_name")
     private Category category; // 제품 - 카테고리 (단방향)
 
+    @Column(name="is_active")
+    private Boolean isActive = true;
+
     public ProductDTO toDTO(){
         return new ProductDTO(
                 this.id,
                 this.price,
-                this.category.getName()
+                this.category.getName(),
+                this.isActive
         );
     }
 

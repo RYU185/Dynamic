@@ -5,6 +5,7 @@ import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.exception.UnauthorizedUserException;
 import com.dw.dynamic.model.Cart;
+import com.dw.dynamic.model.Product;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.repository.CartRepository;
 import com.dw.dynamic.repository.ProductRepository;
@@ -49,11 +50,11 @@ public class CartService {
         if (cartRepository.findById(cartDTO.getCartId()).isPresent()) {
             throw new InvalidRequestException("장바구니에 존재하는 제품입니다");
         }
-
+        Product product=productRepository.findById(cartDTO.getProductId()).filter(p -> p.getIsActive().equals(true)).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 제품ID입니다"));
         Cart cart = new Cart(
                 null,
                 currentUser,
-                productRepository.findById(cartDTO.getProductId()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 제품ID입니다")),
+                product,
                 true
         );
         cart.setUser(currentUser);
