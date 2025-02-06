@@ -46,12 +46,13 @@ UserProductController {
                 HttpStatus.OK);
     }
 
-//    @DeleteMapping("/delete/{productId}")
-//    public ResponseEntity<String> deleteSubscription(@PathVariable String productId,HttpServletRequest request){
-//        return new ResponseEntity<>(
-//                userProductService.deleteSubcription(productId,request),
-//                HttpStatus.OK
-//        );
-//    }
+    @DeleteMapping("/delete")
+    public ResponseEntity<String>expireUserProduct(HttpServletRequest request){
+        return new ResponseEntity<>(
+                userProductService.expireUserProduct(request),
+                HttpStatus.OK
+        );
+    }
 }
+
 

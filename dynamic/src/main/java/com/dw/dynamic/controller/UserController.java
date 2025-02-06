@@ -79,7 +79,7 @@ public class UserController {
     }
 
     @GetMapping("/find-user/email/{email}")
-    public ResponseEntity<String> getIdByEmail(@PathVariable String email) {
+    public ResponseEntity<List<String>> getIdByEmail(@PathVariable String email) {
         return new ResponseEntity<>(
                 userService.getIdByEmail(email),
                 HttpStatus.OK);

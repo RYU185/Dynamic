@@ -4,6 +4,7 @@ import com.dw.dynamic.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface UserProductRepository extends JpaRepository<UserProduct,Long> {
@@ -19,6 +20,8 @@ public interface UserProductRepository extends JpaRepository<UserProduct,Long> {
             "and (c.title like %:productName% or ps.title like %:productName%)")
     List<UserProduct> findByProductNameLike(String currentUser, String productName);
 
+    @Query("select u from UserProduct u join u.product p where type(p) = PayrollSubscription and p.expireDate < :expireDate")
+    List<UserProduct> findExpiredProducts(LocalDate expireDate);
 
 
 

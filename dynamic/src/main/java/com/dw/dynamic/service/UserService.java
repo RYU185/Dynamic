@@ -118,19 +118,20 @@ public class UserService {
         List<User> users = userRepository.findUserByExistBusinessOperator(existBusinessOperator);
 
         if (users.isEmpty()) {
-            throw new ResourceNotFoundException("에러발생 : 기존 사업자 여부를 양식에 맞게 입력해주세요");
+            throw new ResourceNotFoundException("에러발생 : 기존 사업자 여/부를 확인해주세요");
         }
         return userRepository.findUserByExistBusinessOperator(existBusinessOperator)
                 .stream().map(User::toDTO).toList();
     }
 
-    public String getIdByEmail(String email) { // 이메일로 통하여 아이디 찾기
+    public List<String> getIdByEmail(String email) { // 이메일로 통하여 아이디 찾기
 
         User user = userRepository.findByEmail(email);
         if (user == null) {
-            throw new ResourceNotFoundException("존재하지 않는 이메일입니다");
+            throw new ResourceNotFoundException("해당 이메일로 가입한 아이디가 없습니다.");
         }
-        return "아이디는 "+ user.getUserName()+" 입니다.";
+        List<String> userNameList = userRepository.findByUserName(email).stream().map(User::getUserName).toList();
+        return userNameList;
     }
 
     public String ModifyPw(PasswordDTO passwordDTO, HttpServletRequest request) {
@@ -231,16 +232,28 @@ public class UserService {
             throw new IllegalArgumentException("포인트는 수정할 수 없습니다.");
         }
 
-        if (userDTO.getBusinessNumber() !=null){
-            currentUser.setBusinessNumber(userDTO.getBusinessNumber());
+        if (currentUser.getExistBusinessOperator()) {
+            if (userDTO.getBusinessNumber() != null) { // 기존 사업자
+                throw new PermissionDeniedException("기존 사업자는 사업자 번호를 변경하실 수 없습니다");
+            }
+            if (userDTO.getCompanyName() != null) {
+                currentUser.setCompanyName(userDTO.getCompanyName());
+            }
+            if (userDTO.getBusinessType() != null) {
+                currentUser.setBusinessType(userDTO.getBusinessType());
+            }
+        } else {
+            if (userDTO.getBusinessNumber() != null) { // 신규 사업자 등록
+                currentUser.setBusinessNumber(userDTO.getBusinessNumber());
+                currentUser.setExistBusinessOperator(true);
+            }
+            if (userDTO.getBusinessType() != null) {
+                currentUser.setBusinessType(userDTO.getBusinessType());
+            }
+            if (userDTO.getCompanyName() != null) {
+                currentUser.setCompanyName(userDTO.getCompanyName());
+            }
         }
-        if (userDTO.getBusinessType() !=null){
-            currentUser.setBusinessType(userDTO.getBusinessType());
-        }
-        if (userDTO.getCompanyName() !=null){
-            currentUser.setCompanyName(userDTO.getCompanyName());
-        }
-
         return userRepository.save(currentUser).toDTO();
     }
 
