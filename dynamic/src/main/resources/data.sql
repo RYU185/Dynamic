@@ -29,16 +29,23 @@ INSERT INTO category (name) VALUES('강의');
 INSERT INTO category (name) VALUES('정기 구독권');
 
 INSERT INTO product (id,price,category_name) VALUES('C1',15000,'강의');
+INSERT INTO product (id,price,category_name) VALUES('C2',17000,'강의');
 INSERT INTO product (id,price,category_name) VALUES('S1',30000,'정기 구독권');
+INSERT INTO product (id,price,category_name) VALUES('S2',55000,'정기 구독권');
 
 INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개월 구독권','2025-01-13','2025-04-12','S1');
-INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','급여 계산 방법 및  공제 방법에 대한 설명','C1');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('6개월 구독권','2025-01-13','2025-07-12','S2');
+INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','급여 계산 방법 및 공제 방법에 대한 설명','C1');
+INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','사업자 등록 방법에 대한 설명','C2');
 
 INSERT INTO review(text,rating,add_date,modified_date,user_name,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
 INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', false,'2025-01-13','2025-01-16',true,'sangsu1234');
 INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'저도 궁금해요','2025-01-13',true,'sangsu1234');
 
 INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S1',true);
+INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C1',true);
+INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S2',true);
+INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C2',false);
 
 INSERT INTO deduction_and_tax(name, amount) VALUES('건강보험',3.545);
 INSERT INTO deduction_and_tax(name, amount) VALUES('국민연금',4.5);
@@ -63,5 +70,7 @@ VALUES
 ('김철수', '없음', '직원', '2025-01-13','010-1234-5678', 'sangsu1234',1,true,false);
 
 INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('S1','sangsu1234',15000,'2025-01-13');
+INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('C2','sangsu1234',17000,'2025-01-22');
 
 INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','S1');
+INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','C2');
