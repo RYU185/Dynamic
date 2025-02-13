@@ -37,11 +37,11 @@ public class User {
     private Gender gender; // ENUM 수정 필요
 
     @Setter
-    @Column(name="email", nullable = false, unique = true)
+    @Column(name="email", nullable = false)
     private String email;
 
     @Setter
-    @Column(name = "phone_number",nullable = false, unique = true)
+    @Column(name = "phone_number",nullable = false)
     private String phoneNumber;
 
 
