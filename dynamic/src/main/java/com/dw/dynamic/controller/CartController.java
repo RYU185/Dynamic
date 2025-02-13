@@ -25,7 +25,7 @@ public class CartController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/is-active")
+    @GetMapping("/is-active/{true}")
     public ResponseEntity<List<CartDTO>> getAllCartsByIsActive(HttpServletRequest request){
         return new ResponseEntity<>(
                 cartService.getAllCartsByIsActive(request),
