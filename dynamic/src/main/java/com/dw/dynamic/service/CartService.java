@@ -31,6 +31,11 @@ public class CartService {
         return cartRepository.findByUser(currentUser).stream().map(Cart::toDTO).toList();
     }
 
+    public List<CartDTO> getAllCartsByIsActive(HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        return cartRepository.findByIsActive().stream().map(Cart::toDTO).toList();
+    }
+
     public CartDTO getCartById(Long id, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         Cart cart = cartRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않는 ID입니다"));

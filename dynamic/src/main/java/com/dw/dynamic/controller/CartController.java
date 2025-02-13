@@ -1,6 +1,7 @@
 package com.dw.dynamic.controller;
 
 import com.dw.dynamic.DTO.CartDTO;
+import com.dw.dynamic.model.Cart;
 import com.dw.dynamic.service.CartService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,14 @@ public class CartController {
         return new ResponseEntity<>(
                 cartService.getAllCarts(request),
                 HttpStatus.OK);
+    }
+
+    @GetMapping("/is-active")
+    public ResponseEntity<List<CartDTO>> getAllCartsByIsActive(HttpServletRequest request){
+        return new ResponseEntity<>(
+                cartService.getAllCartsByIsActive(request),
+                HttpStatus.OK
+        );
     }
 
     @GetMapping("/id/{id}")
