@@ -51,6 +51,7 @@
             </header>
 
             <!-- section -->
+             <!-- 강의 구매내역 정렬 -->
             <section>
                 <div class="myCoursePurchaseHistory">
                     <div class="wrapCourse">
@@ -58,11 +59,11 @@
                         <hr />
                         <br />
                         <div class="searchBar">
-                            <p>직원명 : <input /></p>
+                            <p><input type="text" placeholder="강의명을 입력하세요" /></p>
                         </div>
                     </div>
 
-                    <!-- 강의 카드 목록 -->
+                    <!-- 강의 카드 정렬 -->
                     <div class="courseList">
                         <div class="course">
                             <article>
@@ -107,18 +108,88 @@
 
             <!-- JS 필요 -->
             <div class="pageBar">
-                <ul>
-                    <li><a href="#">&lt;&lt;</a></li>
-                    <li><a href="#">&lt;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">&gt;</a></li>
-                </ul>
+                <div class="wrap-pageBar">
+                    <ul>
+                        <li><a href="#">&lt;&lt;</a></li>
+                        <li><a href="#">&lt;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&gt;</a></li>
+                        <li><a href="#">&gt;&gt;</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <section></section>
+            <!-- 구독권 구매내역 정렬 -->
+            <section>
+                <div class="mySubscPurchaseHistory">
+                    <div class="wrapSubsc">
+                        <hr />
+                        <br />
+                        <div class="searchBar">
+                            <p><input type="text" placeholder=" 구독권을 입력하세요" /></p>
+                        </div>
+                    </div>
+
+                    <!-- 구독권 카드 목록 -->
+                    <div class="subscList">
+                        <div class="subsc">
+                            <article>
+                                <div class="thumbnail">
+                                    <img
+                                        src="../img/number1.png"
+                                        alt="1번째 구독권"
+                                    />
+                                </div>
+                                <h2>1개월 구독권</h2>
+                                <p>시작일: 2023.04.12</p>
+                                <p>종료일: 2023.05.11</p>
+                            </article>
+
+                            <article>
+                                <div class="thumbnail">
+                                    <img
+                                        src="../img/number3.png"
+                                        alt="2번째 구독권"
+                                    />
+                                </div>
+                                <h2>3개월 구독권</h2>
+                                <p>시작일: 2024.11.02</p>
+                                <p>종료일: 2024.01.01</p>
+                            </article>
+
+                            <article>
+                                <div class="thumbnail">
+                                    <img
+                                        src="../img/number5.png"
+                                        alt="3번째 구독권"
+                                    />
+                                </div>
+                                <h2>5개월 구독권</h2>
+                                <p>시작일: 2024.11.05</p>
+                                <p>종료일: 2025.03.04</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- JS 필요 -->
+            <div class="pageBar">
+                <div class="wrap-pageBar">
+                    <ul>
+                        <li><a href="#">&lt;&lt;</a></li>
+                        <li><a href="#">&lt;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&gt;</a></li>
+                        <li><a href="#">&gt;&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+            </section>
 
             <footer></footer>
         </div>

@@ -92,7 +92,7 @@ section .myCoursePurchaseHistory .wrapCourse h1 {
     padding-bottom: 16px;
 }
 
-section .myCoursePurchaseHistory .wrapCourse p {
+section .myCoursePurchaseHistory .wrapCourse .searchBar p {
     display: block;
     font: bold 30px/1 "arial";
     color: #0241b6;
@@ -101,13 +101,20 @@ section .myCoursePurchaseHistory .wrapCourse p {
 
 section .myCoursePurchaseHistory .wrapCourse p input {
     width: 300px;
-    height: 32px;
-    border: 2px solid #0a60ff;
+    height: 45px;
+    border: 5px solid #0241b6;
     font-size: 26px;
+    outline: none;
+    text-align: center;
+    color: #abddff;
+}
+
+section .myCoursePurchaseHistory .wrapCourse p input::placeholder {
+    color: #9fd8ff;
 }
 
 section .myCoursePurchaseHistory .courseList {
-    width: 1180px;
+    width: 100%;
     margin: 0px auto;
     padding: 25px;
 }
@@ -166,8 +173,105 @@ section .myCoursePurchaseHistory .courseList {
     position: relative;
 }
 
-.pageBar ul {
-    width: 50%;
-    display: flex;
+.pageBar .wrap-pageBar {
+    width: 100%;
     text-align: center;
+}
+
+.pageBar .wrap-pageBar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.pageBar .wrap-pageBar ul li {
+    margin: 0 5px;
+}
+
+.pageBar .wrap-pageBar ul li a {
+    font: bold 24px/1 "arial";
+    color: #0241b6;
+}
+
+.mySubscPurchaseHistory {
+    width: 100%;
+    padding: 20px;
+}
+
+.mySubscPurchaseHistory .wrapSubsc {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.mySubscPurchaseHistory .wrapSubsc .searchBar {
+    text-align: center;
+    padding-top: 10px;
+    font: bold 30px/1 "arial";
+    color: #0241b6;
+    margin: 0 auto;
+}
+
+.mySubscPurchaseHistory .wrapSubsc .searchBar input {
+    width: 300px;
+    height: 45px;
+    border: 5px solid #0241b6;
+    font-size: 26px;
+    outline: none;
+    text-align: center;
+    color: #25a8ff;
+}
+
+.mySubscPurchaseHistory .wrapSubsc .searchBar input::placeholder {
+    color: #9fd8ff;
+}
+
+.mySubscPurchaseHistory .subscList {
+    width: 100%;
+    margin: 0px auto;
+    padding: 25px;
+}
+
+.mySubscPurchaseHistory .subscList .subsc {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.mySubscPurchaseHistory .subscList .subsc article {
+    width: 280px;
+    height: 320px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #25a8ff;
+}
+
+.mySubscPurchaseHistory .subscList .subsc article .thumbnail {
+    width: 100%;
+    height: 160px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.mySubscPurchaseHistory .subscList .subsc article .thumbnail img {
+    object-fit: cover;
+    border: 2px solid #0241b6;
+    border-radius: 20px;
+    width: 90%;
+    height: 90%;
+}
+
+.mySubscPurchaseHistory .subscList .subsc article h2 {
+    float: left;
+    padding-left: 13px;
+    clear: both;
+}
+
+.mySubscPurchaseHistory .subscList .subsc article p {
+    clear: both;
+    float: left;
+    padding: 15px 0 0 15px;
 }
