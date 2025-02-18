@@ -10,4 +10,10 @@ public class ViewController {
     public String index() {
         return "forward:/index.html";
     }
+
+
+    @GetMapping("/dynamic/myPurchaseHistory.html")
+    public String myPurchaseHistory() {
+        return "forward:/myPurchaseHistory.html";
+    }
 }
