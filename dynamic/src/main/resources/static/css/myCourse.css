@@ -18,50 +18,153 @@ hr {
     opacity: 0.2;
 }
 
+/* header */
 .wrap {
     margin: 20px 20% 20px 20%;
 }
 
-/* header */
-header {
+
+.wrap header {
     width: 100%;
     background-color: #fff;
 }
 
-header .inner {
+.wrap header .inner {
     width: 100%;
     height: 70px;
     margin: 0px auto;
     position: relative;
 }
 
-header .inner .upper {
+.wrap header .inner .upper {
     width: 100%;
+    height: 70px;
     margin: 0px auto;
     display: flex;
     justify-content: space-between;
 }
 
-header .inner .upper li {
+.wrap header .inner .upper li {
     border-radius: 1px 0 solid;
     display: block;
     margin-top: 25px;
     text-align: center;
-    line-height: 70px;
+    line-height: 70px;  
 }
 
-header .inner .upper li a {
+.wrap header .inner .upper li a {
     color: black;
     display: block;
     font: bold 16px/1 "arial";
     text-decoration: none;
     text-align: center;
-    line-height: 70px;
+
     padding-bottom: 10px;
+    line-height: 70px;
 }
 
-header .inner .upper li img {
+.wrap header .inner .upper li img {
     object-fit: cover;
-    width: 10%;
-    height: 10%;
+    width: 30px;
+    height: 30px;
 }
+
+
+/* section */
+
+section {
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+}
+
+section .titlewrap {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+section .titlewrap .coursetitle{
+    display: block;
+    margin: 0 auto;
+    width: 460px;
+}
+
+section .titlewrap .coursetitle h1 {
+    font: bold 50px/1 "arial";
+    color: #0241b6;
+    padding-bottom: 16px;
+}
+
+section .titlewrap .searchBar {
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+section .titlewrap .searchBar p {
+    font: bold 30px/1 "arial";
+    color: #0241b6;
+} 
+
+section .titlewrap .searchBar p input {
+    width: 300px;
+    height: 45px;
+    border: 5px solid #0241b6;
+    font: 30px/1  "arial";
+    outline: none;
+    text-align: center;
+    color: #465c6b;
+}
+
+
+section .titlewrap .searchBar p input::placeholder {
+    color: #465c6b;
+    font: 20px/1 "arial";
+}
+
+section .titlewrap .searchBar p input:focus::placeholder {
+    color: transparent;
+}
+
+section .wrap{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 35px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+section .wrap .card {
+    width: 280px;
+    height: 320px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #25a8ff;
+    text-align: center;
+}
+
+section .wrap .card p{
+    float: left;
+    padding-left: 15px;
+}
+
+section .wrap .card .pic {
+    width: 100%;
+    height: 160px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+section .wrap .card .pic img {
+    object-fit: cover;
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    border: 2px solid #0241b6;
+}
+
