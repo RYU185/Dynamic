@@ -1,0 +1,238 @@
+@charset 'utf-8';
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+ul,
+ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+hr {
+    border-color: #4c6b7e;
+    opacity: 0.2;
+}
+
+.wrap {
+    margin: 20px 20% 20px 20%;
+}
+
+/* header */
+header {
+    width: 100%;
+    background-color: #fff;
+}
+
+header .inner {
+    width: 100%;
+    height: 70px;
+    margin: 0px auto;
+    position: relative;
+}
+
+header .inner .upper {
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .inner .upper li {
+    border-radius: 1px 0 solid;
+    margin-top: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header .inner .upper li a {
+    display: block;
+    color: black;
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+header .inner .upper li a span{
+    width: 120px;
+    font: 20px 'arial';
+    text-align: left;
+}
+
+header .inner .upper li a img{
+    object-fit: contain;
+    width: 50px;
+    height: 30px;
+}
+header .inner .upper li img {
+    object-fit: cover;
+    width: 10%;
+    height: 10%;
+}
+
+section{
+    width: 100%;
+    padding-top: 80px;
+}
+
+section .inner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section .inner h1{
+    padding: 10px;
+    width: 850px;
+    font: bold 80px 'arial';
+    text-align: center;
+    border: 1px solid rgb(231, 247, 250);
+    border-radius: 30px;
+    background-color:rgb(231, 247, 250);
+}
+
+main{
+    width: 100%;
+    padding-top: 50px;
+}
+
+main .inner {
+    width: 100%;
+}
+
+main .inner .util{
+    width: 100%;
+    height: 700px;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+main .inner .util .upper{
+    width: 100%;
+    height: 40px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+main .inner .util .upper div{
+    text-align: center;
+    padding: 1px;
+
+}
+main .inner .util .upper div:first-child{
+    margin-top: 1px;
+    width: 170px;
+    height: 30px;
+    font: bold 20px "arial";
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+main .inner .util .upper div:nth-child(2){ 
+    margin-top: 1px;
+    width: 200px;
+    height: 30px ;
+    background-color: rgb(216, 216, 216);
+    font: bold 15px "arial";
+    border: 1px solid black;
+    display: flex;
+   justify-content:space-between;
+}
+main .inner .util .upper div:nth-child(2) input{
+    width: 140px;
+}
+main .inner .util .upper div:nth-child(2) img{
+    padding-top: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+main .inner .util .upper div:nth-child(3){
+    display: flex;
+    justify-content:space-between;
+    width: 150px;
+    height: 30px ;
+   
+}
+main .inner .util .upper div:nth-child(3) img{
+    /* margin-top: 4px; */
+    width: 50px;
+    height: 30px;
+    margin-right: 2px;
+}
+
+main .inner .util .upper div:nth-child(3) div{
+    text-align: center;
+    font: bold 20px "arial";
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-left: 20px;
+}
+
+main .inner .util .down{
+    width: 100%;
+    height: 600px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    
+}
+
+main .inner .util .down .box{
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 250px;
+}
+
+main .inner .util .down .box .img{
+    width: 100%;
+    height: 350px;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+
+    
+}
+
+main .inner .util .down .box .img img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+main .inner .util .down .box .info{
+    margin-top: 10px;
+    width:80%;
+    /* border: 1px solid black; */
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main .inner .util .down .box .info .info_name{
+    font: bold 16px "arial";
+    width: 50%;
+    height: 30px;
+    padding: 2px;
+    /* border: 1px solid black; */
+    text-align: end;
+    line-height: 30px;
+}
+
+main .inner .util .down .box .info .information{
+    font: 16px "arial";
+    width: 50%;
+    height: 30px;
+    /* border: 1px solid black; */
+    text-align:left;
+    padding-left: 5px;
+    line-height: 30px;
+}

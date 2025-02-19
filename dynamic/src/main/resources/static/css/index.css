@@ -260,7 +260,7 @@ main .inner nav > ul > li:hover > ul{
 
   .pop-up{
     width: 100%;
-    display: none;
+    /* display: none; */
   }
 
   .pop-up .overlay{
@@ -278,12 +278,13 @@ main .inner nav > ul > li:hover > ul{
     height: 800px;
     position: absolute;
     top: 120px;
-    left: 110px;
+    left : 260px;
     margin: 0 auto;
     background-color: white;
     opacity: 1;
     border : 3px solid #000000;
     border-radius:10px;
+    
   
   }
   .pop-up  .payrolltemplate h1{
@@ -314,6 +315,7 @@ main .inner nav > ul > li:hover > ul{
     border: none;
     outline: none;
     width: 120px;
+    font: 15px "arial";
   }
   .pop-up  .payrolltemplate .template tr:last-child td:first-child{
     font: bold 15px/1 "arial";
