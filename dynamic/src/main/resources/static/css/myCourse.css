@@ -106,16 +106,18 @@ section .titlewrap .coursetitle h1 {
 section .titlewrap .searchBar {
     width: 100%;
     margin: 0 auto;
+    
 
 }
 
 section .titlewrap .searchBar p {
     font: bold 30px/1 "arial";
     color: #0241b6;
+    
 } 
 
 section .titlewrap .searchBar p input {
-    width: 300px;
+    width: 500px;
     height: 45px;
     border: 5px solid #0241b6;
     font: 30px/1  "arial";
@@ -123,6 +125,12 @@ section .titlewrap .searchBar p input {
     text-align: center;
     color: #465c6b;
 }
+
+/* section .titlewrap .searchBar img {
+    width: 30px;
+    height: 30px;
+    position: relative;
+} */
 
 
 section .titlewrap .searchBar p input::placeholder {
@@ -179,6 +187,7 @@ section .cardwrap .card .pic img {
     border: 2px solid #0241b6;
 }
 
+/* 팝업 모달 */
 .modal {
     width: 100%;
     height: 100%;
@@ -187,35 +196,67 @@ section .cardwrap .card .pic img {
     left: 0;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
-    /* display: none; */
+    display: none;
     justify-content: center;
-    text-align: center;
+   
     align-items: center;
 }
 
 .modal .course-content {
-    width: 1180px;
-    height: 800px;
+    width: 1080px;
+    height: 90%;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 20px;
+    overflow: scroll;
+}
+
+#pop-up:target{
+    display: flex;
 }
 
 .modal .course-content .title{
     width: 1000px;
     margin: 0 auto;
     margin-top: 45px;
+    margin-left: 20px;
     padding: 10px 10px;
-    background-color: rgb(196, 196, 196);
-    position: relative;
-    border: 2px solid #7a7a7a; 
+    background-color: #ffffff;
+    text-align: left; 
+    
+}
+
+.modal .course-content .title h1 {
+    font: bold 35px/1 "arial";
+}
+
+.modal .course-content .video {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 45px;
+    border: 5px solid #3e6fca; 
+    border-radius: 30px;
+}
+
+.modal .course-content .video img{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
     border-radius: 20px;
+    
 }
 
-.modal .course-content .title .h1 {
-    font: 35px/1 "arial";
-
+.modal .course-content .description{
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 45px;
+    padding: 15px;
+    border: 5px solid #3e6fca; 
+    border-radius: 30px;
+    text-align: left;
 }
+
+
 
 
 
