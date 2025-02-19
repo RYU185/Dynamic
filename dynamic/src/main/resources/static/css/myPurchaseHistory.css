@@ -104,15 +104,31 @@ section .myCoursePurchaseHistory .wrapCourse h1 {
     padding-bottom: 16px;
 }
 
-section .myCoursePurchaseHistory .wrapCourse .searchBar p {
-    display: block;
-    font: bold 30px/1 "arial";
-    color: #0241b6;
+section .myCoursePurchaseHistory .wrapCourse .searchBar {
+    width: 100%;
     margin: 0 auto;
+    display: flex; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+    
+    gap: 10px;
 }
 
+section .myCoursePurchaseHistory .wrapCourse .searchBar p {
+    margin: 0;
+    font: bold 30px/1 "arial";
+    color: #0241b6;
+}
+
+section .myCoursePurchaseHistory .wrapCourse .searchBar img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
 section .myCoursePurchaseHistory .wrapCourse p input {
-    width: 300px;
+    width: 500px;
     height: 45px;
     border: 5px solid #0241b6;
     font: 30px/1  "arial";
@@ -120,6 +136,8 @@ section .myCoursePurchaseHistory .wrapCourse p input {
     text-align: center;
     color: #465c6b;
 }
+
+
 
 section .myCoursePurchaseHistory .wrapCourse p input::placeholder {
     color: #465c6b;
@@ -221,22 +239,31 @@ section .myCoursePurchaseHistory .courseList {
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar {
-    text-align: center;
-    padding-top: 10px;
-    font: bold 30px/1 "arial";
-    color: #0241b6;
+    width: 100%;
     margin: 0 auto;
+    display: flex; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+    
+    gap: 10px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar input {
-    width: 300px;
+    width: 500px;
     height: 45px;
     border: 5px solid #0241b6;
-    font-size: 30px/1 "arial";
+    font: 30px/1 "arial";
     outline: none;
     text-align: center;
     color: #465c46;
 }
+
+.mySubscPurchaseHistory .wrapSubsc .searchBar img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar input::placeholder {
     color: #465c46;
