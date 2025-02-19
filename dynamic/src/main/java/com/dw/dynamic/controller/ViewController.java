@@ -16,9 +16,9 @@ public class ViewController {
         return "forward:/myPurchaseHistory.html";
     }
 
-    @GetMapping("/dynamic/businessoperator_1.html")
+    @GetMapping("/dynamic/businessoperator_true.html")
     public String businessoperator_1() {
-        return "forward:/businessoperator_1.html";
+        return "forward:/businessoperator_true.html";
     }
 
     @GetMapping("/dynamic/employee_information.html")
