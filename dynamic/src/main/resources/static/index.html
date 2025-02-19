@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="wrap">
+<div class="wrap">
     <header>
         <div class="inner">
             <ul class="util">
@@ -31,18 +31,18 @@
                 <div class="login_box">
                     <div class="input_item_id">
                         <label for="id" class="text_label" >아이디 </label>
-                        <input type="text" id="id" name="id" maxlength="41" class="input" placeholder="아이디">                       
+                        <input type="text" id="id" name="id" maxlength="41" class="input" placeholder="아이디">
                     </div>
                     <div class="input_item_pw" >
                         <label for="pw" class="text_label" id="pw_label" >비밀번호 </label>
-                        <input type="password" id="pw" name="pw"  maxlength="16"  class="input"placeholder="비밀번호">                  
+                        <input type="password" id="pw" name="pw"  maxlength="16"  class="input"placeholder="비밀번호">
                     </div>
                 </div>
                 <input type="submit" id="submit" value="LOGIN" onsubmit="return false;">
                 <ul>
                     <li class="find_regist"><a href="#">아이디 찾기</a></li>
                     <li class="find_regist"> <a href="#">회원가입</a></li>
-                </ul>               
+                </ul>
             </div>
         </div>
     </section>
@@ -66,14 +66,14 @@
                             <li><a href="#">정기 구독권</a></li>
                             <li><a href="#">무료 체험 서비스</a></li>
                         </ul>
-                    </li>    
+                    </li>
                     <li><a href="#">고객 지원</a>
                         <ul>
                             <li><a href="#">공지사항</a></li>
                             <li><a href="#">서식 자료실</a></li>
                             <li><a href="#">가이드</a></li>
                         </ul>
-                    </li>                   
+                    </li>
                 </ul>
             </nav>
             <div class="banner-notice">
@@ -96,7 +96,83 @@
                     <img src="./img/임시 배너 이미지.png" alt="배너이미지">
                 </div>
             </div>
-        </div> 
+            <div class="payrolltemplate">
+                <h1>무료 급여명세서</h1>
+                <br>
+                <table class="template" >
+                    <tr>
+                        <td>급여</td>
+                        <td><input type="text" id="salary" name="salary" class="element"></td>
+                        <td>건강보험</td>
+                        <td><input type="text" id="health_insurance" name="health_insurance" class="element"></td>
+                    </tr>
+                    <tr>
+                        <td>인센티브</td>
+                        <td><input type="text" id="bonus" name="bonus" class="element"></td>
+                        <td>국민연금</td>
+                        <td><input type="text" id="national_pension" name="national_pension"class="element"></td>
+                    </tr>
+                    <tr>
+                        <td>식대</td>
+                        <td><input type="text" id="meal"  name="meal" class="element"></td>
+                        <td>고용보험</td>
+                        <td><input type="text" id="employeement_insurance" name="employeement_insurance"class="element"></td>
+                    </tr>
+                    <tr>
+                        <td>교통비</td>
+                        <td><input type="text" id="transfer" name="transfer"class="element"></td>
+                        <td>소득세</td>
+                        <td><input type="text" id="income_tax" name="income_tax"class="element"></td>
+                    </tr>
+                    <tr>
+                        <td>야간수당</td>
+                        <td><input type="text" id="night" name="night"class="element"></td>
+                        <td>지방세</td>
+                        <td><input type="text" id="local_tax" name="local_tax"class="element"></td>
+                    </tr>
+                    <tr>
+                        <td>휴일수당</td>
+                        <td><input type="text" id="holiday" name="holiday"class="element"></td>
+                        <td>3%</td>
+                        <td><input type="text" id="3%" name="3%"class="element"></td>
+                    </tr>
+                    <tr>
+                        <td>기타</td>
+                        <td><input type="text" id="other_allowance" name="other_allowance"class="element"></td>
+                        <td>0.3%</td>
+                        <td><input type="text" id="0.3%" name="0.3%"class="element"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>기타</td>
+                        <td><input type="text" id="other" name="other"class="element"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>총 공제액</td>
+                        <td><input type="text" id="total_insurance" name="total_insurance"class="element"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td >총 급여액</td>
+                        <td><input type="text" id="total" name="total" class="element"></td>
+                        <td>차인 지급액</td>
+                        <td><input type="text" id="other" name="other"class="element"></td>
+                    </tr>
+
+                </table>
+                <div class="buttom">
+                    <input type="submit" id="send" value="전송" onsubmit="return false;">
+                    <span> 무료횟수 <p>5/5</p></span>
+                </div>
+                <div class="left">
+                    <input type="button" id="information" value="정보입력" onsubmit="return false;">
+                    <input type="button" id="calender" value="달력"  >
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer>
         <div class="inner">
