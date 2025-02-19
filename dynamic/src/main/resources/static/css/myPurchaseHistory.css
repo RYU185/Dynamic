@@ -148,6 +148,9 @@ section .myCoursePurchaseHistory .wrapCourse p input:focus::placeholder {
     color: transparent; 
 }
 
+/* <!-- 수정 필요 : 페이지 목록보다는 양 옆 화살표로 페이지 넘기는 방식 --> */
+/* 이미지 + 구역 정렬 필요 */
+
 section .myCoursePurchaseHistory .courseList {
     width: 100%;
     margin: 0px auto;
