@@ -92,5 +92,54 @@ section .allCourse {
 }
 
 section .allCourse .wrapCourse{
+    width: 100%;
+    display: block;
+    padding-bottom: 20px;
+}
+
+section .allCourse .wrapCourse h1{
+    font: bold 50px/1 "arial";
+    color: #0241b6;
+    padding-bottom: 16px;
+}
+
+section .allCourse .wrapCourse .searchBar{
+    width: 100%;
+    margin: 0 auto;
+    display: flex; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+    justify-content: center; /* 가운데 정렬 */
     
+    gap: 10px;
+}
+
+section .allCourse .wrapCourse .searchBar p {
+    margin: 0;
+    font: bold 30px/1 "arial";
+    color: #0241b6;
+}
+
+section .allCourse .wrapCourse .searchBar img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+section .allCourse .wrapCourse .searchBar p input {
+    width: 500px;
+    height: 45px;
+    border: 5px solid #0241b6;
+    font: 30px/1  "arial";
+    outline: none;
+    text-align: center;
+    color: #465c6b;
+}
+
+section .allCourse .wrapCourse .searchBar p input::placeholder{
+    color: #465c6b;
+    font: 30px/1 "arial";
+}
+
+section .allCourse .wrapCourse .searchBar p input:focus::placeholder{
+    color: transparent; 
 }
