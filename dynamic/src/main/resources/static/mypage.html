@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyPage</title>
+    <link rel="stylesheet" href="/css/mypage.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="inner">
+          <ul class="util">
+            <li>
+              <a href="#"><img src="./img/임시 로고.png" alt="홈" /><span>홈</span></a>
+            </li>
+            <li>
+              <a href="#"><img src="./img/임시 로고.png" alt="제품" /><span>제품</span></a>
+            </li>
+            <li>
+              <a href="#"><img src="./img/임시 로고.png" alt="게시판" /><span>게시판</span></a>
+            </li>
+            <li>
+              <label for="search">검색</label>
+              <input
+                type="text"
+                id="search"
+                placeholder="검색어를 입력하세요"
+              />
+              <button type="submit" onsubmit="return false;">
+                <img src="./img/임시 로고.png" alt="검색버튼" />
+              </button>
+            </li>
+          </ul>
+          <hr />
+        </div>
+      </header>
+
+      <section>
+        <div class="inner">
+          <h1>마이 페이지</h1>
+
+          <div class="after_login_form">
+            <div class="upper">
+              <img src="./img/임시 로고.png" alt="로고" />
+              <ul>
+                <li>
+                  <a href="#"
+                    ><img src="./img/임시 로고.png" alt="알람버튼"
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="./img/임시 로고.png" alt="로그아웃 버튼"
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="./img/임시 로고.png" alt="설정 버튼"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+            <hr />
+            <div class="after_login_box">
+              <div class="input_item_name">
+                <label for="name" class="text_label">성함 </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  maxlength="10"
+                  class="input"
+                />
+              </div>
+              <div class="input_item_business_num">
+                <label for="business_num" class="text_label" id="business_num"
+                  >사업자번호</label
+                >
+                <input
+                  type="text"
+                  id="pw"
+                  name="pw"
+                  maxlength="12"
+                  class="input"
+                />
+              </div>
+            </div>
+            <div class="lower">
+              <ul>
+                <li>
+                  <a href="#"
+                    ><img
+                      src="./img/임시 로고.png"
+                      alt="마이페이지 버튼"
+                    />마이페이지</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><img
+                      src="./img/임시 로고.png"
+                      alt="장바구니 버튼"
+                    />장바구니</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <main>
+        <div class="inner">
+          <div class="util">
+            <ul>
+              <li><a href="#">프로필 관리 및
+                 포인트 조회</a></li>
+              <li><a href="#">나의 강의
+                 목록</a></li>
+              <li><a href="#">나의 급여명세서
+                 목록</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">미니 게임</a></li>
+              <li><a href="#">나의 구매내역</a></li>
+              <li><a href="#">직원/알바생 정보
+                 조회 및 수정</a></li>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="inner">
+          <a href="#">가이드</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
