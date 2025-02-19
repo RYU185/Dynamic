@@ -38,7 +38,6 @@ header .inner {
 
 header .inner .upper {
     width: 100%;
-    height: 70px;
     margin: 0px auto;
     display: flex;
     justify-content: space-between;
@@ -46,28 +45,38 @@ header .inner .upper {
 
 header .inner .upper li {
     border-radius: 1px 0 solid;
-    display: block;
     margin-top: 25px;
     text-align: center;
-    line-height: 70px;
+    margin-bottom: 10px;
 }
 
 header .inner .upper li a {
-    color: black;
     display: block;
-    font: bold 16px/1 "arial";
-    text-decoration: none;
-    text-align: center;
-    
-    padding-bottom: 10px;
-    line-height: 70px;
+    color: black;
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+header .inner .upper li a span{
+    width: 120px;
+    font: 20px 'arial';
+    text-align: left;
+
+}
+
+header .inner .upper li a img {
+    object-fit: contain;
+    width: 50px;
+    height: 30px;
 }
 
 header .inner .upper li img {
     object-fit: cover;
-    width: 30px;
-    height: 30px;
+    width: 10%;
+    height: 10%;
 }
+
 
 /* section */
 
