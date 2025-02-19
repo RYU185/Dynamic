@@ -76,3 +76,21 @@ header .inner .upper li img {
     width: 10%;
     height: 10%;
 }
+
+/* section */
+
+section {
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+}
+
+section .allCourse {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+section .allCourse .wrapCourse{
+    
+}
