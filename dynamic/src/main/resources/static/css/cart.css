@@ -15,7 +15,7 @@ a {
 
 hr {
     border-color: #4c6b7e;
-    opacity: 0.2;
+    opacity: 0.6;
 }
 
 /* header */
@@ -83,18 +83,76 @@ section{
     width: 100%;
     padding-top: 20px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-title{
+    margin-top: 20px;
+    font: 45px;
+    display: flex;
+    position: absolute;
+    top: 0;
+}
+
+.main-title h1{
+    font: bold 50px/1 "arial";
+    color: #0241b6;
+
 }
 
 .wrap-section {
-    width: 95%;
+    width: 80%;
+    margin-top: 40px;
     padding: 20px;
-    border: 2px solid;
 }
 
-.course-item{
+
+
+.course-item{   
     width: 100%;
+    
 }
 
-.course-item .title {
+.title {
+    width: 40%;
+    display: flex;
+    text-align: center;
+    border: 5px solid #0241b6;
+    /* background: #0241b6;
+    color: #fff; */
+    margin: 20px;
+    padding: 9px 9px 9px 25px;
+    border-radius: 25px;
+}
+
+.title h1{
+    font: bold 24px "arial";
+    color: #0241b6;
+}
+
+.item-wrap {
+    width: 100%;
+    height: 800px;
+    border: 5px solid #0241b6;
+    border-radius: 25px;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+}
+
+.item-wrap .checkbox-wrap {
+    width: 100%;
+    border: 1px solid #e9e9e9 ;
+    display: flex;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.1)
+}
+
+.item-wrap .checkbox-wrap p input {
     
+
 }
