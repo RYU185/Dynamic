@@ -140,19 +140,58 @@ section{
     margin: 20px;
     padding: 20px;
     display: flex;
+    justify-content: center;
 }
 
 .item-wrap .checkbox-wrap {
     width: 100%;
-    border: 1px solid #e9e9e9 ;
-    display: flex;
+    border: none;
     margin: 10px;
     padding: 30px;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.1)
+    background-color: rgba(82, 79, 255, 0.1);
+    
 }
 
-.item-wrap .checkbox-wrap p input {
-    
+.item-wrap .checkbox-wrap .checkValue {
 
+    border: 15px solid #00548b;
+    border-bottom: none;
+    border-radius: 20px 20px 0 0 ;
+    height: 70px;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.item-wrap .checkbox-wrap .checkValue p {
+    font: bold 24px/1 "arial";
+}
+
+.item-wrap .checkbox-wrap .checkValue .delete{
+    width: 80px;
+    height: 30px;
+    line-height: 25px;
+    margin-left: 40px;
+    border: 1px solid #c0c0c0;
+    cursor: pointer;
+}
+
+
+
+.item-wrap .checkbox-wrap .cart-item-list{
+    height: 600px;
+    border: 15px solid #00548b;
+    border-radius: 0 30px 30px 30px ;
+    width: 100%;
+    overflow: scroll;
+}
+
+
+
+
+.subsc-item {
+    margin-top: 50px;
 }
