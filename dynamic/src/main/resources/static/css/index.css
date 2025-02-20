@@ -15,134 +15,167 @@ a {
   text-decoration: none;
 }
 
+
+hr {
+  border-color: #4c6b7e;
+  opacity: 0.2;
+}
+
 .wrap {
   margin: 20px 20% 20px 20%;
   position: relative;
 }
 
 body {
-  background-image: url('./resources/static/img/background.jpg');
+  position: relative;
 }
+
+
 
 /* header */
 header {
   width: 100%;
+  background-color: #fff;
+
 }
 
 header .inner {
   width: 100%;
-  height: 120px;
+  height: 90px;
   margin: 0 auto;
   position: relative;
 }
 
-header .inner .util {
+header .inner .header_upper {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
+  font: bold 12px "arial";
+}
+
+header .inner .header_upper li {
+  margin: 5px;
+}
+
+header .inner .header_upper li a {
+  color: rgb(59, 59, 59);
+}
+
+
+header .inner .header_lower {
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: left;
+  height: 30px;
+}
+
+header .inner .header_lower li {
+
+  border-radius: 1px 0 solid;
+  margin-top: 8px;
+  text-align: center;
+  height: 30px;
+  width: 150px;
+
 
 }
 
-header .inner .util li a {
+header .inner .header_lower li a {
   display: block;
-  font: 12px/1 "arial";
   color: black;
+  display: flex;
+  align-items: center;
+  width: 250px;
+}
+
+header .inner .header_lower li a span {
+  font: 20px 'arial';
   text-align: center;
 }
 
-header .inner .util li a img {
+header .inner .header_lower li:nth-child(1) {
+  font: 20px 'arial';
+  text-align: center;
+  width: 130px;
+}
+
+header .inner .header_lower li:nth-child(2) {
+  font: 20px 'arial';
+  text-align: center;
+  width: 120px;
+}
+
+header .inner .header_lower li a img {
   object-fit: contain;
-  width: 100%;
+  width: 50px;
   height: 30px;
 }
 
-header .inner .util li label {
-  font: 12px/1 "arial";
-  color: black;
+header .inner .header_lower li img {
+  object-fit: cover;
+  width: 10%;
+  height: 10%;
 }
 
-header .inner .util li input {
-  height: 18px;
-}
-
-header .inner .util li img {
-  object-fit: contain;
+header .inner .header_lower .button {
   width: 100%;
-  height: 30px;
+  display: flex;
+  justify-content: right;
 }
 
+
+header .inner .header_lower li .free_template {
+  /* position: absolute;
+  right: 0px;
+  bottom: 30px; */
+  white-space: pre-line;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  font: bold 15px "arial";
+  background-color: #0241b6;
+  background-image: linear-gradient(45deg, #a4d2f8, #0241b6, #fff);
+  color: #fff;
+}
+
+hr {
+  width: 100%;
+  border-color: #4c6b7e;
+  opacity: 0.2;
+  position: absolute;
+  top: 100px;
+}
+
+.background {
+  background-color: #ebf3fa;
+  width: 100%;
+  height: 450px;
+  position: absolute;
+  top: 100px;
+
+}
+
+
+/* section */
 section {
   width: 100%;
-  padding-top: 10px;
-
+  padding-top: 120px;
 }
 
 section .inner {
   width: 100%;
   margin: 0 auto;
   position: relative;
+  text-align: center;
 }
 
-section .inner img {
-  object-fit: contain;
-  width: 100%;
-  height: 100px;
+section .inner h1 {
+  font: bold 50px "arial";
+  color: #fff;
 }
 
-section .inner .login_form {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border: 1px solid black;
-  border-radius: 8px;
-  background-color: rgb(215, 239, 248);
-  height: 150px;
-}
-
-section .inner .login_form .login_box {
-  padding-top: 10px;
-  padding-left: 5px;
-
-}
-
-section .inner .login_form .login_box .input_item_id {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-section .inner .login_form .login_box .text_label {
-  font: bold 16px/1 "arial";
-}
-
-section .inner .login_form .login_box .input {
-  width: 63.5%;
-  height: 25px;
-  float: right;
-  margin-right: 10px;
-}
-
-
-section .inner .login_form #submit {
-  position: absolute;
-  right: 15px;
-  bottom: 30px;
-  width: 70px;
-  height: 30px;
-}
-
-section .inner .login_form ul {
-  position: absolute;
-  bottom: 4px;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-section .inner .login_form ul li a {
-  font: 12px/1 "arial";
-  color: black;
-  opacity: 0.7;
-}
 
 main {
   width: 100%;
@@ -156,134 +189,65 @@ main .inner {
   position: relative;
 }
 
-main .inner nav {
-  /* margin-left: 50px; */
-  width: 65%;
-  height: 30px;
-  position: absolute;
-  top: 10px;
-  left: 0px;
-  background-color: rgb(184, 184, 184)
-}
-
-main .inner nav .menu_bar {
-  display: flex;
+main .inner .cardwrap {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
+  display: grid;
   justify-content: space-evenly;
-  /* position: relative; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 35px;
 }
 
-main .inner nav .menu_bar>li {
+main .inner .cardwrap .card {
   width: 100%;
-}
-
-main .inner nav>ul>li>a {
-  display: block;
-  font: bold 14px/1 "arial";
-  color: black;
+  height: 320px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #25a8ff;
   text-align: center;
-  line-height: 30px;
-  /* transition: all 0.5s; */
+  box-sizing: border-box;
 }
 
-main .inner nav>ul>li>a:hover {
-  opacity: 0.5;
-  background-color: rgb(83, 83, 83);
-  color: black;
+main .inner .cardwrap .card p {
+  float: left;
+  padding-left: 15px;
 }
 
-main .inner nav>ul>li>ul {
-  width: 100%;
-  display: none;
-  transition: all 0.5s;
-}
-
-main .inner nav>ul>li:hover>ul {
-  display: block;
-  background-color: rgb(83, 83, 83);
-  opacity: 0.9;
-  position: relative;
-  z-index: 9;
-
-}
-
-main .inner nav>ul>li>ul>li {
+main .inner .cardwrap .card .pic {
+  width: 90%;
+  height: 170px;
   padding-top: 10px;
-  width: 100%;
-  height: 40px;
-  display: block;
-  /* 기본적으로 보이도록 설정 */
+  background-color: #d3eafa;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
-main .inner nav>ul>li>ul>li>a {
-  display: block;
-  font: bold 14px/1 "arial";
-  color: black;
+main .inner .cardwrap .card:nth-child(odd) {
+  margin-top: 50px;
+}
+
+main .inner .cardwrap .card .pic h1 {
+  font: bold 80px "arial";
+  color: #00b7ff;
   text-align: center;
-  line-height: 40px;
+  line-height: 160px;
 }
 
-main .inner .banner-notice {
-  width: 65%;
-  position: absolute;
-  left: 0px;
-  bottom: 100px;
-  /* float: right; */
-  height: 300px;
-  border: 1px solid #dddddd;
-  display: flex;
+
+
+main .inner .cardwrap .card p {
+  font: bold 35px "arial";
+  width: 90%;
+  text-align: center;
 }
 
-main .inner .banner-notice .notice {
-  width: 50%;
-  height: 100%;
-  background-color: aliceblue;
-
-}
-
-main .inner .banner-notice .notice h1 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-main .inner .banner-notice .notice ul {
-  width: 100%
-}
-
-main .inner .banner-notice .notice ul>li {
-  width: 95%;
-  height: 45px;
-  line-height: 45px;
-  margin-left: 10px;
-  margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-main .inner .banner-notice .notice ul>li>a {
-  width: 100%;
-  color: rgb(83, 83, 83);
-}
-
-main .inner .banner-notice .notice ul>li>a>span {
-  display: inline- block;
-  font: bold 12px/1 "arial";
-}
-
-main .inner .banner-notice .banner {
-  width: 50%;
-  height: 100%;
-}
-
-main .inner .banner-notice .banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .pop-up {
   width: 100%;
-  /* display: none; */
+  display: none;
 }
 
 .pop-up .overlay {
@@ -293,7 +257,7 @@ main .inner .banner-notice .banner img {
   top: 0;
   left: 0;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.6;
 
 }
 
@@ -306,10 +270,8 @@ main .inner .banner-notice .banner img {
   margin: 0 auto;
   background-color: white;
   opacity: 1;
-  border: 10px solid #000000;
+  border: 3px solid black;
   border-radius: 20px;
-
-
 }
 
 .pop-up .payrolltemplate h1 {
@@ -335,7 +297,8 @@ main .inner .banner-notice .banner img {
   border-left: 1px solid #000000;
   width: 10%;
   height: 60px;
-  font: bold 16px/1 "arial";
+  font: bold 18px/1 "arial";
+
 }
 
 .pop-up .payrolltemplate .template tr td .element {
@@ -346,13 +309,18 @@ main .inner .banner-notice .banner img {
   font: 15px "arial";
 }
 
+
 .pop-up .payrolltemplate .template tr:last-child td:first-child {
   font: bold 15px/1 "arial";
+
 }
 
 .pop-up .payrolltemplate .template tr:last-child td:nth-child(3) {
   font: bold 15px/1 "arial";
 }
+
+
+
 
 .pop-up .payrolltemplate .buttom {
   margin-top: 30px;
@@ -368,20 +336,26 @@ main .inner .banner-notice .banner img {
   width: 100px;
   height: 40px;
   border-radius: 20px;
-  font: bold 15px/1 "arial";
+  border: none;
+  font: bold 18px/1 "arial";
+  background-color: #000000;
+  color: #ffffff;
 
 }
 
 .pop-up .payrolltemplate .buttom span {
   display: block;
   text-align: center;
-  font: bold 15px/1 "arial";
+  font: bold 20px/1 "arial";
+
 }
 
 .pop-up .payrolltemplate .buttom span p {
-  padding-top: 3px;
+  padding-top: 6px;
   opacity: 0.7;
-  font: bold 15px/1 "arial";
+  font: bold 17px/1 "arial";
+
+
 }
 
 .pop-up .payrolltemplate .left {
@@ -395,26 +369,17 @@ main .inner .banner-notice .banner img {
 .pop-up .payrolltemplate .left input[type=button] {
   display: flex;
   flex-direction: column;
-  font: bold 12px/1 "arial";
+  font: bold 15px/1 "arial";
   width: 80px;
   height: 40px;
   border-radius: 20px;
   margin-bottom: 5px;
   margin-left: 2px;
   padding: 8px;
-  background-color: white;
+  background-color: rgb(223, 223, 223);
+  border: none;
 }
 
-main .free_template {
-  position: absolute;
-  right: 5px;
-  white-space: pre-line;
-  width: 200px;
-  height: 50px;
-  border-radius: 8px;
-  font: bold 16px "arial";
-  background-color: aliceblue;
-}
 
 footer .inner {
   padding-top: 50px;
@@ -466,6 +431,7 @@ footer .inner .upper ul li a {
 }
 
 footer .inner .lower address {
+  margin-top: 20px;
   width: 100%;
   font: 12px/1.3 "arial";
   color: #777;
