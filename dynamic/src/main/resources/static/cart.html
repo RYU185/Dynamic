@@ -12,19 +12,19 @@
             <div class="inner">
                 <ul class="upper">
                     <li>
-                        <a href="#"><img src="./img/home.png"/><span>HOME</span></a>
+                        <span>HOME</span>
                     </li>
                     <li>
-                        <a href="#"><img src="./img/document.png"/><span>제품</span></a>
+                        <span>제품</span>
                     </li>
                     <li>
-                        <a href="#"><img src="./img/board.png" /><span>게시판</span></a >
+                        <span>게시판</span>
                     </li>
                     <li>
-                        <a href="#" ><img src="./img/cart.png"/><span>장바구니</span></a >
+                        <span>장바구니</span>
                     </li>
                     <li>
-                        <a href="#" ><img src="./img/profile.png"/><span>마이 페이지</span></a>
+                        <span>마이 페이지</span>
                     </li>
                 </ul>
                 <hr>
@@ -182,22 +182,46 @@
                 </div>
 
                 <!-- 구독권 -->
-                <div class="subsc-item">
+                <div class="course-item">
                     <div class="title">
                         <h1>구독권 장바구니</h1>
                     </div>
                     <div class="item-wrap">
-                        <p><input type="checkbox">전체 선택</p>
-                        <p>삭제</p>
-                        <div class="cart item list">
-                        <!-- 구독권 아이템 -->
+                        <div class="checkbox-wrap">
+                            <div class="checkValue">
+                                <p><input type="checkbox" id="checkbox">&nbsp;전체 선택</p>
+                                <button onclick="click-btn" class="delete">삭제</button>
+                            </div>
+                        <div class="cart-item-list">
+                        <!-- 아이템 -->
                             <div class="cart-item">
                                 <div class="check">
                                     <input type="checkbox">
                                 </div>
 
                                 <div class="pic">
-                                    <img src="" alt="강의 썸네일">
+                                    <img src="/img/courseThumnail1.png" alt="강의 썸네일">
+                                </div>
+
+                                <div class="description">
+                                    <h1>유튜브 알고리즘의 이해</h1> 
+                                    <p>30000원</p>
+                                    <p>별점 </p>
+                                </div>
+
+                                <div class="counter">
+                                    <button class="btn minus">-</button>
+                                    <span class="count">1</span>
+                                    <button class="btn plus">+</button>
+                                </div>                            
+                            </div>
+
+                            <div class="cart-item">
+                                <div class="check">
+                                    <input type="checkbox">
+                                </div>
+                                <div class="pic">
+                                    <img src="/img/courseThumnail2.png" alt="강의 썸네일">
                                 </div>
 
                                 <div class="description">
@@ -219,19 +243,19 @@
                                 </div>
 
                                 <div class="pic">
-                                    <img src="" alt="강의 썸네일">
+                                    <img src="/img/courseThumnail3.png" alt="강의 썸네일">
                                 </div>
 
                                 <div class="description">
-                                    <h1>유튜브 알고리즘의 이해</h1> 
+                                    <h1>유튜브 알고리즘의 이해</h1>
                                     <p>30000원</p>
                                     <p>별점 </p>
                                 </div>
 
                                 <div class="counter">
-                                    <button class="btn minus">-</button>
+                                    <button class="btn-minus">-</button>
                                     <span class="count">1</span>
-                                    <button class="btn plus">+</button>
+                                    <button class="btn-plus">+</button>
                                 </div>                            
                             </div>
 
@@ -239,7 +263,6 @@
                                 <div class="check">
                                     <input type="checkbox">
                                 </div>
-
                                 <div class="pic">
                                     <img src="" alt="강의 썸네일">
                                 </div>
@@ -252,7 +275,7 @@
 
                                 <div class="counter">
                                     <button class="btn minus">-</button>
-                                    <span class="count">1</span>
+                                    <span class="count">2</span>
                                     <button class="btn plus">+</button>
                                 </div>                            
                             </div>
@@ -261,7 +284,6 @@
                                 <div class="check">
                                     <input type="checkbox">
                                 </div>
-
                                 <div class="pic">
                                     <img src="" alt="강의 썸네일">
                                 </div>
@@ -274,14 +296,35 @@
 
                                 <div class="counter">
                                     <button class="btn minus">-</button>
-                                    <span class="count">1</span>
+                                    <span class="count">2</span>
+                                    <button class="btn plus">+</button>
+                                </div>                            
+                            </div>
+
+                            <div class="cart-item">
+                                <div class="check">
+                                    <input type="checkbox">
+                                </div>
+                                <div class="pic">
+                                    <img src="" alt="강의 썸네일">
+                                </div>
+
+                                <div class="description">
+                                    <h1>유튜브 알고리즘의 이해</h1> 
+                                    <p>30000원</p>
+                                    <p>별점 </p>
+                                </div>
+
+                                <div class="counter">
+                                    <button class="btn minus">-</button>
+                                    <span class="count">2</span>
                                     <button class="btn plus">+</button>
                                 </div>                            
                             </div>
                         </div>
-
+                        </div>
+                    </div>
                 </div>
-            </div>
 
             <div class="purchase-all">
                 <div class="calc-all">
