@@ -24,10 +24,6 @@ hr {
     margin: 20px 20% 20px 20%;
 }
 
-body {
-    position: relative;
-}
-
 /* header */
 header {
     width: 100%;
@@ -302,4 +298,5 @@ section{
     border-radius: 15px;
     font: bold 35px "arial";
     color: rgb(0, 61, 141);
+    cursor: pointer;
 }
