@@ -111,6 +111,7 @@ section .inner h1{
     width: 100%;
     height: 40px;
     display: flex;
+    margin-bottom: 60px;
 }
 
 .upper .submenu {
@@ -153,5 +154,38 @@ section .inner h1{
     cursor: pointer;
 }
 
+.main_table {
+    margin-top: 5px;
+    width: 90%;
+    height: 100%;
+    
+}
 
+.main_table table{
+    width: 100%;
+    height: 90%;
+    padding: 10px;
+    border-top: 3px solid #0241b6;
+    border-bottom: 3px solid #0241b6;
+    border-collapse: collapse;
+}
 
+.main_table table tr {
+    border: 1px solid #0241b6;
+    text-align: center;
+}
+
+.main_table table tr td {
+    border: 1px solid #0241b6;
+    max-width: 550px;
+    /* 셀의 최대 너비 설정 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px;
+    font: 25px/1 "arial";
+}
+
+.main_table table tr .bold {
+    font: bold 25px/1 "arial";
+}
