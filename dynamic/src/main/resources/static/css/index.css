@@ -20,6 +20,10 @@ a {
   position: relative;
 }
 
+body {
+  background-image: url("./img/background.jpg");
+}
+
 /* header */
 header {
   width: 100%;
