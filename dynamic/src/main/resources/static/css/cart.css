@@ -235,11 +235,11 @@ section{
 }
 
 .item-wrap .checkbox-wrap .cart-item-list .cart-item .description h1{
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 } 
 
 .item-wrap .checkbox-wrap .cart-item-list .cart-item .description p{
-    font: 18px "arial";
+    font: 15px "arial";
     padding-bottom: 5px;
 }
 
