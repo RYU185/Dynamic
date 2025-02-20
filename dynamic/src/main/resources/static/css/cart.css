@@ -248,5 +248,39 @@ section{
 }
 
 .purchase-all {
+    width: 100%;
+    margin-top: 50px;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    justify-content: center;
+}
+
+.purchase-all .calc-all{
+    margin: 30px;
+    border: none;
+    padding: 10px 60px 10px 60px;
+    background-color: #8797f3;
+    border-radius: 15px;
+}
+
+.purchase-all .purchase-final {
+    margin: 30px;
+    border: none;
+    padding: 0 10px 0 10px;
+    background-color: #8797f3;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
     
+}
+
+.purchase-all .purchase-final button{
+    width: 400px;
+    height: 70px;
+    background-color: #8797f3;
+    border: none;
+    border-radius: 15px;
+    font: bold 35px "arial";
+    color: rgb(0, 61, 141);
 }
