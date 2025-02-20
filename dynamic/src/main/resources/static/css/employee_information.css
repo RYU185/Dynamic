@@ -143,7 +143,7 @@ main .inner .util .upper {
     display: flex;
     justify-content: space-between;
     padding: 3px;
-    margin-bottom: 10px;
+    margin: 10px
 }
 
 main .inner .util .upper div {
@@ -154,23 +154,18 @@ main .inner .util .upper div {
 
 main .inner .util .upper div:first-child {
     margin-top: 1px;
-    width: 170px;
-    height: 30px;
-    font: bold 20px "arial";
-    border: 1px solid black;
+    width: 320px;
+    height: 35px;
+    font: bold 30px "arial";
+    border: 2px solid black;
     border-radius: 15px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main .inner .util .upper .searchBar {
-    /* margin-top: 1px;
-    width: 200px;
-    height: 30px;
-    background-color: rgb(216, 216, 216);
-    font: bold 15px "arial";
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-between; */
 
     width: 100%;
     margin: 0 auto;
@@ -193,7 +188,7 @@ main .inner .util .upper .searchBar p {
 
 main .inner .util .upper .searchBar p input {
     width: 300px;
-    height: 25px;
+    height: 35px;
     border: 5px solid #0241b6;
     font: 13px/1 "arial";
     outline: none;
@@ -222,13 +217,15 @@ main .inner .util .upper .searchBar p input:focus::placeholder {
 main .inner .util .upper div:nth-child(3) {
     display: flex;
     justify-content: space-between;
-    width: 150px;
-    height: 30px;
+    width: 300px;
+    height: 35px;
+    margin-right: 20px;
+
 
 }
 
 main .inner .util .upper div:nth-child(3) img {
-    /* margin-top: 4px; */
+    margin-top: 4px;
     width: 50px;
     height: 30px;
     margin-right: 2px;
@@ -236,11 +233,16 @@ main .inner .util .upper div:nth-child(3) img {
 
 main .inner .util .upper div:nth-child(3) div {
     text-align: center;
-    font: bold 20px "arial";
+    width: 100%;
+    height: 35px;
+    font: bold 30px "arial";
     margin: 0 auto;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 15px;
-    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 main .inner .util .down {
@@ -254,7 +256,7 @@ main .inner .util .down {
 }
 
 main .inner .util .down .box {
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 15px;
     width: 250px;
 }
@@ -270,14 +272,14 @@ main .inner .util .down .box .img {
 
 main .inner .util .down .box .img img {
     width: 100%;
-    height: 350px;
+    height: 340px;
     object-fit: cover;
     border-radius: 15px;
 }
 
 main .inner .util .down .box .info {
     margin-top: 10px;
-    width: 80%;
+    width: 90%;
     /* border: 1px solid black; */
     margin-left: 20px;
     display: flex;
@@ -285,8 +287,8 @@ main .inner .util .down .box .info {
 }
 
 main .inner .util .down .box .info .info_name {
-    font: bold 16px "arial";
-    width: 50%;
+    font: bold 17px "arial";
+    width: 45%;
     height: 30px;
     padding: 2px;
     /* border: 1px solid black; */
