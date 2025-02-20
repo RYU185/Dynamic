@@ -21,7 +21,7 @@ a {
 }
 
 body {
-  background-image: url("./img/background.jpg");
+  background-image: url('./resources/static/img/background.jpg');
 }
 
 /* header */
