@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modify Employee</title>
-    <link rel="stylesheet" href="css/modify_employee.css">
+    <title>Regular Part-Time Employee</title>
+    <link rel="stylesheet" href="css/regular_part_time_employee.css">
 </head>
 
 <body>
@@ -43,14 +43,16 @@
                 </ul>
             </div>
         </header>
+
         <section>
             <div class="titlewrap">
                 <div class="main_title">
-                    <h1>직원 정보 수정</h1>
+                    <h1>고정 알바생 수정</h1>
                 </div>
                 <br />
             </div>
         </section>
+
         <main>
             <div class="inner">
                 <div class="upper">
@@ -60,7 +62,6 @@
                         <img src="/img/쓰레기통.png" alt="삭제 버튼">
                     </div>
                 </div>
-
                 <div class="util">
                     <div class="main_box">
                         <div class="img"><img src="/img/person.jpg" alt="사진"></div>
@@ -82,15 +83,85 @@
                             </div>
 
                             <div class="box">
-                                <div class="info_name">월급 :</div>
-                                <div class="information">3,000,000</div>
+                                <div class="info_name">시급 :</div>
+                                <div class="information">9,860</div>
                             </div>
                             <div class="box">
                                 <div class="info_name">지급일 :</div>
                                 <div class="information">25일</div>
                             </div>
                             <div class="box">
-                                <div class="info_name">근로 날짜 :</div>
+                                <div class="info_name">근무요일 :</div>
+                                <div class="information">
+                                    <label for="monday">월</label>
+                                    <input type="text" id="monday" class="date">
+                                    <label for="tuesday">화</label>
+                                    <input type="text" id="tuesday" class="date">
+                                    <label for="wednesday">수</label>
+                                    <input type="text" id="wednesday" class="date">
+                                    <label for="thursday">목</label>
+                                    <input type="text" id="thursday" class="date">
+                                    <label for="friday">금</label>
+                                    <input type="text" id="friday" class="date">
+                                    <label for="saturday">토</label>
+                                    <input type="text" id="saturday" class="date">
+                                    <label for="sunday">일</label>
+                                    <input type="text" id="sunday" class="date">
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="info_name">공제항목 :</div>
+                                <div class="information">
+                                    <label for="health_insurance">건강보험</label>
+                                    <input type="checkbox" id="health_insurance" name="deduction"
+                                        value="health_insurance" checked>
+                                    <label for="national_pension">국민연금</label>
+                                    <input type="checkbox" id="national_pension" name="deduction"
+                                        value="national_pension">
+                                    <label for="employeement_insurance">고용보험</label>
+                                    <input type="checkbox" id="employeement_insurance" name="deduction"
+                                        value="employeement_insurance">
+                                    <label for="tax">갑근세</label>
+                                    <input type="checkbox" id="tax" name="deduction" value="tax">
+                                    <label for="3.3%">3.3%</label>
+                                    <input type="checkbox" id="3.3%" name="deduction" value="3.3%">
+                                    <label for="none">없음</label>
+                                    <input type="checkbox" id="none" name="deduction" value="none">
+                                </div>
+                                <div class="button">수정</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main_box">
+                        <div class="img"><img src="/img/person.jpg" alt="사진"></div>
+                        <div class="info">
+                            <div class="box">
+                                <div class="info_name">이름 :</div>
+                                <div class="information">유서영</div>
+                                <div class="button">결석일</div>
+                            </div>
+                            <div class="box">
+                                <div class="info_name">생년월일 :</div>
+                                <div class="information">변경 불가</div>
+                                <div class="button">추가 근무일</div>
+                            </div>
+                            <div class="box">
+                                <div class="info_name">입사일 :</div>
+                                <div class="information">변경 불가</div>
+
+                            </div>
+
+                            <div class="box">
+                                <div class="info_name">시급 :</div>
+                                <div class="information">9,860</div>
+                            </div>
+                            <div class="box">
+                                <div class="info_name">지급일 :</div>
+                                <div class="information">25일</div>
+                            </div>
+                            <div class="box">
+                                <div class="info_name">근무요일 :</div>
                                 <div class="information">
                                     <label for="monday">월</label>
                                     <input type="text" id="monday" class="date">
@@ -152,15 +223,15 @@
                             </div>
 
                             <div class="box">
-                                <div class="info_name">월급 :</div>
-                                <div class="information">3,000,000</div>
+                                <div class="info_name">시급 :</div>
+                                <div class="information">9,860</div>
                             </div>
                             <div class="box">
                                 <div class="info_name">지급일 :</div>
                                 <div class="information">25일</div>
                             </div>
                             <div class="box">
-                                <div class="info_name">근로 날짜 :</div>
+                                <div class="info_name">근무요일 :</div>
                                 <div class="information">
                                     <label for="monday">월</label>
                                     <input type="text" id="monday" class="date">
@@ -201,75 +272,6 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="main_box">
-                        <div class="img"><img src="/img/person.jpg" alt="사진"></div>
-                        <div class="info">
-                            <div class="box">
-                                <div class="info_name">이름 :</div>
-                                <div class="information">유서영</div>
-                                <div class="button">결석일</div>
-                            </div>
-                            <div class="box">
-                                <div class="info_name">생년월일 :</div>
-                                <div class="information">변경 불가</div>
-                                <div class="button">추가 근무일</div>
-                            </div>
-                            <div class="box">
-                                <div class="info_name">입사일 :</div>
-                                <div class="information">변경 불가</div>
-
-                            </div>
-
-                            <div class="box">
-                                <div class="info_name">월급 :</div>
-                                <div class="information">3,000,000</div>
-                            </div>
-                            <div class="box">
-                                <div class="info_name">지급일 :</div>
-                                <div class="information">25일</div>
-                            </div>
-                            <div class="box">
-                                <div class="info_name">근로 날짜 :</div>
-                                <div class="information">
-                                    <label for="monday">월</label>
-                                    <input type="text" id="monday" class="date">
-                                    <label for="tuesday">화</label>
-                                    <input type="text" id="tuesday" class="date">
-                                    <label for="wednesday">수</label>
-                                    <input type="text" id="wednesday" class="date">
-                                    <label for="thursday">목</label>
-                                    <input type="text" id="thursday" class="date">
-                                    <label for="friday">금</label>
-                                    <input type="text" id="friday" class="date">
-                                    <label for="saturday">토</label>
-                                    <input type="text" id="saturday" class="date">
-                                    <label for="sunday">일</label>
-                                    <input type="text" id="sunday" class="date">
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="info_name">공제항목 :</div>
-                                <div class="information">
-                                    <label for="health_insurance">건강보험</label>
-                                    <input type="checkbox" id="health_insurance" name="deduction"
-                                        value="health_insurance" checked>
-                                    <label for="national_pension">국민연금</label>
-                                    <input type="checkbox" id="national_pension" name="deduction"
-                                        value="national_pension">
-                                    <label for="employeement_insurance">고용보험</label>
-                                    <input type="checkbox" id="employeement_insurance" name="deduction"
-                                        value="employeement_insurance">
-                                    <label for="tax">갑근세</label>
-                                    <input type="checkbox" id="tax" name="deduction" value="tax">
-                                    <label for="3.3%">3.3%</label>
-                                    <input type="checkbox" id="3.3%" name="deduction" value="3.3%">
-                                    <label for="none">없음</label>
-                                    <input type="checkbox" id="none" name="deduction" value="none">
-                                </div>
-                                <div class="button">수정</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
