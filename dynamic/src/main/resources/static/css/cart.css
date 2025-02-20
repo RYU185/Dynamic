@@ -217,16 +217,32 @@ section{
 
 .item-wrap .checkbox-wrap .cart-item-list .cart-item .description{
     padding: 15px;
+}
+
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .description h1{
+    padding-bottom: 15px;
+} 
+
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .description p{
+    font: 18px "arial";
+    padding-bottom: 5px;
+}
+
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .counter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 18px "arial";
+    padding-left: 20px;
+    gap: 10px;
     
 }
 
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .counter button{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #75a5ff;
+    border-radius: 15px;
+    background-color: #bdd4ff;
 
-
-
-
-
-
-
-.subsc-item {
-    margin-top: 50px;
 }
