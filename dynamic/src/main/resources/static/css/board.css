@@ -190,4 +190,40 @@ section .inner h1{
     font: bold 25px/1 "arial";
 }
 
-/* modal pop-up */
+/* modal pop-up (게시글 등록) */
+
+.post-board {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    /*  modal ON/OFF  */
+    display: none;
+}
+
+.post-board .board-detail{
+    width: 450px;
+    height: 560px;
+    background: #fff;
+    padding: 45px;
+    
+}
+
+.post-board .board-detail span{
+
+}
+
+.post-board .submit{
+
+}
+
+.post-board .submit button{
+
+}
+
