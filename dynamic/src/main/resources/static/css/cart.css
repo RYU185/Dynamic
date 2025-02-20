@@ -78,3 +78,23 @@ header .inner .upper li img {
 }
 
 /* section */
+
+section{
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+}
+
+.wrap-section {
+    width: 95%;
+    padding: 20px;
+    border: 2px solid;
+}
+
+.course-item{
+    width: 100%;
+}
+
+.course-item .title {
+    
+}
