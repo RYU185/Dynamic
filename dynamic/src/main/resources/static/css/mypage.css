@@ -189,7 +189,13 @@ footer .inner {
 footer .inner a {
   padding: 20px;
   font: bold 20px "arial";
-  color: black;
-  border: 1px solid black;
+  color: #fff;
   border-radius: 30px;
+  background-color: #8fd1fd;
+}
+
+footer .inner a:hover {
+  background-color: #0241b6;
+  opacity: 0.5;
+  color: #fff;
 }
