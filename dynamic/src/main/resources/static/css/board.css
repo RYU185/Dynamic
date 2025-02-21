@@ -178,7 +178,6 @@ section .inner h1{
 .main_table table tr td {
     border: 1px solid #0241b6;
     max-width: 550px;
-    /* 셀의 최대 너비 설정 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -192,6 +191,7 @@ section .inner h1{
 
 /* modal pop-up (게시글 등록) */
 
+/* 바깥 그림자 포함 사이즈 */
 .post-board {
     position: absolute;
     top: 0;
@@ -207,23 +207,137 @@ section .inner h1{
     display: none;
 }
 
-.post-board .board-detail{
-    width: 450px;
-    height: 560px;
-    background: #fff;
+/* 게시판 클릭 시 본문 사이즈 */
+.post-board .board-detail {
+    width: 690px;
+    height: 700px;
+    background: #c9c9c9;
     padding: 45px;
+
     
 }
 
-.post-board .board-detail span{
+/* 제목+본문 wrap 사이즈 */
+.wrap-post {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 
 }
 
-.post-board .submit{
-
+.wrap-post h1 {
+    margin: 20px;
 }
 
-.post-board .submit button{
-
+.title{
+    margin: 20px 0 10px 20px;
 }
 
+.title input {
+    font-size: 20px;
+    width: 540px;
+    height: 35px;
+    padding: 0 4px 0 4px;
+}
+
+.title input::placeholder {
+    color: rgb(185, 185, 185);
+    font-size: 18px;
+}
+
+.title input:focus::placeholder {
+    color: transparent;
+}
+
+.boardtext {    
+    margin: 20px;
+    width: 600px;
+    height: 300px; 
+}
+
+.boardtext textarea {
+    height: 400px;
+    width: 540px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.boardtext textarea::placeholder {
+    color: rgb(185, 185, 185);
+    font-size: 18px;
+}
+
+.submit {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    padding: 0 20px 0 0;
+}
+
+.submit button {
+    height: 40px;
+    width: 70px;
+}
+
+/* 댓글 등록 시 */
+.comment-board {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    /*  modal ON/OFF  */
+    /* display: none; */
+}
+
+.comment-board .board-detail {
+    width: 690px;
+    height: 700px;
+    background: #c9c9c9;
+    padding: 45px;
+}
+
+.wrap-post .boardtext {
+    height: 50%;
+    width: 540px;
+    overflow: scroll;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.comment-list {
+    margin-top: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.comment-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.comment-content {
+    margin-top: 5px;
+    font-size: 16px;
+}

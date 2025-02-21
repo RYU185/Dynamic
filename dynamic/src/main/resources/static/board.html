@@ -124,31 +124,72 @@
                 
             </div>
 
-            <!-- 게시글 등록 modal -->
-            <div id="pop-up" class="post-board">
+            <!-- 본문 등록 modal -->
+            <div id="pop-up-post" class="post-board">
                 <div class="board-detail">
-                    <span>제목: </span>
-                    <br>
-                    <span>본문: </span>
+                    <div class="wrap-post">
+                        <h1>게시글 등록</h1>
 
-                    <div class="submit">    
-                        <button class="btn-submit">등록</button>
+                        <div class="title">
+                            <input type="text" placeholder="제목을 입력해주세요">
+                        </div>
+
+                        <div class="boardtext">
+                            <textarea class="text" placeholder="내용을 입력하세요"></textarea>
+                        </div>      
+
+                        <div class="submit">    
+                            <button class="btn-submit">등록</button>
+                        </div>
                     </div>
                 </div>
             </div> 
 
 
-            <!-- 본문 댓글등록 modal -->
-            <div id="pop-up" class="post-comment">
+            <!-- 댓글 등록 modal -->
+            <div id="pop-up-post" class="comment-board">
                 <div class="board-detail">
-                    <span>제목: <input type="text"></span>
-                    <input type="text" placeholder="내용을 입력해주세요.">
+                    <div class="wrap-post">
+                        <div class="title">
+                            <span>Lorem ipsum</span>
+                        </div>
 
-                    <div class="submit">    
-                        <button class="btn-submit">등록</button>
+                        <div class="boardtext">
+                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, iure. Accusantium, deserunt perspiciatis. Quibusdam cum fuga quo inventore dolores quod quisquam praesentium, fugiat nemo eligendi voluptatibus quam qui. Illum, rerum.</span>
+                        </div>      
+
+                        <div class="comment-list"> 
+                            <span>댓글</span>
+
+                            <div class="comment-box">
+                                <div class="comment-header">
+                                    <span class="user-name">작성자 이름</span>
+                                    <span class="comment-date">2025-02-21</span>
+                                </div>
+                                <div class="comment-content">
+                                    <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                                </div>
+                            </div>
+
+                            <div class="comment-box">
+                                <div class="comment-header">
+                                    <span class="user-name">작성자 이름</span>
+                                    <span class="comment-date">2025-02-21</span>
+                                </div>
+                                <div class="comment-content">
+                                    <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="submit">    
+                            <button class="btn-submit">등록</button>
+                        </div>
                     </div>
                 </div>
             </div> 
+
 
 
         </section>
