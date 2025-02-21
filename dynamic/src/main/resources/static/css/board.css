@@ -310,7 +310,8 @@ section .inner h1{
 .wrap-post .boardtext {
     height: 50%;
     width: 540px;
-    overflow: scroll;
+    overflow-y:auto;
+    overflow-x: hidden;
     font-size: 16px;
     padding: 10px;
 }
