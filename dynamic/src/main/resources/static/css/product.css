@@ -1,5 +1,28 @@
 @charset 'utf-8';
 
+@font-face {
+    font-family: 'NanumHumanTTFBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+}
+
+
 * {
     margin: 0px;
     padding: 0px;
@@ -51,10 +74,16 @@ header .inner .upper li {
     border-radius: 1px 0 solid;
     margin-top: 8px;
     text-align: center;
-    height: 30px;
+    height: 42px;
     width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
+header .inner .upper li:hover{
+    background-color: rgb(236, 235, 235);
+    color: #868686;
 }
 
 header .inner .upper li a {
@@ -66,7 +95,8 @@ header .inner .upper li a {
 }
 
 header .inner .upper li a span {
-    font: 20px 'arial';
+    font-size: 18px;
+    font-weight: 500;
     text-align: center;
     width: 120px;
 }
@@ -106,44 +136,61 @@ section .allCourse {
 }
 
 section .allCourse .wrapCourse{
+    position: relative;
     width: 100%;
-    display: block;
-    padding-bottom: 20px;
+    display: flex;
+    padding-left: 10px;
+    justify-content: space-between
+
 }
 
 section .allCourse .wrapCourse h1{
-    font: bold 50px/1 "arial";
-    color: #0241b6;
-    padding-bottom: 16px;
+    font-family: 'GmarketSansMedium';
+    font-size: 100px;
+    font-weight: 900;
+    color: #0039a3;
+    margin: 0px 0px 0px 140px;
+    position: absolute;     
+    z-index: 1;
+    line-height: 140px;
 }
 
 .adminOnly {
-    width: 100%;
     display: flex;
     justify-content: right;
+    margin-right: 30px;
+    
 }
 
 .adminOnly .delete, .adminOnly .add {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     border: none;
-        
+    background-color: #fff;
 }
+
+.adminOnly .delete:hover, .adminOnly .add:hover{
+
+}
+
 .delete img, .add img {
     object-fit: cover;
     width: 100%;
-
+    line-height: 20px;
 }
 
 section .allCourse .wrapCourse .searchBar{
     width: 100%;
     margin: 0 auto;
     display: flex; /* 가로 정렬 */
-    align-items: center; /* 세로 정렬 */
-    justify-content: center; /* 가운데 정렬 */
-    
+    /* 세로 정렬 */
+    justify-content: right; /* 가운데 정렬 */
+    padding-top: 50px;
+    padding-right: 40px;
+    margin-bottom: 20px;
     gap: 10px;
+    align-items: center;
 }
 
 section .allCourse .wrapCourse .searchBar p {
@@ -154,8 +201,10 @@ section .allCourse .wrapCourse .searchBar p {
 
 section .allCourse .wrapCourse .searchBar img {
     width: 30px;
-    height: 30px;
+    height: 30px;;
     cursor: pointer;
+    
+    
 }
 
 section .allCourse .wrapCourse .searchBar p input {
@@ -180,7 +229,6 @@ section .allCourse .wrapCourse .searchBar p input:focus::placeholder{
 section .allCourse .courseList{
     width: 100%;
     margin: 0px auto;
-    padding: 25px;
 }
 
 section .allCourse .courseList .course{
@@ -259,6 +307,19 @@ section .allCourse .courseList .course article p {
     height: 50px;
     font: bold 15px black;
 
+}
+
+article button {
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #000149;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+article button:hover {
+    background-color: #0064a7;
 }
 
 .allSubsc {
