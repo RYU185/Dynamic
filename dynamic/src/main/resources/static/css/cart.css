@@ -146,7 +146,7 @@ section{
 
 
 .course-item{   
-    margin-top: 100px;
+    margin-top: 70px;
     width: 100%;
     
 }
@@ -155,21 +155,22 @@ section{
     width: 40%;
     display: flex;
     text-align: center;
-    /* background: #0241b6;
-    color: #fff; */
-    margin: 20px;
-    padding: 9px 9px 9px 25px;
+    /* margin: 20px; */
+    padding: 0px 9px 6px 30px;
     border-radius: 25px;
+    
 }
 
 .title h1{
-    font: bold 24px "arial";
-    color: #0241b6;
+    font-size: 26px;
+    font-weight: 200;
+    color: #3465c2;
+    /* 임의로 색 따로 뽑았습니다 */
 }
 
 .item-wrap {
     width: 100%;
-    height: 800px;
+    height: 700px;
     border: 3px solid #0241b6;
     border-left: none;
     border-right: none;
@@ -184,14 +185,16 @@ section{
     border: none;
     padding: 30px;
     border-radius: 20px;
+    padding-bottom: 0;
     
 }
 
 .item-wrap .checkbox-wrap .checkValue {
 
     border: 5px solid rgb(230, 230, 230);
+    
     border-bottom: none;
-    height: 70px;
+    height: 40px;
     width: 300px;
     padding: 10px;
     display: flex;
@@ -209,15 +212,15 @@ section{
     height: 30px;
     line-height: 25px;
     margin-left: 40px;
-    border: 1px solid #c0c0c0;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #f3f3f3;
+    background-color: rgba(58, 58, 58, 0.1);
 }
 
 .item-wrap .checkbox-wrap .checkValue .delete:hover{
-    background-color: #5a5a5a;
-    color: #f3f3f3;
+    background-color: rgba(58, 58, 58, 0.3);
+    color: rgb(240, 240, 240);
 }
 
 .item-wrap .checkbox-wrap .cart-item-list{
@@ -299,10 +302,10 @@ section{
 
 .purchase-all .calc-all{
     margin: 30px;
-    border: none;
+    border: 5px solid #03045e;
     padding: 10px 60px 10px 60px;
-    background-color: #48cae4;
-    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 .purchase-all .purchase-final {
@@ -320,15 +323,18 @@ section{
     height: 70px;
     border: none;
     border-radius: 6px;
-    background-color: #48cae4;
+    background-color: #03045e;
     font: bold 35px "arial";
-    color: #03045e;
+    color: #fff;
     cursor: pointer;
+
+    transition: background 0.3s, color 0.3s;
 }
 
 
 .purchase-all .purchase-final button:hover{
-    background-color: #0077b6;
-    color: #fff;
+    background-color: #fff;
+    color: #03045e;
+    border: 5px solid #03045e;
 
 }
