@@ -315,6 +315,10 @@ section .inner h1{
     padding: 10px;
 }
 
+.wrap-post .title span {
+    font: bold 24px/1 "arial";
+}
+
 .comment-list {
     margin-top: 20px;
     overflow-y: auto;
