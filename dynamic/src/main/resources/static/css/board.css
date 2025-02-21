@@ -221,7 +221,7 @@ section .inner h1{
 .wrap-post {
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding-top: 10px;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -230,10 +230,6 @@ section .inner h1{
 
 .wrap-post h1 {
     margin: 20px;
-}
-
-.title{
-    margin: 20px 0 10px 20px;
 }
 
 .title input {
@@ -276,7 +272,6 @@ section .inner h1{
     position: absolute;
     right: 10px;
     bottom: 0;
-    padding: 0 20px 0 0;
 }
 
 .submit button {
@@ -305,6 +300,7 @@ section .inner h1{
     height: 700px;
     background: #c9c9c9;
     padding: 45px;
+    border-radius: 5px;
 }
 
 .wrap-post .boardtext {
@@ -313,7 +309,6 @@ section .inner h1{
     overflow-y:auto;
     overflow-x: hidden;
     font-size: 16px;
-    padding: 10px;
 }
 
 .wrap-post .title span {
