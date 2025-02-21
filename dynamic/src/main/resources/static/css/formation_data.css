@@ -195,6 +195,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
 }
 
 
+
 main .inner .main_box {
     margin-top: 5px;
     width: 90%;
@@ -206,42 +207,49 @@ main .inner .main_box {
 main .inner .main_box table {
     width: 100%;
     height: 90%;
-    border: 1px solid black;
+    border: 3px solid#0241b6;
     border-collapse: collapse;
     /* 겹치는 border 없애기 */
 }
 
 main .inner .main_box table tr {
-    border: 1px solid black;
+    border: 1px solid #0241b6;
     text-align: center;
 }
 
 main .inner .main_box table tr th {
-    border: 1px solid #000000;
+    border: 1px solid #0241b6;
     outline: none;
-    font: bold 16px/1 "arial";
+    font: bold 30px/1 "arial";
+}
+
+main .inner .main_box th {
+    background-color: #eaf1ff;
+
 }
 
 main .inner .main_box table tr td {
-    border: 1px solid #000000;
-    max-width: 200px;
+    border: 1px solid #0241b6;
+    max-width: 500px;
     /* 셀의 최대 너비 설정 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-left: 5px;
-    padding-right: 5px;
-
+    padding-left: 15px;
+    padding-right: 15px;
+    font: 25px/1 "arial";
 
 }
 
 main .inner .main_box table tr .bold {
-    font: bold 16px/1 "arial";
+    font: bold 25px/1 "arial";
 }
 
-main .inner .main_box table tr td:nth-child(3) {
-    width: 7px;
+main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td:nth-child(3) {
+    width: 10px;
 }
+
+
 
 main .pop-up-background1 {
     width: 30%;
@@ -249,15 +257,19 @@ main .pop-up-background1 {
     border: 1px solid black;
     background-color: black;
     opacity: 0.4;
+    border-radius: 30px;
+    /* display: none; */
 }
 
 main .pop-up1 {
     padding-top: 15px;
-    border: 1px solid black;
+
     background-color: white;
     width: 25%;
     height: 300px;
     text-align: center;
+    border-radius: 30px;
+    /* display: none; */
 }
 
 main .pop-up-background1 {
@@ -273,12 +285,10 @@ main .pop-up1 {
 }
 
 main .content_box {
-    margin-top: 20px;
+    margin: 12px;
     border: 1px solid black;
-    border-left: none;
-    border-right: none;
-    width: 100%;
-    height: 300px;
+    width: 90%;
+    height: 200px;
     position: relative;
     font: 16px "arial";
 }
@@ -306,7 +316,7 @@ main .content_box .content .text {
 
 main .content_box .date {
     position: absolute;
-    bottom: 100px;
+    bottom: 10px;
     /* border: 1px solid black; */
     display: flex;
     flex-wrap: wrap;
@@ -326,14 +336,20 @@ main .content_box .date .submit {
     width: 60px;
     height: 35px;
     margin-left: 15px;
-    border-radius: 13px;
+    border-radius: 30px;
     font: bold 20px "arial";
-    background-color: aliceblue;
-    border: 1px solid black;
-
+    border: 1px solid rgb(0, 23, 156);
+    background-color: rgb(255, 255, 255);
 }
 
 main .content_box .content .file {
     padding-left: 8px;
     padding-top: 8px;
+}
+
+main .content_box .date .submit:hover {
+    background-color: rgb(182, 193, 255);
+    color: white;
+    border: none;
+
 }

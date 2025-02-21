@@ -192,6 +192,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
 }
 
 
+
 main .inner .main_box {
     margin-top: 5px;
     width: 90%;
@@ -251,7 +252,7 @@ main .pop-up-background1,
     background-color: black;
     opacity: 0.4;
     border-radius: 30px;
-    display: none;
+    /* display: none; */
 }
 
 main .pop-up1,
@@ -263,7 +264,7 @@ main .pop-up1,
     height: 530px;
     text-align: center;
     border-radius: 30px;
-    display: none;
+    /* display: none; */
 
 }
 
