@@ -294,7 +294,8 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     width: 10px;
 }
 
-.pop-up-background1 {
+.pop-up-background1,
+.pop-up-background2 {
     width: 100%;
     height: 100%;
     background-color: black;
@@ -304,6 +305,141 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     /*  modal ON/OFF  */
     /* display: none; */
 }
+
+
+main .pop-up2 {
+    padding-top: 15px;
+
+    background-color: #f1f6f7;
+    width: 1000px;
+    height: 800px;
+    text-align: center;
+    /* border-radius: 30px; */
+    /* display: none; */
+
+}
+
+main .pop-up2 {
+    position: absolute;
+    z-index: 12;
+    top: 120px;
+    right: 330px;
+    /*  modal ON/OFF  */
+    /* display: none; */
+}
+
+main .pop-up2 .content_box {
+    margin: 20px;
+    /* border: 1px solid rgb(236, 236, 236); */
+    width: 90%;
+    height: 700px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: white;
+    /* border-radius: 30px; */
+    margin-left: 50px;
+}
+
+main .pop-up2 .content_box h1 {
+    padding-top: 10px;
+    font-size: 50px;
+}
+
+main .pop-up2 .content_box .content {
+    width: 90%;
+    height: 550px;
+    border: 1px solid black;
+    margin-left: 50px;
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+main .pop-up2 .content_box .comment-list {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+}
+
+main .pop-up1 {
+    padding-top: 15px;
+
+    background-color: #f1f6f7;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    /* border-radius: 30px; */
+    /* display: none; */
+
+}
+
+main .pop-up1 {
+    position: absolute;
+    z-index: 12;
+    top: 120px;
+    right: 330px;
+    /*  modal ON/OFF  */
+    display: none;
+}
+
+main .content_box {
+    margin: 20px;
+    /* border: 1px solid rgb(236, 236, 236); */
+    width: 90%;
+    height: 400px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: white;
+    /* border-radius: 30px; */
+
+}
+
+main .content_box .content {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+main .content_box .content input {
+    width: 100%;
+    border: 1px solid rgb(231, 230, 230);
+}
+
+main .content_box .content .text {
+    width: 100%;
+    height: 300px;
+    border: 1px solid rgb(231, 230, 230);
+}
+
+
+
+main .content_box .submit {
+    width: 150px;
+    height: 40px;
+    margin-left: 0px;
+    font-size: 25px;
+    font-weight: 400;
+    background-color: rgba(58, 58, 58, 0.1);
+    border-radius: 15px;
+    color: rgb(117, 117, 117);
+    margin-top: 280px;
+    border: none;
+
+
+}
+
+main .content_box .submit:hover {
+    background-color: rgba(58, 58, 58, 0.3);
+    color: rgb(240, 240, 240);
+
+}
+
+
+
 
 /* 게시판 클릭 시 본문 사이즈 */
 /* .board-detail {
