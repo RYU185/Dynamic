@@ -1,16 +1,39 @@
 @charset 'utf-8';
 
+
+@font-face {
+    font-family: 'NanumHumanTTFBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
+
 ul,
-ol {
+li {
     list-style: none;
 }
+
 a {
     text-decoration: none;
+}
+
+.wrap {
+    margin: 20px 20% 20px 20%;
 }
 
 hr {
@@ -23,11 +46,6 @@ body {
 }
 
 /* header */
-
-.wrap {
-    margin: 20px 20% 20px 20%;
-}
-
 header {
     width: 100%;
     background-color: #fff;
@@ -51,14 +69,20 @@ header .inner .upper {
 }
 
 header .inner .upper li {
-
     border-radius: 1px 0 solid;
     margin-top: 8px;
     text-align: center;
-    height: 30px;
+    height: 42px;
     width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 
+header .inner .upper li:hover {
+    background-color: rgb(236, 235, 235);
+    color: #868686;
 }
 
 header .inner .upper li a {
@@ -70,19 +94,8 @@ header .inner .upper li a {
 }
 
 header .inner .upper li a span {
-    font: 20px 'arial';
-    text-align: center;
-    width: 120px;
-}
-
-header .inner .upper li:nth-child(1) {
-    font: 20px 'arial';
-    text-align: center;
-    width: 100px;
-}
-
-header .inner .upper li:nth-child(2) {
-    font: 20px 'arial';
+    font-size: 18px;
+    font-weight: 500;
     text-align: center;
     width: 120px;
 }
@@ -92,9 +105,8 @@ hr {
     border-color: #4c6b7e;
     opacity: 0.2;
     position: absolute;
-    top: 70px;
+    top: 50px;
 }
-
 /* section */
 
 section {
@@ -115,7 +127,7 @@ section .myCoursePurchaseHistory .wrapCourse {
 }
 
 section .myCoursePurchaseHistory .wrapCourse h1 {
-    font: bold 50px/1 "arial";
+    font-size: 50px;
     color: #0241b6;
     padding-bottom: 16px;
 }
@@ -132,7 +144,7 @@ section .myCoursePurchaseHistory .wrapCourse .searchBar {
 
 section .myCoursePurchaseHistory .wrapCourse .searchBar p {
     margin: 0;
-    font: bold 30px/1 "arial";
+    font-size: 30px;
     color: #0241b6;
 }
 
@@ -147,7 +159,7 @@ section .myCoursePurchaseHistory .wrapCourse p input {
     width: 500px;
     height: 45px;
     border: 5px solid #0241b6;
-    font: 30px/1  "arial";
+    font-size: 30px;
     outline: none;
     text-align: center;
     color: #465c6b;
@@ -157,7 +169,8 @@ section .myCoursePurchaseHistory .wrapCourse p input {
 
 section .myCoursePurchaseHistory .wrapCourse p input::placeholder {
     color: #465c6b;
-    font: 30px/1 "arial";
+    opacity: 0.5;
+    font-size: 30px;
 }
 
 section .myCoursePurchaseHistory .wrapCourse p input:focus::placeholder {
@@ -243,7 +256,7 @@ section .myCoursePurchaseHistory .courseList {
 }
 
 .pageBar .wrap-pageBar ul li a {
-    font: bold 24px/1 "arial";
+    font-size: 24px;
     color: #0241b6;
 }
 
@@ -274,7 +287,7 @@ section .myCoursePurchaseHistory .courseList {
     width: 500px;
     height: 45px;
     border: 5px solid #0241b6;
-    font: 30px/1 "arial";
+    font-size: 30px;
     outline: none;
     text-align: center;
     color: #465c46;
@@ -289,7 +302,8 @@ section .myCoursePurchaseHistory .courseList {
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar input::placeholder {
     color: #465c46;
-    font: 30px/1 "arial";
+    opacity: 0.5;
+    font-size: 30px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar input:focus::placeholder{
