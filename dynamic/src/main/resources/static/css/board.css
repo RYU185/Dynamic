@@ -1,13 +1,30 @@
 @charset 'utf-8';
 
+
+@font-face {
+    font-family: 'NanumHumanTTFBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
 
 ul,
-ol {
+li {
     list-style: none;
 }
 
@@ -19,8 +36,16 @@ a {
     margin: 20px 20% 20px 20%;
 }
 
-/* header */
+hr {
+    border-color: #4c6b7e;
+    opacity: 0.2;
+}
 
+body {
+    position: relative;
+}
+
+/* header */
 header {
     width: 100%;
     background-color: #fff;
@@ -44,14 +69,19 @@ header .inner .upper {
 }
 
 header .inner .upper li {
-
     border-radius: 1px 0 solid;
     margin-top: 8px;
     text-align: center;
-    height: 30px;
+    height: 42px;
     width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
+header .inner .upper li:hover {
+    background-color: rgb(236, 235, 235);
+    color: #868686;
 }
 
 header .inner .upper li a {
@@ -63,164 +93,230 @@ header .inner .upper li a {
 }
 
 header .inner .upper li a span {
-    font: 20px 'arial';
+    font-size: 18px;
+    font-weight: 500;
     text-align: center;
     width: 120px;
 }
 
-header .inner .upper li:nth-child(1) {
-    font: 20px 'arial';
-    text-align: center;
-    width: 100px;
-}
-
-header .inner .upper li:nth-child(2) {
-    font: 20px 'arial';
-    text-align: center;
-    width: 120px;
-}
 
 hr {
     width: 100%;
     border-color: #4c6b7e;
     opacity: 0.2;
     position: absolute;
-    top: 70px;
+    top: 50px;
 }
+
+
+
 
 section {
     width: 100%;
-    padding-top: 50px;
+    padding: 20px;
 }
 
-section .inner {
+section .titlewrap {
     width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+section .titlewrap .main_title {
+    display: block;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+section .titlewrap .main_title h1 {
+    font-family: 'GmarketSansMedium';
+    font-size: 100px;
+    font-weight: 900;
+    color: #0039a3;
+    margin: 50px 40px 0px 40px;
+    position: absolute;
+    z-index: 1;
+}
+
+main {
+    margin-top: 50px;
+    width: 100%;
+
+    position: relative;
+}
+
+main .inner {
+    width: 100%;
+    height: 900px;
+
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
-    position: relative
+    position: relative;
 }
 
-section .inner h1 {
-    width: 850px;
-    font: bold 50px 'arial';
-    padding: 5px;
-    text-align: center;
-    color: #0241b6;
-}
-
-.upper {
+main .inner .upper {
     margin-top: 5px;
-    width: 100%;
-    height: 40px;
+    width: 90%;
+    height: 50px;
+    /* border: 1px solid black; */
     display: flex;
-    margin-bottom: 60px;
+    justify-content: space-between;
 }
 
-.upper .submenu {
-    width: 100%;
-    height: 45px;
-    border: 1px solid black;
-    display: flex;
-}
-
-.upper .searchBar {
+main .inner .upper .searchBar {
 
     width: 100%;
     margin: 0 auto;
     display: flex;
+    /* 가로 정렬 */
     align-items: center;
+    /* 세로 정렬 */
     justify-content: right;
+    /* 가운데 정렬 */
     gap: 10px;
 
 }
 
-.upper .searchBar p {
-    margin: 0;
-    font: bold 30px/1 "arial";
-    color: #0241b6;
-}
-
-.upper .searchBar p input {
-    width: 300px;
-    height: 35px;
-    border: 3px solid #0241b6;
-    font: 15px/1 "arial";
-    outline: none;
-    text-align: center;
-    color: #465c6b;
-}
-
-.upper .searchBar img {
+main .inner .upper div img {
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
 
-.main_table {
-    margin-top: 5px;
-    width: 100%;
-    height: 100%;
-
+main .inner .upper .searchBar p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 500;
+    color: #0241b6;
 }
 
-.main_table table {
-    width: 100%;
-    height: 90%;
-    padding: 10px;
-    border-top: 3px solid #0241b6;
-    border-bottom: 3px solid #0241b6;
-    border-collapse: collapse;
-}
-
-.main_table table tr {
-    border: 1px solid #0241b6;
+main .inner .upper .searchBar p input {
+    width: 300px;
+    height: 35px;
+    border: 4px solid #a8a8a8;
+    font-size: 15px;
+    font-weight: 500;
+    outline: none;
     text-align: center;
+    color: #465c6b;
 }
 
-.main_table table tr td {
-    border: 1px solid #0241b6;
-    max-width: 550px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 10px;
-    font: 25px/1 "arial";
+main .inner .upper .searchBar img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
-.main_table table tr .bold {
-    font: bold 25px/1 "arial";
+main .inner .upper .searchBar p input::placeholder {
+    color: #465c6b;
+    font-size: 16px;
+    font-weight: 500;
 }
 
-/* modal pop-up (게시글 등록) */
+main .inner .upper .searchBar p input:focus::placeholder {
+    color: transparent;
+}
 
-/* 바깥 그림자 포함 사이즈 */
-.post-board {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    background: rgba(0, 0, 0, 0.5);
+main .inner .upper .searchBar .my_post {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: rgba(58, 58, 58, 0.1);
+    color: rgb(117, 117, 117);
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+main .inner .upper .searchBar .my_post :hover {
+    background-color: rgba(58, 58, 58, 0.3);
+    color: rgb(240, 240, 240);
+
+}
+
+
+main .inner .main_box {
+    margin-top: 5px;
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    top: 60px;
+}
+
+main .inner .main_box table {
+    width: 100%;
+    height: 90%;
+    border: 1px solid#6d6d6d;
+    border-collapse: collapse;
+    /* 겹치는 border 없애기 */
+}
+
+main .inner .main_box table tr {
+    border: 1px solid #6d6d6d;
+    text-align: center;
+}
+
+main .inner .main_box th {
+    background-color: #eaf1ff;
+    height: 40px;
+}
+
+main .inner .main_box table tr th {
+    border: 1px solid #6d6d6d;
+    outline: none;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+main .inner .main_box table tr td {
+    border: 1px solid #6d6d6d;
+    max-width: 500px;
+    /* 셀의 최대 너비 설정 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 22px;
+    font-weight: 500;
+
+}
+
+main .inner .main_box table tr .bold {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td:nth-child(3) {
+    width: 10px;
+}
+
+.pop-up-background1 {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    position: absolute;
+    top: 0px;
     /*  modal ON/OFF  */
-    display: none;
+    /* display: none; */
 }
 
 /* 게시판 클릭 시 본문 사이즈 */
-.post-board .board-detail {
+/* .board-detail {
     width: 690px;
     height: 700px;
     background: #c9c9c9;
     padding: 45px;
 
 
-}
+} */
 
 /* 제목+본문 wrap 사이즈 */
-.wrap-post {
+/* .wrap-post {
     width: 100%;
     height: 100%;
     padding-top: 10px;
@@ -282,7 +378,7 @@ section .inner h1 {
 }
 
 /* 댓글 등록 시 */
-.comment-board {
+/* .comment-board {
     position: absolute;
     top: 0;
     left: 0;
@@ -293,9 +389,10 @@ section .inner h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*  modal ON/OFF  */
-    display: none;
-}
+    */
+/*  modal ON/OFF  */
+/* display: none; */
+/* }
 
 .comment-board .board-detail {
     width: 690px;
@@ -342,4 +439,4 @@ section .inner h1 {
 .comment-content {
     margin-top: 5px;
     font-size: 16px;
-}
+} */
