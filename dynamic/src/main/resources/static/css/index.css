@@ -1,10 +1,29 @@
 @charset 'utf-8';
 
+
+@font-face {
+  font-family: 'NanumHumanTTFBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0px;
   padding: 0px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
+
+
 
 ul,
 li {
@@ -48,9 +67,11 @@ header .inner {
 
 header .inner .header_upper {
   width: 100%;
+  height: 35px;
   display: flex;
   justify-content: right;
-  font: bold 12px "arial";
+  font-size: 12px;
+  font-weight: 700;
 }
 
 header .inner .header_upper li {
@@ -58,7 +79,15 @@ header .inner .header_upper li {
 }
 
 header .inner .header_upper li a {
-  color: rgb(59, 59, 59);
+  display: block;
+  width: 60px;
+  color: rgb(128, 128, 128);
+}
+
+header .inner .header_upper li a:hover {
+  color: rgb(39, 39, 39);
+  font: bold 12px "arial";
+
 }
 
 
@@ -90,7 +119,8 @@ header .inner .header_lower li a {
 }
 
 header .inner .header_lower li a span {
-  font: 20px 'arial';
+  font-size: 18px;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -137,7 +167,17 @@ header .inner .header_lower li .free_template {
   font: bold 15px "arial";
   background-color: #0241b6;
   background-image: linear-gradient(45deg, #a4d2f8, #0241b6, #fff);
+  border: 1px solid #f6edfd;
   color: #fff;
+}
+
+header .inner .header_lower li .free_template:hover {
+  font: bold 15px "arial";
+  background-color: #0241b6;
+  background-image: linear-gradient(45deg, #a4d2f8, #0241b6, #fff);
+  border: 1px solid #f6edfd;
+  color: #fff;
+  opacity: 0.9;
 }
 
 hr {
@@ -207,7 +247,14 @@ main .inner .cardwrap .card {
   border: 2px solid #25a8ff;
   text-align: center;
   box-sizing: border-box;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
+
+main .inner .cardwrap .card:hover {
+  transform: translateY(-50px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
 
 main .inner .cardwrap .card p {
   float: left;
@@ -225,13 +272,10 @@ main .inner .cardwrap .card .pic {
   margin-top: 10px;
 }
 
-main .inner .cardwrap .card:nth-child(odd) {
-  margin-top: 50px;
-}
 
 main .inner .cardwrap .card .pic h1 {
-  font: bold 80px "arial";
-  color: #00b7ff;
+  font: bold 70px "arial";
+  color: #64cffa;
   text-align: center;
   line-height: 160px;
 }
@@ -242,6 +286,7 @@ main .inner .cardwrap .card p {
   font: bold 35px "arial";
   width: 90%;
   text-align: center;
+  color: #2b2b2b;
 }
 
 
