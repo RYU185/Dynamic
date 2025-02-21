@@ -274,67 +274,53 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     width: 10px;
 }
 
-main .pop-up-background1,
+.pop-up-background1,
 .pop-up-background2 {
-    width: 50%;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     background-color: black;
-    opacity: 0.4;
-    border-radius: 30px;
-    display: none;
+    opacity: 0.3;
+    position: absolute;
+    top: 0px;
+    /* display: none; */
 }
 
 main .pop-up1,
 .pop-up2 {
     padding-top: 15px;
     /* border: 1px solid black; */
-    background-color: white;
+    background-color: #f1f6f7;
     width: 43%;
     height: 530px;
     text-align: center;
-    border-radius: 30px;
-    display: none;
+    /* display: none; */
 
 }
 
-main .pop-up-background1 {
-    position: absolute;
-    top: 100px;
-    left: -20px;
-}
 
 main .pop-up1 {
     position: absolute;
+    z-index: 12;
     top: 120px;
     left: 20px;
 }
 
-
-main .pop-up-background2 {
-    position: absolute;
-    top: 100px;
-    right: -20px;
-}
-
 main .pop-up2 {
     position: absolute;
+    z-index: 12;
     top: 120px;
     right: 20px;
 }
 
 main .content_box {
     margin: 20px;
-    border: 1px solid black;
-    /* border-left: none;
-    border-right: none; */
+
     width: 90%;
     height: 450px;
     position: relative;
     font-size: 20px;
     font-weight: 500;
-
-
-
+    background-color: white;
 }
 
 main .content_box .content {
@@ -387,18 +373,17 @@ main .content_box .date .submit {
     width: 100px;
     height: 35px;
     margin-left: 170px;
-    border-radius: 30px;
     font-size: 20px;
     font-weight: 500;
-    border: 1px solid rgb(0, 23, 156);
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(58, 58, 58, 0.1);
+    border-radius: 15px;
+    color: rgb(117, 117, 117);
     margin-top: 50px;
+    border: none;
 
 }
 
 main .content_box .date .submit:hover {
-    background-color: rgb(182, 193, 255);
-    color: white;
-    border: none;
-
+    background-color: rgba(58, 58, 58, 0.3);
+    color: rgb(240, 240, 240);
 }
