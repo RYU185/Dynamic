@@ -300,12 +300,16 @@ section{
 }
 
 .purchase-all .calc-all{
+    height: 42px;
     margin: 30px;
     border: 5px solid #03045e;
     padding: 10px 60px 10px 60px;
     background-color: #fff;
     border-radius: 10px;
+    padding-bottom: 20px;
 }
+
+
 
 .purchase-all .purchase-final {
     margin: 30px;
