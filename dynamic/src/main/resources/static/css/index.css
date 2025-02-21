@@ -86,8 +86,8 @@ header .inner .header_upper li a {
 
 header .inner .header_upper li a:hover {
   color: rgb(39, 39, 39);
-  font: bold 12px "arial";
-
+  font-size: 12px;
+  font-weight: 500;
 }
 
 
@@ -163,12 +163,14 @@ header .inner .header_lower li a span {
 }
 
 header .inner .header_lower li:nth-child(1) {
-  font: 20px 'arial';
+  font-size: 20px;
+  font-weight: 500;
   text-align: center;
 }
 
 header .inner .header_lower li:nth-child(2) {
-  font: 20px 'arial';
+  font-size: 20px;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -188,6 +190,7 @@ header .inner .header_lower .button {
   width: 100%;
   display: flex;
   justify-content: right;
+
 }
 
 
@@ -200,7 +203,8 @@ header .inner .header_lower li .free_template {
   height: 50px;
   border: none;
   border-radius: 30px;
-  font: bold 15px "arial";
+  font-size: 15px;
+  font-weight: 500;
   background-color: #0241b6;
   background-image: linear-gradient(45deg, #a4d2f8, #0241b6, #fff);
   border: 1px solid #f6edfd;
@@ -208,7 +212,8 @@ header .inner .header_lower li .free_template {
 }
 
 header .inner .header_lower li .free_template:hover {
-  font: bold 15px "arial";
+  font-size: 15px;
+  font-weight: 500;
   background-color: #0241b6;
   background-image: linear-gradient(45deg, #a4d2f8, #0241b6, #fff);
   border: 1px solid #f6edfd;
@@ -249,7 +254,9 @@ section .inner {
 }
 
 section .inner h1 {
-  font: bold 50px "arial";
+  font-family: 'GmarketSansMedium';
+  font-size: 60px;
+  font-weight: 800;
   color: #fff;
 }
 
@@ -312,7 +319,8 @@ main .inner .cardwrap .card .pic {
 
 
 main .inner .cardwrap .card .pic h1 {
-  font: bold 70px "arial";
+  font-size: 70px;
+  font-weight: 800;
   color: #ffff;
   text-align: center;
   line-height: 150px;
@@ -321,7 +329,8 @@ main .inner .cardwrap .card .pic h1 {
 
 
 main .inner .cardwrap .card p {
-  font: bold 35px "arial";
+  font-size: 35px;
+  font-weight: 500;
   width: 90%;
   text-align: center;
   color: #2b2b2b;
@@ -380,7 +389,8 @@ main .inner .cardwrap .card p {
   border-left: 1px solid #000000;
   width: 10%;
   height: 60px;
-  font: bold 18px/1 "arial";
+  font-size: 18px;
+  font-weight: 500;
 
 }
 
@@ -389,17 +399,20 @@ main .inner .cardwrap .card p {
   border: none;
   outline: none;
   width: 120px;
-  font: 15px "arial";
+  font-size: 15px;
+  font-weight: 500;
 }
 
 
 .pop-up .payrolltemplate .template tr:last-child td:first-child {
-  font: bold 15px/1 "arial";
+  font-size: 15px;
+  font-weight: 500;
 
 }
 
 .pop-up .payrolltemplate .template tr:last-child td:nth-child(3) {
-  font: bold 15px/1 "arial";
+  font-size: 15px;
+  font-weight: 500;
 }
 
 
@@ -420,7 +433,8 @@ main .inner .cardwrap .card p {
   height: 40px;
   border-radius: 20px;
   border: none;
-  font: bold 18px/1 "arial";
+  font-size: 18px;
+  font-weight: 500;
   background-color: #000000;
   color: #ffffff;
 
@@ -429,14 +443,16 @@ main .inner .cardwrap .card p {
 .pop-up .payrolltemplate .buttom span {
   display: block;
   text-align: center;
-  font: bold 20px/1 "arial";
+  font-size: 20px;
+  font-weight: 500;
 
 }
 
 .pop-up .payrolltemplate .buttom span p {
   padding-top: 6px;
   opacity: 0.7;
-  font: bold 17px/1 "arial";
+  font-size: 17px;
+  font-weight: 500;
 
 
 }
@@ -452,7 +468,8 @@ main .inner .cardwrap .card p {
 .pop-up .payrolltemplate .left input[type=button] {
   display: flex;
   flex-direction: column;
-  font: bold 15px/1 "arial";
+  font-size: 15px;
+  font-weight: 500;
   width: 80px;
   height: 40px;
   border-radius: 20px;
@@ -483,7 +500,8 @@ footer .inner .lower {
 
 footer .inner .upper h1 {
   float: left;
-  font: bold 24px/1 "arial";
+  font-size: 24px;
+  font-weight: 500;
   color: #666;
 }
 
@@ -509,20 +527,23 @@ footer .inner .upper ul::after {
 }
 
 footer .inner .upper ul li a {
-  font: bold 14px/1 "arial";
+  font-size: 14px;
+  font-weight: 500;
   color: #666;
 }
 
 footer .inner .lower address {
   margin-top: 20px;
   width: 100%;
-  font: 12px/1.3 "arial";
+  font-size: 12px;
+  font-weight: 500;
   color: #777;
   margin-bottom: 20px;
 }
 
 footer .inner .lower p {
   width: 100%;
-  font: 12px/1.3 "arial";
+  font-size: 12px;
+  font-weight: 500;
   color: #777;
 }

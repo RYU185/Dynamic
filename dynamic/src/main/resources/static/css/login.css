@@ -1,9 +1,26 @@
 @charset 'utf-8';
 
+
+@font-face {
+    font-family: 'NanumHumanTTFBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0px;
     padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
 
 ul,
@@ -46,7 +63,7 @@ body {
 /* section */
 section {
     width: 100%;
-    padding-top: 80px;
+    padding-top: 60px;
     margin-bottom: 10px;
 }
 
@@ -60,7 +77,9 @@ section .inner {
 
 section .inner h1 {
     width: 100%;
-    font: bold 50px "arial";
+    font-family: 'GmarketSansMedium';
+    font-size: 45px;
+    font-weight: 900;
     color: #ffffff;
 }
 
@@ -126,7 +145,8 @@ main .inner .login_form .submit_btn input[type='button'] {
     background-color: rgba(58, 58, 58, 0.1);
     border-radius: 15px;
     color: rgb(117, 117, 117);
-    font: bold 15px "arial";
+    font-size: 15px;
+    font-weight: 500;
 }
 
 main .inner .login_form .submit_btn input[type='button']:hover {
@@ -146,5 +166,6 @@ main .inner .login_form .find_register {
 main .inner .login_form .find_register div {
     width: 50%;
     color: rgba(77, 77, 77, 0.5);
-    font: 12px "arial";
+    font-size: 12px;
+    font-weight: 500;
 }

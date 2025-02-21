@@ -1,8 +1,26 @@
 @charset 'utf-8';
 
+
+@font-face {
+  font-family: 'NanumHumanTTFBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0px;
   padding: 0px;
+  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
 
 ul,
@@ -51,15 +69,21 @@ header .inner .upper {
 }
 
 header .inner .upper li {
-
   border-radius: 1px 0 solid;
   margin-top: 8px;
   text-align: center;
-  height: 30px;
+  height: 42px;
   width: 150px;
-
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+header .inner .upper li:hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
 
 header .inner .upper li a {
   display: block;
@@ -70,29 +94,18 @@ header .inner .upper li a {
 }
 
 header .inner .upper li a span {
-  font: 20px 'arial';
-  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
   width: 120px;
 }
 
-header .inner .upper li:nth-child(1) {
-  font: 20px 'arial';
-  text-align: center;
-  width: 100px;
-}
-
-header .inner .upper li:nth-child(2) {
-  font: 20px 'arial';
-  text-align: center;
-  width: 120px;
-}
 
 hr {
   width: 100%;
   border-color: #4c6b7e;
   opacity: 0.2;
   position: absolute;
-  top: 70px;
+  top: 50px;
 }
 
 section {
@@ -113,7 +126,9 @@ section .titlewrap .main_title {
 }
 
 section .titlewrap .main_title h1 {
-  font: bold 80px/1 "arial";
+  font-family: 'GmarketSansMedium';
+  font-size: 100px;
+  font-weight: 900;
   color: #0241b6;
   margin: 50px 40px 0px 40px;
 }
@@ -140,7 +155,7 @@ main .inner .util ul {
 }
 
 main .inner .util ul li {
-  border: 3px solid #0241b6;
+  border: 1px solid #0241b6;
   border-radius: 40px;
   background-color: white;
   height: 350px;
@@ -154,7 +169,8 @@ main .inner .util ul li a {
   display: block;
   width: 100%;
   height: 100%;
-  font: bold 40px "arial";
+  font-size: 40px;
+  font-weight: 700;
   white-space: pre-line;
   color: black;
   display: flex;
@@ -163,7 +179,9 @@ main .inner .util ul li a {
 }
 
 main .inner .util ul li:hover {
-  background-color: #0241b6;
+  background-color: #023e8a;
+  border: none;
+
   opacity: 0.5;
 
 }
@@ -171,9 +189,6 @@ main .inner .util ul li:hover {
 main .inner .util ul li:hover a {
   color: #fff;
 }
-
-
-
 
 
 footer {
@@ -188,14 +203,15 @@ footer .inner {
 
 footer .inner a {
   padding: 20px;
-  font: bold 20px "arial";
+  font-size: 20px;
+  font-weight: 500;
   color: #fff;
   border-radius: 30px;
-  background-color: #8fd1fd;
+  background-color: #03045e;
 }
 
 footer .inner a:hover {
-  background-color: #0241b6;
+  background-color: #023e8a;
   opacity: 0.5;
   color: #fff;
 }
