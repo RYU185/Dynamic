@@ -95,12 +95,10 @@ hr {
     top: 70px;
 }
 
-
 /* section */
 
 section {
     width: 100%;
-    padding-top: 20px;
     position: relative;
 }
 
@@ -254,9 +252,12 @@ section .myCoursePurchaseHistory .courseList {
     padding: 20px;
 }
 
+
+
 .mySubscPurchaseHistory .wrapSubsc {
     width: 100%;
     padding-bottom: 20px;
+    margin-top: 50px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar {
