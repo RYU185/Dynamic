@@ -134,7 +134,6 @@ section{
     width: 40%;
     display: flex;
     text-align: center;
-    border: 5px solid #0241b6;
     /* background: #0241b6;
     color: #fff; */
     margin: 20px;
@@ -151,7 +150,7 @@ section{
     width: 100%;
     height: 800px;
     border: 5px solid #0241b6;
-    border-radius: 25px;
+    border-radius: 10px;
     margin: 20px;
     padding: 20px;
     display: flex;
@@ -164,15 +163,14 @@ section{
     margin: 10px;
     padding: 30px;
     border-radius: 20px;
-    background-color: rgba(82, 79, 255, 0.1);
     
 }
 
 .item-wrap .checkbox-wrap .checkValue {
 
-    border: 15px solid #00548b;
+    border: 5px solid #00548b;
     border-bottom: none;
-    border-radius: 10px 10px 0 0 ;
+    border-radius: 5px 5px 0 0 ;
     height: 70px;
     width: 300px;
     padding: 10px;
@@ -196,10 +194,11 @@ section{
 
 .item-wrap .checkbox-wrap .cart-item-list{
     height: 600px;
-    border: 15px solid #00548b;
-    border-radius: 0 10px 10px 10px;
+    border: 5px solid #00548b;
+    border-radius: 0 5px 5px 5px;
     width: 100%;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .item-wrap .checkbox-wrap .cart-item-list .cart-item{
@@ -283,7 +282,6 @@ section{
     margin: 30px;
     border: none;
     padding: 0 10px 0 10px;
-    background-color: #8797f3;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -293,10 +291,17 @@ section{
 .purchase-all .purchase-final button{
     width: 400px;
     height: 70px;
-    background-color: #8797f3;
     border: none;
-    border-radius: 15px;
+    border-radius: 6px;
+    background-color: #8797f3;
     font: bold 35px "arial";
     color: rgb(0, 61, 141);
     cursor: pointer;
+}
+
+
+.purchase-all .purchase-final button:hover{
+    background-color: #5770ff;
+    color: #fff;
+
 }
