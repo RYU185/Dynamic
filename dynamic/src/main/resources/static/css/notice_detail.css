@@ -1,16 +1,19 @@
-@charset 'utf-8';
-
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
 }
+
 ul,
-ol {
+li {
     list-style: none;
 }
+
 a {
     text-decoration: none;
+}
+
+.wrap {
+    margin: 20px 20% 20px 20%;
 }
 
 hr {
@@ -18,35 +21,42 @@ hr {
     opacity: 0.2;
 }
 
-.wrap {
-    margin: 20px 20% 20px 20%;
+body {
+    position: relative;
 }
 
 /* header */
 header {
     width: 100%;
     background-color: #fff;
+
 }
 
 header .inner {
     width: 100%;
-    height: 70px;
-    margin: 0px auto;
+    height: 90px;
+    margin: 0 auto;
     position: relative;
 }
+
 
 header .inner .upper {
     width: 100%;
     margin: 0px auto;
     display: flex;
     justify-content: space-between;
+    height: 30px;
 }
 
 header .inner .upper li {
+
     border-radius: 1px 0 solid;
-    margin-top: 25px;
+    margin-top: 8px;
     text-align: center;
-    margin-bottom: 10px;
+    height: 30px;
+    width: 150px;
+
+
 }
 
 header .inner .upper li a {
@@ -54,135 +64,181 @@ header .inner .upper li a {
     color: black;
     display: flex;
     align-items: center;
-    width: 250px;
-}
-
-header .inner .upper li a span{
     width: 120px;
+}
+
+header .inner .upper li a span {
     font: 20px 'arial';
-    text-align: left;
-}
-
-header .inner .upper li a img{
-    object-fit: contain;
-    width: 50px;
-    height: 30px;
-}
-header .inner .upper li img {
-    object-fit: cover;
-    width: 10%;
-    height: 10%;
-}
-section{
-    width: 100%;
-    padding-top: 80px;
-}
-
-section .inner{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-section .inner h1{
-    padding: 10px;
-    width: 850px;
-    font: bold 80px 'arial';
     text-align: center;
-    border: 1px solid rgb(231, 247, 250);
-    border-radius: 30px;
-    background-color:rgb(231, 247, 250);
+    width: 120px;
 }
-main{
+
+header .inner .upper li:nth-child(1) {
+    font: 20px 'arial';
+    text-align: center;
+    width: 100px;
+}
+
+header .inner .upper li:nth-child(2) {
+    font: 20px 'arial';
+    text-align: center;
+    width: 120px;
+}
+
+hr {
+    width: 100%;
+    border-color: #4c6b7e;
+    opacity: 0.2;
+    position: absolute;
+    top: 70px;
+}
+
+section {
+    width: 100%;
+    padding: 20px;
+}
+
+section .titlewrap {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+section .titlewrap .main_title {
+    display: block;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+section .titlewrap .main_title h1 {
+    font: bold 80px/1 "arial";
+    color: #0241b6;
+    margin: 50px 40px 0px 40px;
+}
+
+main {
     margin-top: 50px;
     width: 100%;
 }
-main .inner{
+
+main .inner {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-main .inner .main_box{
+main .inner .main_box {
     width: 30%;
-    
+
 }
 
-main .inner .main_box table{
+main .inner .main_box table {
     width: 100%;
-    border: 1px solid black;
+    height: 90%;
+    border: 3px solid#0241b6;
     border-collapse: collapse;
 
 
 }
 
-main .inner .main_box table tr{
-    border: 1px solid black;
+main .inner .main_box table tr {
+    border: 1px solid #0241b6;
     text-align: center;
     height: 60px;
+    margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-main .inner .main_box table tr th{
-    border: 1px solid #000000;
+main .inner .main_box table tr th {
+    border: 1px solid #0241b6;
     outline: none;
-    font: bold 20px/1 "arial";
+    font: bold 30px/1 "arial";
 }
 
-main .inner .main_box table tr td{
-    border: 1px solid #000000;
-    max-width: 180px; /* 셀의 최대 너비 설정 */
+main .inner .main_box table th {
+    background-color: #eaf1ff;
+
+}
+
+main .inner .main_box table tr td {
+    border: 1px solid#0241b6;
+    max-width: 180px;
+    /* 셀의 최대 너비 설정 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 5px;
     padding-right: 5px;
+    font: 20px/1 "arial";
 }
 
-main .inner .detail_box{
-    border: 1px solid black;
+main .inner .main_box table tr td:first-child {
+    font: bold 20px/1 "arial";
+}
+
+
+main .inner .main_box table tr:hover {
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+main .inner .main_box table tr:hover td {
+    background-color: #fff;
+    font: bold 24px "arial";
+}
+
+
+
+main .inner .detail_box {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
     width: 700px;
     position: relative;
-    background-color: aliceblue;
+    background-color: rgb(250, 253, 255);
 }
 
 
-main .inner .detail_box .title{
-    padding: 10px;
-    font: bold 20px "arial";
-    
+main .inner .detail_box .title {
+    margin: 20px;
+    text-align: center;
+    font: bold 40px "arial";
+
 }
 
-main .inner .detail_box .description{
+main .inner .detail_box .description {
     width: 80%;
-    height: 75%;
-    border:1px solid #000000 ;
+    height: 450px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
     position: absolute;
-    right: 70px;
-    padding: 20px;
+    right: 50px;
     background-color: white;
+    padding: 20px;
 }
 
-main .inner .detail_box .buttom{
+main .inner .detail_box .buttom {
     position: absolute;
     bottom: 0px;
     width: 100%;
-  
+
 }
-main .inner .detail_box .buttom .content{
+
+main .inner .detail_box .buttom .content {
     width: 100%;
     /* border: 1px solid black; */
     display: flex;
     flex-wrap: wrap;
-    
-    
+
+
 }
-main .inner .detail_box .buttom .content div{
+
+main .inner .detail_box .buttom .content div {
     font: 16px "arial";
     margin-bottom: 10px;
     padding-left: 10px;
 }
-main .inner .detail_box .buttom .content div:last-child{
+
+main .inner .detail_box .buttom .content div:last-child {
     padding-top: 4px;
 }
-
-

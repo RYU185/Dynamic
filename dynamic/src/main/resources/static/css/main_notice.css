@@ -219,6 +219,11 @@ main .inner .main_box table tr th {
     font: bold 30px/1 "arial";
 }
 
+main .inner .main_box th {
+    background-color: #eaf1ff;
+
+}
+
 main .inner .main_box table tr td {
     border: 1px solid #0241b6;
     max-width: 500px;
@@ -246,6 +251,7 @@ main .pop-up-background1,
     background-color: black;
     opacity: 0.4;
     border-radius: 30px;
+    display: none;
 }
 
 main .pop-up1,
@@ -257,6 +263,7 @@ main .pop-up1,
     height: 530px;
     text-align: center;
     border-radius: 30px;
+    display: none;
 
 }
 
