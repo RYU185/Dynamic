@@ -320,7 +320,7 @@ main .pop-up2 {
     z-index: 13;
     top: 120px;
     right: 330px;
-    display: none;
+    /* display: none; */
 
 
 }
@@ -356,7 +356,7 @@ main .pop-up2 .content_box .comment-list {
     margin: 20px;
     /* border: 1px solid rgb(236, 236, 236); */
     width: 90%;
-    height: 140px;
+    height: 180px;
     position: relative;
     font-size: 20px;
     font-weight: 500;
@@ -412,7 +412,7 @@ main .pop-up2 .content_box .comment_box .content {
     margin: 20px;
     /* border: 1px solid rgb(236, 236, 236); */
     width: 90%;
-    height: 100px;
+    height: 50px;
     position: relative;
     font-size: 20px;
     font-weight: 500;
@@ -425,10 +425,12 @@ main .pop-up2 .content_box .comment_box .content {
 main .pop-up2 .content_box .comment_box .content .text {
     border: none;
     outline: none;
-    height: 100px;
+    height: 50px;
     position: absolute;
-
-
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: left;
 }
 
 main .pop-up2 .content_box .comment_box .submit {
