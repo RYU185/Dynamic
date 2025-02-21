@@ -292,11 +292,12 @@ section{
 
 .purchase-all {
     width: 100%;
-    margin-top: 50px;
     position: fixed;
     display: flex;
     bottom: 0;
     justify-content: center;
+    background-color: #eeeeee;
+
 }
 
 .purchase-all .calc-all{
@@ -318,6 +319,7 @@ section{
     border-radius: 15px;
     display: flex;
     align-items: center;
+
     
 }
 
