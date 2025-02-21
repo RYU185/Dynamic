@@ -1,13 +1,30 @@
 @charset 'utf-8';
 
+
+@font-face {
+    font-family: 'NanumHumanTTFBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
 
 ul,
-ol {
+li {
     list-style: none;
 }
 
@@ -15,13 +32,17 @@ a {
     text-decoration: none;
 }
 
+.wrap {
+    margin: 20px 20% 20px 20%;
+}
+
 hr {
     border-color: #4c6b7e;
     opacity: 0.2;
 }
 
-.wrap {
-    margin: 20px 20% 20px 20%;
+body {
+    position: relative;
 }
 
 /* header */
@@ -48,14 +69,20 @@ header .inner .upper {
 }
 
 header .inner .upper li {
-
     border-radius: 1px 0 solid;
     margin-top: 8px;
     text-align: center;
-    height: 30px;
+    height: 42px;
     width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 
+header .inner .upper li:hover {
+    background-color: rgb(236, 235, 235);
+    color: #868686;
 }
 
 header .inner .upper li a {
@@ -67,19 +94,8 @@ header .inner .upper li a {
 }
 
 header .inner .upper li a span {
-    font: 20px 'arial';
-    text-align: center;
-    width: 120px;
-}
-
-header .inner .upper li:nth-child(1) {
-    font: 20px 'arial';
-    text-align: center;
-    width: 100px;
-}
-
-header .inner .upper li:nth-child(2) {
-    font: 20px 'arial';
+    font-size: 18px;
+    font-weight: 500;
     text-align: center;
     width: 120px;
 }
@@ -89,9 +105,8 @@ hr {
     border-color: #4c6b7e;
     opacity: 0.2;
     position: absolute;
-    top: 70px;
+    top: 50px;
 }
-
 
 /* section */
 
