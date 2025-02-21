@@ -104,16 +104,54 @@ header .inner .header_lower li {
   border-radius: 1px 0 solid;
   margin-top: 8px;
   text-align: center;
-  height: 30px;
+  height: 57px;
   width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 
 }
+
+header .inner .header_lower li:nth-child(1):hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
+header .inner .header_lower li:nth-child(2):hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
+header .inner .header_lower li:nth-child(3):hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
+header .inner .header_lower li:nth-child(4):hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
+header .inner .header_lower li:nth-child(5):hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
+header .inner .header_lower li:nth-child(6):hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
+
+
 
 header .inner .header_lower li a {
   display: block;
   color: black;
   display: flex;
+  justify-content: center;
+
   align-items: center;
   width: 250px;
 }
@@ -127,13 +165,11 @@ header .inner .header_lower li a span {
 header .inner .header_lower li:nth-child(1) {
   font: 20px 'arial';
   text-align: center;
-  width: 130px;
 }
 
 header .inner .header_lower li:nth-child(2) {
   font: 20px 'arial';
   text-align: center;
-  width: 120px;
 }
 
 header .inner .header_lower li a img {
@@ -189,7 +225,8 @@ hr {
 }
 
 .background {
-  background-color: #ebf3fa;
+  background-color: #48cae4;
+  opacity: 0.5;
   width: 100%;
   height: 450px;
   position: absolute;
@@ -244,7 +281,7 @@ main .inner .cardwrap .card {
   height: 320px;
   background: #ffffff;
   border-radius: 20px;
-  border: 2px solid #25a8ff;
+  border: 1px solid #aef2ff;
   text-align: center;
   box-sizing: border-box;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -263,9 +300,10 @@ main .inner .cardwrap .card p {
 
 main .inner .cardwrap .card .pic {
   width: 90%;
-  height: 170px;
-  padding-top: 10px;
-  background-color: #d3eafa;
+  height: 150px;
+  /* padding-top: 0px; */
+  background-color: #00b4d8;
+  opacity: 0.8;
   margin: 0 auto;
   border-radius: 20px;
   margin-bottom: 15px;
@@ -275,9 +313,9 @@ main .inner .cardwrap .card .pic {
 
 main .inner .cardwrap .card .pic h1 {
   font: bold 70px "arial";
-  color: #64cffa;
+  color: #ffff;
   text-align: center;
-  line-height: 160px;
+  line-height: 150px;
 }
 
 
