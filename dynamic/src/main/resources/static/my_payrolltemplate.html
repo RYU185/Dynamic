@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 급여명세서</title>
+  <link rel="stylesheet" href="./css/my_payrolltemplate.css">
+</head>
+<body>
+  <hr>
+    <div class="wrap">
+        <!-- header -->
+        <header>
+            <div class="inner">
+                <ul class="upper">
+                    <li>
+                        <a href="#"><span><b>홈</b></span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>공지사항</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>제품</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>게시판</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>서식자료</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>가이드</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>장바구니</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>마이페이지</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </header>
+
+        <!-- section -->
+        <section>
+            <div class="title-wrap">
+                <div class="title">
+                    <h1>나의 급여명세서</h1>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div class="inner">
+
+                <div class="main_box">
+                    <div class="day_box">
+                        <div>
+                            <p>날짜</p>
+                        </div>
+
+                        <!-- 날짜 설정 -->
+                        <div class="day_content">
+                            <label for="options">월 선택: </label>
+                                <select id="options" name="options">
+                                    <option value="option1">1월</option>
+                                    <option value="option2">2월</option>
+                                    <option value="option3">3월</option>
+                                    <option value="option1">4월</option>
+                                    <option value="option2">5월</option>
+                                    <option value="option3">6월</option>
+                                    <option value="option1">7월</option>
+                                    <option value="option2">8월</option>
+                                    <option value="option3">9월</option>
+                                    <option value="option1">10월</option>
+                                    <option value="option2">11월</option>
+                                    <option value="option3">12월</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="employee_box">
+                        <div>
+                            <p>직원 명단</p>
+                        </div>
+
+                        <table class="employee_table" border="1">
+                            <tr>
+                                <th class="bold">성함</th>
+                                <th class="bold">구분</th>
+                                <th class="bold">월급</th>
+                                <th class="bold">실수령액</th>
+                                <th class="bold">지급일</th>
+                            </tr>
+                            <tr>
+                                <td>김동근</td>
+                                <td>아르바이트</td>
+                                <td>510,000</td>
+                                <td>502,000</td>
+                                <td>매월 4일</td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </main>
+</body>
+</html>
