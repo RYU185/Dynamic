@@ -216,8 +216,8 @@ main .inner {
     height: 50px;
     display: flex;
     gap: 10px;
-    cursor: pointer;
-    padding: 0.625rem 0 0 3.125rem ;
+    
+    padding: 15px 0 0 3.125rem ;
 }
 
 .searchBar input {
@@ -233,6 +233,7 @@ main .inner {
 
 .searchBar img {
     object-fit: cover;
+    cursor: pointer;
 }
 
 .table_wrap {
