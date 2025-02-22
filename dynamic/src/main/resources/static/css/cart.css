@@ -235,9 +235,15 @@ section{
     border: 5px solid #03045e;
     border-radius: 5px;
     margin: 30px;
-    display: flex;
+    display: grid;
+    grid-area: item;
+    grid-template-columns: 10% 30% 40% 10% 10%;
+    grid-template-rows: auto;
     height: 150px;
+    gap: 10px;
+
 }
+
 
 
 .item-wrap .checkbox-wrap .cart-item-list .cart-item .check{
@@ -290,6 +296,20 @@ section{
 
 }
 
+.close {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: right;
+    padding-top: 10px;
+    
+}
+
+.close img {
+    object-fit: cover;
+    cursor: pointer;
+}
+
 .purchase-all {
     width: 100%;
     position: fixed;
@@ -297,7 +317,7 @@ section{
     bottom: 0;
     justify-content: center;
     background-color: #eeeeee;
-
+    
 }
 
 .purchase-all .calc-all{
@@ -333,14 +353,11 @@ section{
     color: #03045e;
     border: 5px solid #03045e;
     cursor: pointer;
-
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.6s, color 0.3s;
 }
 
 
 .purchase-all .purchase-final button:hover{
     background-color: #03045e;
     color: #fff;
-
-
 }
