@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>내 급여명세서</title>
-  <link rel="stylesheet" href="./css/my_payrolltemplate.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>내 급여명세서</title>
+<link rel="stylesheet" href="./css/my_payrolltemplate.css">
 </head>
 <body>
   <hr>
@@ -53,60 +53,123 @@
 
         <main>
             <div class="inner">
-
                 <div class="main_box">
                     <div class="day_box">
                         <div>
-                            <p>날짜</p>
+                            <p>급여 명세서 조회</p>
                         </div>
 
                         <!-- 날짜 설정 -->
                         <div class="day_content">
-                            <label for="options">월 선택: </label>
+                            <label for="options">월 선택 </label>
                                 <select id="options" name="options">
                                     <option value="option1">1월</option>
                                     <option value="option2">2월</option>
                                     <option value="option3">3월</option>
-                                    <option value="option1">4월</option>
-                                    <option value="option2">5월</option>
-                                    <option value="option3">6월</option>
-                                    <option value="option1">7월</option>
-                                    <option value="option2">8월</option>
-                                    <option value="option3">9월</option>
-                                    <option value="option1">10월</option>
-                                    <option value="option2">11월</option>
-                                    <option value="option3">12월</option>
+                                    <option value="option4">4월</option>
+                                    <option value="option5">5월</option>
+                                    <option value="option6">6월</option>
+                                    <option value="option7">7월</option>
+                                    <option value="option8">8월</option>
+                                    <option value="option9">9월</option>
+                                    <option value="option10">10월</option>
+                                    <option value="option11">11월</option>
+                                    <option value="option12">12월</option>
                                 </select>
                         </div>
                     </div>
 
+
                     <div class="employee_box">
-                        <div>
-                            <p>직원 명단</p>
+                        <div class="employee_header">
+                            <div>
+                                <p>직원 명단</p>
+                            </div>
+
+                            <div class="searchBar">
+                                <input type="text" placeholder="직원을 검색하세요">
+                                <img src="./img/search.png">                                
+                            </div>
                         </div>
 
-                        <table class="employee_table" border="1">
-                            <tr>
-                                <th class="bold">성함</th>
-                                <th class="bold">구분</th>
-                                <th class="bold">월급</th>
-                                <th class="bold">실수령액</th>
-                                <th class="bold">지급일</th>
-                            </tr>
-                            <tr>
-                                <td>김동근</td>
-                                <td>아르바이트</td>
-                                <td>510,000</td>
-                                <td>502,000</td>
-                                <td>매월 4일</td>
-                            </tr>
-                        </table>
+                        <div class="table_wrap">
+                            <table class="employee_table">
+                                <tr>
+                                    <th class="bold">성함</th>
+                                    <th class="bold">계약형태</th>
+                                    <th class="bold">월급(세전)</th>
+                                    <th class="bold">월급(세후)</th>
+                                    <th class="bold">지급일</th>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                <tr>
+                                    <td>김민수</td>
+                                    <td>아르바이트</td>
+                                    <td>510,000</td>
+                                    <td>502,000</td>
+                                    <td>매월 4일</td>
+                                </tr>
+                                
+                            </table>
+                        </div>
 
 
                     </div>
-
-
-
                 </div>
             </div>
         </main>
