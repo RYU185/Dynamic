@@ -237,7 +237,7 @@ main .inner {
 }
 
 .table_wrap {
-    padding-left: 3.125rem;
+    padding: 0 3.125rem 0 3.125rem;
 }
 
 .table_wrap .employee_table {
