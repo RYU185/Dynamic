@@ -164,7 +164,7 @@ main .inner {
     padding: 0 50px 0 50px;
 }
 
-.day_box p{
+.day_box .subtitle p{
     font-size: 45px;
     height: 60px;
     border: none;
@@ -187,11 +187,27 @@ main .inner {
     padding-top: 10px;
 }
 
+
+
 .day_box .day_content #options {
     margin: 0 0 0 20px;
     padding:10px 20px 10px 20px;
     border-radius: 8px;
 }
+
+main .inner .main_box .day_box .day_content .description {
+    margin-left: 1.25rem;
+    padding-top: 1.25rem;
+}
+
+
+.day_content .description p{
+    font-size: 10px;
+    
+}
+
+
+
 
 .employee_box{
     width: 100%;
@@ -202,7 +218,6 @@ main .inner {
     font-size: 45px;
     padding-left: 3.125rem;
     color: #0241b6;
-
 }
 
 .employee_box .employee_header {
@@ -225,6 +240,7 @@ main .inner {
     padding-left: 5px;
     border: 5px solid #0241b6;
     border-radius: 8px;
+    font-size: 20px;
 }
 
 .searchBar input:focus::placeholder {
@@ -246,7 +262,6 @@ main .inner {
     text-align: center;
     border-spacing: 0;
     border: none;
-
 }
 
 .table_wrap .employee_table th{
@@ -259,6 +274,14 @@ main .inner {
 .table_wrap .employee_table td {
     border-right: 1px solid #0241b6;
     padding: 5px;
+}
+
+.table_wrap .employee_table td:nth-child(1) {
+    cursor: pointer;
+}
+
+.table_wrap .employee_table td:hover:nth-child(1) {  
+    color: rgb(86, 0, 94);
 }
 
 .table_wrap .employee_table td:nth-child(5){
