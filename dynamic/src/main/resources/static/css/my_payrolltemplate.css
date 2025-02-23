@@ -268,20 +268,25 @@ main .inner .main_box .day_box .day_content .description {
     padding: 5px;
     font-size: 20px;
     border-bottom: 4px solid #0241b6;
+}
 
+.table_wrap .employee_table tr{
+    transition: background 0.3s, color 0.3s;
+}
+
+.table_wrap .employee_table tr:not(:first-child):hover{
+    background-color: #c5d9ff;
+    border: 2px solid #fff;
+    color: black;
 }
 
 .table_wrap .employee_table td {
     border-right: 1px solid #0241b6;
-    padding: 5px;
+    padding: 5px;   
 }
 
 .table_wrap .employee_table td:nth-child(1) {
     cursor: pointer;
-}
-
-.table_wrap .employee_table td:hover:nth-child(1) {  
-    color: rgb(86, 0, 94);
 }
 
 .table_wrap .employee_table td:nth-child(5){
