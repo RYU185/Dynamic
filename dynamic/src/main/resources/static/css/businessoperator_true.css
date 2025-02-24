@@ -46,30 +46,54 @@ header .header-wrap .sub {
   text-align: center;
 }
 
+.wrap .box {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .wrap .box .gree_box {
+  height: 250px;
+  border-radius: 15px;
   background: lightblue;
 }
 
-/* .wrap .box .signup_box {
-} */
-.wrap .box .signup_box .name_box {
+.wrap .box .signup_box {
+  border-radius: 15px;
   background: #caf0f8;
 }
-/* .wrap .box .signup_box .female_box {
+.wrap .box .signup_box .name_box {
+  height: 50px;
+}
+.wrap .box .signup_box .female_box {
+  height: 50px;
 }
 .wrap .box .signup_box .male_box {
+  height: 50px;
 }
 .wrap .box .signup_box .email_box {
+  height: 50px;
 }
 .wrap .box .signup_box .id_box {
+  height: 50px;
 }
-.wrap .box .signup_box .doubleCheck_box {
+s .wrap .box .signup_box .doubleCheck_box {
+  height: 50px;
 }
 .wrap .box .signup_box .pwd_box {
+  height: 50px;
 }
 .wrap .box .signup_box .birthDate_box {
+  height: 50px;
 }
 .wrap .box .signup_box .phone_box {
+  height: 50px;
 }
 .wrap .box .signup_box .businessNumver_box {
-} */
+  height: 50px;
+}
+
+.wrap .box .sub-button {
+  display: flex;
+  background: #023e8a;
+}
