@@ -271,7 +271,7 @@ main .inner .main_box .day_box .day_content .description {
     padding: 0 15px 0 15px;
     border: 2px solid #0241b6;
     border-radius: 8px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .searchBar input::focus {
