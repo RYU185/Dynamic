@@ -18,11 +18,15 @@
                 <!-- 로그인 및 회원가입 -->
                 <ul class="header_upper">
                     <li>
-                        <a href="#" class="name">관리자&nbsp&nbsp</a>
+                        <a href="#" class="name">관리자</a>
+                    </li>
+                    <li>
+                        <a href="#" class="log_out">&nbsp&nbsp로그아웃</a>
                     </li>
                     <li>
                         <a href="#">&nbsp&nbsp환영합니다</a>
                     </li>
+                    
                 </ul>
 
                 <!-- top menu -->
@@ -31,19 +35,19 @@
                         <a href="after_login.html"><span>홈</span></a>
                     </li>
                     <li>
-                        <a href="product.html" target="_blank"><span>제품</span></a>
+                        <a href="product.html"><span>제품</span></a>
                     </li>
                     <li>
-                        <a href="board.html" target="_blank"><span>게시판</span></a>
+                        <a href="board.html" ><span>게시판</span></a>
                     </li>
                     <li>
-                        <a href="main_notice.html" target="_blank"><span>공지사항</span></a>
+                        <a href="main_notice.html"><span>공지사항</span></a>
                     </li>
                     <li>
-                        <a href="formation_data.html" target="_blank"><span>서식자료</span></a>
+                        <a href="formation_data.html" ><span>서식자료</span></a>
                     </li>
                     <li>
-                        <a href="main_guide.html" target="_blank"><span>가이드</span></a>
+                        <a href="main_guide.html" ><span>가이드</span></a>
                     </li>
                     <li class="button">
                         <button class="free_template">무료 급여 계산 <br> 바로 가기</button>
@@ -228,6 +232,12 @@
             input.value = '';
         });
     });
+</script>
+<script>
+    document.querySelector('.log_out').addEventListener('click',function(){
+        sessionStorage.removeItem("userName");
+        window.location.href = '/index.html';
+    })
 </script>
 
 </html>
