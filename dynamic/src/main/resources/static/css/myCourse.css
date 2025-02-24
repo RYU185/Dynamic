@@ -159,7 +159,8 @@ section .titlewrap .coursetitle {
 }
 
 section .titlewrap .coursetitle h1 {
-    font: bold 3rem "arial";
+    font-family: 'GmarketSansMedium';
+    font-size: 3rem;
     color: #0241b6;
     padding-left: 3rem;
 }
