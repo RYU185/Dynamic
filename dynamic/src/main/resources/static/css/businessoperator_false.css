@@ -12,7 +12,7 @@ a {
 }
 
 .wrap {
-  margin: 20px 20% 20px 20%;
+  margin: 20px 20%;
 }
 
 .wrap header {
@@ -20,8 +20,6 @@ a {
 }
 .wrap header .header-wrap {
   width: 100%;
-  height: 70px;
-  margin: 0 auto;
   position: relative;
 }
 header .header-wrap .home {
@@ -29,7 +27,6 @@ header .header-wrap .home {
   height: 50px;
   float: left;
 }
-
 header .header-wrap .home a img {
   width: 100%;
   margin-top: 10px;
@@ -39,12 +36,72 @@ header .header-wrap .home a img {
 header .header-wrap .logo {
   width: 100%;
   text-align: center;
-  line-height: 70px;
 }
-header .header-wrap .logo a h1 {
+header .header-wrap a h1 {
   font-size: 50px;
   color: #000000;
 }
-.wrap header nav {
+header .header-wrap .sub {
+  width: 100%;
+  text-align: center;
+}
+
+.wrap .box {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrap .box .gree_box {
+  height: 250px;
+  border-radius: 15px;
+  background: #caf0f8;
+}
+.wrap .box .signup_box .boxes {
+  border-radius: 15px;
+  background: #caf0f8;
+  margin-top: 10px;
+}
+.wrap .box .signup_box .name_box {
+  height: 50px;
+}
+
+.wrap .box .signup_box .female_box {
+  height: 50px;
+}
+.wrap .box .signup_box .male_box {
+  height: 50px;
+}
+
+.wrap .box .signup_box .email_box {
+  height: 50px;
+}
+.wrap .box .signup_box .id_box {
+  height: 50px;
+}
+.wrap .box .signup_box .doubleCheck_box {
+  height: 50px;
+}
+.wrap .box .signup_box .pwd_box {
+  height: 50px;
+}
+.wrap .box .signup_box .phone_box {
+  height: 50px;
+}
+.wrap .box .signup_box .planBusiness_box {
+  height: 50px;
+}
+
+.wrap .box .sub-button {
+  margin-top: 10px;
   display: flex;
+  justify-content: space-between;
+}
+.wrap .box .sub-button .before_box {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.wrap .box .sub-button .joinMembership_box {
+  border: 1px solid black;
+  border-radius: 10px;
 }

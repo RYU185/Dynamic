@@ -37,7 +37,7 @@ header .header-wrap .logo {
   width: 100%;
   text-align: center;
 }
-header .header-wrap a h1 {
+header .header-wrap h1 {
   font-size: 50px;
   color: #000000;
 }
@@ -51,53 +51,158 @@ header .header-wrap .sub {
   margin-left: auto;
   margin-right: auto;
 }
-
-.wrap .box .gree_box {
+.wrap .box .agree_box {
   height: 250px;
   border-radius: 15px;
-  background: lightblue;
+  background: #90e0ef;
+  position: relative;
 }
-
-.wrap .box .signup_box .boxes {
+.wrap .box .agree_box .agree_box_sub .agree_box_sub_text {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
   border-radius: 15px;
   background: #caf0f8;
+}
+.wrap .box .signup_box .boxes {
+  border-radius: 15px;
+  background: #90e0ef;
   margin-top: 10px;
 }
 .wrap .box .signup_box .name_box {
   height: 50px;
+  position: relative;
 }
-.wrap .box .signup_box .female_box {
-  height: 50px;
+
+.wrap .box .signup_box .name_box .name_box_text {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
 }
-.wrap .box .signup_box .male_box {
+
+.wrap .box .signup_box .gender_box {
   height: 50px;
+  background: #90e0ef;
+  display: flex;
+  justify-content: space-evenly;
+}
+.wrap .box .signup_box .gender_box .gender_box_sub {
+  width: 160px;
+  height: 35px;
+  margin-top: 8px;
+  border-radius: 10px;
+  position: relative;
+  background: #caf0f8;
+}
+.wrap .box .signup_box .gender_box .gender_box_sub .gender_box_text {
+  text-align: center;
 }
 .wrap .box .signup_box .email_box {
   height: 50px;
+  position: relative;
 }
+.wrap .box .signup_box .email_box .email_box_text {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+
 .wrap .box .signup_box .id_box {
   height: 50px;
+  position: relative;
 }
-.wrap .box .signup_box .doubleCheck_box {
-  height: 50px;
+.wrap .box .signup_box .id_box .id_box_text {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+.wrap .box .signup_box .id_box .doublecheck_box_text {
+  width: 80px;
+  height: 30px;
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  border-radius: 15px;
+  background: #caf0f8;
 }
 .wrap .box .signup_box .pwd_box {
   height: 50px;
+  position: relative;
 }
-.wrap .box .signup_box .birthDate_box {
-  height: 50px;
+.wrap .box .signup_box .pwd_box .pwd_box_text {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
 }
 .wrap .box .signup_box .phone_box {
   height: 50px;
+  position: relative;
 }
-.wrap .box .signup_box .businessNumver_box {
-  height: 50px;
+.wrap .box .signup_box .phone_box .phone_box_text {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
 }
 
-.wrap .box .sub-button .button {
+.wrap .box .signup_box .businessNumver_box {
+  height: 50px;
+  position: relative;
+}
+.wrap .box .signup_box .businessNumver_box .businessNumver_box_text {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+
+.wrap .box .sub-button {
+  margin-top: 10px;
   display: flex;
-  background: #023e8a;
+  justify-content: space-between;
+}
+.wrap .box .sub-button .before_box {
+  width: 100px;
+  height: 25px;
+  background: #caf0f8;
+  border-radius: 10px;
+  text-align: center;
 }
 .wrap .box .sub-button .joinMembership_box {
-  float: right;
+  width: 100px;
+  height: 25px;
+  background: #caf0f8;
+  border-radius: 10px;
+  text-align: center;
 }
