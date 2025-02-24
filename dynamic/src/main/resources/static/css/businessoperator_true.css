@@ -58,9 +58,10 @@ header .header-wrap .sub {
   background: lightblue;
 }
 
-.wrap .box .signup_box {
+.wrap .box .signup_box .boxes {
   border-radius: 15px;
   background: #caf0f8;
+  margin-top: 10px;
 }
 .wrap .box .signup_box .name_box {
   height: 50px;
@@ -77,7 +78,7 @@ header .header-wrap .sub {
 .wrap .box .signup_box .id_box {
   height: 50px;
 }
-s .wrap .box .signup_box .doubleCheck_box {
+.wrap .box .signup_box .doubleCheck_box {
   height: 50px;
 }
 .wrap .box .signup_box .pwd_box {
@@ -93,7 +94,10 @@ s .wrap .box .signup_box .doubleCheck_box {
   height: 50px;
 }
 
-.wrap .box .sub-button {
+.wrap .box .sub-button .button {
   display: flex;
   background: #023e8a;
+}
+.wrap .box .sub-button .joinMembership_box {
+  float: right;
 }
