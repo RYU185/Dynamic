@@ -256,8 +256,6 @@ main .inner .main_box .day_box .day_content .description {
     width: 100%;
     position: relative;
     display: flex;
-
-
 }
 
 .searchBar {
@@ -280,7 +278,7 @@ main .inner .main_box .day_box .day_content .description {
     font-size: 15px;
 }
 
-.searchBar input::focus {
+.searchBar input:focus {
     outline: none;
     border: 2px solid #0241b6;
 }

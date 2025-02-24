@@ -16,7 +16,7 @@
             <div class="inner">
                 <ul class="upper">
                     <li>
-                        <a href="index.html"><span><b>홈</b></span></a>
+                        <a href="after_login.html"><span><b>홈</b></span></a>
                     </li>
                     <li>
                         <a href="main_notice.html"><span>공지사항</span></a>
@@ -193,89 +193,95 @@
                     </table>
                 </div>
             </div>
-            <!-- 댓글 등록 및 전체 글 확인 modal -->
-            <div class="pop-up2">
-                <div class="content_box">
-                    <h1>본문 상세 내용</h1>
-                    <div class="content">
-                        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, iure. Accusantium,
-                            deserunt perspiciatis. Quibusdam cum fuga quo inventore dolores quod quisquam
-                            praesentium, fugiat nemo eligendi voluptatibus quam qui. Illum, rerum.</div>
-                    </div>
-                    <div class="comment-list">
-                        <div>댓글 </div>
-                        <div class="comment-box">
-                            <div class="comment-header">
-                                <span class="user-name">홍길동</span>
-                                <span class="comment-date">2025-02-21</span>
-                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                            </div>
-                        </div>
-                        <div class="comment-box">
-                            <div class="comment-header">
-                                <span class="user-name">홍길동</span>
-                                <span class="comment-date">2025-02-21</span>
-                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                            </div>
-                        </div>
 
-                        <div class="comment-box">
-                            <div class="comment-header">
-                                <span class="user-name">홍길동</span>
-                                <span class="comment-date">2025-02-21</span>
-                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                            </div>
-                        </div>
-                        <div class="comment-box">
-                            <div class="comment-header">
-                                <span class="user-name">홍길동</span>
-                                <span class="comment-date">2025-02-21</span>
-                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                            </div>
-                        </div>
-                        <div class="comment-box">
-                            <div class="comment-header">
-                                <span class="user-name">홍길동</span>
-                                <span class="comment-date">2025-02-21</span>
-                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                            </div>
-                        </div>
-                        <div class="comment-box">
-                            <div class="comment-header">
-                                <span class="user-name">홍길동</span>
-                                <span class="comment-date">2025-02-21</span>
-                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment_box">
-                        <div class="content">
-                            <input type="text" class="text" placeholder="내용을 입력하세요.">
-                        </div>
-
-                        <input type="submit" value="등록" class="submit" onsubmit="return false">
-                    </div>
-                </div>
-            </div>
 
 
             <!-- 본문 등록 modal -->
-            <div class="pop-up1">
-                <h1>게시글 등록</h1>
-                <div class="content_box">
-                    <div class="content">
-                        <input type="text" placeholder="제목을 입력해주세요">
+            
+        </main>
+        <div class="pop-up1" id="modal">
+            <h1>게시글 등록</h1>
+            <div class="content_box">
+                <div class="content">
+                    <input type="text" placeholder="제목을 입력해주세요">
+                </div>
+
+                <div class="content">
+                    <textarea class="text" placeholder="내용을 입력하세요"></textarea>
+                </div>
+
+
+                <input type="submit" value="등록" class="submit" onsubmit="return false">
+            </div>
+        </div>
+
+        <!-- 댓글 등록 및 전체 글 확인 modal -->
+        <div class="pop-up2">
+            <div class="content_box">
+                <h1>본문 상세 내용</h1>
+                <div class="content">
+                    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, iure. Accusantium,
+                        deserunt perspiciatis. Quibusdam cum fuga quo inventore dolores quod quisquam
+                        praesentium, fugiat nemo eligendi voluptatibus quam qui. Illum, rerum.</div>
+                </div>
+                <div class="comment-list">
+                    <div>댓글 </div>
+                    <div class="comment-box">
+                        <div class="comment-header">
+                            <span class="user-name">홍길동</span>
+                            <span class="comment-date">2025-02-21</span>
+                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                        </div>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-header">
+                            <span class="user-name">홍길동</span>
+                            <span class="comment-date">2025-02-21</span>
+                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                        </div>
                     </div>
 
-                    <div class="content">
-                        <textarea class="text" placeholder="내용을 입력하세요"></textarea>
+                    <div class="comment-box">
+                        <div class="comment-header">
+                            <span class="user-name">홍길동</span>
+                            <span class="comment-date">2025-02-21</span>
+                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                        </div>
                     </div>
-
+                    <div class="comment-box">
+                        <div class="comment-header">
+                            <span class="user-name">홍길동</span>
+                            <span class="comment-date">2025-02-21</span>
+                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                        </div>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-header">
+                            <span class="user-name">홍길동</span>
+                            <span class="comment-date">2025-02-21</span>
+                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                        </div>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-header">
+                            <span class="user-name">홍길동</span>
+                            <span class="comment-date">2025-02-21</span>
+                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment_box">
+                    <div class="content">
+                        <input type="text" class="text" placeholder="내용을 입력하세요.">
+                    </div>
 
                     <input type="submit" value="등록" class="submit" onsubmit="return false">
                 </div>
             </div>
-        </main>
+        </div>
+
+
+
         <footer>
             <div class="inner">
                 <div class="upper">
@@ -293,10 +299,12 @@
             </div>
         </footer>
     </div>
+    <div class="opacity"></div>
     <div class="pop-up-background1"></div>
     <div class="pop-up-background2"></div>
 
 
+    <script src="./js/modal.js"></script>
 
 </body>
 

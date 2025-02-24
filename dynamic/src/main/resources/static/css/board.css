@@ -110,8 +110,6 @@ hr {
 }
 
 
-
-
 section {
     width: 100%;
     padding: 20px;
@@ -313,28 +311,26 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     position: absolute;
     top: 0px;
     /*  modal ON/OFF  */
-    /* display: none; */
+    display: none;
 }
 
-
-main .pop-up2 {
+.pop-up2 {
     padding-top: 15px;
-
     background-color: #f1f6f7;
     width: 1000px;
     height: 800px;
     text-align: center;
     /* border-radius: 30px; */
     position: absolute;
+    top: 5%;
+    right: 25%;
     z-index: 13;
-    top: 120px;
-    right: 330px;
-    /* display: none; */
+    display: none;
 
 
 }
 
-main .pop-up2 .content_box {
+.pop-up2 .content_box {
     margin: 20px;
     /* border: 1px solid rgb(236, 236, 236); */
     width: 90%;
@@ -347,12 +343,12 @@ main .pop-up2 .content_box {
     margin-left: 50px;
 }
 
-main .pop-up2 .content_box h1 {
+.pop-up2 .content_box h1 {
     padding-top: 10px;
     font-size: 50px;
 }
 
-main .pop-up2 .content_box .content {
+.pop-up2 .content_box .content {
     width: 90%;
     height: 250px;
     border: 1px solid rgb(175, 175, 175);
@@ -361,7 +357,7 @@ main .pop-up2 .content_box .content {
     padding-top: 10px;
 }
 
-main .pop-up2 .content_box .comment-list {
+.pop-up2 .content_box .comment-list {
     margin: 20px;
     /* border: 1px solid rgb(236, 236, 236); */
     width: 90%;
@@ -379,21 +375,21 @@ main .pop-up2 .content_box .comment-list {
 
 }
 
-main .pop-up2 .content_box .comment-list .comment-box:first-child {
+ .pop-up2 .content_box .comment-list .comment-box:first-child {
     width: 100%;
     height: 50px;
     position: absolute;
     top: 30px;
 }
 
-main .pop-up2 .content_box .comment-list .comment-box .comment-header {
+ .pop-up2 .content_box .comment-list .comment-box .comment-header {
     width: 60%;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid rgb(167, 167, 167);
 }
 
-main .pop-up2 .content_box .comment-list .comment-box .comment-header span,
+.pop-up2 .content_box .comment-list .comment-box .comment-header span,
 p {
     padding-left: 15px;
     height: 40px;
@@ -401,23 +397,23 @@ p {
 
 }
 
-main .pop-up2 .content_box .comment-list div:first-child {
+.pop-up2 .content_box .comment-list div:first-child {
     text-align: left;
     font-size: 18px;
     font-weight: 500;
     margin: 5px;
 }
 
-main .pop-up2 .content_box .comment-list .comment-box .comment-header {
+.pop-up2 .content_box .comment-list .comment-box .comment-header {
     width: 100%;
 }
 
-main .pop-up2 .content_box .comment-list .comment_box {
+.pop-up2 .content_box .comment-list .comment_box {
     width: 100%;
     position: relative;
 }
 
-main .pop-up2 .content_box .comment_box .content {
+.pop-up2 .content_box .comment_box .content {
     margin: 20px;
     /* border: 1px solid rgb(236, 236, 236); */
     width: 90%;
@@ -431,7 +427,7 @@ main .pop-up2 .content_box .comment_box .content {
     border: 1px solid rgb(172, 172, 172);
 }
 
-main .pop-up2 .content_box .comment_box .content .text {
+ .pop-up2 .content_box .comment_box .content .text {
     border: none;
     outline: none;
     height: 50px;
@@ -442,7 +438,7 @@ main .pop-up2 .content_box .comment_box .content .text {
     text-align: left;
 }
 
-main .pop-up2 .content_box .comment_box .submit {
+ .pop-up2 .content_box .comment_box .submit {
     width: 150px;
     height: 40px;
     font-size: 25px;
@@ -456,7 +452,7 @@ main .pop-up2 .content_box .comment_box .submit {
     right: 50px;
 }
 
-main .pop-up2 .content_box .comment_box .submit:hover {
+ .pop-up2 .content_box .comment_box .submit:hover {
     background-color: rgba(58, 58, 58, 0.3);
     color: rgb(240, 240, 240);
 
@@ -465,11 +461,11 @@ main .pop-up2 .content_box .comment_box .submit:hover {
 
 
 
-main .pop-up1 {
+ .pop-up1 {
     position: absolute;
-    z-index: 12;
-    top: 120px;
-    right: 330px;
+    z-index: 13;
+    top: 5%;
+    right: 30%;
     padding-top: 15px;
     /* border: 1px solid black; */
     background-color: #f1f6f7;
@@ -477,10 +473,10 @@ main .pop-up1 {
     height: 530px;
     text-align: center;
     /*  modal ON/OFF  */
-    /* display: none; */
+    display: none;
 }
 
-main .pop-up1 .content_box {
+ .pop-up1 .content_box {
     margin: 20px;
     /* border: 1px solid rgb(236, 236, 236); */
     width: 90%;
@@ -493,7 +489,7 @@ main .pop-up1 .content_box {
 
 }
 
-main .pop-up1 .content_box .content {
+ .pop-up1 .content_box .content {
     /* border: 1px solid black; */
     width: 100%;
     height: 30px;
@@ -502,12 +498,11 @@ main .pop-up1 .content_box .content {
 
 }
 
-main .pop-up1 .content_box .content input {
+ .pop-up1 .content_box .content input {
     width: 100%;
     border: 1px solid rgb(231, 230, 230);
 }
-
-main .pop-up1 .content_box .content .text {
+.pop-up1 .content_box .content .text {
     width: 100%;
     height: 300px;
     border: 1px solid rgb(231, 230, 230);
@@ -515,7 +510,7 @@ main .pop-up1 .content_box .content .text {
 
 
 
-main .pop-up1 .content_box .submit {
+ .pop-up1 .content_box .submit {
     width: 150px;
     height: 40px;
     margin-left: 0px;
@@ -530,11 +525,13 @@ main .pop-up1 .content_box .submit {
 
 }
 
-main .pop-up1 .content_box .submit:hover {
+ .pop-up1 .content_box .submit:hover {
     background-color: rgba(58, 58, 58, 0.3);
     color: rgb(240, 240, 240);
 
 }
+
+
 
 footer .inner {
     padding-top: 50px;
