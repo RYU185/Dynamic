@@ -18,17 +18,17 @@
                 <!-- 로그인 및 회원가입 -->
                 <ul class="header_upper">
                     <li>
-                        <a href="#">관리자</a>
+                        <a href="#" class="name">관리자&nbsp&nbsp</a>
                     </li>
                     <li>
-                        <a href="#">환영합니다</a>
+                        <a href="#">&nbsp&nbsp환영합니다</a>
                     </li>
                 </ul>
 
                 <!-- top menu -->
                 <ul class="header_lower">
                     <li>
-                        <a href="index.html"><span>홈</span></a>
+                        <a href="after_login.html"><span>홈</span></a>
                     </li>
                     <li>
                         <a href="product.html" target="_blank"><span>제품</span></a>
@@ -189,5 +189,45 @@
     </div>
     <div class="opacity"></div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    const userCopy = JSON.parse(sessionStorage.getItem("userName"));
+    $(".name").text(userCopy);
+</script>
+<script>
+    // 버튼과 콘텐츠 요소 가져오기
+    const button = document.querySelector('.button');
+    const content = document.querySelector('.pop-up');
+    const opacity = document.querySelector('.opacity');
+
+
+
+
+    // 버튼 클릭 시 display 속성 변경
+    button.addEventListener('click', function () {
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block'; // display: block 으로 변경
+            opacity.style.display = "block";
+        } else {
+            content.style.display = 'none'; // display: none 으로 다시 변경
+        }
+    });
+
+    opacity.addEventListener('click', function () {
+        if (!content.contains(event.target) && event.target !== button) {
+            content.style.display = 'none';
+            opacity.style.display = "none";
+        }
+
+    });
+
+    document.querySelector('#reset').addEventListener('click', function () {
+
+        const item = document.querySelectorAll('.template input');
+        item.forEach(function (input) {
+            input.value = '';
+        });
+    });
+</script>
 
 </html>

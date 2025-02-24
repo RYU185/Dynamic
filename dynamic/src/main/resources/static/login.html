@@ -47,6 +47,10 @@
             let id = document.querySelector("input[name='id']");
             let pw = document.querySelector("input[name='pw']");
 
+            // 값이 제대로 가져와졌는지 확인
+            console.log("아이디: ", id.value);
+            console.log("비밀번호: ", pw.value);
+
             if (!id.value) {
                 alert("아이디는 필수 입력사항입니다")
                 id.focus();
@@ -57,23 +61,19 @@
                 pw.focus();
                 return;
             }
+
+            var sendData = {
+                userName: id.value,
+                password: pw.value
+            }
             $.ajax({
-                url: 'api/user/login',
+                url: '/api/user/login',
                 method: 'POST',
-                data: {
-                    userName: id.value,
-                    password: pw.value
-                },
+                data: JSON.stringify(sendData),
+                contentType: "application/json",
                 success: function (response) {
-                    if (response.success) {
-                        $('#loginMessage').text('로그인 성공!');
-                        window.location.href = 'after_login.html';
-                    } else {
-                        $('#loginMessage').text('아이디 또는 비밀번호가 잘못되었습니다.');
-                    }
-                },
-                error: function () {
-                    $('#loginMessage').text('로그인 중 오류가 발생했습니다.');
+                    sessionStorage.setItem("userName", JSON.stringify(sendData.userName));
+                    window.location.href = '/after_login.html';
                 }
             });
 
