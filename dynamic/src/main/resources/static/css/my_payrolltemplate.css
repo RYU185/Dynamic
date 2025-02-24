@@ -186,6 +186,9 @@ main .inner {
     padding-top: 10px;
 }
 
+.day_box .day_content label{
+    width: 80px;
+}
 
 
 .day_box .day_content #options {
@@ -195,6 +198,7 @@ main .inner {
 }
 
 main .inner .main_box .day_box .day_content .description {
+    width: 170px;
     margin-left: 1.25rem;
     padding-top: 1.25rem;
 }
@@ -222,14 +226,16 @@ main .inner .main_box .day_box .day_content .description {
 .employee_box .employee_header {
     width: 100%;
     position: relative;
+    display: flex;
 
 }
 
 .searchBar {
-    width: 100%;
+    width: 80%;
     height: 50px;
     display: flex;
     gap: 10px;
+    justify-content: right;   
     
     padding: 15px 0 0 3.125rem ;
 }
