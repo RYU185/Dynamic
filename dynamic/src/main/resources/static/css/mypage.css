@@ -111,6 +111,7 @@ hr {
 section {
   width: 100%;
   padding: 20px;
+  /* background-color: #f6fbff; */
 }
 
 section .titlewrap {
@@ -127,7 +128,7 @@ section .titlewrap .main_title {
 
 section .titlewrap .main_title h1 {
   font-family: 'GmarketSansMedium';
-  font-size: 100px;
+  font-size: 70px;
   font-weight: 900;
   color: #0241b6;
   margin: 50px 40px 0px 40px;
