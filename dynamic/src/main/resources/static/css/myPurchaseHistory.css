@@ -147,23 +147,26 @@ section .myCoursePurchaseHistory {
 
 section .myCoursePurchaseHistory .wrapCourse {
     width: 100%;
-    display: block;
-    padding-bottom: 20px;
+    display: flex;
+    border-bottom: 3px solid #0241b6;
+    justify-content: space-between;
 }
 
 section .myCoursePurchaseHistory .wrapCourse h1 {
-    font-size: 50px;
+
+    font-size: 45px;
     color: #0241b6;
     padding: 16px 0 16px 0;
+    margin-left: 100px;
+
 }
 
 section .myCoursePurchaseHistory .wrapCourse .searchBar {
-    width: 100%;
+    width: 60%;
     margin: 0 auto;
     display: flex; /* 가로 정렬 */
     align-items: center; /* 세로 정렬 */
     justify-content: center; /* 가운데 정렬 */
-    
     gap: 10px;
 }
 
@@ -211,8 +214,10 @@ section .myCoursePurchaseHistory .courseList {
 }
 
 .myCoursePurchaseHistory .courseList .course {
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
+    overflow: hidden;   
 }
 
 .myCoursePurchaseHistory .courseList .course article {
@@ -291,20 +296,18 @@ section .myCoursePurchaseHistory .courseList {
 
 
 .mySubscPurchaseHistory .wrapSubsc {
-    width: 100%;
+    width: auto;
     padding-bottom: 20px;
-    margin-top: 50px;
+    padding-right: 50px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar {
-    width: 100%;
-    
-    margin: 5rem 0 0 0;
+    margin-top: 5rem;
     display: flex; /* 가로 정렬 */
     align-items: center; /* 세로 정렬 */
-    justify-content: center; /* 가운데 정렬 */
-    
+    justify-content: right; /* 가운데 정렬 */
     gap: 10px;
+    padding-right: 60px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar input {
