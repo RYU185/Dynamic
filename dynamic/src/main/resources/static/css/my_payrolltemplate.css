@@ -38,7 +38,7 @@ a {
 }
 
 .wrap {
-    margin: 0px 20% 20px 20%;
+    margin: 20px 20% 20px 20%;
 }
 
 hr {
@@ -113,7 +113,7 @@ hr {
     border-color: #4c6b7e;
     opacity: 0.2;
     position: absolute;
-    top: 50px;
+    top: 70px;
 }
 
 .wrap > h1{
