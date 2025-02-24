@@ -256,16 +256,18 @@ main .inner .main_box .day_box .day_content .description {
 }
 
 .searchBar {
-    width: 80%;
+    width: 60%;
     height: 40px;
     display: flex;
     gap: 10px;
+    margin-left: auto;
     justify-content: right;   
     padding-left: 7.25rem ;
+
 }
 
 .searchBar input {
-    width: 300px;
+    width: 200px;
     padding: 0 15px 0 15px;
     border: 2px solid #0241b6;
     border-radius: 8px;
