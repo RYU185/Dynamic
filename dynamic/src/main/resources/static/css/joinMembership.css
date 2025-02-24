@@ -69,7 +69,7 @@ form > fieldset > ul {
   width: 350px;
   height: 350px;
   border-radius: 20px;
-  background-color: #ffd777;
+  background-color: #ade8f4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +85,7 @@ form > fieldset > ul {
   border-radius: 15px;
   margin-top: 100px;
   float: right;
-  background-color: #ffd777;
+  background-color: #90e0ef;
   display: flex;
   justify-content: center;
   align-items: center;
