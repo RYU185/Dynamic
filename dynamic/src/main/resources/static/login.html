@@ -39,8 +39,10 @@
             </main>
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
+
+
         function submit_go() {
             let id = document.querySelector("input[name='id']");
             let pw = document.querySelector("input[name='pw']");
@@ -55,19 +57,18 @@
                 pw.focus();
                 return;
             }
-
         }
-
         const find_id = document.querySelector('.find_id');
         const register = document.querySelector(".register");
-
         find_id.addEventListener('click', function () {
             window.location.href = 'find_id.html';
         });
-
         register.addEventListener('click', function () {
             window.location.href = 'joinMembership.html';
         });
+
+
+
     </script>
 
 </body>
