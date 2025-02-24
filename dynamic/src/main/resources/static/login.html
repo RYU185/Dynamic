@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="submit_btn">
-                            <input type="button" value="로그인">
+                            <input type="button" value="로그인" onclick="submit_go()">
                         </div>
                         <div class="find_register">
                             <div class="find_id">아이디 찾기</div>
@@ -39,6 +39,37 @@
             </main>
         </div>
     </div>
+
+    <script>
+        function submit_go() {
+            let id = document.querySelector("input[name='id']");
+            let pw = document.querySelector("input[name='pw']");
+
+            if (!id.value) {
+                alert("아이디는 필수 입력사항입니다")
+                id.focus();
+                return;
+            }
+            if (!pw.value) {
+                alert("비밀번호는 필수 입력사항입니다")
+                pw.focus();
+                return;
+            }
+
+        }
+
+        const find_id = document.querySelector('.find_id');
+        const register = document.querySelector(".register");
+
+        find_id.addEventListener('click', function () {
+            window.location.href = 'find_id.html';
+        });
+
+        register.addEventListener('click', function () {
+            window.location.href = 'joinMembership.html';
+        });
+    </script>
+
 </body>
 
 </html>

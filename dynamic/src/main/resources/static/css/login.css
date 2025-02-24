@@ -163,6 +163,12 @@ main .inner .login_form .find_register {
     justify-content: space-evenly;
 }
 
+main .inner .login_form .find_register div:hover {
+    cursor: pointer;
+    color: rgb(32, 32, 32);
+    font-size: 14px;
+}
+
 main .inner .login_form .find_register div {
     width: 50%;
     color: rgba(77, 77, 77, 0.5);

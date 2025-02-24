@@ -18,35 +18,35 @@
                 <!-- 로그인 및 회원가입 -->
                 <ul class="header_upper">
                     <li>
-                        <a href="#">로그인</a>
+                        <a href="login.html" target="_blank">로그인</a>
                     </li>
                     <li>
-                        <a href="#">회원가입</a>
+                        <a href="joinMembership.html" target="_blank">회원가입</a>
                     </li>
                 </ul>
 
                 <!-- top menu -->
                 <ul class="header_lower">
                     <li>
-                        <a href="#"><span>홈</span></a>
+                        <a href="index.html"><span>홈</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>제품</span></a>
+                        <a href="product.html" target="_blank"><span>제품</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>게시판</span></a>
+                        <a href="board.html" target="_blank"><span>게시판</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>공지사항</span></a>
+                        <a href="main_notice.html" target="_blank"><span>공지사항</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>서식자료</span></a>
+                        <a href="formation_data.html" target="_blank"><span>서식자료</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>가이드</span></a>
+                        <a href="main_guide.html" target="_blank"><span>가이드</span></a>
                     </li>
                     <li class="button">
-                        <button class="free_template">무료 급여계산 <br> 바로 가기</button>
+                        <button class="free_template">무료 급여 계산 <br> 바로 가기</button>
                     </li>
             </div>
         </header>
@@ -161,6 +161,7 @@
                 </table>
                 <div class="buttom">
                     <input type="submit" id="send" value="전송" onsubmit="return false;">
+                    <input type="reset" id="reset" value="취소">
                     <span> 무료횟수 <p>5/5</p></span>
                 </div>
                 <div class="left">
@@ -186,6 +187,42 @@
             </div>
         </footer>
     </div>
+    <div class="opacity"></div>
+    <script>
+        // 버튼과 콘텐츠 요소 가져오기
+        const button = document.querySelector('.button');
+        const content = document.querySelector('.pop-up');
+        const opacity = document.querySelector('.opacity');
+
+
+
+
+        // 버튼 클릭 시 display 속성 변경
+        button.addEventListener('click', function () {
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block'; // display: block 으로 변경
+                opacity.style.display = "block";
+            } else {
+                content.style.display = 'none'; // display: none 으로 다시 변경
+            }
+        });
+
+        opacity.addEventListener('click', function () {
+            if (!content.contains(event.target) && event.target !== button) {
+                content.style.display = 'none';
+                opacity.style.display = "none";
+            }
+
+        });
+
+        document.querySelector('#reset').addEventListener('click', function () {
+
+            const item = document.querySelectorAll('.template input');
+            item.forEach(function (input) {
+                input.value = '';
+            });
+        });
+    </script>
 
 </body>
 

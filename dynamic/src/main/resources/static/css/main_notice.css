@@ -46,7 +46,6 @@ body {
 
 }
 
-body .background {}
 
 /* header */
 header {
@@ -141,10 +140,10 @@ section .titlewrap .main_title {
 
 section .titlewrap .main_title h1 {
     font-family: 'GmarketSansMedium';
-    font-size: 60px;
+    font-size: 3rem;
     font-weight: 900;
     color: #050505ee;
-    margin: 90px 40px 0px 40px;
+    margin: 110px 40px 0px 40px;
     position: absolute;
     z-index: 1;
 }
@@ -272,14 +271,14 @@ main .inner .main_box table tr td {
     text-overflow: ellipsis;
     padding-left: 15px;
     padding-right: 15px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
 }
 
 
 
 main .inner .main_box table tr .bold {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 800;
 }
 
