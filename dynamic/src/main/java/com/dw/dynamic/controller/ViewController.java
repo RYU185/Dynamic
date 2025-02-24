@@ -11,6 +11,11 @@ public class ViewController {
         return "forward:/index.html";
     }
 
+    @GetMapping("/dynamic/after_login.html")
+    public String after_login() {
+        return "forward:/after_login.html";
+    }
+
     @GetMapping("/dynamic/myPurchaseHistory.html")
     public String myPurchaseHistory() {
         return "forward:/myPurchaseHistory.html";

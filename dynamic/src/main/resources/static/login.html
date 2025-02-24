@@ -57,6 +57,26 @@
                 pw.focus();
                 return;
             }
+            $.ajax({
+                url: 'api/user/login',
+                method: 'POST',
+                data: {
+                    userName: id.value,
+                    password: pw.value
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#loginMessage').text('로그인 성공!');
+                        window.location.href = 'after_login.html';
+                    } else {
+                        $('#loginMessage').text('아이디 또는 비밀번호가 잘못되었습니다.');
+                    }
+                },
+                error: function () {
+                    $('#loginMessage').text('로그인 중 오류가 발생했습니다.');
+                }
+            });
+
         }
         const find_id = document.querySelector('.find_id');
         const register = document.querySelector(".register");
@@ -66,7 +86,6 @@
         register.addEventListener('click', function () {
             window.location.href = 'joinMembership.html';
         });
-
 
 
     </script>

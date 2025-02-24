@@ -55,7 +55,7 @@ public class ProductService {
         return productDTO;
     }
 
-    // 관리자 권한으로 제품 추가
+    // 관리자 권한으로 강의 추가 // 결제 버튼을 누르면 product 추가
     public Product saveProduct(Product product, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
