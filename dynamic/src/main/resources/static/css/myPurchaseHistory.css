@@ -33,7 +33,7 @@ a {
 }
 
 .wrap {
-    margin: 0px 20% 0px 20%;
+    margin: 20px 20% 20px 20%;
 }
 
 hr {
@@ -43,7 +43,10 @@ hr {
 
 body {
     position: relative;
+
 }
+
+body .background {}
 
 /* header */
 header {
@@ -121,9 +124,7 @@ hr {
     color: #ffff;
 
     text-align: center;
-    align-content: center;
-
-    
+    align-content: center; 
 }
 /* section */
 
