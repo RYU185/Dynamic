@@ -23,6 +23,11 @@
     font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
 
+select:focus{
+    outline: none;
+    border: 1px solid #0241b6;
+}
+
 ul,
 li {
     list-style: none;
@@ -42,11 +47,11 @@ hr {
 }
 
 body {
-    position: relative;
-
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
-body .background {}
 
 /* header */
 header {
@@ -108,7 +113,7 @@ hr {
     border-color: #4c6b7e;
     opacity: 0.2;
     position: absolute;
-    top: 50px;
+    top: 70px;
 }
 
 .wrap > h1{
@@ -124,7 +129,9 @@ hr {
     color: #ffff;
 
     text-align: center;
-    align-content: center; 
+    align-content: center;
+
+    
 }
 /* section */
 
