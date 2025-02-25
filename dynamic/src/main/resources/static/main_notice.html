@@ -1,367 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>공지사항</title>
-    <link rel="stylesheet" href="css/main_notice.css" />
-  </head>
 
-  <body>
-    <hr />
-    <div class="wrap">
-      <!-- header -->
-      <header>
-        <div class="inner">
-          <ul class="upper">
-            <li>
-              <a href="after_login.html"><span>홈</span></a>
-            </li>
-            <li>
-              <a href="main_notice.html"><span>공지사항</span></a>
-            </li>
-            <li>
-              <a href="product.html"><span>제품</span></a>
-            </li>
-            <li>
-              <a href="board.html"><span>게시판</span></a>
-            </li>
-            <li>
-              <a href="formation_data.html"><span>서식자료</span></a>
-            </li>
-            <li>
-              <a href="main_guide.html"><span>가이드</span></a>
-            </li>
-            <li>
-              <a href="cart.html"><span>장바구니</span></a>
-            </li>
-            <li>
-              <a href="mypage.html"><span>마이페이지</span></a>
-            </li>
-          </ul>
-        </div>
-      </header>
-      <section>
-        <div class="titlewrap">
-          <h1>
-            DO YOURSELF <br />
-            USE SERVICE
-          </h1>
-          <div class="main_title">
-            <h1>공지사항</h1>
-          </div>
-          <br />
-        </div>
-      </section>
-      <main>
-        <div class="inner">
-          <div class="upper">
-            <div class="searchBar">
-              <p>
-                <input
-                  type="text"
-                  placeholder="제목을 입력해주세요"
-                  id="search_notice"
-                />
-              </p>
-              <img src="./img/search.png" onclick="submit_go()" /><img
-                src="/img/writing.png"
-                alt="수정 버튼"
-                id="modify_notice"
-                style="display: none"
-              /><img
-                src="/img/add.png"
-                alt="추가 버튼"
-                id="add_notice"
-                style="display: none"
-              />
-              <img
-                src="/img/쓰레기통.png"
-                alt="삭제 버튼"
-                id="delete_notice"
-                style="display: none"
-              />
-            </div>
-          </div>
-          <div class="main_box">
-            <table>
-              <thead>
-                <tr>
-                  <th class="bold">NO.</th>
-                  <th>제목</th>
-                  <th>일자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="bold">1</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">2</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">3</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">4</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">5</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">6</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">7</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">8</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">9</td>
-                  <td>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-                <tr>
-                  <td class="bold">10</td>
-                  <td>
-                    안녕하세요 저는 dynamic팀의 팀원입니다. 지금 너무 피곤해서
-                    죽겠습니다...
-                  </td>
-                  <td>2025.02.19</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>공지사항</title>
+  <link rel="stylesheet" href="css/main_notice.css" />
+</head>
 
-        <!-- 공지사항 수정 박스(pop-up) -->
-        <div class="pop-up1">
-          <h1>공지사항 수정</h1>
-          <div class="content_box">
-            <div class="content">
-              <div><b>제목 :</b></div>
-              <div>2025년 서비스 개편</div>
-            </div>
-            <div class="content">
-              <div><b>공지내용 :</b></div>
-              <div class="text">
-                2025년 2월 시점으로 전체 서비스 개편이 있습니다. 이용 방법에
-                대해서는 조금 더 상세하게 확인을 원할 시, 업데이트된 이용
-                가이드를 확인해주세요
-              </div>
-            </div>
-            <div class="date">
-              <div><b>수정일자 : </b></div>
-              <div>2025.02.20</div>
-              <input
-                type="submit"
-                value="수정"
-                class="submit"
-                onsubmit="return false"
-              />
-            </div>
-          </div>
+<body>
+  <hr />
+  <div class="wrap">
+    <!-- header -->
+    <header>
+      <div class="inner">
+        <ul class="upper">
+          <li>
+            <a href="after_login.html"><span>홈</span></a>
+          </li>
+          <li>
+            <a href="main_notice.html"><span>공지사항</span></a>
+          </li>
+          <li>
+            <a href="product.html"><span>제품</span></a>
+          </li>
+          <li>
+            <a href="board.html"><span>게시판</span></a>
+          </li>
+          <li>
+            <a href="formation_data.html"><span>서식자료</span></a>
+          </li>
+          <li>
+            <a href="main_guide.html"><span>가이드</span></a>
+          </li>
+          <li>
+            <a href="cart.html"><span>장바구니</span></a>
+          </li>
+          <li>
+            <a href="mypage.html"><span>마이페이지</span></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section>
+      <div class="titlewrap">
+        <h1>
+          DO YOURSELF <br />
+          USE SERVICE
+        </h1>
+        <div class="main_title">
+          <h1>공지사항</h1>
         </div>
-
-        <!-- 공지사항 등록 박스(pop-up) -->
-        <div class="pop-up2">
-          <h1>공지사항 작성</h1>
-          <div class="content_box">
-            <div class="content">
-              <div><b>제목 :</b></div>
-              <div>2025년 서비스 개편</div>
-            </div>
-            <div class="content">
-              <div><b>공지내용 :</b></div>
-              <div class="text">
-                2025년 2월 시점으로 전체 서비스 개편이 있습니다. 이용 방법에
-                대해서는 조금 더 상세하게 확인을 원할 시, 업데이트된 이용
-                가이드를 확인해주세요
-              </div>
-            </div>
-            <div class="date">
-              <div><b>등록일자 : </b></div>
-              <div>2025.02.20</div>
-              <input
-                type="submit"
-                value="등록"
-                class="submit"
-                onsubmit="return false"
-              />
-            </div>
-          </div>
-        </div>
-      </main>
-      <footer>
-        <div class="inner">
-          <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
-          </div>
-          <div class="lower">
-            <address>
-              대전광역시 서구 둔산동 1524 <br />
-              TEL : 03-111-1234 C.P : 010-1234-5678
-            </address>
+        <br />
+      </div>
+    </section>
+    <main>
+      <div class="inner">
+        <div class="upper">
+          <div class="searchBar">
             <p>
-              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-              reserved.
+              <input type="text" placeholder="제목을 입력해주세요" id="search_notice" />
             </p>
+            <img src="./img/search.png" onclick="submit_go()" /><img src="/img/writing.png" alt="수정 버튼"
+              id="modify_notice" style="display: none" /><img src="/img/add.png" alt="추가 버튼" id="add_notice"
+              style="display: none" />
+            <img src="/img/쓰레기통.png" alt="삭제 버튼" id="delete_notice" style="display: none" />
           </div>
         </div>
-      </footer>
-    </div>
-    <div class="pop-up-background1"></div>
-    <div class="pop-up-background2"></div>
+        <div class="main_box">
+          <table>
+            <thead>
+              <tr>
+                <th class="bold">NO.</th>
+                <th>제목</th>
+                <th>일자</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="bold">1</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">2</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">3</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">4</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">5</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">6</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">7</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">8</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">9</td>
+                <td>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a
+                  type specimen book.
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+              <tr>
+                <td class="bold">10</td>
+                <td>
+                  안녕하세요 저는 dynamic팀의 팀원입니다. 지금 너무 피곤해서
+                  죽겠습니다...
+                </td>
+                <td>2025.02.19</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script>
-      const userRole = JSON.parse(sessionStorage.getItem('userName'));
-      if (userRole === 'admin') {
-        document.querySelector('#modify_notice').style.display = 'inline';
-        document.querySelector('#add_notice').style.display = 'inline';
-        document.querySelector('#delete_notice').style.display = 'inline';
-      }
-    </script>
+      <!-- 공지사항 수정 박스(pop-up) -->
+      <div class="pop-up1">
+        <h1>공지사항 수정</h1>
+        <div class="content_box">
+          <div class="content">
+            <div><b>제목 :</b></div>
+            <div>2025년 서비스 개편</div>
+          </div>
+          <div class="content">
+            <div><b>공지내용 :</b></div>
+            <div class="text">
+              2025년 2월 시점으로 전체 서비스 개편이 있습니다. 이용 방법에
+              대해서는 조금 더 상세하게 확인을 원할 시, 업데이트된 이용
+              가이드를 확인해주세요
+            </div>
+          </div>
+          <div class="date">
+            <div><b>수정일자 : </b></div>
+            <div>2025.02.20</div>
+            <input type="submit" value="수정" class="submit" onsubmit="return false" />
+          </div>
+        </div>
+      </div>
 
-    <script>
-      const button2 = document.querySelector('#add_notice');
-      const content2 = document.querySelector('.pop-up2');
-      const background2 = document.querySelector('.pop-up-background2');
+      <!-- 공지사항 등록 박스(pop-up) -->
+      <div class="pop-up2">
+        <h1>공지사항 작성</h1>
+        <div class="content_box">
+          <div class="content">
+            <div><b>제목 :</b></div>
+            <div>2025년 서비스 개편</div>
+          </div>
+          <div class="content">
+            <div><b>공지내용 :</b></div>
+            <div class="text">
+              2025년 2월 시점으로 전체 서비스 개편이 있습니다. 이용 방법에
+              대해서는 조금 더 상세하게 확인을 원할 시, 업데이트된 이용
+              가이드를 확인해주세요
+            </div>
+          </div>
+          <div class="date">
+            <div><b>등록일자 : </b></div>
+            <div>2025.02.20</div>
+            <input type="submit" value="등록" class="submit" onsubmit="return false" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
+        </div>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="pop-up-background1"></div>
+  <div class="pop-up-background2"></div>
 
-      const button1 = document.querySelector('#modify_notice');
-      const content1 = document.querySelector('.pop-up1');
-      const background1 = document.querySelector('.pop-up-background1');
+  <script src="/js/main_notice.js"></script>
+</body>
 
-      // 버튼 클릭 시 display 속성 변경
-      button2.addEventListener('click', function () {
-        if (
-          content2.style.display === 'none' ||
-          content2.style.display === ''
-        ) {
-          content2.style.display = 'block'; // display: block 으로 변경
-          background2.style.display = 'block';
-        } else {
-          content2.style.display = 'none'; // display: none 으로 다시 변경
-          background2.style.display = 'block';
-        }
-      });
-
-      button1.addEventListener('click', function () {
-        if (
-          content1.style.display === 'none' ||
-          content1.style.display === ''
-        ) {
-          content1.style.display = 'block'; // display: block 으로 변경
-          background1.style.display = 'block';
-        } else {
-          content1.style.display = 'none'; // display: none 으로 다시 변경
-          background1.style.display = 'block';
-        }
-      });
-    </script>
-    <script>
-      function submit_go() {
-        let title = document.querySelector("input[id='search_notice']");
-        var sendData = title.value; // title 값만 사용
-
-        $.ajax({
-          url: '/api/notice/title/' + encodeURIComponent(sendData), // URL에 검색어(title) 추가
-          method: 'get',
-          contentType: 'application/json',
-          success: function (response) {
-            if (response.length > 0) {
-              $('tbody').empty(); // 기존 테이블 내용 비우기
-
-              response.forEach((element) => {
-                // 공지사항 제목, ID, 작성일만 표시
-                var row = `<tr>
-                        <td>${element.noticeId}</td>
-                        <td>${element.noticeTitle}</td>
-                        <td>${element.addDate}</td>
-                      </tr>`;
-                $('tbody').append(row); // 테이블에 새 행 추가
-              });
-            } else {
-              alert('검색 결과가 없습니다.');
-              $("input[id='search_notice']").html('');
-            }
-          },
-          error: function () {
-            alert('검색 오류가 발생했습니다.');
-          },
-        });
-      }
-    </script>
-  </body>
 </html>
