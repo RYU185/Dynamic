@@ -1,109 +1,149 @@
-@charset 'utf-8';
-
-
-@font-face {
-    font-family: 'NanumHumanTTFBold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
-    font-weight: 900;
-    font-style: normal;
-}
-
-
-
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
+@charset 'UTF-8';
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+  margin: 0px;
+  padding: 0px;
 }
-
 ul,
 li {
-    list-style: none;
+  list-style: none;
 }
-
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .wrap {
-    margin: 20px 20% 20px 20%;
+  margin: 20px 20%;
 }
 
-hr {
-    border-color: #4c6b7e;
-    opacity: 0.2;
+.wrap header {
+  width: 100%;
+}
+.wrap header .header-wrap {
+  width: 100%;
+  position: relative;
+}
+header .header-wrap .home {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+header .header-wrap .home a img {
+  width: 100%;
+  object-fit: cover;
+}
+header .header-wrap .findId {
+  width: 100%;
+  margin: 0 -30px;
+  text-align: center;
+}
+header .header-wrap .sub {
+  width: 150px;
+  height: 2px;
+  text-align: center;
 }
 
-body {
-    position: relative;
+.wrap .total_box .email_box {
+  height: 60px;
+  position: relative;
+  margin-top: 60px;
+
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  background: #90e0ef;
 }
 
-/* header */
-header {
-    width: 100%;
-    background-color: #fff;
-
+.wrap .total_box .email_box .email_box {
+  width: 100px;
+  height: 35px;
+  font: 20px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+.wrap .total_box .email_box .doublecheck_box_text {
+  width: 80px;
+  height: 35px;
+  font: 20px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  text-align: center;
+  border-radius: 15px;
+  background: #caf0f8;
 }
 
-header .inner {
-    width: 100%;
-    height: 90px;
-    margin: 0 auto;
-    position: relative;
+.wrap .total_box .check_box {
+  height: 60px;
+  position: relative;
+  margin-top: 20px;
+
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  background: #90e0ef;
+}
+.wrap .total_box .check_box .check_box_text {
+  width: 100px;
+  height: 35px;
+  font: 20px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+.wrap .total_box .check_box .done_box_text {
+  width: 80px;
+  height: 35px;
+  font: 20px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  text-align: center;
+  border-radius: 15px;
+  background: #caf0f8;
 }
 
+.wrap .total_box .myid_box {
+  height: 60px;
+  position: relative;
+  margin-top: 50px;
 
-header .inner .upper {
-    width: 100%;
-    margin: 0px auto;
-    display: flex;
-    justify-content: space-between;
-    height: 30px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  background: #90e0ef;
 }
-
-header .inner .upper li {
-    border-radius: 1px 0 solid;
-    margin-top: 8px;
-    text-align: center;
-    height: 42px;
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+.wrap .total_box .myid_box .myid_box_text {
+  width: 100px;
+  height: 35px;
+  font: 20px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
 }
-
-header .inner .upper li:hover {
-    background-color: rgb(236, 235, 235);
-    color: #868686;
-}
-
-header .inner .upper li a {
-    display: block;
-    color: black;
-    display: flex;
-    align-items: center;
-    width: 120px;
-}
-
-header .inner .upper li a span {
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    width: 120px;
-}
-
-hr {
-    width: 100%;
-    border-color: #4c6b7e;
-    opacity: 0.2;
-    position: absolute;
-    top: 50px;
+.wrap .total_box .myid_box .copy_box_text {
+  width: 80px;
+  height: 35px;
+  font: 20px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  text-align: center;
+  border-radius: 15px;
+  background: #caf0f8;
 }

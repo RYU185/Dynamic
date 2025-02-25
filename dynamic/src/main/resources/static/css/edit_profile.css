@@ -1,0 +1,293 @@
+@charset 'utf-8';
+
+@font-face {
+  font-family: "NanumHumanTTFBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrap {
+  margin: 20px 20% 20px 20%;
+}
+
+hr {
+  border-color: #4c6b7e;
+  opacity: 0.2;
+}
+
+body {
+  position: relative;
+}
+
+/* header */
+header {
+  width: 100%;
+  background-color: #fff;
+}
+
+header .inner {
+  width: 100%;
+  height: 90px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header .inner .upper {
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+header .inner .upper li {
+  border-radius: 1px 0 solid;
+  margin-top: 8px;
+  text-align: center;
+  height: 42px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .inner .upper li:hover {
+  background-color: rgb(236, 235, 235);
+  color: #868686;
+}
+
+header .inner .upper li a {
+  display: block;
+  color: black;
+  display: flex;
+  align-items: center;
+  width: 120px;
+}
+
+header .inner .upper li a span {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  width: 120px;
+}
+
+hr {
+  width: 100%;
+  border-color: #4c6b7e;
+  opacity: 0.2;
+  position: absolute;
+  top: 50px;
+}
+
+.wrap .box .second_header {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ade8f4;
+  border-radius: 15px;
+}
+.wrap .box .second_header .second_header_box {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.wrap .box .point {
+  margin-top: 40px;
+}
+
+.wrap .box .point .plusPoint {
+  width: 750px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  border-radius: 15px;
+  margin-top: 20px;
+  background: #caf0f8;
+}
+
+.wrap .box .signup_box .boxes {
+  border-radius: 15px;
+  background: #90e0ef;
+  margin-top: 20px;
+}
+.wrap .box .signup_box .name_box {
+  height: 50px;
+  position: relative;
+}
+
+.wrap .box .signup_box .name_box .name_box_text {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 8%;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+
+.wrap .box .signup_box .gender_box {
+  height: 50px;
+  background: #90e0ef;
+  display: flex;
+  justify-content: space-evenly;
+}
+.wrap .box .signup_box .gender_box .gender_box_sub {
+  width: 160px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+  position: relative;
+  background: #caf0f8;
+}
+.wrap .box .signup_box .gender_box .gender_box_sub .gender_box_text {
+  text-align: center;
+}
+.wrap .box .signup_box .email_box {
+  height: 50px;
+  position: relative;
+}
+.wrap .box .signup_box .email_box .email_box_text {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+
+.wrap .box .signup_box .id_box {
+  height: 50px;
+  position: relative;
+}
+.wrap .box .signup_box .id_box .id_box_text {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+.wrap .box .signup_box .pwd_box {
+  height: 50px;
+  position: relative;
+}
+.wrap .box .signup_box .pwd_box .pwd_box_text {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+.wrap .box .signup_box .phone_box {
+  height: 50px;
+  position: relative;
+}
+.wrap .box .signup_box .phone_box .phone_box_text {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+
+.wrap .box .signup_box .businessNumver_box {
+  height: 50px;
+  position: relative;
+}
+.wrap .box .signup_box .businessNumver_box .businessNumver_box_text {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background: #caf0f8;
+}
+.wrap .box .signup_box .businessNumver_box .businessNumver_box_font {
+  width: 40px;
+  height: 25px;
+  font: 15x;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  text-align: center;
+}
+
+.wrap .box .sub-button {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.wrap .box .sub-button .cancel_box {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  background: #caf0f8;
+  border-radius: 10px;
+  text-align: center;
+}
+.wrap .box .sub-button .ok_box {
+  width: 100px;
+  height: 25px;
+  font: 20px;
+  padding-top: 10px;
+  background: #caf0f8;
+  border-radius: 10px;
+  text-align: center;
+}
