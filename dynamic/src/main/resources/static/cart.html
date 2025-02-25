@@ -223,14 +223,14 @@
                     <div class="item-wrap">
                         <div class="checkbox-wrap">
                             <div class="checkValue">
-                                <p><input type="checkbox" id="checkbox">&nbsp;전체 선택</p>
+                                <p><input type="checkbox" id="checkbox-all">&nbsp;전체 선택</p>
                                 <button onclick="click-btn" class="delete">선택 삭제</button>
                             </div>
                             <div class="cart-item-list">
                                 <!-- 아이템 -->
                                 <div class="cart-item">
                                     <div class="check">
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="checkbox-item">
                                     </div>
 
                                     <div class="pic">
@@ -255,7 +255,7 @@
 
                                 <div class="cart-item">
                                     <div class="check">
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="checkbox-item">
                                     </div>
                                     <div class="pic">
                                         <img src="/img/courseThumnail2.png" alt="강의 썸네일">
@@ -280,7 +280,7 @@
 
                                 <div class="cart-item">
                                     <div class="check">
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="checkbox-item">
                                     </div>
 
                                     <div class="pic">
@@ -306,7 +306,7 @@
 
                                 <div class="cart-item">
                                     <div class="check">
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="checkbox-item">
                                     </div>
                                     <div class="pic">
                                         <img src="" alt="강의 썸네일">
@@ -331,7 +331,7 @@
 
                                 <div class="cart-item">
                                     <div class="check">
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="checkbox-item">
                                     </div>
                                     <div class="pic">
                                         <img src="" alt="강의 썸네일">
@@ -356,7 +356,7 @@
 
                                 <div class="cart-item">
                                     <div class="check">
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="checkbox-item">
                                     </div>
                                     <div class="pic">
                                         <img src="" alt="강의 썸네일">
@@ -395,6 +395,9 @@
             <button class="btn-purchase">결제하기</button>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./js/cart.js"></script>
 
 </body>
 
