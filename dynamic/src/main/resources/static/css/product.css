@@ -252,6 +252,7 @@ section .allCourse .wrapCourse h1{
     display: flex;
     justify-content: right;
     margin-right: 30px;
+    display: none;
     
 }
 
@@ -285,6 +286,12 @@ section .allCourse .wrapCourse .searchBar{
     gap: 10px;
     align-items: center;
 }
+
+section .allCourse .wrapCourse .searchBar .searchBtn{
+    border: none;
+    background-color: #fff;
+}
+
 
 section .allCourse .wrapCourse .searchBar p {
     margin: 0;

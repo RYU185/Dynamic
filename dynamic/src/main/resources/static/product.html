@@ -50,16 +50,18 @@
             <div class="allCourse">
                 <div class="wrapCourse">
                     <h1>제품</h1>
-
                     <div class="searchBar">
                         <p><input type="text" placeholder="강의 / 구독권을 입력하세요" /></p>
-                        <img src="./img/search.png">
+                        <button class="searchBtn">
+                            <img src="./img/search.png" id="search_product">
+                        </button>
+                        
                         <div class="adminOnly">
                             <button class="delete">
-                                <img src="./img/쓰레기통.png" alt="쓰레기통 아이콘">
+                                <img src="./img/쓰레기통.png" alt="쓰레기통 아이콘" id="delete_product">
                             </button>
                             <button class="add">
-                                <img src="./img/add.png" alt="추가 아이콘">
+                                <img src="./img/add.png" alt="추가 아이콘" id="add_product">
                             </button>
                         </div>
                     </div>
@@ -210,5 +212,8 @@
         </footer>
     </div>
     
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./js/product.js"></script>
+
 </body>
 </html>
