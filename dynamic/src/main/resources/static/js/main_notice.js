@@ -125,7 +125,7 @@ document.querySelector("input[type='button']").addEventListener('click', functio
     }
 
 });
-
+// db랑 front랑 연결하는 코드
 $(document).ready(function () {
     $.ajax({
         url: '/api/notice/all',
