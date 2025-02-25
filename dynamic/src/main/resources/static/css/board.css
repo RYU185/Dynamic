@@ -43,7 +43,7 @@ hr {
 
 body {
     position: relative;
-    height: 2000px;
+    height: auto;
 }
 
 /* header */
@@ -478,6 +478,28 @@ p {
 
 }
 
+.pop-up2 .content_box .closeBtn {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    transition: transform 0.1s;
+}
+
+.closebtn:active {
+    transform: scale(0.9);
+}
+
+.pop-up2 .content_box .closeBtn img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
 
 
 
@@ -492,9 +514,32 @@ p {
     width: 43%;
     height: 530px;
     text-align: center;
+    
     /*  modal ON/OFF  */
     display: none;
 }
+
+.pop-up1 h1 {
+    font-family: 'GmarketSansMedium';
+}
+
+.pop-up1 button {
+    width: 1.;
+    height: 1.45rem;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border: none;
+    background: none;
+    transition: transform 0.1s;
+}
+.pop-up1 button img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+}
+
 
  .pop-up1 .content_box {
     margin: 20px;
@@ -550,6 +595,7 @@ p {
     color: rgb(240, 240, 240);
 
 }
+
 
 
 

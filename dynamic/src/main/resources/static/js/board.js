@@ -6,7 +6,7 @@ const cells = document.querySelectorAll("table tr:not(:first-child) td:nth-child
 const content1 = document.querySelector('.pop-up1'); // 본문등록
 const content2 = document.querySelector('.pop-up2'); // 댓글등록
 const addNewPost = document.querySelector('.btn img[src="./img/add.png"]');
-const NewPostSubmit = document.querySelector('.')
+
 
 function openModalNewPost(){
   content1.style.display = "block";
@@ -39,3 +39,7 @@ closeBtn.addEventListener('click', closeModal);
 
 //  내가 누를 요소(html에서 가져올 것) + 기능(이걸 누르면 css에서 어떻게 변하는지)
 
+// 본문작성 후 등록
+document.querySelector('.submit').addEventListener('click', function(){
+  
+})
