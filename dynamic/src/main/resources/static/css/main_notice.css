@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
-    format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-    format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -111,7 +109,7 @@ section {
   background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
 }
 
-section .titlewrap > h1 {
+section .titlewrap>h1 {
   font-size: 30px;
   font-weight: 800;
   font-family: 'GmarketSansMedium';
@@ -273,18 +271,7 @@ main .inner .main_box table tr .bold {
   font-weight: 800;
 }
 
-main
-  .inner
-  .main_box
-  table
-  tr
-  td:nth-child(3)
-  main
-  .inner
-  .main_box
-  table
-  tr
-  td:nth-child(3) {
+main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td:nth-child(3) {
   width: 10px;
 }
 
@@ -307,8 +294,42 @@ main .pop-up1,
   width: 43%;
   height: 530px;
   text-align: center;
+  position: relative;
   display: none;
+
 }
+
+
+
+main .pop-up1>img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+main .pop-up2>img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+main .pop-up1>img:hover {
+  background-color: rgb(126, 126, 126);
+  color: white;
+}
+
+main .pop-up2>img:hover {
+  background-color: rgb(126, 126, 126);
+  color: white;
+}
+
+
 
 main .pop-up1 {
   position: absolute;

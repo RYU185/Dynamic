@@ -1,4 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 if (userRole === 'admin') {
@@ -73,8 +73,19 @@ function submit_go() {
         },
     });
 }
-
 const come_back = document.querySelector('.main_title h1');
 come_back.addEventListener('click', function () {
     window.location.href = 'main_notice.html';
+});
+
+document.querySelector(".x_btn1").addEventListener('click', function () {
+    document.querySelector('.pop-up1').style.display = 'none';
+    document.querySelector('.pop-up-background1').style.display = 'none';
+    document.querySelector('.pop-up2').style.display = 'none';
+    document.querySelector('.pop-up-background2').style.display = 'none';
+});
+
+document.querySelector(".x_btn2").addEventListener('click', function () {
+    document.querySelector('.pop-up2').style.display = 'none';
+    document.querySelector('.pop-up-background2').style.display = 'none';
 });
