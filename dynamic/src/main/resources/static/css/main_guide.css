@@ -302,7 +302,7 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     opacity: 0.3;
     position: absolute;
     top: 0px;
-    /* display: none; */
+    display: none;
 }
 
 main .pop-up1 {
@@ -313,12 +313,12 @@ main .pop-up1 {
     height: 530px;
     text-align: center;
     position: relative;
-    /* display: none; */
+    display: none;
 
 }
 
 
-main .pop-up1 .x_btn {
+main .pop-up1>img {
     width: 15px;
     height: 15px;
     cursor: pointer;
@@ -327,7 +327,7 @@ main .pop-up1 .x_btn {
     right: 10px;
 }
 
-main .pop-up1 .x_btn:hover {
+main .pop-up1>img:hover {
     background-color: rgb(126, 126, 126);
     color: white;
 }
