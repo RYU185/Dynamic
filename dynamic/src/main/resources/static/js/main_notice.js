@@ -89,3 +89,46 @@ document.querySelector(".x_btn2").addEventListener('click', function () {
     document.querySelector('.pop-up2').style.display = 'none';
     document.querySelector('.pop-up-background2').style.display = 'none';
 });
+
+
+
+
+
+document.querySelector('.submit').addEventListener('click', function () {
+    const title = document.querySelector('.write');
+    const text = document.querySelector('.text');
+    const currentDate = document.querySelector(".add_date").textContent = new Date().toLocaleString();
+
+    console.log(title, text, currentDate);
+
+    var sendData = {
+        "noticeTitle": title.value,
+        "text": text.value,
+
+    }
+    if (title && text) {
+        $.ajax({
+            url: '/api/notice/save',
+            method: "POST",
+            data: JSON.stringify(sendData),
+            contentType: 'application/json',
+            success: function (response) {
+                if (response.status === 'success') {
+                    alert("공지사항이 정상 등록되었습니다.");
+
+                    // 서버에서 반환한 공지사항 데이터를 기반으로 새 행 추가
+                    const newNotice = document.createElement('tr');
+                    newNotice.innerHTML = `
+                        <td>${response.noticeId}</td>
+                        <td>${response.noticeTitle}</td>
+                        <td>${currentDate}</td>
+                    `;
+                } else {
+                    alert('공지사항 등록에 실패했습니다. 다시 시도해주세요.');
+                }
+            }
+        });
+    }
+});
+// const userCopy = JSON.parse(sessionStorage.getItem("userName"));
+// $(".name").text(userCopy);
