@@ -302,16 +302,27 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     width: 10px;
 }
 
-.pop-up-background1,
-.pop-up-background2 {
+.pop-up2 .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.6;
+    z-index: 15;
+    display: none;
+}
+
+.pop-up-background {
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.3;
+    opacity: 0;
     position: absolute;
     top: 0px;
-    /*  modal ON/OFF  */
     display: none;
+    z-index: 10;
 }
 
 .pop-up2 {
@@ -525,7 +536,7 @@ p {
 
 }
 
- .pop-up1 .content_box .submit:hover {
+.pop-up1 .content_box .submit:hover {
     background-color: rgba(58, 58, 58, 0.3);
     color: rgb(240, 240, 240);
 

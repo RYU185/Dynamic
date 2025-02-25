@@ -1,34 +1,22 @@
 
-document.addEventListener('DOMContentLoaded', function(){
-  // 변수 선언 - modal창 닫기
-  const closeModal = document.getElementById("modal");
-  
-  // 변수 선언 - modal창 열기
-  const openModal = document.querySelector(
-    ".main_box tr:not(:first-of-type) td:nth-of-type(2)");
+const opacity = document.querySelector('.opacity');
+const content1 = document.querySelector('.pop-up1');
+const content2 = document.querySelector(
+  '.main_box tr:not(:first-of-type) td:nth-of-type(2)');
 
-  // 함수 - modal창 닫기 
-  function modalClose(){
-    closeModal.style.display = "none";
-    console.log("Modal close");
+content2.addEventListener('click', function(event){
+  if (content2.style.display === 'none'){
+      content2.style.display = 'block';
+      opacity.style.display = 'block';
   }
-
-  // 함수 - modal창 열기
-  function modalOpen(){
-    closeModal.style.display = "block";
-    console.log("Modal Open");
+  else {
+    content2.style.display = 'none';
   }
+});
 
-  openModal.addEventListener('click', function(event){
-    if(event.target === openModal){
-      modalOpen();
-    }
-  })
-
-  closeModal.addEventListener("click", function(event2){
-    if(event2.target === closeModal){
-      modalClose();
-    }
-  })
+opacity.addEventListener('click', function(event){
+  if(!content2.contains(event.target)){
+    content2.style.display = 'none';
+    opacity.style.display = 'none'
+  }
 })
-
