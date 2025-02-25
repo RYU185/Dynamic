@@ -26,7 +26,7 @@
                     <li>
                         <a href="#">&nbsp&nbsp환영합니다</a>
                     </li>
-                    
+
                 </ul>
 
                 <!-- top menu -->
@@ -38,16 +38,16 @@
                         <a href="product.html"><span>제품</span></a>
                     </li>
                     <li>
-                        <a href="board.html" ><span>게시판</span></a>
+                        <a href="board.html"><span>게시판</span></a>
                     </li>
                     <li>
                         <a href="main_notice.html"><span>공지사항</span></a>
                     </li>
                     <li>
-                        <a href="formation_data.html" ><span>서식자료</span></a>
+                        <a href="formation_data.html"><span>서식자료</span></a>
                     </li>
                     <li>
-                        <a href="main_guide.html" ><span>가이드</span></a>
+                        <a href="main_guide.html"><span>가이드</span></a>
                     </li>
                     <li class="button">
                         <button class="free_template">무료 급여 계산 <br> 바로 가기</button>
@@ -192,52 +192,9 @@
         </footer>
     </div>
     <div class="opacity"></div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/after_login.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script>
-    const userCopy = JSON.parse(sessionStorage.getItem("userName"));
-    $(".name").text(userCopy);
-</script>
-<script>
-    // 버튼과 콘텐츠 요소 가져오기
-    const button = document.querySelector('.button');
-    const content = document.querySelector('.pop-up');
-    const opacity = document.querySelector('.opacity');
 
-
-
-
-    // 버튼 클릭 시 display 속성 변경
-    button.addEventListener('click', function () {
-        if (content.style.display === 'none' || content.style.display === '') {
-            content.style.display = 'block'; // display: block 으로 변경
-            opacity.style.display = "block";
-        } else {
-            content.style.display = 'none'; // display: none 으로 다시 변경
-        }
-    });
-
-    opacity.addEventListener('click', function () {
-        if (!content.contains(event.target) && event.target !== button) {
-            content.style.display = 'none';
-            opacity.style.display = "none";
-        }
-
-    });
-
-    document.querySelector('#reset').addEventListener('click', function () {
-
-        const item = document.querySelectorAll('.template input');
-        item.forEach(function (input) {
-            input.value = '';
-        });
-    });
-</script>
-<script>
-    document.querySelector('.log_out').addEventListener('click',function(){
-        sessionStorage.removeItem("userName");
-        window.location.href = '/index.html';
-    })
-</script>
 
 </html>

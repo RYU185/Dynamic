@@ -107,14 +107,19 @@ $(document).ready(function () {
         contentType: 'application/json',
         success: function (response) {
             $('tbody').empty();
+            let count = 1;
             response.forEach((element) => {
-                // 공지사항 제목, ID, 작성일만 표시       
-                var row = `<tr>
-                  <td>${element.id}</td>
+                //  가이드 제목, ID, 작성일만 표시       
+                var $row = $(`<tr class="row">
+                  <td>${count++}</td>
                   <td>${element.title}</td>
                   <td>${element.addDate}</td>
-                </tr>`;
-                $('tbody').append(row); // 테이블에 새 행 추가
+                </tr>`);
+                $('tbody').append($row); // 테이블에 새 행 추가
+                $row.on("click", () => {
+                    console.log(element.id + " " + element.title);
+                    window.location.href = "/guide_detail.html?id=" + element.id;
+                });
             });
         }
 

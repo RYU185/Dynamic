@@ -128,21 +128,25 @@ document.querySelector("input[type='button']").addEventListener('click', functio
 // db랑 front랑 연결하는 코드
 $(document).ready(function () {
     $.ajax({
-        url: '/api/notice/all',
-        method: 'get',
-        contentType: 'application/json',
+        url: "/api/notice/all",
+        method: "get",
+        contentType: "application/json",
         success: function (response) {
-            $('tbody').empty();
+            $("tbody").empty();
+            let count = 1;
             response.forEach((element) => {
-                // 공지사항 제목, ID, 작성일만 표시       
-                var row = `<tr>
-                  <td>${element.noticeId}</td>
-                  <td>${element.noticeTitle}</td>
-                  <td>${element.addDate}</td>
-                </tr>`;
-                $('tbody').append(row); // 테이블에 새 행 추가
+                // 공지사항 제목, ID, 작성일만 표시
+                var $row = $(`<tr class="row">
+                    <td>${count++}</td>
+                    <td>${element.noticeTitle}</td>
+                    <td>${element.addDate}</td>
+                  </tr>`);
+                $("tbody").append($row); // 테이블에 새 행 추가
+                $row.on("click", () => {
+                    console.log(element.noticeId + " " + element.noticeTitle);
+                    window.location.href = "/notice_detail.html?id=" + element.noticeId;
+                });
             });
-        }
-
-    })
+        },
+    });
 });
