@@ -57,89 +57,104 @@
             <div class="inner">
                 <div class="upper">
                     <div class="searchBar">
-                        <p><input type="text" placeholder="제목을 입력해주세요" /></p>
-                        <img src="./img/search.png"><img src="/img/add.png" alt="추가 버튼">
-                        <img src="/img/쓰레기통.png" alt="삭제 버튼">
+                        <p><input type="text" placeholder="제목을 입력해주세요" id="search_formation_data" /></p>
+                        <img src="./img/search.png" onclick="submit_go()"><img src="/img/add.png" alt="추가 버튼"
+                            id="add_formation_data" style="display: none">
+                        <img src="/img/쓰레기통.png" alt="삭제 버튼" id="delete_formation_data" style="display: none">
                     </div>
 
                 </div>
                 <div class="main_box">
                     <table>
-                        <tr>
-                            <th>NO.</th>
-                            <th>제목</th>
-                            <th>일자</th>
-                        </tr>
-                        <tr>
-                            <td class="bold">1</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">2</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">3</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">4</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">5</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">6</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">7</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">8</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">9</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">10</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. </td>
-                            <td>2025.02.19</td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>제목</th>
+                                <th>일자</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="bold">1</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">2</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">3</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">4</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">5</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">6</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">7</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">8</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">9</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">10</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer took a galley of type and scrambled it to make a type specimen book. </td>
+                                <td>2025.02.19</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -147,10 +162,11 @@
 
             <div class="pop-up1">
                 <h1>서식 추가</h1>
+                <img src="/img/X.png" alt="취소 버튼" class="x_btn">
                 <div class="content_box">
                     <div class="content">
                         <div><b>제목 :</b> </div>
-                        <div>표준 근로계약서 양식</div>
+                        <div div contenteditable="true" class="write"></div>
                     </div>
                     <div class="content">
                         <div><b>서식파일 :</b></div>
@@ -159,8 +175,8 @@
                     </div>
                     <div class="date">
                         <div><b>등록일자 : </b></div>
-                        <div>2025.02.20</div>
-                        <input type="submit" value="등록" class="submit" onsubmit="return false">
+                        <div class="add_date"></div>
+                        <input type="button" value="등록" class="add" />
                     </div>
                 </div>
             </div>
@@ -183,6 +199,9 @@
         </footer>
     </div>
     <div class="pop-up-background1"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/formation_data.js"></script>
 </body>
 
 </html>

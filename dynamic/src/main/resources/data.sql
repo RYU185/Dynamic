@@ -19,9 +19,9 @@ INSERT INTO guide (title,text,add_date)
 VALUES
 ('무료 급여명세서 이용 가이드','메인 화면에 있는 무료 급여명세서 상에 근무 날짜 , 근무 시간, 시급을 작성 후 계산하기 버튼을 눌러주세요','2025-02-25') ;
 
-INSERT INTO formation_data (title)
+INSERT INTO formation_data (title,add_date)
 VALUES
-('급여명세서 양식');
+('급여명세서 양식','2025-02-25');
 
 
 

@@ -4,6 +4,8 @@ package com.dw.dynamic.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -18,6 +20,9 @@ public class FormationData {
 
     @Column(name = "title",nullable = false)
     private String title;
+
+    @Column(name = "add_date", nullable = false,updatable = false)
+    private LocalDate addDate;
 
     // 외부파일 참조
 

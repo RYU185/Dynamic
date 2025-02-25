@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -46,7 +47,13 @@ public class FormationDataService {
             throw new PermissionDeniedException("권한이 없습니다");
         }
         try {
-            return formationDataRepository.save(formationData);
+
+            FormationData formationData1=new FormationData(
+                    null,
+                    formationData.getTitle(),
+                    LocalDate.now()
+            );
+            return formationDataRepository.save(formationData1);
         }catch (InvalidRequestException e){
             throw new InvalidRequestException("제목을 작성해주세요");
         }
