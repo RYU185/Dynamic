@@ -5,28 +5,20 @@ const cells = document.querySelectorAll("table tr:not(:first-child) td:nth-child
 const content1 = document.querySelector('.pop-up1');
 const content2 = document.querySelector('.pop-up2');
 
-// 바깥 클릭시 display 속성 바꾸기
-content2.addEventListener('click', function(){
-  if (content2.style.display === 'none'){
-      content2.style.display = 'block';
-      opacity.style.display = 'block';
-      overlay.style.display = 'block';
-  }
-  else {
-    content2.style.display = 'none';
-  }
-});
+function openModal() {
+  content2.style.display = "block";
+  opacity.style.display = "block";
+  overlay.style.display = "block";
+}
+
+function closeModal() {
+  content2.style.display = "none";
+  opacity.style.display = "none";
+  overlay.style.display = "none";
+}
 
 cells.forEach(cell => {
-  cell.addEventListener("click", function() {
-      content2.style.display = "block";
-      opacity.style.display = "block";
-      overlay.style.display = 'block';
-  });
+  cell.addEventListener("click", openModal);
 });
 
-overlay.addEventListener('click', function(){
-    content2.style.display = 'none';
-    opacity.style.display = 'none'
-    overlay.style.display = 'none';
-})
+opacity.addEventListener('click', closeModal);
