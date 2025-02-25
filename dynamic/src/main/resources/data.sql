@@ -15,9 +15,9 @@ INSERT INTO notice (notice_title, text, add_date,modified_date)
 VALUES
 ( '안녕하세요. 회원님의 첫 가입을 축하드립니다!', '안녕하세요. 저희 사이트에 가입해주셔서 감사합니다. 저희 사이트에서 무엇보다 편리하고 다양한 서비스를 즐기시길 바랍니다.', '2025-01-13','2025-01-14');
 
-INSERT INTO guide (title,text)
+INSERT INTO guide (title,text,add_date)
 VALUES
-('무료 급여명세서 이용 가이드','메인 화면에 있는 무료 급여명세서 상에 근무 날짜 , 근무 시간, 시급을 작성 후 계산하기 버튼을 눌러주세요') ;
+('무료 급여명세서 이용 가이드','메인 화면에 있는 무료 급여명세서 상에 근무 날짜 , 근무 시간, 시급을 작성 후 계산하기 버튼을 눌러주세요','2025-02-25') ;
 
 INSERT INTO formation_data (title)
 VALUES

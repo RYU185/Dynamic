@@ -28,7 +28,7 @@
                         <a href="board.html"><span>게시판</span></a>
                     </li>
                     <li>
-                        <a href="formation_data.html" ><span>서식자료</span></a>
+                        <a href="formation_data.html"><span>서식자료</span></a>
                     </li>
                     <li>
                         <a href="main_guide.html"><span>가이드</span></a>
@@ -58,9 +58,10 @@
             <div class="inner">
                 <div class="upper">
                     <div class="searchBar">
-                        <p><input type="text" placeholder="제목을 입력해주세요" /></p>
-                        <img src="./img/search.png"><img src="/img/add.png" alt="추가 버튼">
-                        <img src="/img/쓰레기통.png" alt="삭제 버튼">
+                        <p><input type="text" placeholder="제목을 입력해주세요" id="search_guide" /></p>
+                        <img src="./img/search.png" onclick="submit_go()"><img src="/img/add.png" alt="추가 버튼"
+                            id="add_notice" style="display: none">
+                        <img src="/img/쓰레기통.png" alt="삭제 버튼" id="delete_notice" style="display: none">
                     </div>
 
                 </div>
@@ -151,20 +152,20 @@
             <!-- 공지사항 등록 박스(pop-up) -->
             <div class="pop-up1">
                 <h1>가이드 작성</h1>
+                <img src="/img/X.png" alt="취소 버튼" class="x_btn">
                 <div class="content_box">
                     <div class="content">
                         <div><b>제목 :</b></div>
-                        <div>2025년 서비스 개편</div>
+                        <div div contenteditable="true" class="write"></div>
                     </div>
                     <div class="content">
                         <div><b>가이드 내용 :</b></div>
-                        <div class="text">2025년 2월 시점으로 전체 서비스 개편이 있습니다. 이용 방법에 대해서는 조금 더 상세하게 확인을 원할 시, 업데이트된 이용 가이드를
-                            확인해주세요</div>
+                        <div contenteditable="true" class="text_content"></div>
                     </div>
                     <div class="date">
                         <div><b>작성일자 : </b></div>
-                        <div>2025.02.20</div>
-                        <input type="submit" value="등록" class="submit" onsubmit="return false">
+                        <div class="add_date"></div>
+                        <input type="button" value="등록" class="add" />
                     </div>
                 </div>
             </div>
@@ -185,10 +186,13 @@
                 </div>
             </div>
         </footer>
-        
+
     </div>
 
     <div class="pop-up-background1"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/main_guide.js"></script>
 
 </body>
 

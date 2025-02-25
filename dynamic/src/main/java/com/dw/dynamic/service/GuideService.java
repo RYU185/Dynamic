@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -45,7 +46,13 @@ public class GuideService {
             throw new PermissionDeniedException("권한이 없습니다");
         }
         try {
-            return guideRepository.save(guide);
+            Guide guide1 = new Guide(
+                    null,
+                    guide.getTitle(),
+                    guide.getText(),
+                    LocalDate.now()
+            );
+            return guideRepository.save(guide1);
         }catch (InvalidRequestException e){
             throw new InvalidRequestException("제목과 본문 모두 작성해주세요");
         }

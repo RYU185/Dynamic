@@ -204,6 +204,12 @@ main .inner .upper .searchBar img {
   cursor: pointer;
 }
 
+main .inner .upper .searchBar img:hover {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
 main .inner .upper .searchBar #modify_notice,
 #add_notice,
 #delete_notice {

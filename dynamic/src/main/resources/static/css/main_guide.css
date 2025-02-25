@@ -214,6 +214,17 @@ main .inner .upper .searchBar img {
     cursor: pointer;
 }
 
+main .inner .upper .searchBar img:hover {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+main .inner .upper .searchBar #add_notice,
+#delete_notice {
+    display: none;
+}
+
 main .inner .upper .searchBar p input::placeholder {
     color: #465c6b;
     font-size: 16px;
@@ -230,14 +241,14 @@ main .inner .upper .searchBar p input:focus::placeholder {
 main .inner .main_box {
     margin-top: 5px;
     width: 90%;
-    height: 100%;
+    /* height: 100%; */
     position: absolute;
     top: 60px;
 }
 
 main .inner .main_box table {
     width: 100%;
-    height: 90%;
+
     border: 1px solid#6d6d6d;
     border-collapse: collapse;
     /* 겹치는 border 없애기 */
@@ -271,6 +282,7 @@ main .inner .main_box table tr td {
     padding-right: 15px;
     font-size: 18px;
     font-weight: 500;
+    height: 40px;
 
 }
 
@@ -290,7 +302,7 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     opacity: 0.3;
     position: absolute;
     top: 0px;
-    /* display: none; */
+    display: none;
 }
 
 main .pop-up1 {
@@ -301,9 +313,20 @@ main .pop-up1 {
     height: 500px;
     text-align: center;
     /* border-radius: 30px; */
-    /* display: none; */
+    display: none;
 
 }
+
+
+main .pop-up1>img {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 
 
 main .pop-up1 {
@@ -372,7 +395,7 @@ main .content_box .date div:nth-child(2) {
     font-weight: 400;
 }
 
-main .content_box .date .submit {
+main .content_box .date .add {
     width: 150px;
     height: 40px;
     margin-left: 150px;

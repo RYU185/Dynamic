@@ -1,5 +1,5 @@
 
-
+// admin일 경우에만 추가 수정 삭제 버튼 보이도록
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 if (userRole === 'admin') {
     document.querySelector('#modify_notice').style.display = 'inline';

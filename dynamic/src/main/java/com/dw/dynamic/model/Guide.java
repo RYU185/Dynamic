@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -22,5 +24,8 @@ public class Guide {
 
     @Column(name = "text", length = 1000,nullable = false)
     private String text;
+
+    @Column(name = "add_date", nullable = false,updatable = false)
+    private LocalDate addDate;
 
 }
