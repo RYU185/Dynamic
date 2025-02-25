@@ -92,9 +92,9 @@ document.querySelector(".x_btn2").addEventListener('click', function () {
 
 
 
+const userCopy = JSON.parse(sessionStorage.getItem("userName"));
 
-
-document.querySelector('.submit').addEventListener('click', function () {
+document.querySelector("input[type='button']").addEventListener('click', function () {
     const title = document.querySelector('.write');
     const text = document.querySelector('.text');
     const currentDate = document.querySelector(".add_date").textContent = new Date().toLocaleString();
@@ -130,5 +130,3 @@ document.querySelector('.submit').addEventListener('click', function () {
         });
     }
 });
-// const userCopy = JSON.parse(sessionStorage.getItem("userName"));
-// $(".name").text(userCopy);
