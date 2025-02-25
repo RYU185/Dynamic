@@ -2,10 +2,9 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 console.log(id);
 
-
 $(document).ready(function () {
     $.ajax({
-        url: '/api/notice/all',
+        url: '/api/guide/all',
         method: 'get',
         contentType: 'application/json',
         success: function (response) {
@@ -15,7 +14,7 @@ $(document).ready(function () {
                 //  가이드 제목, ID, 제목만 표시       
                 var $row = $(`<tr class="row">
           <td>${count++}</td>
-          <td>${element.noticeTitle}</td>
+          <td>${element.title}</td>
         </tr>`);
                 $('tbody').append($row); // 테이블에 새 행 추가
 
@@ -26,7 +25,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $.ajax({
-        url: '/api/notice/id/' + encodeURIComponent(id),
+        url: '/api/guide/id/' + encodeURIComponent(id),
         method: 'get',
         contentType: 'application/json',
         success: function (response) {
@@ -39,10 +38,6 @@ $(document).ready(function () {
                     <div><b>등록 날짜 :</b></div>
                     <div>${response.addDate}</div>
                 </div>
-                <div class="content">
-                    <div><b>수정 날짜 :</b></div>
-                    <div>${response.modifiedDate}</div>
-                </div>
             </div>
         `;
             $('.detail_box').append(row);
@@ -50,9 +45,10 @@ $(document).ready(function () {
     });
 });
 
+
 $(document).on('click', 'tbody tr', function () {
     $.ajax({
-        url: "/api/notice/all",
+        url: "/api/guide/all",
         method: "get",
         contentType: "application/json",
         success: function (response) {
@@ -62,16 +58,15 @@ $(document).on('click', 'tbody tr', function () {
                 // 공지사항 제목, ID, 작성일만 표시
                 var $row = $(`<tr class="row">
                     <td>${count++}</td>
-                    <td>${element.noticeTitle}</td>
+                    <td>${element.title}</td>
                   </tr>`);
                 $("tbody").append($row); // 테이블에 새 행 추가
                 $row.on("click", () => {
-                    console.log(element.noticeId + " " + element.noticeTitle);
-                    window.location.href = "/notice_detail.html?id=" + element.noticeId;
+                    console.log(element.id + " " + element.title);
+                    window.location.href = "/guide_detail.html?id=" + element.id;
                 });
             });
         },
     });
 
 });
-

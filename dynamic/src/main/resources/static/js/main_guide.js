@@ -55,7 +55,7 @@ function submit_go() {
 // h1 가이드를 클릭하면 원 페이지로 복귀
 const come_back = document.querySelector('.main_title h1');
 come_back.addEventListener('click', function () {
-    window.location.href = 'main_notice.html';
+    window.location.href = 'main_guide.html';
 });
 
 // 가이드 작성 X 버튼 누르면 팝업 창 꺼지기
