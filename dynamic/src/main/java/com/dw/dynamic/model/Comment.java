@@ -29,7 +29,7 @@ public class Comment {
     private String text;
 
     @Column(name = "add_date")
-    private LocalDateTime addDate;
+    private LocalDate addDate;
 
     @Column(name="is_active")
     private Boolean isActive = true;

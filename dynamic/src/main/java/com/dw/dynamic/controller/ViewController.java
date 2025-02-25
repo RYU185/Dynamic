@@ -105,6 +105,9 @@ public class ViewController {
     @GetMapping("/dynamic/product.html")
     public String product() {return "forward:/product.html";}
 
+    @GetMapping("/dynamic/main_board.html")
+    public String main_board() {return "forward:/main_board.html";}
+
 
 
 

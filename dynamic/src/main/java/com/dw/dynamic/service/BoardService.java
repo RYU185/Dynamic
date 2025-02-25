@@ -2,9 +2,11 @@ package com.dw.dynamic.service;
 
 import com.dw.dynamic.DTO.BoardDTO;
 import com.dw.dynamic.exception.InvalidRequestException;
+import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.exception.UnauthorizedUserException;
 import com.dw.dynamic.model.Board;
+import com.dw.dynamic.model.Guide;
 import com.dw.dynamic.model.User;
 import com.dw.dynamic.repository.BoardRepository;
 import com.dw.dynamic.repository.UserRepository;
@@ -51,28 +53,54 @@ public class BoardService {
         }
     }
 
-    public BoardDTO saveBoard(BoardDTO boardDTO,HttpServletRequest request) {
+    public BoardDTO updateBoard(BoardDTO boardDTO,HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-        return boardRepository.findById(boardDTO.getId())
-                .map((board) -> {
-                    board.setModifyDate(LocalDate.now());
-                    return boardRepository.save(board).toDTO();
-                })
-                .orElseGet(() -> {
-                    Board board = new Board(
-                            null,
-                            boardDTO.getTitle(),
-                            false,
-                            LocalDate.now(),
-                            LocalDate.now(),
-                            true,
-                            currentUser,
-                            null
-                    );
-                    return boardRepository.save(board).toDTO();
-                });
+//        return boardRepository.findById(boardDTO.getId())
+//                .map((board) -> {
+//                    board.setModifyDate(LocalDate.now());
+//                    return boardRepository.save(board).toDTO();
+//                })
+//                .orElseGet(() -> {
+//                    Board board = new Board(
+//                            null,
+//                            boardDTO.getTitle(),
+//                            false,
+//                            LocalDate.now(),
+//                            LocalDate.now(),
+//                            true,
+//                            currentUser,
+//                            null
+//                    );
+//                    return boardRepository.save(board).toDTO();
+//                });
+
+    Board board =   boardRepository.findById(boardDTO.getId()).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은  ID입니다"));
+    board.setModifyDate(LocalDate.now());
+    board.setTitle(boardDTO.getTitle());
+    return boardRepository.save(board).toDTO();
 
     }
+    public BoardDTO saveBoard(BoardDTO boardDTO, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+
+        try {
+           Board board = new Board(
+                    null,
+                   boardDTO.getTitle(),
+                   false,
+                   LocalDate.now(),
+                   LocalDate.now(),
+                   true,
+                   currentUser,
+                   null
+            );
+            return boardRepository.save(board).toDTO();
+        }catch (InvalidRequestException e){
+            throw new InvalidRequestException("본문을 입력해주세요");
+        }
+    }
+
+
     public String deleteBoard(Long id, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         Board board = boardRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 게시글입니다."));

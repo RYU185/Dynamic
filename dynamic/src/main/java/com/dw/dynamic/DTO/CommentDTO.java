@@ -27,5 +27,5 @@ public class CommentDTO {
 
     private String text;
 
-    private LocalDateTime addDate;
+    private LocalDate addDate;
 }

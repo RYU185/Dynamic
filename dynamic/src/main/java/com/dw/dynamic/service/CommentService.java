@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class CommentService {
                     null,
                     boardRepository.findById(commentDTO.getBoardId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 게시판ID입니다")),
                     commentDTO.getText(),
-                    LocalDateTime.now(),
+                    LocalDate.now(),
                     true,
                     currentUser
             );
@@ -73,7 +74,7 @@ public class CommentService {
                     null,
                     board,
                     commentDTO.getText(),
-                    LocalDateTime.now(),
+                    LocalDate.now(),
                     true,
                     currentUser
             );

@@ -23,6 +23,13 @@ public class BoardController {
                 boardService.getAllBoards(),
                 HttpStatus.OK);
     }
+    @PutMapping("/update")
+    public ResponseEntity<BoardDTO> updateBoard(@RequestBody BoardDTO boardDTO,HttpServletRequest request) {
+        return new ResponseEntity<>(
+                boardService.updateBoard(boardDTO,request),
+                HttpStatus.CREATED);
+    }
+
     @PostMapping("/save")
     public ResponseEntity<BoardDTO> saveBoard(@RequestBody BoardDTO boardDTO,HttpServletRequest request) {
         return new ResponseEntity<>(

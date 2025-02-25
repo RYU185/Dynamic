@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>세부 가이드</title>
-    <link rel="stylesheet" href="css/guide_detail.css" />
+    <title>세부 게시판</title>
+    <link rel="stylesheet" href="css/board_detail.css" />
   </head>
 
   <body>
@@ -26,7 +26,7 @@
               <a href="product.html"><span>제품</span></a>
             </li>
             <li>
-              <a href="board.html"><span>게시판</span></a>
+              <a href="main_board.html"><span>게시판</span></a>
             </li>
             <li>
               <a href="formation_data.html"><span>서식자료</span></a>
@@ -50,7 +50,7 @@
             USE SERVICE
           </h1>
           <div class="main_title">
-            <h1>가이드</h1>
+            <h1>게시판</h1>
           </div>
           <br />
         </div>
@@ -85,36 +85,45 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
               </tbody>
             </table>
           </div>
           <div class="detail_box">
-            <div class="title">가이드 내용</div>
+            <div class="title">본문 상세 내용</div>
+            <div class="date">2025.02.20</div>
             <div class="description"></div>
-            <div class="buttom">
-              <div class="content">
-                <div><b>등록 날짜 :</b></div>
-                <div>2025.02.20</div>
+            <div class="comment_list">
+              <div class="list">
+                <div class="comment_box">
+                  <div class="name">홍길동</div>
+                  <div class="push_date">2025-02-25</div>
+                  <div class="comment">안녕하세요</div>
+                </div>
+                <div class="comment_box">
+                  <div class="name"></div>
+                  <div class="push_date"></div>
+                  <div class="comment"></div>
+                </div>
+                <div class="comment_box">
+                  <div class="name"></div>
+                  <div class="push_date"></div>
+                  <div class="comment"></div>
+                </div>
+                <div class="comment_box">
+                  <div class="name"></div>
+                  <div class="push_date"></div>
+                  <div class="comment"></div>
+                </div>
+              </div>
+              <div class="write_box">
+                <div class="write">
+                  <!-- <div class="name">유서영</div>
+                  <div class="push_date">2025-02-02</div> -->
+                  <div class="comment" contenteditable="true" class="write">
+                    안녕하세요
+                  </div>
+                  <img src="/img/up.png" alt="전송하기" class="press" />
+                </div>
               </div>
             </div>
           </div>
@@ -140,6 +149,6 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/guide_detail.js"></script>
+    <script src="/js/board_detail.js"></script>
   </body>
 </html>
