@@ -34,3 +34,4 @@ cells.forEach(cell => {
 opacity.addEventListener('click', closeModal);
 
 //  내가 누를 요소(html에서 가져올 것) + 기능(이걸 누르면 css에서 어떻게 변하는지)
+
