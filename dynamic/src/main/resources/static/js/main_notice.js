@@ -119,7 +119,30 @@ document.querySelector("input[type='button']").addEventListener('click', functio
                         <td>${response.noticeTitle}</td>
                         <td>${currentDate}</td>
                     `;
+                window.location.href = "/main_notice.html";
             }
         });
     }
+
 });
+
+$(document).ready(function () {
+    $.ajax({
+        url: '/api/notice/all',
+        method: 'get',
+        contentType: 'application/json',
+        success: function (response) {
+            $('tbody').empty();
+            response.forEach((element) => {
+                // 공지사항 제목, ID, 작성일만 표시       
+                var row = `<tr>
+                  <td>${element.noticeId}</td>
+                  <td>${element.noticeTitle}</td>
+                  <td>${element.addDate}</td>
+                </tr>`;
+                $('tbody').append(row); // 테이블에 새 행 추가
+            });
+        }
+
+    })
+})
