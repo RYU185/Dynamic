@@ -302,23 +302,23 @@ main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td
     opacity: 0.3;
     position: absolute;
     top: 0px;
-    display: none;
+    /* display: none; */
 }
 
 main .pop-up1 {
     padding-top: 15px;
 
     background-color: #f1f6f7;
-    width: 500px;
-    height: 500px;
+    width: 43%;
+    height: 530px;
     text-align: center;
-    /* border-radius: 30px; */
+    position: relative;
     /* display: none; */
 
 }
 
 
-main .pop-up1>img {
+main .pop-up1 .x_btn {
     width: 15px;
     height: 15px;
     cursor: pointer;
@@ -327,7 +327,7 @@ main .pop-up1>img {
     right: 10px;
 }
 
-main .pop-up1>img:hover {
+main .pop-up1 .x_btn:hover {
     background-color: rgb(126, 126, 126);
     color: white;
 }
