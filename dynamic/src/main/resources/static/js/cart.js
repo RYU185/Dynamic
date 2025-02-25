@@ -39,81 +39,115 @@ document.addEventListener('click',function(event){
 //db front 연결//ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
 
 $(document).ready(function () {
-    $.ajax({
-        url: '/api/cart/all', // 백엔드 API 엔드포인트
-        method: 'GET',
-        contentType: 'application/json',
-        success: function (response) {
-            $('.cart-item-list').empty(); // 기존 목록 초기화
+    loadCartItems(); // 장바구니 데이터 불러오기
 
-            response.forEach((item) => {
-                var $row = $(`
-                    <div class="cart-item" data-id="${item.id}">
-                        <div class="check">
-                            <input type="checkbox" class="checkbox-item">
-                        </div>
-                        <div class="pic">
-                            <img src="${item.imageUrl}" alt="제품 이미지">
-                        </div>
-                        <div class="description">
-                            <h1>${item.title}</h1>
-                            <p class="item-price" data-price="${item.price}">${item.price * item.quantity}원</p>
-                        </div>
-                        <div class="counter">
-                            <button class="btn minus" data-id="${item.id}">-</button>
-                            <span class="count">${item.quantity}</span>
-                            <button class="btn plus" data-id="${item.id}">+</button>
-                        </div>
-                        <div class="close">
-                            <img src="./img/X.png" class="delete-item" data-id="${item.id}">
-                        </div>
-                    </div>
-                `);
-                $('.cart-item-list').append($row); // 목록에 추가
-            });
+    function loadCartItems() {
+        $.ajax({
+            url: '/api/cart/all',
+            method: 'GET',
+            contentType: 'application/json',
+            success: function (response) {
+                $('.cart-item-list').empty(); 
 
-            updateCartSummary(); // 총 가격 및 개수 업데이트
-        }
+                response.forEach((item) => {
+                    var formattedPrice = item.price.toLocaleString();
+                    var totalPrice = (item.price * item.quantity).toLocaleString();
+
+                    var $row = $(`
+                        <div class="cart-item" data-id="${item.id}">
+                            <div class="check">
+                                <input type="checkbox" class="checkbox-item">
+                            </div>
+                            <div class="pic">
+                                <img src="${item.imageUrl}" alt="제품 이미지">
+                            </div>
+                            <div class="description">
+                                <h1>${item.title}</h1>
+                                <p class="item-price" data-price="${item.price}">${totalPrice}원</p>
+                            </div>
+                            <div class="counter">
+                                <button class="btn minus">-</button>
+                                <span class="count">${item.quantity}</span>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="close">
+                                <img src="./img/X.png" class="delete-item" data-id="${item.id}">
+                            </div>
+                        </div>
+                    `);
+                    $('.cart-item-list').append($row);
+                });
+
+                updateCartSummary();
+            }
+        });
+    }
+
+    $(document).on('click', '#checkbox-all', function () {
+        console.log("전체 선택 클릭됨", this.checked);
+        $('.checkbox-item').prop('checked', this.checked);
+    });
+    // 개별 체크박스 변경하면 off되는 전체선택
+    $(document).on('click', '.checkbox-item', function () {
+        const allCheckboxes = $('.checkbox-item').length;
+        const checkedBoxes = $('.checkbox-item:checked').length;
+        
+        console.log(`체크박스 상태: 전체(${allCheckboxes}) | 선택됨(${checkedBoxes})`); // 디버깅 로그
+        $('#checkbox-all').prop('checked', allCheckboxes === checkedBoxes);
     });
 
     // 수량 변경
-
     $(document).on('click', '.btn', function () {
         const isPlus = $(this).hasClass('plus');
         const cartItem = $(this).closest('.cart-item');
         const countElement = cartItem.find('.count');
         let quantity = parseInt(countElement.text(), 10);
-        
+
         if (isPlus) {
             quantity += 1;
         } else {
             if (quantity > 1) quantity -= 1;
         }
 
-        countElement.text(quantity); // 수량 업데이트
+        countElement.text(quantity);
 
-        // 가격 업데이트
+        // 가격 
         const itemPrice = cartItem.find('.item-price');
         const pricePerUnit = parseInt(itemPrice.data('price'), 10);
-        itemPrice.text(`${pricePerUnit * quantity}원`);
+        itemPrice.text(`${(pricePerUnit * quantity).toLocaleString()}원`);
 
-        updateCartSummary(); // 총 가격 및 제품 개수 업데이트
+        updateCartSummary(); // 총 가격
     });
 
-    // 장바구니 총 가격 및 개수 업데이트
+    // 장바구니 총 가격과 개수
     function updateCartSummary() {
         let totalQuantity = 0;
         let totalPrice = 0;
 
         $('.cart-item').each(function () {
             const quantity = parseInt($(this).find('.count').text(), 10);
-            const price = parseInt($(this).find('.item-price').text(), 10);
+            const priceText = $(this).find('.item-price').text().replace(/[^0-9]/g, "");
+            const price = parseInt(priceText, 10);
 
             totalQuantity += quantity;
             totalPrice += price;
         });
 
-        $('.calc-all p').text(`총 ${totalQuantity}개`);
-        $('.calc-all h1').text(`${totalPrice}원`);
+        $('.total-quantity').text(totalQuantity);
+        $('.total-price').text(totalPrice.toLocaleString());
     }
+
+
+    $(document).on('click', '.delete-item', function () {
+        const cartItem = $(this).closest('.cart-item');
+        cartItem.remove();
+        updateCartSummary();
+    });
+    // 장바구니 삭제
+    $(document).on('click', '.delete', function () {
+        $('.checkbox-item:checked').each(function () {
+            $(this).closest('.cart-item').remove();
+        });
+        updateCartSummary();
+    });
 });
