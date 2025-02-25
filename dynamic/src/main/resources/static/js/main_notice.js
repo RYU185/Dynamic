@@ -15,7 +15,7 @@ const button1 = document.querySelector('#modify_notice');
 const content1 = document.querySelector('.pop-up1');
 const background1 = document.querySelector('.pop-up-background1');
 
-// 버튼 클릭 시 display 속성 변경
+// 버튼 클릭 시 공지사항 추가 및 공지사항 수정 팝업 보이게 처리
 button2.addEventListener('click', function () {
     if (
         content2.style.display === 'none' ||
@@ -41,7 +41,7 @@ button1.addEventListener('click', function () {
         background1.style.display = 'block';
     }
 });
-
+// title을 통한 검색
 function submit_go() {
     let title = document.querySelector("input[id='search_notice']");
     var sendData = title.value; // title 값만 사용
@@ -73,16 +73,15 @@ function submit_go() {
         },
     });
 }
+// h1 공지사항를 클릭하면 원 페이지로 복귀
 const come_back = document.querySelector('.main_title h1');
 come_back.addEventListener('click', function () {
     window.location.href = 'main_notice.html';
 });
-
+// 공지사항 작성/수정 X 버튼 누르면 팝업 창 꺼지기
 document.querySelector(".x_btn1").addEventListener('click', function () {
     document.querySelector('.pop-up1').style.display = 'none';
     document.querySelector('.pop-up-background1').style.display = 'none';
-    document.querySelector('.pop-up2').style.display = 'none';
-    document.querySelector('.pop-up-background2').style.display = 'none';
 });
 
 document.querySelector(".x_btn2").addEventListener('click', function () {
@@ -90,6 +89,7 @@ document.querySelector(".x_btn2").addEventListener('click', function () {
     document.querySelector('.pop-up-background2').style.display = 'none';
 });
 
+// 공지사항 추가 후 다시 메인 페이지로 돌아오기
 document.querySelector("input[type='button']").addEventListener('click', function () {
     const title = document.querySelector('.write');
     const text = document.querySelector('.text_content');
@@ -145,4 +145,4 @@ $(document).ready(function () {
         }
 
     })
-})
+});
