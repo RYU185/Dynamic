@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class BoardService {
         User currentUser = userService.getCurrentUser(request);
         return boardRepository.findById(boardDTO.getId())
                 .map((board) -> {
-                    board.setModifyDate(LocalDateTime.now());
+                    board.setModifyDate(LocalDate.now());
                     return boardRepository.save(board).toDTO();
                 })
                 .orElseGet(() -> {
@@ -62,8 +63,8 @@ public class BoardService {
                             null,
                             boardDTO.getTitle(),
                             false,
-                            LocalDateTime.now(),
-                            LocalDateTime.now(),
+                            LocalDate.now(),
+                            LocalDate.now(),
                             true,
                             currentUser,
                             null

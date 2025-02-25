@@ -28,7 +28,7 @@
                         <a href="board.html"><span>게시판</span></a>
                     </li>
                     <li>
-                        <a href="formation_data.html" ><span>서식자료</span></a>
+                        <a href="formation_data.html"><span>서식자료</span></a>
                     </li>
                     <li>
                         <a href="main_guide.html"><span>가이드</span></a>
@@ -57,262 +57,198 @@
                 <div class="upper">
                     <div class="searchBar">
                         <div class="my_post">나의 글 보기</div>
-                        <p><input type="text" placeholder="제목을 입력해주세요" /></p>
-                        <button class="btn">
-                            <img src="./img/search.png">
-                        </button>
-                        <button class="btn">
-                            <img src="./img/add.png">
-                        </button>
-                        <button class="btn">
-                            <img src="./img/쓰레기통.png" alt="삭제 버튼">
-                        </button>
+                        <p><input type="text" placeholder="제목을 입력해주세요" id="search_board" /></p>
+                        <img src="./img/search.png" onclick="submit_go()">
+                        <img src="./img/add.png" id="add_board" style="display: none">
+                        <img src="./img/쓰레기통.png" alt="삭제 버튼" id="delete_board" style="display: none">
                     </div>
 
                 </div>
                 <div class="main_box">
                     <table>
-                        <tr>
-                            <th>NO.</th>
-                            <th>제목</th>
-                            <th>등록일자</th>
-                        </tr>
-                        <tr>
-                            <td class="bold">1</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">2</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">3</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">4</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">5</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">6</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">7</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">8</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">9</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
-                        <tr>
-                            <td class="bold">10</td>
-                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, magni. Neque aspernatur
-                                quis
-                                accusantium nam rem error laboriosam explicabo suscipit, a deleniti. Quas sit illum quae
-                                corrupti laborum? Accusantium, nam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Aspernatur atque nobis adipisci aliquid voluptatum, odit provident qui impedit illum
-                                tempore
-                                consectetur molestiae at voluptas illo accusantium aliquam quaerat cum. Odio!</td>
-                            <td>2025.01.24</td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>제목</th>
+                                <th>등록일자</th>
+                                <th>관리자 답변 여부</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bold"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
 
-
-
             <!-- 본문 등록 modal -->
-            
-        </main>
-        <div class="pop-up1">
-            <div class="overlay"></div>
-            <h1>게시글 등록</h1>
-            <button class="closeBtn">
-                <img src="./img/X.png">
-            </button>
-            <div class="content_box">
-                <div class="content">
-                    <input type="text" placeholder="제목을 입력해주세요">
-                </div>
+            <div class="pop-up1">
+                <div class="overlay"></div>
+                <h1>게시글 등록</h1>
+                <img src="/img/X.png" alt="취소 버튼" class="x_btn">
+                <div class="content_box">
+                    <!-- <div class="content">
+                        <div><b>제목 :</b></div>
+                        <div div contenteditable="true" class="write"></div>
+                    </div> -->
 
-                <div class="content">
-                    <textarea class="text" placeholder="내용을 입력하세요"></textarea>
-                </div>
-
-
-                <input type="submit" value="등록" class="submit" onsubmit="return false">
-            </div>
-        </div>
-
-        <!-- 댓글 등록 및 전체 글 확인 modal -->
-        <div class="pop-up2">
-            <div class="overlay"></div>
-            <div class="content_box">
-                <h1>본문 상세 내용</h1>
-                <button class="closeBtn">
-                    <img src="./img/X.png">
-                </button>
-                <div class="content">
-                    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, iure. Accusantium,
-                        deserunt perspiciatis. Quibusdam cum fuga quo inventore dolores quod quisquam
-                        praesentium, fugiat nemo eligendi voluptatibus quam qui. Illum, rerum.</div>
-                </div>
-                <div class="comment-list">
-                    <div>댓글 </div>
-                    <div class="comment-box">
-                        <div class="comment-header">
-                            <span class="user-name">홍길동</span>
-                            <span class="comment-date">2025-02-21</span>
-                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                        </div>
-                    </div>
-                    <div class="comment-box">
-                        <div class="comment-header">
-                            <span class="user-name">홍길동</span>
-                            <span class="comment-date">2025-02-21</span>
-                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                        </div>
-                    </div>
-
-                    <div class="comment-box">
-                        <div class="comment-header">
-                            <span class="user-name">홍길동</span>
-                            <span class="comment-date">2025-02-21</span>
-                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                        </div>
-                    </div>
-                    <div class="comment-box">
-                        <div class="comment-header">
-                            <span class="user-name">홍길동</span>
-                            <span class="comment-date">2025-02-21</span>
-                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                        </div>
-                    </div>
-                    <div class="comment-box">
-                        <div class="comment-header">
-                            <span class="user-name">홍길동</span>
-                            <span class="comment-date">2025-02-21</span>
-                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                        </div>
-                    </div>
-                    <div class="comment-box">
-                        <div class="comment-header">
-                            <span class="user-name">홍길동</span>
-                            <span class="comment-date">2025-02-21</span>
-                            <p>이거 정말 좋은 정보네요. 감사합니다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="comment_box">
                     <div class="content">
-                        <input type="text" class="text" placeholder="내용을 입력하세요.">
+                        <div><b>내용 :</b></div>
+                        <div contenteditable="true" class="text_content"></div>
                     </div>
-
-                    <input type="submit" value="등록" class="submit" onsubmit="return false">
+                    <div class="date">
+                        <div><b>작성일자 : </b></div>
+                        <div class="add_date"></div>
+                        <input type="button" value="등록" class="add" />
+                    </div>
                 </div>
+            </div>
+            <!-- 댓글 등록 및 전체 글 확인 modal -->
+            <div class="pop-up2">
+                <!-- <div class="overlay"></div> -->
+                <div class="content_box">
+                    <h1>본문 상세 내용</h1>
+                    <img src="/img/X.png" alt="취소 버튼" class="x_btn">
+                    <div class="content">
+                        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, iure. Accusantium,
+                            deserunt perspiciatis. Quibusdam cum fuga quo inventore dolores quod quisquam
+                            praesentium, fugiat nemo eligendi voluptatibus quam qui. Illum, rerum.</div>
+                    </div>
+                    <div class="comment-list">
+                        <div>댓글 </div>
+                        <div class="comment-box">
+                            <div class="comment-header">
+                                <span class="user-name">홍길동</span>
+                                <span class="comment-date">2025-02-21</span>
+                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                            </div>
+                        </div>
+                        <div class="comment-box">
+                            <div class="comment-header">
+                                <span class="user-name">홍길동</span>
+                                <span class="comment-date">2025-02-21</span>
+                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="comment-box">
+                            <div class="comment-header">
+                                <span class="user-name">홍길동</span>
+                                <span class="comment-date">2025-02-21</span>
+                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                            </div>
+                        </div>
+                        <div class="comment-box">
+                            <div class="comment-header">
+                                <span class="user-name">홍길동</span>
+                                <span class="comment-date">2025-02-21</span>
+                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                            </div>
+                        </div>
+                        <div class="comment-box">
+                            <div class="comment-header">
+                                <span class="user-name">홍길동</span>
+                                <span class="comment-date">2025-02-21</span>
+                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                            </div>
+                        </div>
+                        <div class="comment-box">
+                            <div class="comment-header">
+                                <span class="user-name">홍길동</span>
+                                <span class="comment-date">2025-02-21</span>
+                                <p>이거 정말 좋은 정보네요. 감사합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment_box">
+                        <div class="content">
+                            <input type="text" class="text" placeholder="내용을 입력하세요.">
+                        </div>
+                        <input type="button" value="등록" class="add" />
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+
+    </main>
+
+    <footer>
+        <div class="inner">
+            <div class="upper">
+                <h1>DO YOURSELF or USE SERVICE</h1>
+            </div>
+            <div class="lower">
+                <address>
+                    대전광역시 서구 둔산동 1524 <br>
+                    TEL : 03-111-1234 C.P : 010-1234-5678
+                </address>
+                <p>
+                    2020 DO YOURSELF or USE SERVICE &copy; copyright all right reserved.
+                </p>
             </div>
         </div>
-
-
-
-        <footer>
-            <div class="inner">
-                <div class="upper">
-                    <h1>DO YOURSELF or USE SERVICE</h1>
-                </div>
-                <div class="lower">
-                    <address>
-                        대전광역시 서구 둔산동 1524 <br>
-                        TEL : 03-111-1234 C.P : 010-1234-5678
-                    </address>
-                    <p>
-                        2020 DO YOURSELF or USE SERVICE &copy; copyright all right reserved.
-                    </p>
-                </div>
-            </div>
-        </footer>
+    </footer>
     </div>
 
     <!-- opacity랑 같음 -->
