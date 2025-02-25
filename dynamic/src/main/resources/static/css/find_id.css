@@ -17,6 +17,7 @@ a {
 
 .wrap header {
   width: 100%;
+  height: 200px;
 }
 .wrap header .header-wrap {
   width: 100%;
@@ -36,10 +37,8 @@ header .header-wrap .findId {
   margin: 0 -30px;
   text-align: center;
 }
-header .header-wrap .sub {
-  width: 150px;
-  height: 2px;
-  text-align: center;
+header .header-wrap .findId h1 {
+  border-bottom: auto;
 }
 
 .wrap .total_box .email_box {

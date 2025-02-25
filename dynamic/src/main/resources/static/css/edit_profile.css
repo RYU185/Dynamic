@@ -108,7 +108,6 @@ hr {
   width: 350px;
   margin-left: auto;
   margin-right: auto;
-  background: #ade8f4;
   border-radius: 15px;
 }
 .wrap .box .second_header .second_header_box {
@@ -118,41 +117,25 @@ hr {
   font-size: 40px;
 }
 
-.wrap .box .point {
-  margin-top: 40px;
-}
-
-.wrap .box .point .plusPoint {
-  width: 750px;
-  height: 40px;
+.wrap .box .signup_box .boxes {
+  width: 600px;
+  border-radius: 5px;
+  background: #90e0ef;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  border-radius: 15px;
-  margin-top: 20px;
-  background: #caf0f8;
-}
-
-.wrap .box .signup_box .boxes {
-  border-radius: 15px;
-  background: #90e0ef;
   margin-top: 20px;
 }
 .wrap .box .signup_box .name_box {
-  height: 50px;
-  position: relative;
+  height: 40px;
 }
 
 .wrap .box .signup_box .name_box .name_box_text {
   width: 100px;
-  height: 25px;
   font: 20px;
-  padding-top: 10px;
-  position: absolute;
-  bottom: 8%;
-  left: 10px;
   border-radius: 15px;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   background: #caf0f8;
 }
 
@@ -274,20 +257,6 @@ hr {
   justify-content: space-around;
 }
 .wrap .box .sub-button .cancel_box {
-  width: 100px;
-  height: 25px;
-  font: 20px;
-  padding-top: 10px;
-  background: #caf0f8;
-  border-radius: 10px;
-  text-align: center;
-}
-.wrap .box .sub-button .ok_box {
-  width: 100px;
-  height: 25px;
-  font: 20px;
-  padding-top: 10px;
-  background: #caf0f8;
-  border-radius: 10px;
-  text-align: center;
+  border-width: 2px;
+  border-color: #4c6b7e;
 }
