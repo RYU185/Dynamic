@@ -31,6 +31,53 @@ document.addEventListener('click',function(event){
 });
 
 //db front 연결//ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
+$.ajax({
+    url:"/api/cart/all",
+    method:"GET",
+    contentType:"application/json",
+    success: function(response){
+        if(!response || !response.cartItem){
+            $(".cart-item-list").html("<p>장바구니가 비어 있습니다.</p>");
+            return;
+        }
+
+        $(".cart-item-list").empty();
+
+        response.cartItem.forEach((item)=>{
+            let cartItem = `
+                <div class="cart-item">
+                    <div class="check">
+                        <input type="checkbox">
+                    </div>
+                    <div class="pic">
+                        <img src="${item.image}" alt="상품 이미지">
+                    </div>
+                    <div class="description">
+                        <h1>${item.name}</h1>
+                        <p>${item.price.toLocaleString()}원</p>
+                        <p>수량: ${item.quantity}</p>
+                    </div>
+                </div>`;
+            $(".cart-item-list").append(cartItem); 
+        });
+
+        let totalQuantity = response.cartItems.reduce(
+          (sum, item) => sum + item.quantity,
+          0
+        );
+        let totalPrice = response.cartItems.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+
+        $("#cartCount").text(totalQuantity);
+        $("#totalPrice").text(totalPrice.toLocaleString() + "원");
+    },
+    error:function(){
+        alert('장바구니를 불러오지 못했습니다')
+    }
+});
+
 
 $(document).ready(function () {
     loadCartItems(); // 장바구니 데이터 불러오기
