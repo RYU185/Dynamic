@@ -1,6 +1,9 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 console.log(id);
+const modify_board = document.querySelector('#modify_board');
+const delete_board = document.querySelector('#delete_board');
+const userRole = JSON.parse(sessionStorage.getItem('userName'));
 
 $(document).ready(function () {
   $.ajax({
@@ -39,6 +42,15 @@ $(document).ready(function () {
            </div>           
       `;
       $('.detail_box').append(row);
+      const writeUser = response.userName;
+      console.log(writeUser)
+      console.log(userRole)
+      if (userRole === writeUser) {
+        if (modify_board.style.display === 'none' && delete_board.style.display === 'none') {
+          modify_board.style.display = 'block';
+          delete_board.style.display = 'block';
+        }
+      }
       // console.log(row);
 
 
@@ -99,7 +111,7 @@ $(document).on('click', 'tbody tr', function () {
 });
 
 
-const userRole = JSON.parse(sessionStorage.getItem('userName'));
+
 $(document).on('click', '.press', function () {
   const text = document.querySelector('.write_comment');
   text.focus();
@@ -145,8 +157,7 @@ $(document).on('click', '.press', function () {
   })
 });
 
-const modify_board = document.querySelector('#modify_board');
-const delete_board = document.querySelector('#delete_board');
+
 $(document).on('click', '.tbody tr', function () {
   $.ajax({
     url: '/api/board/id/' + encodeURIComponent(id),
