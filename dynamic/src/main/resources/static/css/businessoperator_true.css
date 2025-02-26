@@ -49,20 +49,21 @@ header .header-wrap .sub {
 .wrap .box {
   width: 500px;
   border-radius: 10px;
-  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
+  background-image: linear-gradient(45deg, #9ad2ff, #242fffa8, #6d9eff);
 }
 .wrap .box .agree_box {
   width: 400px;
-  height: 300px;
+  height: 280px;
   border-radius: 15px;
   background: #f9f7fcd6;
-
+  margin: auto;
   justify-content: center;
 }
 .wrap .box .informtion_box {
   width: 400px;
   margin: 30px;
   border-radius: 15px;
+  text-align: center;
   background: #f9f7fcd6;
 
   justify-content: center;
@@ -70,4 +71,12 @@ header .header-wrap .sub {
 .wrap .last {
   display: flex;
   justify-content: space-around;
+}
+.wrap .last .cancel:hover {
+  cursor: pointer;
+  background-color: #c1d6e8;
+}
+.wrap .last .join:hover {
+  cursor: pointer;
+  background-color: #c1d6e8;
 }
