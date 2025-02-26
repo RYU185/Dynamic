@@ -1,6 +1,5 @@
 
 
-$(document).ready(function () {
     $(".btnInCart").on("click", function () {
         const article = $(this).closest("article");
 
@@ -26,53 +25,12 @@ $(document).ready(function () {
             contentType: "application/json",
             data: JSON.stringify(product),
             success: function (response) {
+                response.$(product.productId)
 
-                // if (!response || !response.cartItem) {
-
-                //     alert("장바구니가 올바르게 반환되지 않았습니다");
-                //     return;
-                // }
-
-                localStorage.setItem("cart", JSON.stringify(response.cartItems));
-
-                //     $(".cart-item-list").empty();
-
-                //     response.cartItems.forEach((item) => {
-                //         let cartItem = `<li>${item.name}</li>`;
-                //         $(".cart-item-list").append(cartItem); // 장바구니 목록에 추가
-                //     });
-
-                //     localStorage.setItem(
-                //         "cart",
-                //         JSON.stringify(response.cartItems)
-                //     );
-
-                //     // 장바구니에 들어가는 총 갯수    
-                //     let totalQuantity = response.cartItems.reduce(
-                //         (sum, item) => sum + item.quantity,
-                //         0
-                //     );
-
-                //     // 장바구니에 들어가는 제품 총액
-                //     let totalPrice = response.cartItems.reduce(
-                //         (sum, item) => sum + item.price * item.quantity,
-                //         0
-                //     );
-
-                //     $("#cartCount").text(totalQuantity); //장바구니 갯수 화면에 업데이트
-                //     $("#totalPrice").text(totalPrice.toLocaleString() + "원"); // 장바구니 총액 화면에 업데이트
-
-                //     alert(`${productName}이(가) 장바구니에 추가되었습니다.`);
-                // },
-
-                // error: function () {
-                //     alert("장바구니 추가 중 오류가 발생하였습니다")
+                alert(`${productName}이(가) 장바구니에 추가되었습니다.`);
             }
         });
-        alert(`${productName}이(가) 장바구니에 추가되었습니다.`);
-
-    })
-});
+    });
 
 
 $(document).ready(function(){
@@ -85,7 +43,7 @@ $(document).ready(function(){
             response.forEach((element) => {
                 var $article = $(`
                     <article>
-                        <h2>제품카테고리: ${element.category}</h2>
+                        <h2>제품카테고리: ${element.title}</h2>
                         <div>
                             <span>가격: </span><span class="price">${
                                 element.price

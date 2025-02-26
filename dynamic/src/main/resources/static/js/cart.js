@@ -107,7 +107,8 @@ $(document).ready(function () {
                                 <p class="item-price" data-price="${item.price}">${totalPrice}원</p>
                             </div>
                             <div class="counter">
-                                <button class="btn minus">-</button>
+                                <button class=
+                                "btn minus">-</button>
                                 <span class="count">${item.quantity}</span>
                                 <button class="btn plus">+</button>
                             </div>

@@ -84,7 +84,7 @@
                             </div>
                             <p>2024.05.08 </p>
                             <p>별점: </p>
-                            <button class="btnInCart" id="1">장바구니</button>
+                            <button class="btnInCart" id="C1">장바구니</button>
                             <button class="btnPurchase">구매</button>
                         </article>
 
@@ -99,7 +99,7 @@
                             </div>
                             <p>2024.05.08 </p>
                             <p>별점: </p>
-                            <button class="btnInCart" id="2">장바구니</button>
+                            <button class="btnInCart" id="C2">장바구니</button>
                             <button class="btnPurchase">구매</button>
                         </article>
 
@@ -114,7 +114,7 @@
                             </div>
                             <p>2024.05.08 </p>
                             <p>별점: </p>
-                            <button class="btnInCart" id="3">장바구니</button>
+                            <button class="btnInCart" id="C3">장바구니</button>
                             <button class="btnPurchase">구매</button>
                         </article>
 
@@ -147,7 +147,7 @@
                             </div>                            
                             
                             <div class="btn">
-                                <button class="btnInCart" id="4">장바구니</button>
+                                <button class="btnInCart" id="S1">장바구니</button>
                                 <button class="btnPurchase">구매</button>
                             </div>
 
@@ -162,7 +162,7 @@
                                 <span>가격: </span><span class="price">30000</span><span>원</span>
                             </div>
                             <div class="btn">
-                                <button class="btnInCart" id="5">장바구니</button>
+                                <button class="btnInCart" id="S2">장바구니</button>
                                 <button class="btnPurchase">구매</button>
                             </div>
 
@@ -178,7 +178,7 @@
                                 <span>가격: </span><span class="price">30000</span><span>원</span>
                             </div>
                             <div class="btn">
-                                <button class="btnInCart" id="6">장바구니</button>
+                                <button class="btnInCart" id="S3">장바구니</button>
                                 <button class="btnPurchase">구매</button>
                             </div>
                         </article>
@@ -208,16 +208,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/product.js"></script>
-    <script>
-        $('.btnInCart').on("click", (e) => {
-            let cartList = JSON.parse(localStorage.getItem("cart"));
-            if (!cartList) {
-                cartList = [];
-            }
-            cartList.push($(e.target).attr("id"));
-            localStorage.setItem("cart", JSON.stringify(cartList));
-        })
-    </script>
     
 </body>
 
