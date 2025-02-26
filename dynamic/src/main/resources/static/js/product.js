@@ -1,13 +1,14 @@
 
 // 내가 눌러야 할 버튼
 
-d$(document).ready(function () {
+$(document).ready(function () {
         $(".btnInCart").on("click", function () {
             const article = $(this).closest("article");
 
             const productId = $(this).attr("id");
             const productName = article.find("h2").text();
-            const productPrice = article.find("p").first().text().replace("가격: ", "").replace("원", "").trim();
+            const productPrice = article.find("p:contains('가격')").text().replace(/\D/g, ""); // p 태그에서 숫자만 추출하는 코드
+            // 양쪽 문자열 다 떼고 공백제거
 
 
         let product = {
@@ -33,9 +34,3 @@ d$(document).ready(function () {
             alert(`${productName}이(가) 장바구니에 추가되었습니다.`);
     })
 });
-
-const purchaseBtn = document.querySelectorAll(".btnPurchase");
-
-//눌렀을때 css에서 바뀌어야 할것들
-
-toCartBtn.addEventListener

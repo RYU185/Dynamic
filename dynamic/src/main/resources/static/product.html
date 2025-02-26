@@ -194,6 +194,7 @@
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/product.js"></script>
     <script>
         $('.btnInCart').on("click", (e) => {
             let cartList = JSON.parse(localStorage.getItem("cart"));
@@ -204,7 +205,7 @@
             localStorage.setItem("cart", JSON.stringify(cartList));
         })
     </script>
-    <script src="./js/product.js"></script>
+    
 </body>
 
 </html>
