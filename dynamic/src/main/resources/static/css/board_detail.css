@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
-    format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-    format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -111,7 +109,7 @@ section {
   background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
 }
 
-section .titlewrap > h1 {
+section .titlewrap>h1 {
   font-size: 30px;
   font-weight: 800;
   font-family: 'GmarketSansMedium';
@@ -235,7 +233,7 @@ main .inner .detail_box .title {
 
 main .inner .detail_box .description {
   width: 85%;
-  height: 270px;
+  height: 150px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   background-color: white;
@@ -253,9 +251,10 @@ main .inner .detail_box .date {
   top: 80px;
   left: 25px;
 }
+
 main .inner .detail_box .comment_list {
   width: 85%;
-  height: 180px;
+  height: 270px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   background-color: white;
@@ -267,10 +266,11 @@ main .inner .detail_box .comment_list {
 
 main .inner .detail_box .comment_list .list {
   width: 100%;
-  height: 100px;
+  height: 190px;
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 main .inner .detail_box .comment_list .comment_box {
   width: 100%;
   height: 30px;
@@ -282,24 +282,28 @@ main .inner .detail_box .comment_list .comment_box {
   flex-wrap: nowrap;
   position: relative;
 }
+
 main .inner .detail_box .comment_list .comment_box .name {
   font-size: 15px;
   text-align: center;
   line-height: 30px;
   width: 10%;
 }
+
 main .inner .detail_box .comment_list .comment_box .push_date {
   font-size: 15px;
   text-align: center;
   line-height: 30px;
   width: 25%;
 }
+
 main .inner .detail_box .comment_list .comment_box .comment {
   font-size: 15px;
   line-height: 30px;
   outline: none;
   width: 60%;
 }
+
 main .inner .detail_box .comment_list .write_box {
   width: 100%;
   height: 30px;
@@ -308,6 +312,7 @@ main .inner .detail_box .comment_list .write_box {
   margin-top: 45px;
   background-color: rgb(237, 236, 236);
 }
+
 main .inner .detail_box .comment_list .write_box .write {
   width: 100%;
   height: 100%;
@@ -317,6 +322,13 @@ main .inner .detail_box .comment_list .write_box .write {
   flex-wrap: nowrap;
   position: relative;
 }
+
+main .inner .detail_box .comment_list .write_box .write .press:hover {
+  background-color: #bebebe;
+  border-radius: 10px;
+
+}
+
 /* main .inner .detail_box .comment_list .write_box .write .name {
   font-size: 15px;
   text-align: center;
@@ -337,6 +349,7 @@ main .inner .detail_box .comment_list .write_box .write .comment {
   width: 90%;
   margin-left: 10px;
 }
+
 main .inner .detail_box .comment_list .write_box .write .press footer .inner {
   object-fit: contain;
   position: absolute;

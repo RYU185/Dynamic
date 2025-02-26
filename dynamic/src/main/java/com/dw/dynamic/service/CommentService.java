@@ -69,7 +69,7 @@ public class CommentService {
             );
             return commentRepository.save(comment).toDTO();
         } else if (currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
-            Board board = boardRepository.findById(commentDTO.getId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 게시판ID입니다"));
+            Board board = boardRepository.findById(commentDTO.getBoardId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 게시판ID입니다"));
             Comment comment = new Comment(
                     null,
                     board,

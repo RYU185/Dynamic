@@ -95,9 +95,8 @@ $(document).on('click', 'tbody tr', function () {
   });
 });
 
+
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
-const urlParam = new URLSearchParams(window.location.search);
-const boardId = urlParam.get('id');
 $(document).on('click', '.press', function () {
   const text = document.querySelector('.write');
   if (userRole === null || userRole == undefined) {
@@ -110,10 +109,9 @@ $(document).on('click', '.press', function () {
     return;
   }
 
-
   var sendData = {
     "id": 0,
-    "boardId": boardId,
+    "boardId": id,
     "text": text.innerText
   }
   console.log(sendData)
@@ -131,9 +129,8 @@ $(document).on('click', '.press', function () {
       <div class="push_date">${response.addDate}</div>
       <div class="comment">${response.text}</div>
     `;
+      window.location.href = "/board_detail.html?id=" + id;
 
-      // 댓글 작성 후 입력 필드 초기화
-      text.innerText = '';
     }
   })
 });
