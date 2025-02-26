@@ -62,12 +62,12 @@ $.ajax({
         });
 
         let totalQuantity = response.cartItems.reduce(
-          (sum, item) => sum + item.quantity,
-          0
+            (sum, item) => sum + item.quantity,
+            0
         );
         let totalPrice = response.cartItems.reduce(
           (sum, item) => sum + item.price * item.quantity,
-          0
+            0
         );
 
         $("#cartCount").text(totalQuantity);
