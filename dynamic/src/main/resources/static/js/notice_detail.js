@@ -138,3 +138,22 @@ $(document).on('click', "input[type='button']", function () {
     })
 
 })
+
+$(document).on('click', "#delete_notice", function () {
+    const isConfirmed = confirm('공지사항 삭제 처리하도록 할까요 ?')
+
+    if (isConfirmed) {
+        $.ajax({
+            url: 'api/notice/id/' + encodeURIComponent(id),
+            method: 'delete',
+            contentType: 'application/json',
+            success: function () {
+                window.location.href = "/main_notice.html";
+            }
+        })
+    } else {
+        alert('삭제 처리가 취소되었습니다');
+    }
+})
+
+
