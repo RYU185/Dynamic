@@ -150,8 +150,8 @@ $(document).on('click', 'tbody tr', function () {
     success: function (response) {
       const writeUser = response.userName;
       if (userRole === writeUser) {
-        document.querySelector('#modify_board').style.display = 'inline';
-        document.querySelector('#delete_board').style.display = 'inline';
+        // document.querySelector('#modify_board').style.display = 'inline';
+        // document.querySelector('#delete_board').style.display = 'inline';
       }
 
     }
