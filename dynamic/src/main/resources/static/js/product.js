@@ -1,5 +1,4 @@
 
-// 내가 눌러야 할 버튼
 
 $(document).ready(function () {
         $(".btnInCart").on("click", function () {
@@ -7,7 +6,10 @@ $(document).ready(function () {
 
             const productId = $(this).attr("id");
             const productName = article.find("h2").text();
-            const productPrice = article.find("p:contains('가격')").text().replace(/\D/g, ""); // p 태그에서 숫자만 추출하는 코드
+            // const productPrice = article.find("p:contains('가격')").text().replace(/\D/g, ""); 
+            const productPrice = article.attr(".price")
+
+            // p 태그에서 숫자만 추출하는 코드인데 모르겠음.........
             const productImg = article.find(".thumbnail img").attr("src")
             // 양쪽 문자열 다 떼고 공백제거
 
@@ -37,7 +39,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "/cart/save", 
+                url: "/api/cart/save", 
                 contentType: "application/json",
                 data: JSON.stringify(product),
                 success: function (response) {

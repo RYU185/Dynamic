@@ -344,6 +344,7 @@ section .allCourse .courseList .course article {
   background: #ffffff;
   border-radius: 20px;
   border: 2px solid #25a8ff;
+  text-align: left;
 }
 
 section .allCourse .courseList .course article .thumbnail {
@@ -370,6 +371,12 @@ section .allCourse .courseList .course article h2 {
 
   text-align: left;
   margin-left: 15px;
+}
+
+
+section .allCourse .courseList .course article div span {
+  text-align: left;
+
 }
 
 section .allCourse .courseList .course article p {
