@@ -37,7 +37,7 @@ header .header-wrap .logo {
   text-align: center;
 }
 header .header-wrap h1 {
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 50px;
   color: #000000;
 }
@@ -52,7 +52,7 @@ header .header-wrap .sub {
   margin-right: auto;
 }
 .wrap .box .agree_box {
-  margin-top: 10px;
+  margin-top: 20px;
   height: 250px;
   border-radius: 15px;
   background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
@@ -60,15 +60,19 @@ header .header-wrap .sub {
 }
 .wrap .box .agree_box .agree_box_sub .agree_box_sub_text {
   width: 80px;
-  height: 25px;
-  font: 15x;
-  padding-top: 10px;
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
+  font-size: 15x;
+  padding: 5px;
   text-align: center;
   border-radius: 15px;
   background: #ffffffe8;
+
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+.wrap .box .agree_box .agree_box_sub .agree_box_sub_text:hover {
+  background: #99a8c5;
+  cursor: pointer;
 }
 .wrap .box .signup_box .boxes {
   border-radius: 15px;
@@ -82,15 +86,22 @@ header .header-wrap .sub {
 
 .wrap .box .signup_box .name_box .name_box_text {
   width: 100px;
-  height: 25px;
   font: 20px;
-  padding-top: 10px;
+  padding: 5px;
   position: absolute;
-  bottom: 8%;
+  bottom: 8px;
   left: 10px;
   border-radius: 15px;
   text-align: center;
   background: #ffffffe8;
+}
+.name_box_input {
+  position: absolute;
+  left: 130px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
 }
 
 .wrap .box .signup_box .gender_box {
@@ -98,16 +109,21 @@ header .header-wrap .sub {
   background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 .wrap .box .signup_box .gender_box .gender_box_sub {
   width: 160px;
-  height: 25px;
-  font: 20px;
-  padding-top: 10px;
-  margin-top: 8px;
+  font-size: 15px;
+  padding: 5px;
+  margin: 8px;
   border-radius: 10px;
   position: relative;
   background: #ffffffe8;
+  text-align: center;
+}
+.wrap .box .signup_box .gender_box .gender_box_sub:hover {
+  background: #99a8c5;
+  cursor: pointer;
 }
 .wrap .box .signup_box .gender_box .gender_box_sub .gender_box_text {
   text-align: center;
@@ -118,15 +134,22 @@ header .header-wrap .sub {
 }
 .wrap .box .signup_box .email_box .email_box_text {
   width: 100px;
-  height: 25px;
   font: 20px;
-  padding-top: 10px;
+  padding: 5px;
   position: absolute;
   bottom: 8px;
   left: 10px;
   border-radius: 15px;
   text-align: center;
   background: #ffffffe8;
+}
+.email_box_input {
+  position: absolute;
+  left: 130px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
 }
 
 .wrap .box .signup_box .id_box {
@@ -135,15 +158,22 @@ header .header-wrap .sub {
 }
 .wrap .box .signup_box .id_box .id_box_text {
   width: 100px;
-  height: 25px;
   font: 20px;
-  padding-top: 10px;
+  padding: 5px;
   position: absolute;
   bottom: 8px;
   left: 10px;
   border-radius: 15px;
   text-align: center;
   background: #ffffffe8;
+}
+.id_box_input {
+  position: absolute;
+  left: 130px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
 }
 .wrap .box .signup_box .id_box .doublecheck_box_text {
   width: 80px;
@@ -158,15 +188,26 @@ header .header-wrap .sub {
   border-radius: 15px;
   background: #ffffffe8;
 }
+.wrap .box .signup_box .id_box .doublecheck_box_text:hover {
+  background: #99a8c5;
+  cursor: pointer;
+}
 .wrap .box .signup_box .pwd_box {
   height: 50px;
   position: relative;
 }
+.pwd_box_input {
+  position: absolute;
+  left: 130px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+}
 .wrap .box .signup_box .pwd_box .pwd_box_text {
   width: 100px;
-  height: 25px;
   font: 20px;
-  padding-top: 10px;
+  padding: 5px;
   position: absolute;
   bottom: 8px;
   left: 10px;
@@ -178,11 +219,18 @@ header .header-wrap .sub {
   height: 50px;
   position: relative;
 }
+.phone_box_input {
+  position: absolute;
+  left: 130px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+}
 .wrap .box .signup_box .phone_box .phone_box_text {
   width: 100px;
-  height: 25px;
   font: 20px;
-  padding-top: 10px;
+  padding: 5px;
   position: absolute;
   bottom: 8px;
   left: 10px;
@@ -191,15 +239,14 @@ header .header-wrap .sub {
   background: #ffffffe8;
 }
 
-.wrap .box .signup_box .businessNumver_box {
+.wrap .box .signup_box .planBusiness_box {
   height: 50px;
   position: relative;
 }
-.wrap .box .signup_box .businessNumver_box .businessNumver_box_text {
+.wrap .box .signup_box .planBusiness_box .planBusiness_box_text {
   width: 100px;
-  height: 25px;
   font: 20px;
-  padding-top: 10px;
+  padding: 5px;
   position: absolute;
   bottom: 8px;
   left: 10px;
@@ -207,7 +254,7 @@ header .header-wrap .sub {
   text-align: center;
   background: #ffffffe8;
 }
-.wrap .box .signup_box .businessNumver_box .businessNumver_box_font {
+.wrap .box .signup_box .planBusiness_box .planBusiness_box_font {
   width: 40px;
   height: 25px;
   font: 15x;
@@ -221,7 +268,7 @@ header .header-wrap .sub {
 .wrap .box .sub-button {
   margin-top: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .wrap .box .sub-button .before_box {
   width: 100px;
@@ -240,4 +287,12 @@ header .header-wrap .sub {
   background: #ffffffe8;
   border-radius: 10px;
   text-align: center;
+}
+.wrap .box .sub-button .before_box:hover {
+  background: #99a8c5;
+  cursor: pointer;
+}
+.wrap .box .sub-button .joinMembership_box:hover {
+  background: #99a8c5;
+  cursor: pointer;
 }

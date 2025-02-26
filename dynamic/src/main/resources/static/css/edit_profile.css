@@ -141,6 +141,14 @@ hr {
   text-align: center;
   background: #ffffffe8;
 }
+.name_box_input {
+  position: absolute;
+  left: 140px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+}
 
 .wrap .box .signup_box .gender_box {
   height: 50px;
@@ -148,16 +156,15 @@ hr {
   display: flex;
   justify-content: space-evenly;
 }
-.wrap .box .signup_box .gender_box {
+.wrap .box .signup_box .gender_box_sub {
   width: 160px;
-  height: 25px;
-  font: 20px;
-  padding-top: 10px;
-  margin-top: 8px;
-  align-items: center;
+  font-size: 15px;
+  padding: 5px;
+  margin: 8px;
   border-radius: 10px;
   position: relative;
   background: #ffffffe8;
+  text-align: center;
 }
 .wrap .box .signup_box .gender_box p:hover {
   background-color: #9cd1fd;
@@ -177,6 +184,14 @@ hr {
   border-radius: 15px;
   text-align: center;
   background: #ffffffe8;
+}
+.email_box_input {
+  position: absolute;
+  left: 140px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
 }
 
 .wrap .box .signup_box .id_box {
@@ -209,6 +224,14 @@ hr {
   text-align: center;
   background: #ffffffe8;
 }
+.pwd_box_input {
+  position: absolute;
+  left: 140px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+}
 .wrap .box .signup_box .phone_box {
   height: 50px;
   position: relative;
@@ -223,6 +246,14 @@ hr {
   border-radius: 15px;
   text-align: center;
   background: #ffffffe8;
+}
+.phone_box_input {
+  position: absolute;
+  left: 140px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
 }
 
 .wrap .box .signup_box .businessNumver_box {
@@ -249,13 +280,37 @@ hr {
   right: 10px;
   text-align: center;
 }
+.wrap .box .signup_box .businessNumver_box .businessNumver_box_font:hover {
+  cursor: pointer;
+}
 
 .wrap .box .sub-button {
   margin-top: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .wrap .box .sub-button .cancel_box {
-  border-width: 2px;
-  border-color: #4c6b7e;
+  width: 70px;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.wrap .box .sub-button .ok_box {
+  width: 70px;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.wrap .box .sub-button .ok_box:hover {
+  background: #bac9e7;
+  cursor: pointer;
+}
+.wrap .box .sub-button .cancel_box:hover {
+  background: #bac9e7;
+  cursor: pointer;
 }

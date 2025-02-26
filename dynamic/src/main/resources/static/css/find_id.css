@@ -53,10 +53,10 @@ header .header-wrap .findId h1 {
   background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 
-.wrap .total_box .email_box .email_box {
-  width: 100px;
-  height: 35px;
+.wrap .total_box .email_box .email_box_sub {
+  width: 80px;
   font: 20px;
+  padding: 8px;
   position: absolute;
   bottom: 8px;
   left: 10px;
@@ -64,17 +64,29 @@ header .header-wrap .findId h1 {
   text-align: center;
   background: #ffffffe8;
 }
-.wrap .total_box .email_box .doublecheck_box_text {
-  width: 80px;
-  height: 35px;
-  font: 20px;
-  font-size: 15px;
+.email_box_input {
   position: absolute;
-  bottom: 10px;
+  left: 130px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+}
+.wrap .total_box .email_box .doublecheck_box_text {
+  width: 70px;
+  font-size: 15px;
+  margin: 8px;
+  padding: 5px;
+  position: absolute;
   right: 15px;
+  top: 10px;
   text-align: center;
   border-radius: 15px;
   background: #ffffffe8;
+}
+.wrap .total_box .check_box .done_box_text:hover {
+  background: #99a8c5;
+  cursor: pointer;
 }
 
 .wrap .total_box .check_box {
@@ -89,9 +101,9 @@ header .header-wrap .findId h1 {
   background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 .wrap .total_box .check_box .check_box_text {
-  width: 100px;
-  height: 35px;
+  width: 80px;
   font: 20px;
+  padding: 8px;
   position: absolute;
   bottom: 8px;
   left: 10px;
@@ -99,17 +111,29 @@ header .header-wrap .findId h1 {
   text-align: center;
   background: #ffffffe8;
 }
-.wrap .total_box .check_box .done_box_text {
-  width: 80px;
-  height: 35px;
-  font: 20px;
-  font-size: 15px;
+.check_email_box_input {
   position: absolute;
-  bottom: 10px;
+  left: 130px;
+  top: 15px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+}
+.wrap .total_box .check_box .done_box_text {
+  width: 70px;
+  font-size: 15px;
+  margin: 8px;
+  padding: 5px;
+  position: absolute;
   right: 15px;
+  top: 10px;
   text-align: center;
   border-radius: 15px;
   background: #ffffffe8;
+}
+.wrap .total_box .check_box .done_box_text:hover {
+  background: #99a8c5;
+  cursor: pointer;
 }
 
 .wrap .total_box .myid_box {
@@ -124,9 +148,9 @@ header .header-wrap .findId h1 {
   background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 .wrap .total_box .myid_box .myid_box_text {
-  width: 100px;
-  height: 35px;
+  width: 90px;
   font: 20px;
+  padding: 8px;
   position: absolute;
   bottom: 8px;
   left: 10px;
@@ -135,14 +159,18 @@ header .header-wrap .findId h1 {
   background: #ffffffe8;
 }
 .wrap .total_box .myid_box .copy_box_text {
-  width: 80px;
-  height: 35px;
-  font: 20px;
+  width: 70px;
   font-size: 15px;
+  margin: 8px;
+  padding: 5px;
   position: absolute;
-  bottom: 10px;
   right: 15px;
+  top: 10px;
   text-align: center;
   border-radius: 15px;
   background: #ffffffe8;
+}
+.wrap .total_box .myid_box .copy_box_text:hover {
+  background: #99a8c5;
+  cursor: pointer;
 }

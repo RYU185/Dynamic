@@ -74,13 +74,13 @@ form > fieldset > ul {
   justify-content: center;
   align-items: center;
 }
-
-.wrap .signup_box_sub:hover {
-  background-color: #99a8c5;
-}
 .wrap .signup_box_sub_text {
   text-align: center;
   font-size: 60px;
+}
+.wrap .signup_box_sub:hover {
+  background: #99a8c5;
+  cursor: pointer;
 }
 
 .wrap .next_box {
@@ -98,4 +98,7 @@ form > fieldset > ul {
 
 .wrap .next_box .next_box_text {
   font-size: 25px;
+}
+.wrap .next_box:hover {
+  cursor: pointer;
 }
