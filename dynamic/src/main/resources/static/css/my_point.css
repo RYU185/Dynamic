@@ -105,11 +105,9 @@ hr {
 }
 
 .wrap .box .second_header {
-  width: 350px;
-  height: 90px;
+  margin-top: 150px;
   margin-left: auto;
   margin-right: auto;
-  background: #ade8f4;
   border-radius: 15px;
 }
 .wrap .box .second_header .second_header_box {
@@ -129,7 +127,7 @@ hr {
   display: flex;
   border-radius: 15px;
   margin-top: 20px;
-  background: #caf0f8;
+  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 
 .wrap .box .point .plusPoint .plusPoint_icon {
@@ -138,21 +136,21 @@ hr {
 }
 
 .wrap .box .point .plusPoint .plusPoint_won {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 50px;
 }
 .wrap .box .point .plusPoint .plusPoint_point {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 10px;
 }
 
 .wrap .box .point .plusPoint .plusPoint_date {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 90px;
 }
 
 .wrap .box .point .plusPoint .plusPoint_change {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 110px;
 }
 
@@ -164,7 +162,7 @@ hr {
   margin-top: 20px;
   display: flex;
   border-radius: 15px;
-  background: #caf0f8;
+  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 .wrap .box .point .minusPoint .minusPoint_icon {
   font-size: 30px;
@@ -172,20 +170,20 @@ hr {
 }
 
 .wrap .box .point .minusPoint .minusPoint_won {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 50px;
 }
 .wrap .box .point .minusPoint .minusPoint_point {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 10px;
 }
 
 .wrap .box .point .minusPoint .minusPoint_date {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 90px;
 }
 
 .wrap .box .point .minusPoint .minusPoint_change {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 110px;
 }
