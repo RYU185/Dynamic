@@ -141,3 +141,19 @@ $(document).on('click', '.press', function () {
     }
   })
 });
+
+$(document).on('click', 'tbody tr', function () {
+  $.ajax({
+    url: '/api/board/id/' + encodeURIComponent(id),
+    method: 'get',
+    contentType: 'application/json',
+    success: function (response) {
+      const writeUser = response.userName;
+      if (userRole === writeUser) {
+        document.querySelector('#modify_board').style.display = 'inline';
+        document.querySelector('#delete_board').style.display = 'inline';
+      }
+
+    }
+  })
+})

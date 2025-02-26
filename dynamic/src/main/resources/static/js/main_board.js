@@ -1,7 +1,6 @@
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 if (userRole != undefined) {
   document.querySelector('#add_board').style.display = 'inline';
-  document.querySelector('#delete_board').style.display = 'inline';
 }
 
 // 버튼을 클릭하면 가이드 추가 팝업 보이게 처리
