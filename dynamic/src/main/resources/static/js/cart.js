@@ -30,12 +30,6 @@ document.addEventListener('click',function(event){
     }
 });
 
-
-
-
-
-
-
 //db front 연결//ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
 
 $(document).ready(function () {
@@ -87,6 +81,7 @@ $(document).ready(function () {
         console.log("전체 선택 클릭됨", this.checked);
         $('.checkbox-item').prop('checked', this.checked);
     });
+
     // 개별 체크박스 변경하면 off되는 전체선택
     $(document).on('click', '.checkbox-item', function () {
         const allCheckboxes = $('.checkbox-item').length;
