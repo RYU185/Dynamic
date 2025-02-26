@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제품</title>
     <link rel="stylesheet" href="./css/product.css">
 </head>
+
 <body>
     <hr>
     <div class="wrap">
@@ -26,7 +28,7 @@
                         <a href="board.html"><span>게시판</span></a>
                     </li>
                     <li>
-                        <a href="formation_data.html" ><span>서식자료</span></a>
+                        <a href="formation_data.html"><span>서식자료</span></a>
                     </li>
                     <li>
                         <a href="main_guide.html"><span>가이드</span></a>
@@ -50,18 +52,16 @@
             <div class="allCourse">
                 <div class="wrapCourse">
                     <h1>제품</h1>
+
                     <div class="searchBar">
                         <p><input type="text" placeholder="강의 / 구독권을 입력하세요" /></p>
-                        <button class="searchBtn">
-                            <img src="./img/search.png" id="search_product">
-                        </button>
-                        
+                        <img src="./img/search.png">
                         <div class="adminOnly">
                             <button class="delete">
-                                <img src="./img/쓰레기통.png" alt="쓰레기통 아이콘" id="delete_product">
+                                <img src="./img/쓰레기통.png" alt="쓰레기통 아이콘">
                             </button>
                             <button class="add">
-                                <img src="./img/add.png" alt="추가 아이콘" id="add_product">
+                                <img src="./img/add.png" alt="추가 아이콘">
                             </button>
                         </div>
                     </div>
@@ -75,52 +75,43 @@
                         </div>
                         <article>
                             <div class="thumbnail">
-                                <img
-                                    src="./img/courseThumnail1.png"
-                                    alt="1번째 동영상"
-                                />
+                                <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
                             </div>
                             <h2>알고리즘은 돈이 된다.</h2>
                             <br>
                             <p>가격: 30000원</p>
-                            <p>2024.05.08 </p> 
+                            <p>2024.05.08 </p>
                             <p>별점: </p>
-                            <button class="btnInCart">장바구니</button>
-                            <button class="btnInCart">구매</button>
+                            <button class="btnInCart" id="1">장바구니</button>
+                            <button class="btnPurchase">구매</button>
                         </article>
 
                         <article>
                             <div class="thumbnail">
-                                <img
-                                    src="./img/courseThumnail1.png"
-                                    alt="1번째 동영상"
-                                />
+                                <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
                             </div>
                             <h2>온몸으로 뛰어라</h2>
                             <br>
                             <p>가격: 30000원</p>
-                            <p>2024.05.08 </p> 
+                            <p>2024.05.08 </p>
                             <p>별점: </p>
-                            <button class="btnInCart">장바구니</button>
-                            <button class="btnInCart">구매</button>
+                            <button class="btnInCart" id="2">장바구니</button>
+                            <button class="btnPurchase">구매</button>
                         </article>
 
                         <article>
                             <div class="thumbnail">
-                                <img
-                                    src="./img/courseThumnail1.png"
-                                    alt="1번째 동영상"
-                                />
+                                <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
                             </div>
                             <h2>개발, 지금 시작하세요</h2>
                             <br>
                             <p>가격: 30000원</p>
-                            <p>2024.05.08 </p> 
+                            <p>2024.05.08 </p>
                             <p>별점: </p>
-                            <button class="btnInCart">장바구니</button>
-                            <button class="btnInCart">구매</button>
-                        </article>  
-                                
+                            <button class="btnInCart" id="3">장바구니</button>
+                            <button class="btnPurchase">구매</button>
+                        </article>
+
                         <div class="arrow">
                             <img src="./img/next page.png">
                         </div>
@@ -142,49 +133,40 @@
                         </div>
                         <article>
                             <div class="thumbnail">
-                                <img
-                                    src="./img/number1.png"
-                                    alt="1번째 구독권"
-                                />
+                                <img src="./img/number1.png" alt="1번째 구독권" />
                             </div>
                             <h2>1개월 구독권</h2>
                             <p>가격: 15000원</p>
                             <div class="btn">
-                            <button class="btnInCart">장바구니</button>
-                            <button class="btnInCart">구매</button>
-                        </div>
-                            
+                                <button class="btnInCart" id="4">장바구니</button>
+                                <button class="btnPurchase">구매</button>
+                            </div>
+
                         </article>
 
                         <article>
                             <div class="thumbnail">
-                                <img
-                                    src="./img/number3.png"
-                                    alt="2번째 구독권"
-                                />
+                                <img src="./img/number3.png" alt="2번째 구독권" />
                             </div>
                             <h2>3개월 구독권</h2>
                             <p>가격: 32000원</p>
                             <div class="btn">
-                                <button class="btnInCart">장바구니</button>
-                                <button class="btnInCart">구매</button>
+                                <button class="btnInCart" id="5">장바구니</button>
+                                <button class="btnPurchase">구매</button>
                             </div>
-                                
+
 
                         </article>
 
                         <article>
                             <div class="thumbnail">
-                                <img
-                                    src="./img/number5.png"
-                                    alt="3번째 구독권"
-                                />
+                                <img src="./img/number5.png" alt="3번째 구독권" />
                             </div>
                             <h2>5개월 구독권</h2>
                             <p>가격: 50000원</p>
                             <div class="btn">
-                                <button class="btnInCart">장바구니</button>
-                                <button class="btnInCart">구매</button>
+                                <button class="btnInCart" id="6">장바구니</button>
+                                <button class="btnPurchase">구매</button>
                             </div>
                         </article>
                         <div class="arrow">
@@ -211,9 +193,17 @@
             </div>
         </footer>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="./js/product.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $('.btnInCart').on("click", (e) => {
+            let cartList = JSON.parse(localStorage.getItem("cart"));
+            if (!cartList) {
+                cartList = [];
+            }
+            cartList.push($(e.target).attr("id"));
+            localStorage.setItem("cart", JSON.stringify(cartList));
+        })
+    </script>
 </body>
+
 </html>
