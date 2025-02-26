@@ -31,4 +31,6 @@ public class BoardDTO {
 
     private String userName; // 유저(단방향)
 
+    private Boolean isActive;
+
 }
