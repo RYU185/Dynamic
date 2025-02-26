@@ -69,8 +69,6 @@ public class ViewController {
     @GetMapping("/dynamic/add_regural_part_time.html")
     public String add_regural_part_time() {return "forward:/add_regural_part_time.html";}
 
-    @GetMapping("/dynamic/board.html")
-    public String board() {return "forward:/board.html";}
 
     @GetMapping("/dynamic/cart.html")
     public String cart() {return "forward:/cart.html";}
@@ -108,6 +106,12 @@ public class ViewController {
     @GetMapping("/dynamic/main_board.html")
     public String main_board() {return "forward:/main_board.html";}
 
+    @GetMapping("/dynamic/board_detail.html")
+    public String board_detail() {return "forward:/board_detail.html";}
+
+//
+//    @GetMapping("/dynamic/board.html")
+//    public String board() {return "forward:/board.html";}
 
 
 
