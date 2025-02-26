@@ -122,33 +122,56 @@ section .titlewrap {
   text-align: center;
 }
 
-section .titlewrap .main_title {
-  display: block;
-  margin: 0 auto;
-  width: 1000px;
-}
 
-section .titlewrap .main_title h1 {
-  font-family: 'GmarketSansMedium';
-  font-size: 3rem;
-  font-weight: 900;
-  color: #050505ee;
-  margin: 90px 0px 0px 0px;
-  position: absolute;
-  z-index: 1;
-}
 
 main {
   margin-top: 100px;
   width: 100%;
-  height: 1100px;
+  /* position: relative; */
 }
 
 main .inner {
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+
+
 }
+
+main .inner .upper_box {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+main .inner .upper_box .main_title {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+}
+
+main .inner .upper_box .main_title h1 {
+  font-family: 'GmarketSansMedium';
+  font-size: 3rem;
+  font-weight: 900;
+  color: #050505ee;
+  /* margin: 120px 0px 0px 0px; */
+
+}
+
+
+main .inner .upper_box .upper {
+  margin-top: 0px;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: end;
+  margin: 0px 0px 0px 0px;
+}
+
+
 
 main .inner .main_box {
   width: 100%;
@@ -329,19 +352,7 @@ main .inner .detail_box .comment_list .write_box .write .press:hover {
 
 }
 
-/* main .inner .detail_box .comment_list .write_box .write .name {
-  font-size: 15px;
-  text-align: center;
-  line-height: 30px;
-  width: 10%;
-}
 
-main .inner .detail_box .comment_list .write_box .write .push_date {
-  font-size: 15px;
-  text-align: center;
-  line-height: 30px;
-  width: 25%;
-} */
 main .inner .detail_box .comment_list .write_box .write .write_comment {
   font-size: 15px;
   line-height: 30px;
@@ -356,6 +367,56 @@ main .inner .detail_box .comment_list .write_box .write .press footer .inner {
   right: 0px;
   width: 10%;
 }
+
+
+
+main .inner .detail_box .upper {
+  margin-top: 0px;
+  width: 100%;
+  /* display: flex;
+  justify-content: end;
+  margin: 0px 0px 0px 0px; */
+}
+
+
+main .inner .detail_box .upper .searchBar {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  top: 10px;
+  gap: 10px;
+}
+
+main .inner .detail_box .upper .searchBar img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+
+
+main .inner .detail_box .upper .searchBar img:hover {
+  width: 40px;
+  height: 40px;
+}
+
+main .inner .detail_box .upper .searchBar #modify_board,
+#delete_board {
+  display: none;
+}
+
+main .inner .detail_box .upper .searchBar p input::placeholder {
+  color: #465c6b;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+main .inner .detail_box .upper .searchBar p input:focus::placeholder {
+  color: transparent;
+}
+
 
 footer .inner .upper {
   width: 100%;

@@ -220,8 +220,7 @@ main .inner .upper .searchBar img:hover {
     cursor: pointer;
 }
 
-main .inner .upper .searchBar #add_notice,
-#delete_notice {
+main .inner .upper .searchBar #add_guide {
     display: none;
 }
 

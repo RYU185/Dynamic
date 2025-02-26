@@ -70,3 +70,28 @@ $(document).on('click', 'tbody tr', function () {
     });
 
 });
+
+// admin일 경우에만 삭제 버튼 보이도록
+const userRole = JSON.parse(sessionStorage.getItem('userName'));
+if (userRole === 'admin') {
+    document.querySelector('#delete_guide').style.display = 'inline';
+}
+
+$(document).on('click', "#delete_guide", function () {
+    const isConfirmed = confirm('공지사항 삭제 처리하도록 할까요 ?')
+
+    if (isConfirmed) {
+        $.ajax({
+            url: 'api/guide/id/' + encodeURIComponent(id),
+            method: 'delete',
+            contentType: 'application/json',
+            success: function () {
+                window.location.href = "/main_guide.html";
+            }
+        })
+    } else {
+        alert('삭제 처리가 취소되었습니다');
+    }
+})
+
+

@@ -44,7 +44,7 @@ public class GuideController {
                 HttpStatus.OK
         );
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<String> deleteGuide(@PathVariable Long id, HttpServletRequest request){
         return new ResponseEntity<>(
                 guideService.deleteGuide(id,request),
