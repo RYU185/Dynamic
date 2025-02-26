@@ -67,6 +67,8 @@ public class NoticeService {
         }
         return noticeRepository.findById(notice.getNoticeId())
         .map((notice1) -> {
+            notice1.setNoticeTitle(notice.getNoticeTitle());
+            notice1.setText(notice.getText());
                     notice1.setModifiedDate(LocalDate.now());
                     return noticeRepository.save(notice1);
                 }).orElseGet(()->{

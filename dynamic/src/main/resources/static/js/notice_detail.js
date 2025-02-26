@@ -105,7 +105,7 @@ document.querySelector('.x_btn1').addEventListener('click', function () {
 });
 
 
-
+// 공지사항 수정!!!!
 $(document).on('click', "input[type='button']", function () {
     const title = document.querySelector('.modify_title');
     const text = document.querySelector('.modify_text');
@@ -126,7 +126,7 @@ $(document).on('click', "input[type='button']", function () {
         data: JSON.stringify(sendData),
         contentType: 'application/json',
         success: function (response) {
-            alert('공지사항이 정상 수정되었습니다.');
+            // alert('공지사항이 정상 수정되었습니다.');
 
             const modifyNotice = document.createElement('tr');
             modifyNotice.innerHTML = `
