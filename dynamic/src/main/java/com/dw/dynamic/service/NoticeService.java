@@ -35,7 +35,6 @@ public class NoticeService {
 
     public Notice getNoticeById(Long id){
         return noticeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("존재하지 않는 ID입니다"));
-
     }
 
     public List<Notice> getNoticesByTitle(String title){

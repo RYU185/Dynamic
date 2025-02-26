@@ -59,7 +59,7 @@ $(document).ready(function () {
           var row1 = `
           <div class="write_box">
                 <div class="write">
-                  <div class="comment" contenteditable="true" class="write"></div>
+                  <div  contenteditable="true" class="write_comment" ></div>
                   <img src="/img/up.png" alt="전송하기" class="press" />
                 </div>
               </div>`;
@@ -98,7 +98,8 @@ $(document).on('click', 'tbody tr', function () {
 
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 $(document).on('click', '.press', function () {
-  const text = document.querySelector('.write');
+  const text = document.querySelector('.write_comment');
+  text.focus();
   if (userRole === null || userRole == undefined) {
     alert('로그인 후 이용 가능합니다');
     return;
@@ -129,6 +130,12 @@ $(document).on('click', '.press', function () {
       <div class="push_date">${response.addDate}</div>
       <div class="comment">${response.text}</div>
     `;
+      // 답변한 사람의 유저네임이 관리자이면 상단에 고정하기!!(근데 안돼)
+      // const comment_list = document.querySelector('.list');
+      // if (response.userName === 'admin') {
+      //   comment_list.prepend(newComment);
+      // }
+
       window.location.href = "/board_detail.html?id=" + id;
 
     }

@@ -72,6 +72,69 @@ $(document).on('click', 'tbody tr', function () {
             });
         },
     });
-
 });
 
+
+// admin일 경우에만 추가 수정 삭제 버튼 보이도록
+const userRole = JSON.parse(sessionStorage.getItem('userName'));
+if (userRole === 'admin') {
+    document.querySelector('#modify_notice').style.display = 'inline';
+    document.querySelector('#delete_notice').style.display = 'inline';
+}
+const button1 = document.querySelector('#modify_notice');
+const content1 = document.querySelector('.pop-up1');
+const background1 = document.querySelector('.pop-up-background1');
+
+// 버튼 클릭 시 공지사항 추가 및 공지사항 수정 팝업 보이게 처리
+
+button1.addEventListener('click', function () {
+    if (
+        content1.style.display === 'none' ||
+        content1.style.display === ''
+    ) {
+        content1.style.display = 'block'; // display: block 으로 변경
+        background1.style.display = 'block';
+    } else {
+        content1.style.display = 'none'; // display: none 으로 다시 변경
+        background1.style.display = 'block';
+    }
+});
+document.querySelector('.x_btn1').addEventListener('click', function () {
+    document.querySelector('.pop-up1').style.display = 'none';
+    document.querySelector('.pop-up-background1').style.display = 'none';
+});
+
+
+
+$(document).on('click', "input[type='button']", function () {
+    const title = document.querySelector('.modify_title');
+    const text = document.querySelector('.modify_text');
+    const currentDate = document.querySelector(".modify_date").textContent = new Date().toLocaleString();
+
+    console.log(title, text, currentDate);
+
+    var sendData = {
+        "noticeId": id,
+        "noticeTitle": title.innerText,
+        "text": text.innerText
+    }
+    console.log(sendData)
+
+    $.ajax({
+        url: '/api/notice/save',
+        method: 'POST',
+        data: JSON.stringify(sendData),
+        contentType: 'application/json',
+        success: function (response) {
+            alert('공지사항이 정상 수정되었습니다.');
+
+            const modifyNotice = document.createElement('tr');
+            modifyNotice.innerHTML = `
+                        <td>${response.noticeId}</td>
+                        <td>${response.noticeTitle}</td>
+                    `;
+            window.location.href = "/notice_detail.html?id=" + response.noticeId;
+        }
+    })
+
+})

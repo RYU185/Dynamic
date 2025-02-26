@@ -342,7 +342,7 @@ main .inner .detail_box .comment_list .write_box .write .push_date {
   line-height: 30px;
   width: 25%;
 } */
-main .inner .detail_box .comment_list .write_box .write .comment {
+main .inner .detail_box .comment_list .write_box .write .write_comment {
   font-size: 15px;
   line-height: 30px;
   outline: none;

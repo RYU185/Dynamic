@@ -227,7 +227,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 main .inner .main_box {
   margin-top: 5px;
-
+  width: 90%;
   /* height: 100%; */
   position: absolute;
   top: 60px;
@@ -244,6 +244,7 @@ main .inner .main_box table {
 main .inner .main_box table tr {
   border: 1px solid #6d6d6d;
   text-align: center;
+  width: 100%;
 
 }
 
