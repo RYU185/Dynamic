@@ -39,7 +39,9 @@ $(document).ready(function () {
            </div>           
       `;
       $('.detail_box').append(row);
-      console.log(row);
+      // console.log(row);
+
+
 
       $.ajax({
         url: '/api/comment/board-id/' + encodeURIComponent(id),
@@ -54,7 +56,7 @@ $(document).ready(function () {
                   <div class="comment">${element.text}</div>
               </div>`;
             $('.list').append(row);
-            console.log(row);
+            // console.log(row);
           });
           var row1 = `
           <div class="write_box">
@@ -66,6 +68,7 @@ $(document).ready(function () {
           $('.comment_list').append(row1);
         },
       });
+
     },
   });
 });
@@ -115,7 +118,7 @@ $(document).on('click', '.press', function () {
     "boardId": id,
     "text": text.innerText
   }
-  console.log(sendData)
+  // console.log(sendData)
 
   $.ajax({
     url: '/api/comment/save',
@@ -142,18 +145,27 @@ $(document).on('click', '.press', function () {
   })
 });
 
-$(document).on('click', 'tbody tr', function () {
+const modify_board = document.querySelector('#modify_board');
+const delete_board = document.querySelector('#delete_board');
+$(document).on('click', '.tbody tr', function () {
   $.ajax({
     url: '/api/board/id/' + encodeURIComponent(id),
     method: 'get',
     contentType: 'application/json',
     success: function (response) {
       const writeUser = response.userName;
+      console.log(writeUser)
+      console.log(userRole)
       if (userRole === writeUser) {
-        // document.querySelector('#modify_board').style.display = 'inline';
-        // document.querySelector('#delete_board').style.display = 'inline';
+        if (modify_board.style.display === 'none' && delete_board.style.display === 'none') {
+          modify_board.style.display = 'block';
+          delete_board.style.display = 'block';
+        }
       }
+      // else {
+      //   window.location.href = "/board_detail.html?id=" + id;
+      // }
 
     }
   })
-})
+});
