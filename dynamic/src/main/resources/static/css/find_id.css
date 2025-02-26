@@ -50,7 +50,7 @@ header .header-wrap .findId h1 {
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  background: #90e0ef;
+  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 
 .wrap .total_box .email_box .email_box {
@@ -62,7 +62,7 @@ header .header-wrap .findId h1 {
   left: 10px;
   border-radius: 15px;
   text-align: center;
-  background: #caf0f8;
+  background: #ffffffe8;
 }
 .wrap .total_box .email_box .doublecheck_box_text {
   width: 80px;
@@ -74,7 +74,7 @@ header .header-wrap .findId h1 {
   right: 15px;
   text-align: center;
   border-radius: 15px;
-  background: #caf0f8;
+  background: #ffffffe8;
 }
 
 .wrap .total_box .check_box {
@@ -86,7 +86,7 @@ header .header-wrap .findId h1 {
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  background: #90e0ef;
+  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 .wrap .total_box .check_box .check_box_text {
   width: 100px;
@@ -97,7 +97,7 @@ header .header-wrap .findId h1 {
   left: 10px;
   border-radius: 15px;
   text-align: center;
-  background: #caf0f8;
+  background: #ffffffe8;
 }
 .wrap .total_box .check_box .done_box_text {
   width: 80px;
@@ -109,7 +109,7 @@ header .header-wrap .findId h1 {
   right: 15px;
   text-align: center;
   border-radius: 15px;
-  background: #caf0f8;
+  background: #ffffffe8;
 }
 
 .wrap .total_box .myid_box {
@@ -121,7 +121,7 @@ header .header-wrap .findId h1 {
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  background: #90e0ef;
+  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
 }
 .wrap .total_box .myid_box .myid_box_text {
   width: 100px;
@@ -132,7 +132,7 @@ header .header-wrap .findId h1 {
   left: 10px;
   border-radius: 15px;
   text-align: center;
-  background: #caf0f8;
+  background: #ffffffe8;
 }
 .wrap .total_box .myid_box .copy_box_text {
   width: 80px;
@@ -144,5 +144,5 @@ header .header-wrap .findId h1 {
   right: 15px;
   text-align: center;
   border-radius: 15px;
-  background: #caf0f8;
+  background: #ffffffe8;
 }

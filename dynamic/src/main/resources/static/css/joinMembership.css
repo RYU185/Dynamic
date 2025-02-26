@@ -69,10 +69,14 @@ form > fieldset > ul {
   width: 350px;
   height: 350px;
   border-radius: 20px;
-  background-color: #ade8f4;
+  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.wrap .signup_box_sub:hover {
+  background-color: #99a8c5;
 }
 .wrap .signup_box_sub_text {
   text-align: center;
@@ -84,8 +88,9 @@ form > fieldset > ul {
   height: 40px;
   border-radius: 15px;
   margin-top: 100px;
+  margin-right: 20px;
   float: right;
-  background-color: #90e0ef;
+  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
   display: flex;
   justify-content: center;
   align-items: center;
