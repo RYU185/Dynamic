@@ -22,6 +22,7 @@ $(document).ready(function () {
   });
 });
 // 페이지 이전할때 보여지는 페이지
+// 해당 본문에 맞는 댓글도 같이 함께 보이기
 $(document).ready(function () {
   $.ajax({
     url: '/api/board/id/' + encodeURIComponent(id),
@@ -69,17 +70,7 @@ $(document).ready(function () {
   });
 });
 
-{
-  /* <div class="write_box">
-<div class="write">
-  <div class="name">${element.userName}</div>
-  <div class="push_date">${element.addDate}</div>
-  <div class="comment" contenteditable="true" class="write"></div>
-  <img src="/img/up.png" alt="전송하기" class="press" />
-</div>
-</div> */
-}
-
+// 제목 클릭 시 해당 내용으로 본문 상세 내용 변경
 $(document).on('click', 'tbody tr', function () {
   $.ajax({
     url: '/api/board/all',
@@ -102,4 +93,47 @@ $(document).on('click', 'tbody tr', function () {
       });
     },
   });
+});
+
+const userRole = JSON.parse(sessionStorage.getItem('userName'));
+const urlParam = new URLSearchParams(window.location.search);
+const boardId = urlParam.get('id');
+$(document).on('click', '.press', function () {
+  const text = document.querySelector('.write');
+  if (userRole === null || userRole == undefined) {
+    alert('로그인 후 이용 가능합니다');
+    return;
+  }
+  // 댓글 내용이 비어있는 경우 처리
+  if (!text || text.innerText.trim() === "") {
+    alert("댓글 내용을 입력해 주세요.");
+    return;
+  }
+
+
+  var sendData = {
+    "id": 0,
+    "boardId": boardId,
+    "text": text.innerText
+  }
+  console.log(sendData)
+
+  $.ajax({
+    url: '/api/comment/save',
+    method: 'POST',
+    data: JSON.stringify(sendData),
+    contentType: 'application/json',
+    success: function (response) {
+      const newComment = document.createElement('div')
+      newComment.classList.add('comment_box');
+      newComment.innerHTML = `
+      <div class="name">${response.userName}</div>
+      <div class="push_date">${response.addDate}</div>
+      <div class="comment">${response.text}</div>
+    `;
+
+      // 댓글 작성 후 입력 필드 초기화
+      text.innerText = '';
+    }
+  })
 });

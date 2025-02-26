@@ -42,7 +42,7 @@ public class Comment {
         return new CommentDTO(
                 this.id,
                 this.board.getId(),
-                this.board.getTitle(),
+//                this.board.getTitle(),
                 this.user.getUserName(),
                 this.text,
                 this.addDate

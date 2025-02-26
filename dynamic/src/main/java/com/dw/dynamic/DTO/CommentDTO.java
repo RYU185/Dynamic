@@ -21,7 +21,7 @@ public class CommentDTO {
 
     private Long boardId;
 
-    private String  boardTitle;
+//    private String  boardTitle;
 
     private String userName;
 
