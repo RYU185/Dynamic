@@ -1,6 +1,6 @@
-INSERT INTO authority (authority_name) VALUES ('ADMIN');
-INSERT INTO authority (authority_name) VALUES ('USER');
-INSERT INTO authority (authority_name) VALUES ('NON-USER');
+INSERT INTO authority(authority_name) VALUES ('ADMIN');
+INSERT INTO authority(authority_name) VALUES ('USER');
+INSERT INTO authority(authority_name) VALUES ('NON-USER');
 
  INSERT INTO user(user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
     VALUES

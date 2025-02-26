@@ -69,11 +69,16 @@ document
     const currentDate = (document.querySelector('.add_date').textContent =
       new Date().toLocaleString());
 
+    if (!text) {
+      alert('내용을 입력해 주세요.');
+      return;
+    }
+
     console.log(text, currentDate);
 
     var sendData = {
-      id: 0,
-      title: text.innerText,
+      "id": 0,
+      "title": text.innerText,
     };
     console.log(sendData);
     if (sendData.title) {
