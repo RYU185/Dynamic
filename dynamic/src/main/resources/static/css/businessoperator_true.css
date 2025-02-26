@@ -49,6 +49,10 @@ header .header-wrap .sub {
 .wrap .box {
   width: 500px;
   border-radius: 10px;
+
+  justify-content: center; /* 가로 중앙 */
+  align-items: center; /* 세로 중앙 */
+
   background-image: linear-gradient(45deg, #9ad2ff, #242fffa8, #6d9eff);
 }
 .wrap .box .agree_box {
@@ -61,12 +65,11 @@ header .header-wrap .sub {
 }
 .wrap .box .informtion_box {
   width: 400px;
-  margin: 30px;
   border-radius: 15px;
-  text-align: center;
   background: #f9f7fcd6;
 
-  justify-content: center;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center; /* 세로 중앙 */
 }
 .wrap .last {
   display: flex;
