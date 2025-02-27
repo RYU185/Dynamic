@@ -116,27 +116,13 @@ section .titlewrap>h1 {
   color: #ffff;
 }
 
-/* section .titlewrap {
+section .titlewrap {
   width: 100%;
   padding: 20px;
   text-align: center;
 }
 
-section .titlewrap .main_title {
-  display: block;
-  margin: 0 auto;
-  width: 1000px;
-}
 
-section .titlewrap .main_title h1 {
-  font-family: 'GmarketSansMedium';
-  font-size: 3rem;
-  font-weight: 900;
-  color: #050505ee;
-  margin: 90px 0px 0px 0px;
-  position: absolute;
-  z-index: 1;
-} */
 
 main {
   margin-top: 100px;

@@ -1,0 +1,225 @@
+@charset 'utf-8';
+
+
+@font-face {
+    font-family: 'NanumHumanTTFBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrap {
+    margin: 20px 20% 20px 20%;
+}
+
+.wrap .inner {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.wrap .inner .payrolltemplate {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+.wrap .inner .payrolltemplate div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.wrap .inner .payrolltemplate .month {
+    width: 40%;
+    text-align: right;
+    font-size: 30px;
+    outline: none;
+}
+
+.wrap .inner .payrolltemplate .title {
+    width: 50%;
+    text-align: left;
+    font-size: 30px;
+
+}
+
+.wrap .inner .payrolltemplate .template {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    position: relative;
+    background-color: white;
+
+}
+
+.wrap .inner .payrolltemplate .template tr {
+    border: 1px solid #acacac;
+    text-align: center;
+
+}
+
+.wrap .inner .payrolltemplate .template tr td {
+    border-left: 1px solid #acacac;
+    width: 10%;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.wrap .inner .payrolltemplate .template tr .division {
+    border: 1px solid rgb(89, 89, 89);
+}
+
+.wrap .inner .payrolltemplate .template tr td .element {
+    border: none;
+    outline: none;
+    width: 120px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+
+.wrap .inner .payrolltemplate .buttom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.wrap .inner .payrolltemplate .buttom #send,
+#reset {
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: rgba(58, 58, 58, 0.1);
+    border-radius: 15px;
+    color: rgb(117, 117, 117);
+    border: none;
+
+}
+
+.wrap .inner .payrolltemplate .buttom #send:hover {
+    background-color: rgba(58, 58, 58, 0.3);
+    color: rgb(240, 240, 240);
+}
+
+.wrap .inner .payrolltemplate .buttom #reset:hover {
+    background-color: rgba(58, 58, 58, 0.3);
+    color: rgb(240, 240, 240);
+}
+
+.wrap .inner .payrolltemplate .buttom span {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.pop-up .payrolltemplate .buttom span p {
+    padding-top: 6px;
+    opacity: 0.7;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* footer */
+
+footer .inner {
+    padding-top: 120px;
+    width: 100%;
+    margin: 0px auto;
+}
+
+footer .inner .upper {
+    width: 100%;
+    border-bottom: 1px solid#777;
+    padding-bottom: 20px;
+}
+
+footer .inner .lower {
+    width: 100%;
+
+}
+
+footer .inner .upper h1 {
+    float: left;
+    font-size: 24px;
+    font-weight: 500;
+    color: #666;
+}
+
+footer .inner .upper ul {
+    float: right;
+}
+
+footer .inner .upper::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+footer .inner .upper ul li {
+    float: left;
+    margin-left: 20px;
+}
+
+footer .inner .upper ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+footer .inner .upper ul li a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+}
+
+footer .inner .lower address {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+footer .inner .lower p {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    color: #777;
+}
