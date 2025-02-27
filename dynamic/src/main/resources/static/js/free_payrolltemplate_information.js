@@ -12,4 +12,26 @@ $(document).on('click', '.info', function () {
     const hourly_rate = document.querySelector('#hourly_rate')
     const payment_date = document.querySelector('#payment_date')
 
-})
+    var sendData = {
+        {
+        "payrollTemplateDTO" : {
+            "id" : 0,
+                "startPayrollPeriod": start_date.innerText,
+                    "lastPayrollPeriod": last_date.innerText,
+                        "paymentDate": payment_date.innerText
+        },
+        "employeeDTO" : {
+            "id" : 0,
+                "name": name.innerText,
+                    "department": department.innerText,
+                        "position": position.innerText,
+                            "hourlyRate" : hourly_rate.innerText,
+                                "birthday" : birthday.innerText,
+                                    "hireDate": hiredate.innerText,
+                                        "phoneNumber": phone.innerText
+        }
+    }
+}
+
+
+});
