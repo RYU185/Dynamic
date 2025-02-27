@@ -149,9 +149,16 @@ $(document).ready(function (){
                     </div>
                     `);
 
+
+
                     if (productOnList.category?.name === "강의") {
+
+                        console.log("aaa")
+
                         $("#courseCartList").append($cartItem);
                     } else {
+
+                        console.log("bbb")
                         $("#subscCartList").append($cartItem);
                     }
             }
