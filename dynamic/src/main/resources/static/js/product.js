@@ -50,10 +50,15 @@ $(document).ready(function () {
             var productId = $(this).data("id");
             var userName = JSON.parse(sessionStorage.getItem("userName"));
 
+            if (!userName) {
+              alert("로그인이 필요합니다.");
+              return;
+            }
+
             var cartItem = {
               productId: productId,
               userName: userName,
-              cartId: 0,
+              cartId: 0
             };
 
         $.ajax({

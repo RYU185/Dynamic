@@ -78,46 +78,86 @@
 // });
 
 // 전체 장바구니
-$(document).ready(function () {
-    var cart = JSON.parse(localStorage.getItem("cart")) || []; 
+$(document).ready(function (){
+    var userName = JSON.parse(sessionStorage.getItem("userName"));
 
-    console.log(cart);
+    if(!userName){
+        alert("로그인이 필요합니다");
+        return;
+    }
 
-    var $courseList = $("#courseCartList");
-    var $subscList = $("#subscCartList");
+    //
+    let productData = {};
+    let cartItem = [];
 
-    $courseList.empty();
-    $subscList.empty();
-
-    //강의 장바구니만 출력
-    cart["강의"].forEach((item) =>{
-        var $item = $(`
-            <div class="cart-item">
-                <div class="description">
-                    <h1>${item.title}</h1>
-                    <p>${item.price}원</p>
-                </div>
-            </div>
-            `);
-            $courseList.append($item);
+    $.ajax({
+        url:"api/product/all",
+        method:"get",
+        contentType:"application/json",
+        success: function(productResponse){
+            productResponse.forEach(product => {
+                productData[product.id] = {
+                    title: product.title,
+                    price: product.price,
+                    category: product.category?.name
+                }
+            });
+            loadingCart(userName);
+        },
+        error:function(){
+            alert("제품목록을 불러오는 데 실패했습니다.")
+        }
     });
 
+    // 유저의 장바구니에 가져오기
 
-    cart["구독권"].forEach((item) => {
-            var $item = $(`
-                <div class="cart-item">
-                    <div class="description">
-                        <h1>${item.title}</h1>
-                        <p>${item.price}원</p>
-                    </div>
-                </div>
-            `);
-            $subscList.append($item);
+    function loadingCart(userName){
+        $.ajax({
+                url:"api/cart/username/"+ userName,
+                method:"get",
+                contentType:"application/json",
+                success: function(cartResponse){
+                    cartItem = cartResponse.filter(item => item.username === userName);
+                    onCart();
+                },
+                error:function(){
+                    alert("장바구니 정보를 불러오는데 실패했습니다");
+                }
         });
+    }
 
-});
+    function onCart(){
+        $("#courseCartList").empty();
+        $("#subscCartList").empty();
 
+        // 장바구니 목록 반복
+            cartItem.forEach(cartItem => {
+            var productOnList = productData[cartItem.productId];
 
+            console.log(productOnList);
+
+            if(productOnList){
+                var $cartItem = $(`
+                    <div class="cart-item">
+                        <div class="pic">
+                            <img src="./img/courseThumnail1.png" alt="${productOnList.title}">
+                        </div>
+                        <div class="description">
+                            <h1>${productOnList.title}</h1>
+                            <p>가격: ${productOnList.price}원</p>
+                        </div>
+                    </div>
+                    `);
+
+                    if (productOnList.category?.name === "강의") {
+                        $("#courseCartList").append($cartItem);
+                    } else {
+                        $("#subscCartList").append($cartItem);
+                    }
+            }
+        })
+    }
+})
 
     // $(document).on('click', '#checkbox-all', function () {
     //     console.log("전체 선택 클릭됨", this.checked);
