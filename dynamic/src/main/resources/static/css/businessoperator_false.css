@@ -18,26 +18,18 @@ a {
 .wrap header {
   width: 100%;
 }
-.wrap header .header-wrap {
-  width: 100%;
-  position: relative;
-}
-header .header-wrap .home {
+ader-wrap .home {
   width: 50px;
   height: 50px;
   float: left;
 }
 header .header-wrap .home a img {
-  width: 100%;
+  width: 40px;
   object-fit: cover;
 }
-header .header-wrap .logo {
-  width: 100%;
-  margin: 0 -30px;
-  text-align: center;
-}
 header .header-wrap h1 {
-  margin-top: 40px;
+  margin-top: 50px;
+  margin-right: 10px;
   font-size: 50px;
   color: #000000;
 }
@@ -48,252 +40,102 @@ header .header-wrap .sub {
 
 .wrap .box {
   width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  border-radius: 20px;
+  padding: 25px;
+
+  background-image: linear-gradient(45deg, #a1d2fb, #636bfea8, #eef4ff);
 }
+
+/* 동의란 */
 .wrap .box .agree_box {
-  margin-top: 20px;
-  height: 250px;
-  border-radius: 15px;
-  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
-  position: relative;
-}
-.wrap .box .agree_box .agree_box_sub .agree_box_sub_text {
-  width: 80px;
-  font-size: 15x;
-  padding: 5px;
-  text-align: center;
-  border-radius: 15px;
-  background: #ffffffe8;
-
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-}
-.wrap .box .agree_box .agree_box_sub .agree_box_sub_text:hover {
-  background: #99a8c5;
-  cursor: pointer;
-}
-.wrap .box .signup_box .boxes {
-  border-radius: 15px;
-  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
-  margin-top: 10px;
-}
-.wrap .box .signup_box .name_box {
-  height: 50px;
-  position: relative;
-}
-
-.wrap .box .signup_box .name_box .name_box_text {
-  width: 100px;
-  font: 20px;
-  padding: 5px;
-  position: absolute;
-  bottom: 8px;
-  left: 10px;
-  border-radius: 15px;
-  text-align: center;
-  background: #ffffffe8;
-}
-.name_box_input {
-  position: absolute;
-  left: 130px;
-  top: 15px;
-  height: 25px;
-  border: none;
-  border-radius: 3px;
-}
-
-.wrap .box .signup_box .gender_box {
-  height: 50px;
-  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
+  width: 400px;
+  height: 280px;
+  border-radius: 5px;
+  background: #ffffff;
+  margin: auto;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.wrap .box .signup_box .gender_box .gender_box_sub {
-  width: 160px;
-  font-size: 15px;
-  padding: 5px;
-  margin: 8px;
-  border-radius: 10px;
-  position: relative;
-  background: #ffffffe8;
-  text-align: center;
-}
-.wrap .box .signup_box .gender_box .gender_box_sub:hover {
-  background: #99a8c5;
-  cursor: pointer;
-}
-.wrap .box .signup_box .gender_box .gender_box_sub .gender_box_text {
-  text-align: center;
-}
-.wrap .box .signup_box .email_box {
-  height: 50px;
+  justify-content: center;
   position: relative;
 }
-.wrap .box .signup_box .email_box .email_box_text {
-  width: 100px;
-  font: 20px;
-  padding: 5px;
+.wrap .box .agree_box form{
+  width: 100%;
   position: absolute;
-  bottom: 8px;
-  left: 10px;
-  border-radius: 15px;
-  text-align: center;
-  background: #ffffffe8;
-}
-.email_box_input {
-  position: absolute;
-  left: 130px;
-  top: 15px;
-  height: 25px;
-  border: none;
-  border-radius: 3px;
+  bottom: 0px;
+  margin-right: 30px;
+  margin-bottom: 5px;
 }
 
-.wrap .box .signup_box .id_box {
-  height: 50px;
-  position: relative;
-}
-.wrap .box .signup_box .id_box .id_box_text {
-  width: 100px;
-  font: 20px;
-  padding: 5px;
-  position: absolute;
-  bottom: 8px;
-  left: 10px;
-  border-radius: 15px;
-  text-align: center;
-  background: #ffffffe8;
-}
-.id_box_input {
-  position: absolute;
-  left: 130px;
-  top: 15px;
-  height: 25px;
-  border: none;
-  border-radius: 3px;
-}
-.wrap .box .signup_box .id_box .doublecheck_box_text {
-  width: 80px;
-  height: 25px;
-  font: 20px;
-  padding-top: 10px;
-  font-size: 15px;
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  text-align: center;
-  border-radius: 15px;
-  background: #ffffffe8;
-}
-.wrap .box .signup_box .id_box .doublecheck_box_text:hover {
-  background: #99a8c5;
-  cursor: pointer;
-}
-.wrap .box .signup_box .pwd_box {
-  height: 50px;
-  position: relative;
-}
-.pwd_box_input {
-  position: absolute;
-  left: 130px;
-  top: 15px;
-  height: 25px;
-  border: none;
-  border-radius: 3px;
-}
-.wrap .box .signup_box .pwd_box .pwd_box_text {
-  width: 100px;
-  font: 20px;
-  padding: 5px;
-  position: absolute;
-  bottom: 8px;
-  left: 10px;
-  border-radius: 15px;
-  text-align: center;
-  background: #ffffffe8;
-}
-.wrap .box .signup_box .phone_box {
-  height: 50px;
-  position: relative;
-}
-.phone_box_input {
-  position: absolute;
-  left: 130px;
-  top: 15px;
-  height: 25px;
-  border: none;
-  border-radius: 3px;
-}
-.wrap .box .signup_box .phone_box .phone_box_text {
-  width: 100px;
-  font: 20px;
-  padding: 5px;
-  position: absolute;
-  bottom: 8px;
-  left: 10px;
-  border-radius: 15px;
-  text-align: center;
-  background: #ffffffe8;
+
+.wrap .box .agree_box form .agree_text {
+  width: 100%;
+  text-align: right;
+
 }
 
-.wrap .box .signup_box .planBusiness_box {
-  height: 50px;
-  position: relative;
-}
-.wrap .box .signup_box .planBusiness_box .planBusiness_box_text {
-  width: 100px;
-  font: 20px;
-  padding: 5px;
-  position: absolute;
-  bottom: 8px;
-  left: 10px;
-  border-radius: 15px;
-  text-align: center;
-  background: #ffffffe8;
-}
-.wrap .box .signup_box .planBusiness_box .planBusiness_box_font {
-  width: 40px;
-  height: 25px;
-  font: 15x;
-  padding-top: 10px;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  text-align: center;
-}
-
-.wrap .box .sub-button {
+/* 체크 내용란 */
+.wrap .box .informtion_box {
+  width: 400px;
+  /* height: 280px; */
+  border-radius: 5px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  margin: 0 auto;
   margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
 }
 
-.wrap .box .sub-button .before_box {
-  width: 100px;
-  height: 25px;
-  font: 20px;
-  padding-top: 10px;
-  background: #ffffffe8;
-  border-radius: 10px;
+.wrap .box .informtion_box form {
+  display: flex;
   text-align: center;
 }
-.wrap .box .sub-button .joinMembership_box {
-  width: 100px;
-  height: 25px;
-  font: 20px;
-  padding-top: 10px;
-  background: #ffffffe8;
-  border-radius: 10px;
+
+.wrap .box .informtion_box form .female {
+  width: 50%;
+}
+.wrap .box .informtion_box form .male {
+  width: 50%;
+}
+
+.wrap .box .informtion {
+  display: flex;
+}
+
+.wrap .box .informtion_box .left {
+  width: 20%;
+  text-align: left;
+}
+
+.wrap .box .informtion_box .right {
+  width: 80%;
+}
+
+.wrap .box .informtion_box .id .middle {
+  width: 60%;
+}
+
+.wrap .box .informtion_box .id .right {
+  width: 20%;
   text-align: center;
 }
-.wrap .box .sub-button .before_box:hover {
-  background: #99a8c5;
+.wrap .box .informtion_box .id .right:hover {
+  border-radius: 5px;
+  background: #5c89e2;
   cursor: pointer;
 }
-.wrap .box .sub-button .joinMembership_box:hover {
-  background: #99a8c5;
+.wrap .box .informtion_box .planBusiness .box_icon {
+  margin-left: 330px;
+  margin-top: 3px;
+}
+
+/* last button */
+.wrap .last {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+.wrap .last:hover {
   cursor: pointer;
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>businessoperator_false</title>
+    <title>businessoperator false</title>
     <link rel="stylesheet" href="./css/businessoperator_false.css" />
   </head>
 
@@ -16,9 +16,6 @@
               <img src="./img/home.png" />
             </a>
           </div>
-          <div class="logo">
-            <h1>logo</h1>
-          </div>
           <div class="sub">
             <h1>창업 예정자 회원가입</h1>
           </div>
@@ -27,75 +24,80 @@
 
       <div class="box">
         <div class="agree_box">
-          <div class="agree_box_sub">
-            <p class="agree_box_sub_text">동의약관</p>
+          <form action="/action_page.php">
+            <div class="agree_text">
+              <input type="radio" id="agree" name="agree" value="agree" />
+            <label for="agree">동의</label>
           </div>
+          </form>
         </div>
-        <div class="signup_box">
-          <div class="boxes name_box">
-            <p class="name_box_text">이름</p>
+        <div class="informtion_box">
+          <div class="informtion name">
+            <p class="left">이름</p>
             <input
               type="text"
-              class="name_box_input"
+              class="name_input right"
               id="name"
               placeholder="이름을 입력해주세요"
             />
           </div>
-          <div class="boxes gender_box">
-            <p class="gender_box_sub">남자</p>
-            <p class="gender_box_sub">여자</p>
-          </div>
-          <div class="boxes email_box">
-            <p class="email_box_text">이메일</p>
+          <form action="/action_page.php">
+            <div class="female">
+              <input type="radio" id="female" name="female" value="female" />
+              <label for="female">여자</label>
+            </div>
+            <div class="male">
+              <input type="radio" id="male" name="male" value="male" />
+              <label for="male">남자</label>
+            </div>
+          </form>
+          <div class="informtion email">
+            <p class="left">이메일</p>
             <input
               type="text"
-              class="email_box_input"
+              class="email_input right"
               id="email"
               placeholder="이메일을 입력해주세요"
             />
           </div>
-          <div class="boxes id_box">
-            <p class="id_box_text">아이디</p>
-            <p class="doublecheck_box_text">중보확인</p>
+          <div class="informtion id">
+            <p class="left">아이디</p>
             <input
               type="text"
-              class="id_box_input"
+              class="id_input middle"
               id="id"
-              placeholder="아이디를 입력해주세요"
+              placeholder="아이디을 입력해주세요"
             />
+            <p class="right">중복확인</p>
           </div>
-          <div class="boxes pwd_box">
-            <p class="pwd_box_text">비밀번호</p>
+          <div class="informtion pwd">
+            <p class="left">비밀번호</p>
             <input
               type="text"
-              class="pwd_box_input"
+              class="pwd_input right"
               id="pwd"
               placeholder="비밀번호를 입력해주세요"
             />
           </div>
-
-          <div class="boxes phone_box">
-            <p class="phone_box_text">전화번호</p>
+          <div class="informtion phone">
+            <p class="left">전화번호</p>
             <input
               type="text"
-              class="phone_box_input"
+              class="phone_input right"
               id="phone"
               placeholder="전화번호를 입력해주세요"
             />
           </div>
-          <div class="boxes planBusiness_box">
-            <p class="planBusiness_box_text">예정업종</p>
-            <p class="planBusiness_box_font">➕</p>
+          <div class="informtion planBusiness">
+            <p class="planBusiness box_text">예정업종</p>
+            <p class="planBusiness box_icon">▿</p>
           </div>
         </div>
-        <div class="sub-button">
-          <div class="before_box">
-            <p class="bofore_box_text">BEFORE</p>
-          </div>
-          <div class="joinMembership_box">
-            <p class="joinMembership_box_text">회원가입</p>
-          </div>
-        </div>
+      </div>
+
+      <div class="last">
+        <div class="button cancel">취소</div>
+        <div class="button join">회원가입</div>
       </div>
     </div>
   </body>
