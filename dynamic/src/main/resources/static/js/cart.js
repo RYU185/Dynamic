@@ -120,7 +120,7 @@ $(document).ready(function (){
                 contentType:"application/json",
                 success: function(cartResponse){
 
-                    let cartItem = cartResponse;
+                    cartItem = cartResponse;
                     onCart();
                 },
                 error:function(){
