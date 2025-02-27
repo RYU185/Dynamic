@@ -72,11 +72,12 @@ public class PayrollTemplateService {
 
         payrollTemplate.setStartPayrollPeriod(payrollTemplateDTO.getStartPayrollPeriod());
         payrollTemplate.setLastPayrollPeriod(payrollTemplateDTO.getLastPayrollPeriod());
-        payrollTemplate.setSalary(payrollTemplateDTO.getSalary());
-        payrollTemplate.setBonus(payrollTemplateDTO.getBonus());
-        payrollTemplate.setMealAllowance(payrollTemplateDTO.getMealAllowance());
-        payrollTemplate.setTransportAllowance(payrollTemplateDTO.getTransportAllowance());
-        payrollTemplate.setOtherAllowance(payrollTemplateDTO.getOtherAllowance());
+        payrollTemplate.setPaymentDate(payrollTemplateDTO.getPaymentDate());
+//        payrollTemplate.setSalary(payrollTemplateDTO.getSalary());
+//        payrollTemplate.setBonus(payrollTemplateDTO.getBonus());
+//        payrollTemplate.setMealAllowance(payrollTemplateDTO.getMealAllowance());
+//        payrollTemplate.setTransportAllowance(payrollTemplateDTO.getTransportAllowance());
+//        payrollTemplate.setOtherAllowance(payrollTemplateDTO.getOtherAllowance());
 
 
             return payrollTemplateRepository.save(payrollTemplate).toDTO();

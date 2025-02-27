@@ -27,6 +27,13 @@ public class Employee {
     @Column(name = "position")
     private String position; // 직위
 
+    @Column(name = "hourly_rate")
+    private Long hourlyRate;
+
+    @Column(name = "birthday")
+    private LocalDate birthday;
+
+
     @Column(name = "hire_date", nullable = false, updatable = false)
     private LocalDate hireDate; // 입사일
 
@@ -55,6 +62,8 @@ public class Employee {
                 this.name,
                 this.department,
                 this.position,
+                this.hourlyRate,
+                this.birthday,
                 this.hireDate,
                 this.phoneNumber,
                 this.user.getUserName(),

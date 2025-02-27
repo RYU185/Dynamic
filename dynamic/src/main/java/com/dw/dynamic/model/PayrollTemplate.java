@@ -30,56 +30,57 @@ public class PayrollTemplate {
     @Column(name = "payment_date",nullable = false)
     private LocalDate paymentDate;
 
-    @Column(name = "salary",nullable = false)
-    private Long salary;// 기본급
-
-    @Column(name = "bonus")
-    private Long bonus;  // 인센
-
-    @Column(name = "meal_allowance")
-    private Long mealAllowance; // 식대
-
-    @Column(name="transport_allowance")
-    private Long transportAllowance; // 교통비
-
-    @Column(name = "other_allowance")
-    private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
-
+//    @Column(name = "salary",nullable = false)
+//    private Long salary;// 기본급
+//
+//    @Column(name = "bonus")
+//    private Long bonus;  // 인센
+//
+//    @Column(name = "meal_allowance")
+//    private Long mealAllowance; // 식대
+//
+//    @Column(name="transport_allowance")
+//    private Long transportAllowance; // 교통비
+//
+//    @Column(name = "other_allowance")
+//    private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
+//
     @Column(name="is_active")
     private Boolean isActive = true;
-
-    @ManyToMany
-    @JoinTable(name = "template_detail",
-    joinColumns = @JoinColumn(name = "payroll_template"),
-    inverseJoinColumns = @JoinColumn(name = "deduction_and_taxname"))
-    private List<DeductionAndTax> deductionAndTax;
-
-    @ManyToOne
-    @JoinColumn(name = "freelancer")
-    private Freelancer freeLancer;
+//
+//    @ManyToMany
+//    @JoinTable(name = "template_detail",
+//    joinColumns = @JoinColumn(name = "payroll_template"),
+//    inverseJoinColumns = @JoinColumn(name = "deduction_and_taxname"))
+//    private List<DeductionAndTax> deductionAndTax;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "freelancer")
+//    private Freelancer freeLancer;
 
     @OneToOne(mappedBy = "payrollTemplate_fk")
     private Employee employee;
 
     public PayrollTemplateDTO toDTO(){
-       List<String> deductionAndTaxName = new ArrayList<>();
-       for (DeductionAndTax data : deductionAndTax) {
-           deductionAndTaxName.add(data.getName());
-       }
-        EmployeeDTO employeeDTO= this.employee !=null ?this.employee.toDTO() : null;
+//       List<String> deductionAndTaxName = new ArrayList<>();
+//       for (DeductionAndTax data : deductionAndTax) {
+//           deductionAndTaxName.add(data.getName());
+//       }
+//        EmployeeDTO employeeDTO= this.employee !=null ?this.employee.toDTO() : null;
 
        return  new PayrollTemplateDTO(
                this.id,
                this.startPayrollPeriod,
                this.lastPayrollPeriod,
                this.paymentDate,
-               this.salary,
-               this.bonus,
-               this.mealAllowance,
-               this.transportAllowance,
-               this.otherAllowance,
-               deductionAndTaxName,
-               this.freeLancer.getName()
+                this.isActive
+//               this.salary,
+//               this.bonus,
+//               this.mealAllowance,
+//               this.transportAllowance,
+//               this.otherAllowance,
+//               deductionAndTaxName,
+//               this.freeLancer.getName()
        );
 
     }

@@ -23,19 +23,21 @@ public class PayrollTemplateDTO {
 
     private LocalDate paymentDate;
 
-    private Long salary;// 기본급
+    private Boolean isActive;
 
-    private Long bonus;  // 인센
-
-    private Long mealAllowance; // 식대
-
-    private Long transportAllowance; // 교통비
-
-    private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
-
-    private List<String> deductionAndTax;
-
-    private String freeLancerName;
+//    private Long salary;// 기본급
+//
+//    private Long bonus;  // 인센
+//
+//    private Long mealAllowance; // 식대
+//
+//    private Long transportAllowance; // 교통비
+//
+//    private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
+//
+//    private List<String> deductionAndTax;
+//
+//    private String freeLancerName;
 
 
 }

@@ -25,7 +25,12 @@ public class EmployeeDTO {
 
     private String position; // 직위
 
+    private Long hourlyRate; // 시급
+
+    private LocalDate birthday;
+
     private LocalDate hireDate; // 입사일
+
 
     private String phoneNumber;
 
