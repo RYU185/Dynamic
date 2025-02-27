@@ -100,13 +100,10 @@ $(document).ready(function (){
                     title: product.title,
                     price: product.price,
                     category: product.category
-
                     
                 }
                 console.log(product.category);
             });
-
-            console.log("aaa")
             loadingCart(userName);
         },
         error:function(){
@@ -122,7 +119,8 @@ $(document).ready(function (){
                 method:"get",
                 contentType:"application/json",
                 success: function(cartResponse){
-                    cartItem = cartResponse.filter(item => item.username === userName);
+
+                    let cartItem = cartResponse;
                     onCart();
                 },
                 error:function(){
