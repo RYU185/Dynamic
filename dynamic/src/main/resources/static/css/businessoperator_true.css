@@ -62,9 +62,6 @@ header .header-wrap .sub {
   display: flex;
   justify-content: center;
 }
-/* .wrap .box .agree_box form {
-  margin-left: auto;
-} */
 
 
 .wrap .box .informtion_box {
@@ -73,23 +70,31 @@ header .header-wrap .sub {
   border-radius: 5px;
   background: #ffffff;
 
+  display: flex;
   padding: 10px 0px;
   margin: auto;
   margin-top: 30px;
 }
-.wrap .box .informtion_box .name{
-  display: flex;
-  margin: 10px auto;
-}
-.wrap .box .informtion_box form{
-  display: flex;
-  /* justify-content: space-around; */
-}
-.wrap .box .informtion_box form>label{
-  justify-content: space-around;
-}
 
 
+
+
+
+
+
+
+
+
+.wrap .box .informtion_box form {
+ display: flex;
+ text-align: center;
+}
+.wrap .box .informtion_box form .female{
+width: 50%;
+}
+.wrap .box .informtion_box form .male{
+  width: 50%;
+}
 
 .wrap .box .informtion_box .email {
   display: flex;
