@@ -38,10 +38,12 @@
               id="name"
               placeholder="이름을 입력해주세요"
             />
-          <div class="informtion gender">
-            <p>여자</p>
-            <p>남자</p>
-          </div>
+          <form action="/action_page.php">
+           <input type="radio" id="female" name="female" value="female">
+           <label for="female">여자</label>
+           <input type="radio" id="male" name="male" value="male">
+           <label for="male">남자</label>
+          </form>
           <div class="informtion email">이메일</div>
           <input
           type="text"
@@ -77,7 +79,6 @@
             <p class="planBusiness_box">업종명</p>
             <p class="planBusiness_box_font">➕</p>
           </div>
-
         </div>
       </div>
 
