@@ -67,7 +67,9 @@ public class Employee {
                 this.hireDate,
                 this.phoneNumber,
                 this.user.getUserName(),
-                this.payrollTemplate_fk.getId()
+                this.payrollTemplate_fk.getId(),
+                this.user.getCompanyName(),
+                this.isActive
         );
     }
 }

@@ -62,9 +62,6 @@ INSERT INTO freelancer(name, amount) VALUES('not freelancer',0);
 
 
 
---INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_date,salary,bonus,meal_allowance,transport_allowance,other_allowance,freelancer,is_active)
---VALUES ('2025-01-13','2025-02-12','2025-02-12',2500000,100000,100000,0,0,'not freelancer',true);
-
 INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_date,is_active)
 VALUES ('2025-01-13','2025-02-12','2025-02-12',true);
 
@@ -72,6 +69,12 @@ VALUES ('2025-01-13','2025-02-12','2025-02-12',true);
 INSERT INTO employee (name, department,position,hourly_rate,birthday,hire_date, phone_number, user_name,payroll_template,is_active,free_template)
 VALUES
 ('김철수', '없음', '직원',10030 ,'2025-01-13','1998-02-13','010-1234-5678', 'sangsu1234',1,true,false);
+
+INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_date,is_active)
+VALUES ('2025-01-13','2025-02-12','2025-02-12',true);
+INSERT INTO employee (name, department,position,hourly_rate,birthday,hire_date, phone_number, user_name,payroll_template,is_active,free_template)
+VALUES
+('김철수', '없음', '직원',10030 ,'2025-01-13','1998-02-13','010-1234-1111', 'admin',2,true,false);
 
 INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('S1','sangsu1234',15000,'2025-01-13');
 INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('C2','sangsu1234',17000,'2025-01-22');
