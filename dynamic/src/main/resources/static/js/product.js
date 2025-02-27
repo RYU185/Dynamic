@@ -1,58 +1,22 @@
-
-$(".btnInCart").on("click", function () {
-        const article = $(this).closest("article");
-
-        const productId = $(this).attr("id");
-        const productName = article.find("h2").text();
-        const productPrice = article.find(".price").text()
-        const productImg = article.find(".thumbnail img").attr("src")
-        const userName = JSON.parse(sessionStorage.getItem('userName'))
-        // 양쪽 문자열 다 떼고 공백제거
-
-
-        const product = {
-            cartId: 1,
-            userName: userName,
-            productId: productId
-        };
-
-        console.log("전송할 상품 데이터:", product);
-
-        $.ajax({
-            type: "POST",
-            url: "/api/cart/save",
-            contentType: "application/json",
-            data: JSON.stringify(product),
-            success: function (response) {
-                $()
-
-                alert(`${productName}이(가) 장바구니에 추가되었습니다.`);
-            }
-        });
-    });
-
-
-    // 모든 제품 불러오기 - DB연결
 $(document).ready(function () {
-  $.ajax({
-    url: "/api/product/all",
-    method: "get",
-    contentType: "application/json",
-    success: function (response) {
-      $("#courseContainer").empty();
-      $("#subscContainer").empty();
+    $.ajax({
+        url: "/api/product/all",
+        method: "get",
+        contentType: "application/json",
+        success: function (response) {
+        $("#courseContainer").empty();
+        $("#subscContainer").empty();
 
-      response.forEach((product) => {
-
-        console.log(product);
-        console.log(product.title);
+        response.forEach((product) => {
+            console.log(product);
+            console.log(product.title);
 
         var title = product.title;
-        var price = product.price.toLocaleString();
-        var addDate = product.addDate || "날짜 없음"; // addDate가 없으면 기본값
+        var price = product.price;
+        var addDate = product.addDate || "날짜 없음";
         var productId = product.id;
         var category = product.category?.name;
-        var description = product.description || ""; 
+        var description = product.description || "";
 
         var $article = $(`
                 <article>
@@ -69,19 +33,48 @@ $(document).ready(function () {
                     <p>${description}</p>
                     <p>별점: ★★★★☆</p>
 
-                    <button class="btnInCart" data-id="${productId}">장바구니</button>
+                    <button class="btnInCart" data-id="${productId}" data-title="${title}" data-price="${price}" data-category="${category}">장바구니</button>
                     <button class="btnPurchase" data-id="${productId}">구매</button>
                 </article>
-                    `);
+        `);
 
-        if (category === "강의") {
+            if (category === "강의") {
             $("#courseContainer").append($article);
-        } else {
+            } else {
             $("#subscContainer").append($article);
-        }
+            }
         });
-    },  
+
+
+        $(".btnInCart").on("click", function () {
+            var productId = $(this).data("id");
+            var userName = sessionStorage.getItem("userName")
+            var cartId = sessionStorage.getItem("cartId")
+
+            console.log("cartId:", cartId);
+            console.log("userName:", userName);
+            console.log("productId:", productId);
+
+
+            var cartItem = {
+                id: productId,
+                userName: userName,
+                cartId: cartId
+            };
+
+        $.ajax({
+            url: "/api/cart/save",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(cartItem),
+            success: function () {
+                alert("제품이 정상적으로 장바구니에 담겼습니다.");
+            },
+            error: function () {
+                alert("장바구니 추가 중 오류가 발생했습니다.");
+            },
+            });
+        });
+        },
     });
-});
-
-
+    });
