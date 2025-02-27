@@ -48,31 +48,34 @@ header .header-wrap .sub {
 .wrap .box {
   width: 500px;
   margin: auto;
-  border-radius: 10px;
-
-  /* align-items: center;
-  justify-content: center; */
+  border-radius: 20px;
+  padding: 25px;
 
   background-image: linear-gradient(45deg, #a1d2fb, #636bfea8, #eef4ff);
 }
 .wrap .box .agree_box {
   width: 400px;
   height: 280px;
-  border-radius: 15px;
+  border-radius: 5px;
   background: #ffffff;
-  margin-top:  10px;
+  margin: auto;
 
 
   display: flex;
   justify-content: center;
 }
+
+.wrap .box .agree_box .agree_box_text{
+  text-align: right;
+}
 .wrap .box .informtion_box {
   width: 400px;
   height: 280px;
-  border-radius: 15px;
+  border-radius: 5px;
   background: #ffffff;
 
   margin: auto;
+  margin-top: 30px;
 }
 .wrap .last {
   display: flex;
