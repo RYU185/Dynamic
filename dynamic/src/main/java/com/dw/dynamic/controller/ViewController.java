@@ -16,6 +16,11 @@ public class ViewController {
         return "forward:/after_login.html";
     }
 
+    @GetMapping("/dynamic/login.html")
+    public String login() {
+        return "forward:/login.html";
+    }
+
     @GetMapping("/dynamic/myPurchaseHistory.html")
     public String myPurchaseHistory() {
         return "forward:/myPurchaseHistory.html";
@@ -29,15 +34,6 @@ public class ViewController {
     @GetMapping("/dynamic/businessoperator_false.html")
     public String businessoperatbusinessoperator_false() {return "forward:/businessoperator_false.html";}
 
-    @GetMapping("/dynamic/employee_information.html")
-    public String employee_information() {
-        return "forward:/employee_information.html";
-    }
-
-    @GetMapping("/dynamic/employee_modify.html")
-    public String employee_modify() {
-        return "forward:/employee_modify.html";
-    }
 
     @GetMapping("/dynamic/joinMembership.html")
     public String joinMembership() {
@@ -51,23 +47,6 @@ public class ViewController {
     public String mypage() {
         return "forward:/mypage.html";
     }
-
-    @GetMapping("/dynamic/part_time.html")
-    public String part_time() {
-        return "forward:/part_time.html";
-    }
-
-    @GetMapping("/dynamic/regural_part_time_employee.html")
-    public String regural_part_time_employee() {return "forward:/regural_part_time_employee.html";}
-
-    @GetMapping("/dynamic/add_employee.html")
-    public String add_employee() {return "forward:/add_employee.html";}
-
-    @GetMapping("/dynamic/add_part_time.html")
-    public String add_part_time() {return "forward:/add_part_time.html";}
-
-    @GetMapping("/dynamic/add_regural_part_time.html")
-    public String add_regural_part_time() {return "forward:/add_regural_part_time.html";}
 
 
     @GetMapping("/dynamic/cart.html")
@@ -91,14 +70,17 @@ public class ViewController {
     @GetMapping("/dynamic/main_notice.html")
     public String main_notice() {return "forward:/main_notice.html";}
 
+    @GetMapping("/dynamic/notice_detail.html")
+    public String notice_detail() {return "forward:/notice_detail.html";}
+
     @GetMapping("/dynamic/my_payrolltemplate.html")
     public String my_payrolltemplate() {return "forward:/my_payrolltemplate.html";}
 
+    @GetMapping("/dynamic/my_payrolltemplate_detail.html")
+    public String my_payrolltemplate_detail() {return "forward:/my_payrolltemplate_detail.html";}
+
     @GetMapping("/dynamic/my_point.html")
     public String my_point() {return "forward:/my_point.html";}
-
-    @GetMapping("/dynamic/notice_detail.html")
-    public String notice_detail() {return "forward:/notice_detail.html";}
 
     @GetMapping("/dynamic/product.html")
     public String product() {return "forward:/product.html";}
@@ -109,9 +91,20 @@ public class ViewController {
     @GetMapping("/dynamic/board_detail.html")
     public String board_detail() {return "forward:/board_detail.html";}
 
-//
-//    @GetMapping("/dynamic/board.html")
-//    public String board() {return "forward:/board.html";}
+    @GetMapping("/dynamic/free_payrolltemplate_information.html")
+    public String free_payrolltemplate_information() {return "forward:/free_payrolltemplate_information.html";}
+
+    @GetMapping("/dynamic/my_employee_payrolltemplate.html")
+    public String my_employee_payrolltemplate() {return "forward:/my_employee_payrolltemplate.html";}
+
+    @GetMapping("/dynamic/my_employee.html")
+    public String my_employee() {return "forward:/my_employee.html";}
+
+    @GetMapping("/dynamic/payrolltemplate.html")
+    public String payrolltemplate() {return "forward:/payrolltemplate.html";}
+
+
+
 
 
 

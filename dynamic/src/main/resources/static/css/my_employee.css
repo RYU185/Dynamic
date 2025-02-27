@@ -305,7 +305,8 @@ main .inner .upper .searchBar .add:hover {
 }
 
 
-.pop-up-background1 {
+.pop-up-background1,
+.pop-up-background2 {
     width: 100%;
     height: 100%;
     background-color: black;
@@ -315,9 +316,9 @@ main .inner .upper .searchBar .add:hover {
     display: none;
 }
 
-main .pop-up1 {
+main .pop-up1,
+.pop-up2 {
     padding-top: 15px;
-
     background-color: #f1f6f7;
     width: 43%;
     height: 530px;
@@ -348,6 +349,28 @@ main .pop-up1 {
     z-index: 12;
     top: 120px;
     right: 330px;
+}
+
+main .pop-up2>img {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+main .pop-up2>img:hover {
+    background-color: rgb(126, 126, 126);
+    color: white;
+}
+
+
+main .pop-up2 {
+    position: absolute;
+    z-index: 12;
+    top: 120px;
+    right: 400px;
 }
 
 
