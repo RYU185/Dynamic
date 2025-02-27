@@ -15,12 +15,12 @@ a {
   margin: 20px 20%;
 }
 
+
 .wrap header {
   width: 100%;
 }
 .wrap header .header-wrap {
   width: 100%;
-  position: relative;
 }
 header .header-wrap .home {
   width: 50px;
@@ -48,17 +48,19 @@ header .header-wrap .sub {
 
 .wrap .box {
   width: 500px;
+  padding-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }
 .wrap .box .agree_box {
-  margin-top: 20px;
-  height: 250px;
-  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
   background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
-  position: relative;
 }
-.wrap .box .agree_box .agree_box_sub .agree_box_sub_text {
+.wrap .box .agree_box .agree_box_text {
   width: 80px;
   font-size: 15x;
   padding: 5px;
@@ -70,7 +72,7 @@ header .header-wrap .sub {
   bottom: 10px;
   right: 15px;
 }
-.wrap .box .agree_box .agree_box_sub .agree_box_sub_text:hover {
+.wrap .box .agree_box .agree_box_text:hover {
   background: #99a8c5;
   cursor: pointer;
 }

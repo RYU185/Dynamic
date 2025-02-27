@@ -20,7 +20,6 @@ a {
 }
 .wrap header .header-wrap {
   width: 100%;
-  position: relative;
 }
 header .header-wrap .home {
   width: 50px;
@@ -48,31 +47,32 @@ header .header-wrap .sub {
 
 .wrap .box {
   width: 500px;
+  margin: auto;
   border-radius: 10px;
 
-  justify-content: center; /* 가로 중앙 */
-  align-items: center; /* 세로 중앙 */
 
-  background-image: linear-gradient(45deg, #9ad2ff, #242fffa8, #6d9eff);
+  background-image: linear-gradient(45deg, #a1d2fb, #636bfea8, #eef4ff);
 }
 .wrap .box .agree_box {
   width: 400px;
   height: 280px;
   border-radius: 15px;
-  background: #f9f7fcd6;
-  margin: auto;
+  background: #ffffff;
+  margin: 40px 50px 20px 50px;
+
+
   justify-content: center;
 }
 .wrap .box .informtion_box {
   width: 400px;
   border-radius: 15px;
-  background: #f9f7fcd6;
+  background: #ffffff;
 
-  justify-content: center; /* 가로 중앙 */
-  align-items: center; /* 세로 중앙 */
+  margin: auto;
 }
 .wrap .last {
   display: flex;
+  margin-top: 30px;
   justify-content: space-around;
 }
 .wrap .last .cancel:hover {
