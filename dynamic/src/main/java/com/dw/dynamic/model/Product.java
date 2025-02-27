@@ -48,7 +48,10 @@ public class Product {
                 this.id,
                 this.price,
                 this.category.getName(),
-                this.isActive
+                this.isActive,
+                (this instanceof Course) ? ((Course) this).getTitle() :
+                (this instanceof PayrollSubscription) ? ((PayrollSubscription) this).getTitle() : "제목 없음"
+
         );
     }
 

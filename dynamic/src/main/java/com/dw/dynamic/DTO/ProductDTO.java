@@ -26,4 +26,6 @@ public class ProductDTO {
 
     private Boolean isActive;
 
+    private String title;
+
 }
