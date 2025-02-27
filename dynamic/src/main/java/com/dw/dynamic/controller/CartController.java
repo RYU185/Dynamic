@@ -33,6 +33,14 @@ public class    CartController {
         );
     }
 
+    @GetMapping("/username/{userName}")
+    public ResponseEntity<List<CartDTO>> getCartsByUserName(@PathVariable String userName, HttpServletRequest request){
+        return new ResponseEntity<>(
+                cartService.getCartsByUserName(userName, request),
+                HttpStatus.OK
+        );
+    }
+
     @GetMapping("/id/{id}")
     public ResponseEntity<CartDTO> getCartById(@PathVariable Long id,HttpServletRequest request) {
         return new ResponseEntity<>(

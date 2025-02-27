@@ -48,32 +48,26 @@ $(document).ready(function () {
 
         $(".btnInCart").on("click", function () {
             var productId = $(this).data("id");
-            var userName = sessionStorage.getItem("userName")
-            var cartId = sessionStorage.getItem("cartId")
-
-            console.log("cartId:", cartId);
-            console.log("userName:", userName);
-            console.log("productId:", productId);
-
+            var userName = JSON.parse(sessionStorage.getItem("userName"));
 
             var cartItem = {
-                id: productId,
-                userName: userName,
-                cartId: cartId
+              productId: productId,
+              userName: userName,
+              cartId: 0,
             };
 
         $.ajax({
-            url: "/api/cart/save",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(cartItem),
-            success: function () {
-                alert("제품이 정상적으로 장바구니에 담겼습니다.");
-            },
-            error: function () {
-                alert("장바구니 추가 중 오류가 발생했습니다.");
-            },
-            });
+          url: "/api/cart/save",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(cartItem),
+          success: function () {
+            alert("제품이 정상적으로 장바구니에 담겼습니다.");
+          },
+          error: function () {
+            alert("장바구니 추가 중 오류가 발생했습니다.");
+          },
+        });
         });
         },
     });
