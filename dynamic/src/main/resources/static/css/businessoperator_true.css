@@ -18,9 +18,9 @@ a {
 .wrap header {
   width: 100%;
 }
-.wrap header .header-wrap {
+/* .wrap header .header-wrap {
   width: 100%;
-}
+} */
 header .header-wrap .home {
   width: 50px;
   height: 50px;
@@ -50,6 +50,8 @@ header .header-wrap .sub {
   margin: auto;
   border-radius: 10px;
 
+  /* align-items: center;
+  justify-content: center; */
 
   background-image: linear-gradient(45deg, #a1d2fb, #636bfea8, #eef4ff);
 }
@@ -58,13 +60,15 @@ header .header-wrap .sub {
   height: 280px;
   border-radius: 15px;
   background: #ffffff;
-  margin: 40px 50px 20px 50px;
+  margin-top:  10px;
 
 
+  display: flex;
   justify-content: center;
 }
 .wrap .box .informtion_box {
   width: 400px;
+  height: 280px;
   border-radius: 15px;
   background: #ffffff;
 
