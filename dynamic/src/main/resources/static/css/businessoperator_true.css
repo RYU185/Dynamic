@@ -59,24 +59,70 @@ header .header-wrap .sub {
   border-radius: 5px;
   background: #ffffff;
   margin: auto;
-
-
   display: flex;
   justify-content: center;
 }
+/* .wrap .box .agree_box form {
+  margin-left: auto;
+} */
 
-.wrap .box .agree_box .agree_box_text{
-  text-align: right;
-}
+
 .wrap .box .informtion_box {
   width: 400px;
   height: 280px;
   border-radius: 5px;
   background: #ffffff;
 
+  padding: 10px 0px;
   margin: auto;
   margin-top: 30px;
 }
+.wrap .box .informtion_box .name{
+  display: flex;
+  margin: 10px auto;
+}
+.wrap .box .informtion_box form{
+  display: flex;
+  /* justify-content: space-around; */
+}
+.wrap .box .informtion_box form>label{
+  justify-content: space-around;
+}
+
+
+
+.wrap .box .informtion_box .email {
+  display: flex;
+}
+.wrap .box .informtion_box .id{
+  display: flex;
+}
+.wrap .box .informtion_box .pwd{
+  display: flex;
+}
+.wrap .box .informtion_box .phone{
+  display: flex;
+}
+.wrap .box .informtion_box .planBusiness{
+  display: flex;
+}
+.wrap .box .informtion_box .planBusiness .box_icon {
+  margin-left: 330px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .wrap .last {
   display: flex;
   margin-top: 30px;
