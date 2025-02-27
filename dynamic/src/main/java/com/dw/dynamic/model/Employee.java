@@ -43,6 +43,8 @@ public class Employee {
     @JoinColumn(name = "user_name")
     private User user; // 단방향
 
+//    시급 필드 반영 필요
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payroll_template")
     private PayrollTemplate payrollTemplate_fk;

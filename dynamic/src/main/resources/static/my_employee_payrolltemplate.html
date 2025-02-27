@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>세부 공지사항</title>
-    <link rel="stylesheet" href="./css/notice_detail.css">
+    <title>나의 직원 급여명세서 작성</title>
+    <link rel="stylesheet" href="/css/my_employee_payrolltemplate.css">
 </head>
 
 <body>
@@ -51,21 +51,17 @@
             <div class="inner">
                 <div class="upper_box">
                     <div class="main_title">
-                        <h1>공지사항</h1>
+                        <h1>나의 직원 급여명세서</h1>
                     </div>
-                    <div class="upper">
-                        <div class="searchBar">
-                            <img src="/img/writing.png" alt="수정 버튼" id="modify_notice" />
-                            <img src="/img/쓰레기통.png" alt="삭제 버튼" id="delete_notice" />
-                        </div>
-                    </div>
+
                 </div>
 
                 <div class="main_box">
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="2">목록</th>
+                                <th class="name">성함</th>
+                                <th class="birthday">생년월일</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,43 +109,28 @@
                     </table>
                 </div>
                 <div class="detail_box">
-                    <div class="title"> 공지 상세 내용 </div>
-                    <div class="description"> </div>
-                    <div class="buttom">
-                        <div class="content">
-                            <div><b>등록 날짜 :</b></div>
-                            <div>2025.02.20</div>
-                        </div>
-                        <div class="content">
-                            <div><b>수정 날짜 :</b></div>
-                            <div>2025.02.20</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pop-up1">
-                    <img src="/img/X.png" alt="취소 버튼" class="x_btn1">
-                    <h1>공지사항 수정</h1>
-                    <div class="content_box">
-                        <div class="content">
-                            <div><b>제목 :</b></div>
-                            <div contenteditable="true" class="modify_title"></div>
-                        </div>
-                        <div class="content">
-                            <div><b>공지내용 :</b></div>
-                            <div contenteditable="true" class="modify_text">
-                            </div>
-                        </div>
-                        <div class="date">
-                            <div><b>수정일자 : </b></div>
-                            <div class="modify_date"></div>
-                            <input type="button" value="등록" class="add" />
+                    <div class="box2">
+                        <div class="title">계산 정보 입력</div>
+                        <!-- 정보 입력 박스 -->
+                        <div class="information">
+                            <div class="info">계산 시작일 : </div>
+                            <div contenteditable="true" id="start_date">2025-01-01</div>
+                            <div class="info">계산 종료일 : </div>
+                            <div contenteditable="true" id="last_date">2025-01-31</div>
+                            <div class="info">지급일 : </div>
+                            <div contenteditable="true" id="payment_date">2025-01-31</div>
                         </div>
                     </div>
+                    <!-- 달력 생성 버튼 -->
+                    <input type="button" value="달력 생성" class="show_calendar" />
+                    <div class="down">
+                        <div class="calender"></div><!-- 위 버튼 누르면 달력 보여주기 -->
+                        <input type="button" value="적용하기" class="apply" /><!-- 적용하기-->
+                    </div>
                 </div>
-
-
             </div>
         </main>
+        <!-- footer -->
         <footer>
             <div class="inner">
                 <div class="upper">
@@ -167,10 +148,6 @@
             </div>
         </footer>
     </div>
-    <div class="pop-up-background1"></div>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/notice_detail.js"></script>
 </body>
 
 </html>

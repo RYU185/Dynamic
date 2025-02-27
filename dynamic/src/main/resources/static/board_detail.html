@@ -49,14 +49,16 @@
             DO YOURSELF <br />
             USE SERVICE
           </h1>
-          <div class="main_title">
-            <h1>게시판</h1>
-          </div>
-          <br />
         </div>
       </section>
       <main>
         <div class="inner">
+          <div class="upper_box">
+            <div class="main_title">
+              <h1>게시판</h1>
+            </div>
+          </div>
+
           <div class="main_box">
             <table>
               <thead>
@@ -89,15 +91,30 @@
             </table>
           </div>
           <div class="detail_box">
+            <div class="upper">
+              <div class="searchBar">
+                <img src="/img/writing.png" alt="수정 버튼" id="modify_board" />
+                <img
+                  src="/img/쓰레기통.png"
+                  alt="삭제 버튼"
+                  id="delete_board"
+                />
+              </div>
+            </div>
             <div class="title">본문 상세 내용</div>
-            <div class="date">2025.02.20</div>
+            <div class="date">
+              <div>등록일 :</div>
+              <div class="add_date"></div>
+              <div>수정일 :</div>
+              <div class="modified_date"></div>
+            </div>
             <div class="description"></div>
             <div class="comment_list">
               <div class="list">
                 <div class="comment_box">
-                  <div class="name">홍길동</div>
-                  <div class="push_date">2025-02-25</div>
-                  <div class="comment">안녕하세요</div>
+                  <div class="name"></div>
+                  <div class="push_date"></div>
+                  <div class="comment"></div>
                 </div>
                 <div class="comment_box">
                   <div class="name"></div>
@@ -119,11 +136,24 @@
                 <div class="write">
                   <!-- <div class="name">유서영</div>
                   <div class="push_date">2025-02-02</div> -->
-                  <div class="comment" contenteditable="true" class="write">
-                    안녕하세요
-                  </div>
+                  <div contenteditable="true" class="write_comment"></div>
                   <img src="/img/up.png" alt="전송하기" class="press" />
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="pop-up1">
+            <img src="/img/X.png" alt="취소 버튼" class="x_btn1" />
+            <h1>나의 게시글 수정</h1>
+            <div class="content_box">
+              <div class="content">
+                <div><b>본문 내용 :</b></div>
+                <div contenteditable="true" class="modify_text"></div>
+              </div>
+              <div class="date">
+                <div><b>수정일자 : </b></div>
+                <div class="modify_date"></div>
+                <input type="button" value="등록" class="add" />
               </div>
             </div>
           </div>
@@ -147,7 +177,7 @@
         </div>
       </footer>
     </div>
-
+    <div class="pop-up-background1"></div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/js/board_detail.js"></script>
   </body>

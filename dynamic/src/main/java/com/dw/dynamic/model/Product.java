@@ -48,8 +48,19 @@ public class Product {
                 this.id,
                 this.price,
                 this.category.getName(),
-                this.isActive
+                this.isActive,
+                this.getTitle()
         );
+    }
+
+    public String getTitle() {
+        if (this instanceof Course) {
+            return ((Course) this).getTitle();
+        } else if (this instanceof PayrollSubscription) {
+            return ((PayrollSubscription) this).getTitle();
+        } else {
+            return "제목 없음";
+        }
     }
 
 }

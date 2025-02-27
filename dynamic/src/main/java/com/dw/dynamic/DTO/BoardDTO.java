@@ -25,10 +25,12 @@ public class BoardDTO {
 
     private boolean answer; // 관리자 답변 여부
 
-     private LocalDate addDate; // 작성일
+    private LocalDate addDate; // 작성일
 
     private LocalDate modifyDate;// 수정일
 
     private String userName; // 유저(단방향)
+
+    private Boolean isActive;
 
 }

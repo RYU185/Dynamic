@@ -1,6 +1,9 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 console.log(id);
+const modify_board = document.querySelector('#modify_board');
+const delete_board = document.querySelector('#delete_board');
+const userRole = JSON.parse(sessionStorage.getItem('userName'));
 
 $(document).ready(function () {
   $.ajax({
@@ -11,12 +14,14 @@ $(document).ready(function () {
       $('tbody').empty();
       let count = 1;
       response.forEach((element) => {
-        //  가이드 제목, ID, 제목만 표시
-        var $row = $(`<tr class="row">
+        if (element.isActive === true) {
+          //  가이드 제목, ID, 제목만 표시
+          var $row = $(`<tr class="row">
         <td>${count++}</td>
         <td>${element.title}</td>
       </tr>`);
-        $('tbody').append($row); // 테이블에 새 행 추가
+          $('tbody').append($row); // 테이블에 새 행 추가
+        }
       });
     },
   });
@@ -29,41 +34,38 @@ $(document).ready(function () {
     method: 'get',
     contentType: 'application/json',
     success: function (response) {
-      $('.detail_box').empty();
-      var row = `
-          <div class='title'>본문 상세 내용 </div>
-          <div class="date">${response.addDate}</div>
-          <div class='description'>${response.title}</div>  
-           <div class='comment_list'>
-           <div class="list"></div>  
-           </div>           
-      `;
-      $('.detail_box').append(row);
-      console.log(row);
+      document.querySelector('.add_date').innerHTML = response.addDate;
+      document.querySelector('.modified_date').innerHTML = response.modifyDate;
+      document.querySelector('.description').innerHTML = response.title;
+      const writeUser = response.userName;
+      console.log(writeUser);
+      console.log(userRole);
+      if (userRole === writeUser) {
+        if (
+          modify_board.style.display != 'block' &&
+          delete_board.style.display != 'block'
+        ) {
+          modify_board.style.display = 'block';
+          delete_board.style.display = 'block';
+        }
+      }
 
       $.ajax({
         url: '/api/comment/board-id/' + encodeURIComponent(id),
         method: 'get',
         contentType: 'application/json',
         success: function (response) {
-          response.forEach((element) => {
-            var row = `
-                <div class="comment_box">
-                  <div class="name">${element.userName}</div>
-                  <div class="push_date">${element.addDate}</div>
-                  <div class="comment">${element.text}</div>
-              </div>`;
-            $('.list').append(row);
-            console.log(row);
+          // 각 데이터를 순회하며 .name, .push_date, .comment 요소에 넣기
+          const names = document.querySelectorAll('.name');
+          const pushDates = document.querySelectorAll('.push_date');
+          const comments = document.querySelectorAll('.comment');
+
+          response.forEach((element, index) => {
+            // 각 항목에 대응하는 요소가 있는지 확인하고 값을 삽입
+            if (names[index]) names[index].innerHTML = element.userName;
+            if (pushDates[index]) pushDates[index].innerHTML = element.addDate;
+            if (comments[index]) comments[index].innerHTML = element.text;
           });
-          var row1 = `
-          <div class="write_box">
-                <div class="write">
-                  <div class="comment" contenteditable="true" class="write"></div>
-                  <img src="/img/up.png" alt="전송하기" class="press" />
-                </div>
-              </div>`;
-          $('.comment_list').append(row1);
         },
       });
     },
@@ -80,41 +82,42 @@ $(document).on('click', 'tbody tr', function () {
       $('tbody').empty();
       let count = 1;
       response.forEach((element) => {
-        // 공지사항 제목, ID, 작성일만 표시
-        var $row = $(`<tr class="row">
+        if (element.isActive === true) {
+          // 공지사항 제목, ID, 작성일만 표시
+          var $row = $(`<tr class="row">
                             <td>${count++}</td>
                             <td>${element.title}</td>
                           </tr>`);
-        $('tbody').append($row); // 테이블에 새 행 추가
-        $row.on('click', () => {
-          console.log(element.id + ' ' + element.title);
-          window.location.href = '/board_detail.html?id=' + element.id;
-        });
+          $('tbody').append($row); // 테이블에 새 행 추가
+          $row.on('click', () => {
+            console.log(element.id + ' ' + element.title);
+            window.location.href = '/board_detail.html?id=' + element.id;
+          });
+        }
       });
     },
   });
 });
 
-
-const userRole = JSON.parse(sessionStorage.getItem('userName'));
 $(document).on('click', '.press', function () {
-  const text = document.querySelector('.write');
+  const text = document.querySelector('.write_comment');
+  text.focus();
   if (userRole === null || userRole == undefined) {
     alert('로그인 후 이용 가능합니다');
     return;
   }
   // 댓글 내용이 비어있는 경우 처리
-  if (!text || text.innerText.trim() === "") {
-    alert("댓글 내용을 입력해 주세요.");
+  if (!text || text.innerText.trim() === '') {
+    alert('댓글 내용을 입력해 주세요.');
     return;
   }
 
   var sendData = {
-    "id": 0,
-    "boardId": id,
-    "text": text.innerText
-  }
-  console.log(sendData)
+    id: 0,
+    boardId: id,
+    text: text.innerText,
+  };
+  // console.log(sendData)
 
   $.ajax({
     url: '/api/comment/save',
@@ -122,15 +125,83 @@ $(document).on('click', '.press', function () {
     data: JSON.stringify(sendData),
     contentType: 'application/json',
     success: function (response) {
-      const newComment = document.createElement('div')
+      const newComment = document.createElement('div');
       newComment.classList.add('comment_box');
       newComment.innerHTML = `
       <div class="name">${response.userName}</div>
       <div class="push_date">${response.addDate}</div>
       <div class="comment">${response.text}</div>
     `;
-      window.location.href = "/board_detail.html?id=" + id;
+      // 답변한 사람의 유저네임이 관리자이면 상단에 고정하기!!(근데 안돼)
+      // const comment_list = document.querySelector('.list');
+      // if (response.userName === 'admin') {
+      //   comment_list.prepend(newComment);
+      // }
 
-    }
-  })
+      window.location.href = '/board_detail.html?id=' + id;
+    },
+  });
+});
+// 버튼 클릭 시 , 수정 팝업 보이게 처리
+const content1 = document.querySelector('.pop-up1');
+const background1 = document.querySelector('.pop-up-background1');
+modify_board.addEventListener('click', function () {
+  if (content1.style.display === 'none' || content1.style.display === '') {
+    content1.style.display = 'block'; // display: block 으로 변경
+    background1.style.display = 'block';
+  } else {
+    content1.style.display = 'none'; // display: none 으로 다시 변경
+    background1.style.display = 'block';
+  }
+});
+document.querySelector('.x_btn1').addEventListener('click', function () {
+  document.querySelector('.pop-up1').style.display = 'none';
+  document.querySelector('.pop-up-background1').style.display = 'none';
+});
+
+// 나의 게시글 수정!!!!
+$(document).on('click', "input[type='button']", function () {
+  const text = document.querySelector('.modify_text');
+  const currentDate = (document.querySelector('.modify_date').textContent =
+    new Date().toLocaleString());
+
+  console.log(text, currentDate);
+
+  var sendData = {
+    id: id,
+    title: text.innerHTML,
+  };
+  console.log(sendData);
+
+  $.ajax({
+    url: '/api/board/update',
+    method: 'PUT',
+    data: JSON.stringify(sendData),
+    contentType: 'application/json',
+    success: function (response) {
+      console.log(response);
+      alert('게시글이 정상 수정되었습니다.');
+
+      document.querySelector('.description').innerHTML = response.title;
+
+      window.location.href = '/board_detail.html?id=' + response.id;
+    },
+  });
+});
+
+$(document).on('click', '#delete_board', function () {
+  const isConfirmed = confirm('해당 게시물을 삭제 처리하도록 할까요 ?');
+
+  if (isConfirmed) {
+    $.ajax({
+      url: 'api/board/delete/' + encodeURIComponent(id),
+      method: 'POST',
+      contentType: 'application/json',
+      success: function () {
+        window.location.href = '/main_board.html';
+      },
+    });
+  } else {
+    alert('삭제 처리가 취소되었습니다');
+  }
 });

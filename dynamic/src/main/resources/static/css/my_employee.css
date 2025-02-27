@@ -108,6 +108,8 @@ hr {
     top: 50px;
 }
 
+/* section */
+
 section {
     width: 100%;
     padding: 20px;
@@ -139,26 +141,24 @@ section .titlewrap .main_title h1 {
     font-size: 3rem;
     font-weight: 900;
     color: #050505ee;
-    margin: 110px 40px 0px 40px;
+    margin: 70px 0px 0px 300px;
     position: absolute;
     z-index: 1;
 }
 
 main {
-    margin-top: 50px;
     width: 100%;
-
+    height: auto;
     position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 100px;
 }
 
 main .inner {
     width: 100%;
-    height: 900px;
-
-    /* border: 1px solid black; */
-    display: flex;
-    justify-content: center;
-    position: relative;
+    height: 500px;
+    margin: 0px 50px 0 50px;
 }
 
 main .inner .upper {
@@ -220,9 +220,6 @@ main .inner .upper .searchBar img:hover {
     cursor: pointer;
 }
 
-main .inner .upper .searchBar #add_guide {
-    display: none;
-}
 
 main .inner .upper .searchBar p input::placeholder {
     color: #465c6b;
@@ -234,65 +231,79 @@ main .inner .upper .searchBar p input:focus::placeholder {
     color: transparent;
 }
 
-
-
-
-main .inner .main_box {
-    margin-top: 5px;
-    width: 90%;
-    /* height: 100%; */
-    position: absolute;
-    top: 60px;
+main .inner .upper .searchBar .add {
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: rgba(58, 58, 58, 0.1);
+    border-radius: 15px;
+    color: rgb(117, 117, 117);
+    border: none;
 }
 
-main .inner .main_box table {
+main .inner .upper .searchBar .add:hover {
+    background-color: rgba(58, 58, 58, 0.3);
+    color: rgb(240, 240, 240);
+}
+
+.table_wrap {
+    padding: 0 3.125rem 0 3.125rem;
+}
+
+.table_wrap .employee_table {
     width: 100%;
-
-    border: 1px solid#6d6d6d;
-    border-collapse: collapse;
-    /* 겹치는 border 없애기 */
-}
-
-main .inner .main_box table tr {
-    border: 1px solid #6d6d6d;
+    margin-top: 1.25rem;
     text-align: center;
+    border-spacing: 0;
+    border: none;
 }
 
-main .inner .main_box th {
-    background-color: #eaf1ff;
-    height: 40px;
-}
-
-main .inner .main_box table tr th {
-    border: 1px solid #6d6d6d;
-    outline: none;
-    font-size: 30px;
-    font-weight: 500;
-}
-
-main .inner .main_box table tr td {
-    border: 1px solid #6d6d6d;
-    max-width: 500px;
-    /* 셀의 최대 너비 설정 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 18px;
-    font-weight: 500;
-    height: 40px;
-
-}
-
-main .inner .main_box table tr .bold {
+.table_wrap .employee_table th {
+    font-family: 'GmarketSansMedium';
+    padding: 5px;
     font-size: 20px;
-    font-weight: 800;
+    border-bottom: 2px solid #6d6d6d;
 }
 
-main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td:nth-child(3) {
-    width: 10px;
+.table_wrap .employee_table tr {
+    transition: background 0.3s, color 0.3s;
 }
+
+.table_wrap .employee_table tr:nth-child(2n) {
+    background-color: rgb(244, 243, 243);
+}
+
+.table_wrap .employee_table tr:not(:first-child):hover {
+    background-color: #c5d9ff;
+    border: 2px solid #fff;
+    color: black;
+}
+
+.table_wrap .employee_table td {
+    border-right: 1px solid #6d6d6d;
+    padding: 5px;
+}
+
+.table_wrap .employee_table td img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.table_wrap .employee_table td img:hover {
+    width: 35px;
+    height: 35px;
+}
+
+.table_wrap .employee_table td:nth-child(1) {
+    cursor: pointer;
+}
+
+.table_wrap .employee_table td:nth-child(6) {
+    border-right: none;
+}
+
 
 .pop-up-background1 {
     width: 100%;
@@ -400,7 +411,7 @@ main .content_box .date div:nth-child(2) {
     font-weight: 400;
 }
 
-main .content_box .date .add {
+main .content_box .add {
     width: 150px;
     height: 40px;
     margin-left: 150px;
@@ -414,14 +425,18 @@ main .content_box .date .add {
 
 }
 
-main .content_box .date .submit:hover {
+main .content_box .add:hover {
     background-color: rgba(58, 58, 58, 0.3);
     color: rgb(240, 240, 240);
 
 }
 
+
+
+/* footer */
+
 footer .inner {
-    padding-top: 50px;
+    padding-top: 120px;
     width: 100%;
     margin: 0px auto;
 }

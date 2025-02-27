@@ -1,7 +1,6 @@
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 if (userRole != undefined) {
   document.querySelector('#add_board').style.display = 'inline';
-  document.querySelector('#delete_board').style.display = 'inline';
 }
 
 // 버튼을 클릭하면 가이드 추가 팝업 보이게 처리
@@ -35,7 +34,7 @@ function submit_go() {
                     <td>${element.id}</td>
                     <td>${element.title}</td>
                     <td>${element.addDate}</td>
-                     <td>${element.answer}</td>
+                    <td>${element.answer}</td>
                   </tr>`;
           $('tbody').append(row); // 테이블에 새 행 추가
         });
@@ -77,8 +76,8 @@ document
     console.log(text, currentDate);
 
     var sendData = {
-      "id": 0,
-      "title": text.innerText,
+      id: 0,
+      title: text.innerText,
     };
     console.log(sendData);
     if (sendData.title) {
@@ -111,21 +110,24 @@ $(document).ready(function () {
     method: 'get',
     contentType: 'application/json',
     success: function (response) {
+      console.log(response);
       $('tbody').empty();
       let count = 1;
       response.forEach((element) => {
-        //  가이드 제목, ID, 작성일만 표시
-        var $row = $(`<tr class="row">
+        if (element.isActive === true) {
+          //  가이드 제목, ID, 작성일만 표시
+          var $row = $(`<tr class="row">
                 <td>${count++}</td>
                 <td>${element.title}</td>
                 <td>${element.addDate}</td>
                  <td>${element.answer}</td>
               </tr>`);
-        $('tbody').append($row); // 테이블에 새 행 추가
-        $row.on('click', () => {
-          console.log(element.id + ' ' + element.title);
-          window.location.href = '/board_detail.html?id=' + element.id;
-        });
+          $('tbody').append($row); // 테이블에 새 행 추가
+          $row.on('click', () => {
+            console.log(element.id + ' ' + element.title);
+            window.location.href = '/board_detail.html?id=' + element.id;
+          });
+        }
       });
     },
   });

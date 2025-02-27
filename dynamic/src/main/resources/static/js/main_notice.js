@@ -2,18 +2,13 @@
 // admin일 경우에만 추가 수정 삭제 버튼 보이도록
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 if (userRole === 'admin') {
-    document.querySelector('#modify_notice').style.display = 'inline';
     document.querySelector('#add_notice').style.display = 'inline';
-    document.querySelector('#delete_notice').style.display = 'inline';
 }
 
 const button2 = document.querySelector('#add_notice');
 const content2 = document.querySelector('.pop-up2');
 const background2 = document.querySelector('.pop-up-background2');
 
-const button1 = document.querySelector('#modify_notice');
-const content1 = document.querySelector('.pop-up1');
-const background1 = document.querySelector('.pop-up-background1');
 
 // 버튼 클릭 시 공지사항 추가 및 공지사항 수정 팝업 보이게 처리
 button2.addEventListener('click', function () {
@@ -29,18 +24,6 @@ button2.addEventListener('click', function () {
     }
 });
 
-button1.addEventListener('click', function () {
-    if (
-        content1.style.display === 'none' ||
-        content1.style.display === ''
-    ) {
-        content1.style.display = 'block'; // display: block 으로 변경
-        background1.style.display = 'block';
-    } else {
-        content1.style.display = 'none'; // display: none 으로 다시 변경
-        background1.style.display = 'block';
-    }
-});
 // title을 통한 검색
 function submit_go() {
     let title = document.querySelector("input[id='search_notice']");
@@ -78,11 +61,7 @@ const come_back = document.querySelector('.main_title h1');
 come_back.addEventListener('click', function () {
     window.location.href = 'main_notice.html';
 });
-// 공지사항 작성/수정 X 버튼 누르면 팝업 창 꺼지기
-document.querySelector(".x_btn1").addEventListener('click', function () {
-    document.querySelector('.pop-up1').style.display = 'none';
-    document.querySelector('.pop-up-background1').style.display = 'none';
-});
+// 공지사항 작성 X 버튼 누르면 팝업 창 꺼지기
 
 document.querySelector(".x_btn2").addEventListener('click', function () {
     document.querySelector('.pop-up2').style.display = 'none';

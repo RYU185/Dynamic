@@ -31,6 +31,13 @@ public class CartService {
         return cartRepository.findByUser(currentUser).stream().map(Cart::toDTO).toList();
     }
 
+    public List<CartDTO> getCartsByUserName(String userName, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+
+        return cartRepository.findByUserUserName(userName).stream().map(Cart::toDTO).toList();
+    }
+
+
     public List<CartDTO> getAllCartsByIsActive(HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         return cartRepository.findByIsActive().stream().map(Cart::toDTO).toList();

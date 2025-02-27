@@ -50,7 +50,8 @@ public class Board {
                 this.answer,
                 this.addDate,
                 this.modifyDate,
-                this.user.getUserName()
+                this.user.getUserName(),
+                this.isActive
         );
     }
 }

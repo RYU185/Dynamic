@@ -1,8 +1,9 @@
+const userRole = JSON.parse(sessionStorage.getItem('userName'));
+
 // 버튼과 콘텐츠 요소 가져오기
 const button = document.querySelector('.button');
 const content = document.querySelector('.pop-up');
 const opacity = document.querySelector('.opacity');
-
 
 
 
@@ -22,3 +23,22 @@ opacity.addEventListener('click', function () {
         opacity.style.display = "none";
     }
 });
+
+window.onload = function () {
+    if (userRole) {
+        window.location.href = '/after_login.html';
+    }
+}
+
+
+function validateInput(input) {
+    const inputs = document.getElementsByClassName('element');
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].value.replace(/[^0-9]/g, '');  // 숫자 외의 문자는 모두 삭제
+        // 3자리마다 쉼표 넣기
+        let formattedValue = inputs[i].value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+        // 쉼표가 포함된 값으로 입력 필드 업데이트
+        inputs[i].value = formattedValue;
+    }
+}

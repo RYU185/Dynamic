@@ -35,7 +35,6 @@ public class NoticeService {
 
     public Notice getNoticeById(Long id){
         return noticeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("존재하지 않는 ID입니다"));
-
     }
 
     public List<Notice> getNoticesByTitle(String title){
@@ -68,6 +67,8 @@ public class NoticeService {
         }
         return noticeRepository.findById(notice.getNoticeId())
         .map((notice1) -> {
+            notice1.setNoticeTitle(notice.getNoticeTitle());
+            notice1.setText(notice.getText());
                     notice1.setModifiedDate(LocalDate.now());
                     return noticeRepository.save(notice1);
                 }).orElseGet(()->{

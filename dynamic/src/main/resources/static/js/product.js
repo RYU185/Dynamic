@@ -1,112 +1,74 @@
-
-// 내가 눌러야 할 버튼
-
 $(document).ready(function () {
-        $(".btnInCart").on("click", function () {
-            const article = $(this).closest("article");
+    $.ajax({
+        url: "/api/product/all",
+        method: "get",
+        contentType: "application/json",
+        success: function (response) {
+        $("#courseContainer").empty();
+        $("#subscContainer").empty();
 
-            const productId = $(this).attr("id");
-            const productName = article.find("h2").text();
-            const productPrice = article.find("p:contains('가격')").text().replace(/\D/g, ""); // p 태그에서 숫자만 추출하는 코드
-            const productImg = article.find(".thumbnail img").attr("src")
-            // 양쪽 문자열 다 떼고 공백제거
+        response.forEach((product) => {
+            console.log(product);
+            console.log(product.title);
 
+        var title = product.title;
+        var price = product.price;
+        var addDate = product.addDate || "날짜 없음";
+        var productId = product.id;
+        var category = product.category?.name;
+        var description = product.description || "";
 
-        let product = {
-            id: productId,
-            name: productName,
-            price: parseInt(productPrice,10),
-            // 10진수로 변환해달라는 뜻
-            quantity:1,
-            image: productImg
-        };
+        var $article = $(`
+                <article>
+                    <div class="thumbnail">
+                    <img src="./img/courseThumnail1.png" alt="${title} 썸네일" />
+                    </div>
 
-        //장바구니 가져오기
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    <h2>${title}</h2>
+                    <br>
+                    <div>
+                    <span>가격: </span><span class="price">${price}</span><span>원</span>
+                    </div>
+                    <p>${addDate}</p>
+                    <p>${description}</p>
+                    <p>별점: ★★★★☆</p>
 
+                    <button class="btnInCart" data-id="${productId}" data-title="${title}" data-price="${price}" data-category="${category}">장바구니</button>
+                    <button class="btnPurchase" data-id="${productId}">구매</button>
+                </article>
+        `);
 
-        // 중복여부 확인
-        let existProduct = cart.find(item => item.id === productId);
-            if (existProduct) {
-                existProduct.quantity += 1;
+            if (category === "강의") {
+            $("#courseContainer").append($article);
             } else {
-                cart.push(product);
+            $("#subscContainer").append($article);
             }
+        });
 
-            localStorage.setItem("cart",JSON.stringify(cart));
 
-            $.ajax({
-                type: "POST",
-                url: "/cart/save", 
-                contentType: "application/json",
-                data: JSON.stringify(product),
-                success: function (response) {
-                  if (!response || !response.cartItem) {
-                    alert("장바구니가 올바르게 반환되지 않았습니다");
-                    return;
-                  }
+        $(".btnInCart").on("click", function () {
+            var productId = $(this).data("id");
+            var userName = JSON.parse(sessionStorage.getItem("userName"));
 
-                  $(".cart-item-list").empty();
+            var cartItem = {
+              productId: productId,
+              userName: userName,
+              cartId: 0,
+            };
 
-                  response.cartItems.forEach((item) => {
-                    let cartItem = `
-                        <div class="cart-item">
-                            <div class="check">
-                                <input type="checkbox">
-                            </div>
-                            <div class="pic">
-                                <img src="${item.image}" alt="상품 이미지">
-                            </div>
-                            <div class="description">
-                                <h1>${item.name}</h1>
-                                <p>${item.price.toLocaleString()}원</p>
-                                <p>수량: ${item.quantity}</p>
-                            </div>
-                            <div class="counter">
-                                <button class="btn minus" data-id="${
-                                    item.id
-                                }">-</button>
-                                <span class="count">${item.quantity}</span>
-                                <button class="btn plus" data-id="${
-                                    item.id
-                                }">+</button>
-                            </div>
-                            <div class="close">
-                                <img src="./img/X.png" class="delete-item" data-id="${
-                                    item.id
-                                }">
-                            </div>
-                        </div>`;
-                    $(".cart-item-list").append(cartItem); // 장바구니 목록에 추가
-                });
-
-                localStorage.setItem(
-                    "cart",
-                    JSON.stringify(response.cartItems)
-                );
-
-                  // 장바구니에 들어가는 총 갯수
-                let totalQuantity = response.cartItems.reduce(
-                    (sum, item) => sum + item.quantity,
-                    0
-                );
-
-                  // 장바구니에 들어가는 제품 총액
-                let totalPrice = response.cartItems.reduce(
-                    (sum, item) => sum + item.price * item.quantity,
-                    0
-                );
-                
-                $("#cartCount").text(totalQuantity); //장바구니 갯수 화면에 업데이트
-                $("#totalPrice").text(totalPrice.toLocaleString() + "원"); // 장바구니 총액 화면에 업데이트
-
-                alert(`${productName}이(가) 장바구니에 추가되었습니다.`);
-                },
-
-                error:function(){
-                    alert("장바구니 추가 중 오류가 발생하였습니다")
-                }
-            });
-            alert(`${productName}이(가) 장바구니에 추가되었습니다.`);
-    })
-});
+        $.ajax({
+          url: "/api/cart/save",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(cartItem),
+          success: function () {
+            alert("제품이 정상적으로 장바구니에 담겼습니다.");
+          },
+          error: function () {
+            alert("장바구니 추가 중 오류가 발생했습니다.");
+          },
+        });
+        });
+        },
+    });
+    });

@@ -25,7 +25,7 @@
             <a href="product.html"><span>제품</span></a>
           </li>
           <li>
-            <a href="board.html"><span>게시판</span></a>
+            <a href="main_board.html"><span>게시판</span></a>
           </li>
           <li>
             <a href="formation_data.html"><span>서식자료</span></a>
@@ -61,10 +61,9 @@
             <p>
               <input type="text" placeholder="제목을 입력해주세요" id="search_notice" />
             </p>
-            <img src="./img/search.png" onclick="submit_go()" /><img src="/img/writing.png" alt="수정 버튼"
-              id="modify_notice" style="display: none" /><img src="/img/add.png" alt="추가 버튼" id="add_notice"
+            <img src="./img/search.png" onclick="submit_go()" /><img src="/img/add.png" alt="추가 버튼" id="add_notice"
               style="display: none" />
-            <img src="/img/쓰레기통.png" alt="삭제 버튼" id="delete_notice" style="display: none" />
+
           </div>
         </div>
         <div class="main_box">
@@ -132,27 +131,7 @@
         </div>
       </div>
 
-      <!-- 공지사항 수정 박스(pop-up) -->
-      <div class="pop-up1">
-        <img src="/img/X.png" alt="취소 버튼" class="x_btn1">
-        <h1>공지사항 수정</h1>
-        <div class="content_box">
-          <div class="content">
-            <div><b>제목 :</b></div>
-            <div contenteditable="true" class="modify_title"></div>
-          </div>
-          <div class="content">
-            <div><b>공지내용 :</b></div>
-            <div contenteditable="true" class="modify_text">
-            </div>
-          </div>
-          <div class="date">
-            <div><b>수정일자 : </b></div>
-            <div>2025.02.20</div>
-            <input type="submit" value="수정" class="submit" onsubmit="return false" />
-          </div>
-        </div>
-      </div>
+
 
       <!-- 공지사항 등록 박스(pop-up) -->
       <div class="pop-up2">
@@ -195,7 +174,6 @@
       </div>
     </footer>
   </div>
-  <div class="pop-up-background1"></div>
   <div class="pop-up-background2"></div>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
