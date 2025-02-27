@@ -34,7 +34,7 @@ function submit_go() {
                     <td>${element.id}</td>
                     <td>${element.title}</td>
                     <td>${element.addDate}</td>
-                     <td>${element.answer}</td>
+                    <td>${element.answer}</td>
                   </tr>`;
           $('tbody').append(row); // 테이블에 새 행 추가
         });

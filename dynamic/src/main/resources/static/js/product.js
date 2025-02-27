@@ -1,5 +1,5 @@
 
-    $(".btnInCart").on("click", function () {
+$(".btnInCart").on("click", function () {
         const article = $(this).closest("article");
 
         const productId = $(this).attr("id");
@@ -32,6 +32,7 @@
     });
 
 
+    // 모든 제품 불러오기 - DB연결
 $(document).ready(function () {
   $.ajax({
     url: "/api/product/all",
@@ -82,4 +83,5 @@ $(document).ready(function () {
     },  
     });
 });
-    
+
+
