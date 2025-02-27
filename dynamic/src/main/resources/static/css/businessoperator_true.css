@@ -64,8 +64,8 @@ header .header-wrap .sub {
   display: flex;
   justify-content: center;
 }
-.wrap .box .agree_box .form {
-  text-align: right;
+.wrap .box .agree_box form .agree_text {
+margin-left: 300px;
 }
 
 /* 체크 내용란 */
@@ -86,6 +86,7 @@ header .header-wrap .sub {
   display: flex;
   text-align: center;
 }
+
 .wrap .box .informtion_box form .female {
   width: 50%;
 }
@@ -114,7 +115,11 @@ header .header-wrap .sub {
   width: 20%;
   text-align: center;
 }
-
+.wrap .box .informtion_box .id .right:hover {
+  border-radius: 5px;
+  background: #5c89e2;
+  cursor: pointer;
+}
 .wrap .box .informtion_box .planBusiness .box_icon {
   margin-left: 330px;
 }
@@ -126,10 +131,12 @@ header .header-wrap .sub {
   justify-content: space-around;
 }
 .wrap .last .cancel:hover {
+  border-radius: 5px;
   cursor: pointer;
   background-color: #c1d6e8;
 }
 .wrap .last .join:hover {
+  border-radius: 5px;
   cursor: pointer;
   background-color: #c1d6e8;
 }
