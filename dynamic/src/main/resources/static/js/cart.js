@@ -99,9 +99,14 @@ $(document).ready(function (){
                 productData[product.id] = {
                     title: product.title,
                     price: product.price,
-                    category: product.category?.name
+                    category: product.category
+
+                    
                 }
+                console.log(product.category);
             });
+
+            console.log("aaa")
             loadingCart(userName);
         },
         error:function(){
@@ -151,14 +156,9 @@ $(document).ready(function (){
 
 
 
-                    if (productOnList.category?.name === "강의") {
-
-                        console.log("aaa")
-
+                    if (productOnList.category === "강의") {
                         $("#courseCartList").append($cartItem);
                     } else {
-
-                        console.log("bbb")
                         $("#subscCartList").append($cartItem);
                     }
             }
