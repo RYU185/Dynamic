@@ -62,13 +62,17 @@ public class CartService {
         if (cartRepository.findById(cartDTO.getCartId()).isPresent()) {
             throw new InvalidRequestException("장바구니에 존재하는 제품입니다");
         }
+
         Product product=productRepository.findById(cartDTO.getProductId()).filter(p -> p.getIsActive().equals(true)).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 제품ID입니다"));
+        System.out.println(product);
+
         Cart cart = new Cart(
                 null,
                 currentUser,
                 product,
                 true
         );
+
         cart.setUser(currentUser);
 
         return cartRepository.save(cart).toDTO();

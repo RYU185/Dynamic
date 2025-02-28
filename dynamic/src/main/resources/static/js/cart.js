@@ -151,9 +151,7 @@ $(document).ready(function (){
                         </div>
                     </div>
                     `);
-
-
-
+                    
                     if (productOnList.category === "강의") {
                         $("#courseCartList").append($cartItem);
                     } else {
