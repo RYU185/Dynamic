@@ -7,6 +7,7 @@ import com.dw.dynamic.model.PurchaseHistory;
 import com.dw.dynamic.service.PurchaseHistoryService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,14 @@ public class PurchaseHistoryController {
     public ResponseEntity<List<PurchaseHistoryDTO>> savePurchaseHistoryAndUserProduct(@RequestBody List<CartDTO> carts, HttpServletRequest request){
         return new ResponseEntity<>(
                 purchaseHistoryService.savePurchaseHistoryAndUserProduct(carts,request),
+                HttpStatus.OK
+        );
+    }
+
+    @PostMapping("/save/instant-buy")
+    public ResponseEntity<PurchaseHistoryDTO> instantBuy (@RequestBody String productId, HttpServletRequest request){
+        return new ResponseEntity<>(
+                purchaseHistoryService.instantBuy(productId, request),
                 HttpStatus.OK
         );
     }

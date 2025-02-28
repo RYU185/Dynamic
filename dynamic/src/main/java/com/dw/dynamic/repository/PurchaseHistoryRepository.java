@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public interface PurchaseHistoryRepository extends JpaRepository<PurchaseHistory,Long> {
 
-    PurchaseHistory findByProductId(String productId);
+    PurchaseHistory findByProductId(String id);
 
 
     List<PurchaseHistory> findByUser(User currentUser);

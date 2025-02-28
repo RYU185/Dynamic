@@ -3,6 +3,7 @@ package com.dw.dynamic.service;
 import com.dw.dynamic.DTO.CartDTO;
 import com.dw.dynamic.DTO.ProductDTO;
 import com.dw.dynamic.DTO.PurchaseHistoryDTO;
+import com.dw.dynamic.DTO.UserProductDTO;
 import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
@@ -94,7 +95,7 @@ public class PurchaseHistoryService {
     public List<PurchaseHistoryDTO> savePurchaseHistoryAndUserProduct(List<CartDTO> cartDTOS, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {
-            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+            throw new UnauthorizedUserException("올바르지 않은 접근입니다");
         }
         List<PurchaseHistory> purchaseHistories = new ArrayList<>();
         List<UserProduct> userProductList = new ArrayList<>();
@@ -121,4 +122,33 @@ public class PurchaseHistoryService {
                     userProductRepository.saveAll(userProductList).stream().map(UserProduct::toDTO).toList();
             return purchaseHistoryRepository.saveAll(purchaseHistories).stream().map(PurchaseHistory::toDTO).toList();
         }
+
+        public PurchaseHistoryDTO instantBuy (String productId, HttpServletRequest request){
+            User currentUser = userService.getCurrentUser(request);
+            if (currentUser == null){
+                throw new UnauthorizedUserException("올바르지 않은 접근입니다");
+            }
+
+            Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("해당제품을 찾을 수 없습니다"));
+
+            PurchaseHistory purchaseHistory = new PurchaseHistory();
+            purchaseHistory.setUser(currentUser);
+            purchaseHistory.setProduct(product);
+            purchaseHistory.setPrice(product.getPrice());
+            purchaseHistory.setPurchaseDate(LocalDate.now());
+            purchaseHistoryRepository.save(purchaseHistory);
+
+            UserProduct userProduct = new UserProduct();
+            userProduct.setUser(currentUser);
+            userProduct.setProduct(product);
+            userProductRepository.save(userProduct);
+
+            return purchaseHistory.toDTO();
+        }
+
+        public UserProductDTO getUserProductDTO(Long userProductId) {
+        UserProduct userProduct = userProductRepository.findById(userProductId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저 제품을 찾을 수 없습니다."));
+        return userProduct.toDTO();
+    }
 }
