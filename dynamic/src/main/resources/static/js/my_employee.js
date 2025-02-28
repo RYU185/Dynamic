@@ -47,7 +47,7 @@ function AllData(response) {
   response.forEach((element) => {
     if (element.isActive === true && element.freeTemplate === false) {
       var $row = $(`<tr class="row" id="${element.id}">
-          <td>${element.name}</td>
+          <td >${element.name}</td>
           <td>${element.birthday}</td>
           <td>${element.hireDate}</td>
            <td>${element.hourlyRate}</td>
@@ -58,12 +58,7 @@ function AllData(response) {
               <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
             </td>
         </tr>`);
-      $('tbody').append($row); // 테이블에 새 행 추가
-      // $row.on("click", () => {
-      //   // console.log(element.id + " " + element.name);
-      //   window.location.href = "/my_employee.html?id=" + element.id;
-      // });
-
+      $('tbody').append($row);
       // 나의 직원 급여명세서 작성 페이지로 이동
       const write = document.querySelector('.write');
       $(write).on("click", () => {
@@ -71,46 +66,47 @@ function AllData(response) {
         window.location.href = "/my_employee_payrolltemplate.html?id=" + element.id;
       });
       // 연결하는 동시에 직원 수정 버튼 클릭 될 수있도록 처리
-      const button2 = document.querySelectorAll(".modify_button");
+
       const content2 = document.querySelector(".pop-up2");
       const background2 = document.querySelector(".pop-up-background2");
-      button2.forEach((button) => {
-        button.addEventListener('click', function () {
-          if (
-            content2.style.display === 'none' ||
-            content2.style.display === ''
-          ) {
-            content2.style.display = 'block'; // display: block 으로 변경
-            background2.style.display = 'block';
-          } else {
-            content2.style.display = 'none'; // display: none 으로 다시 변경
-            background2.style.display = 'none';
-          }
-        });
-      })
-      const delete_button = document.querySelectorAll(".delete_button");
-      delete_button.forEach((button) => {
-        button.addEventListener('click', function (e) {
-          const button = e.target;
-          const parent = button.closest('tr');
-          console.log(parent.id);
-          const isConfirmed = confirm('해당 직원을 삭제 처리하도록 할까요 ?');
-          if (isConfirmed) {
-            $.ajax({
-              url: 'api/employee/delete/' + encodeURIComponent(parent.id),
-              method: 'POST',
-              contentType: 'application/json',
-              success: function () {
-                window.location.href = '/my_employee.html';
-              },
-            });
-          } else {
-            alert('삭제 처리가 취소되었습니다');
-          }
-        })
-      })
+      const modify_button = $row.find('.modify_button');
+      modify_button.on('click', function (e) {
+        if (
+          content2.style.display === "none" ||
+          content2.style.display === ""
+        ) {
+          content2.style.display = "block"; // display: block 으로 변경
+          background2.style.display = "block";
+
+        } else {
+          content2.style.display = "none"; // display: none 으로 다시 변경
+          background2.style.display = "none";
+        }
+      });
+      // 해당 직원 삭제처리
+      //  중첩의 문제를 해결하기 위해 하나의 row가 생성될때마다 event 달기
+      const delete_button = $row.find(".delete_button");
+      delete_button.on("click", function (e) {
+        const button = e.target;
+        const parent = button.closest("tr");
+        console.log(parent.id);
+        const isConfirmed = confirm("해당 직원을 삭제 처리하도록 할까요 ?");
+        if (isConfirmed) {
+          $.ajax({
+            url: "api/employee/delete/" + encodeURIComponent(parent.id),
+            method: "POST",
+            contentType: "application/json",
+            success: function () {
+              // window.location.href = '/my_employee.html';
+            },
+          });
+        } else {
+          alert("삭제 처리가 취소되었습니다");
+        }
+      });
     }
   });
+
 
 
   // 해당 직원 삭제처리
@@ -132,6 +128,48 @@ function AllData(response) {
   //     alert('삭제 처리가 취소되었습니다');
   //   }
   // });
+
+
+  $(document).on('click', ".modify", function (e) {
+    const button = e.target;
+    const parent = button.closest('tr');
+    console.log(parent.id);
+
+    const name = document.querySelector('#name1');
+    const position = document.querySelector('#position1');
+    const department = document.querySelector('#department1');
+    const phone = document.querySelector('#phone1');
+    const hourly_rate = document.querySelector('#hourly_rate1');
+    const birthday = document.querySelector('.birthday');
+    const hiredate = document.querySelector('.hiredate');
+
+    console.log(text, currentDate);
+
+    var sendData =
+    {
+      "id": parent.id,
+      "name": name.innerText,
+      "department": department.innerText,
+      "position": position.innerText,
+      "hourlyRate": hourly_rate.innerText,
+      "birthday": birthday.innerText,
+      "hireDate": hiredate.innerText,
+      "phoneNumber": phone.innerText
+    }
+    console.log(sendData);
+
+    $.ajax({
+      url: '/api/employee/update',
+      method: 'PUT',
+      data: JSON.stringify(sendData),
+      contentType: 'application/json',
+      success: function (response) {
+        console.log(response);
+        alert('직원이 정상 수정되었습니다.');
+        window.location.href = 'my_employee.html'
+      },
+    });
+  });
 
 
   // title을 통한 검색

@@ -62,7 +62,7 @@ public class EmployeeController {
     @PutMapping("/update")
     public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO employeeDTO,HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.saveEmployee(employeeDTO,request),
+                employeeService.updateEmployee(employeeDTO,request),
                 HttpStatus.OK);
     }
     @PostMapping("/delete/{id}")

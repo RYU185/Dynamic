@@ -56,10 +56,10 @@ public class BoardService {
     public BoardDTO updateBoard(BoardDTO boardDTO,HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
 
-    Board board =   boardRepository.findById(boardDTO.getId()).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은  ID입니다"));
-    board.setModifyDate(LocalDate.now());
-    board.setTitle(boardDTO.getTitle());
-    return boardRepository.save(board).toDTO();
+        Board board = boardRepository.findById(boardDTO.getId()).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은  ID입니다"));
+        board.setModifyDate(LocalDate.now());
+        board.setTitle(boardDTO.getTitle());
+        return boardRepository.save(board).toDTO();
 
     }
     public BoardDTO saveBoard(BoardDTO boardDTO, HttpServletRequest request){
