@@ -29,7 +29,9 @@ li {
 a {
   text-decoration: none;
 }
-
+input:focus {
+  outline: none;
+}
 .wrap {
   margin: 20px 20%;
 }
