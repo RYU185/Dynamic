@@ -70,14 +70,6 @@ $(document).on('click', '.apply', function () {
     },
   };
   console.log(sendData);
-  $.ajax({
-    url: '/api/employee/use/free-payrolltemplate',
-    method: 'POST',
-    data: JSON.stringify(sendData),
-    contentType: 'application/json',
-    success: function (response) {
-      sessionStorage.setItem('userData', JSON.stringify(sendData));
-      window.location.href = '/payrolltemplate.html';
-    },
-  });
+  sessionStorage.setItem('userData', JSON.stringify(sendData));
+  window.location.href = '/payrolltemplate.html';
 });

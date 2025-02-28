@@ -40,15 +40,17 @@ public class Employee {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @ManyToOne
+    @JoinColumn(name = "user_name")
+    private User user; // 단방향
+
+
     @Column(name="is_active")
     private Boolean isActive = true;
 
     @Column(name = "free_template")
     private Boolean freeTemplate = false;
 
-    @ManyToOne
-    @JoinColumn(name = "user_name")
-    private User user; // 단방향
 
 
 

@@ -113,9 +113,10 @@ public class EmployeeService {
                     employeeDTO.getBirthday(),
                     employeeDTO.getHireDate(),
                     employeeDTO.getPhoneNumber(),
+                    currentUser,
                                 true,
-                                false,
-                                currentUser);
+                                false
+                            );
             return employeeRepository.save(employee).toDTO();
         }catch (InvalidRequestException e){
             throw new InvalidRequestException("제목과 본문 모두 작성해주세요");
@@ -129,8 +130,9 @@ public class EmployeeService {
         Employee employee =   employeeRepository.findById(employeeDTO.getId()).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은  ID입니다"));
         employee.setName(employeeDTO.getName());
         employee.setPosition(employeeDTO.getPosition());
-        employee.setDepartment(employeeDTO.getPhoneNumber());
-        employee.setHourlyRate(employee.getHourlyRate());
+        employee.setDepartment(employeeDTO.getDepartment());
+        employee.setPhoneNumber(employee.getPhoneNumber());
+        employee.setHourlyRate(employeeDTO.getHourlyRate());
         return employeeRepository.save(employee).toDTO();
     }
 
@@ -162,9 +164,9 @@ public class EmployeeService {
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getBirthday(),
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
+                    currentUser,
                     true,
-                    true,
-                    currentUser);
+                 true);
             EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
             PayrollTemplate payrollTemplate = new PayrollTemplate(
                     null,
@@ -190,9 +192,9 @@ public class EmployeeService {
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getBirthday(),
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
+                    currentUser,
                     true,
-                    true,
-                    currentUser);
+                    true);
             EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
             PayrollTemplate payrollTemplate = new PayrollTemplate(
                     null,
@@ -210,6 +212,11 @@ public class EmployeeService {
         }else {
             throw new InvalidRequestException("무료 이용 횟수 5회를 초과하였습니다. 추가적인 사용을 원하시면 유료 서비스를 사용해주세요");
         }
+    }
+
+    public Long freeTemplateCount(HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+       return employeeRepository.freeTemplateCount();
     }
 }
 
@@ -272,3 +279,4 @@ public class EmployeeService {
 //        }
 //
 //    }
+

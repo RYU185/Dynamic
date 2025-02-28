@@ -18,7 +18,7 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @GetMapping("/all-by-admin")
-    public ResponseEntity<List<EmployeeDTO>> getAllEmployeeByAdmin(HttpServletRequest request){
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployeeByAdmin(HttpServletRequest request) {
         return new ResponseEntity<>(
                 employeeService.getAllEmployeesByAdmin(request),
                 HttpStatus.OK
@@ -33,49 +33,60 @@ public class EmployeeController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id,HttpServletRequest request) {
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id, HttpServletRequest request) {
         return new ResponseEntity<>(
                 employeeService.getEmployeeById(id, request),
                 HttpStatus.OK);
     }
 
     @GetMapping("/name/{name}")
-    public ResponseEntity<List<EmployeeDTO>> getEmployeesByName(@PathVariable String name,HttpServletRequest request) {
+    public ResponseEntity<List<EmployeeDTO>> getEmployeesByName(@PathVariable String name, HttpServletRequest request) {
         return new ResponseEntity<>(
                 employeeService.getEmployeesByName(name, request),
                 HttpStatus.OK);
     }
+
     @GetMapping("/position/{position}")
-    public ResponseEntity<List<EmployeeDTO>> getEmployeesByPosition(@PathVariable String position,HttpServletRequest request) {
+    public ResponseEntity<List<EmployeeDTO>> getEmployeesByPosition(@PathVariable String position, HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.getEmployeesByPosition(position,request),
+                employeeService.getEmployeesByPosition(position, request),
                 HttpStatus.OK);
     }
 
     @PostMapping("/save")
-    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO,HttpServletRequest request) {
+    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.saveEmployee(employeeDTO,request),
+                employeeService.saveEmployee(employeeDTO, request),
                 HttpStatus.OK);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO employeeDTO,HttpServletRequest request) {
+    public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO employeeDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.updateEmployee(employeeDTO,request),
+                employeeService.updateEmployee(employeeDTO, request),
                 HttpStatus.OK);
     }
+
     @PostMapping("/delete/{id}")
-    public ResponseEntity<String>deleteEmployee(@PathVariable Long id,HttpServletRequest request) {
+    public ResponseEntity<String> deleteEmployee(@PathVariable Long id, HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.deleteEmployee(id,request),
+                employeeService.deleteEmployee(id, request),
                 HttpStatus.OK);
     }
+
     @PostMapping("/use/free-payrolltemplate")
-    public ResponseEntity<SaveEmployeeWithTemplateDTO> saveFreePayrollTemplate(@RequestBody SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO, HttpServletRequest request){
+    public ResponseEntity<SaveEmployeeWithTemplateDTO> saveFreePayrollTemplate(@RequestBody SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO, HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.saveFreePayrollTemplate(saveEmployeeWithTemplateDTO,request),
+                employeeService.saveFreePayrollTemplate(saveEmployeeWithTemplateDTO, request),
                 HttpStatus.OK
         );
     }
+
+    @GetMapping("/free-template-count")
+    public ResponseEntity<Long> freeTemplateCount(HttpServletRequest request) {
+        return new ResponseEntity<>(
+                employeeService.freeTemplateCount(request),
+                HttpStatus.OK);
+    }
+
 }
