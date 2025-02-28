@@ -54,23 +54,25 @@ button1.addEventListener('click', function () {
   }
 });
 
-const button2 = document.querySelector(".modify_button");
+const button2 = document.querySelectorAll(".modify_button");
 const content2 = document.querySelector(".pop-up2");
 const background2 = document.querySelector(".pop-up-background2");
+button2.forEach((button) => {
+  button.addEventListener('click', function () {
+    if (
+      content2.style.display === 'none' ||
+      content2.style.display === ''
+    ) {
+      content2.style.display = 'block'; // display: block 으로 변경
+      background2.style.display = 'block';
+    } else {
+      content2.style.display = 'none'; // display: none 으로 다시 변경
+      background2.style.display = 'none';
+    }
+  });
+})
 
-button2.addEventListener('click', function () {
-  console.log(button2, content2, background2)
-  if (
-    content2.style.display === 'none' ||
-    content2.style.display === ''
-  ) {
-    content2.style.display = 'block'; // display: block 으로 변경
-    background2.style.display = 'block';
-  } else {
-    content2.style.display = 'none'; // display: none 으로 다시 변경
-    background2.style.display = 'none';
-  }
-});
+
 
 document.querySelector('.x_btn').addEventListener('click', function () {
   document.querySelector('.pop-up1').style.display = 'none';
