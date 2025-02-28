@@ -170,3 +170,7 @@ $(document).on("click", "#no", function () {
 });
 
 // admin이 제품추가
+
+$.ajax ({
+  url
+})

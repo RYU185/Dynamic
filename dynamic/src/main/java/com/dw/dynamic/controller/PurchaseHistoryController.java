@@ -56,7 +56,7 @@ public class PurchaseHistoryController {
     }
 
     @PostMapping("/save/instant-buy")
-    public ResponseEntity<PurchaseHistoryDTO> instantBuy (@RequestBody String productId, HttpServletRequest request){
+    public ResponseEntity<PurchaseHistoryDTO> instantBuy (@RequestBody String productId, HttpServletRequest request) {
         return new ResponseEntity<>(
                 purchaseHistoryService.instantBuy(productId, request),
                 HttpStatus.OK

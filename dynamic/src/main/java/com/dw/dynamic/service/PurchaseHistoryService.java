@@ -11,6 +11,7 @@ import com.dw.dynamic.exception.UnauthorizedUserException;
 import com.dw.dynamic.model.*;
 import com.dw.dynamic.repository.*;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -123,13 +124,18 @@ public class PurchaseHistoryService {
             return purchaseHistoryRepository.saveAll(purchaseHistories).stream().map(PurchaseHistory::toDTO).toList();
         }
 
+        @Transactional
         public PurchaseHistoryDTO instantBuy (String productId, HttpServletRequest request){
+            System.out.println("Received productId: " + productId);
+            productRepository.existsById("S2");
+
+            System.out.println(productId);
             User currentUser = userService.getCurrentUser(request);
             if (currentUser == null){
                 throw new UnauthorizedUserException("올바르지 않은 접근입니다");
             }
 
-            Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("해당제품을 찾을 수 없습니다"));
+            Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("해당 제품을 찾을 수 없습니다1"));
 
             PurchaseHistory purchaseHistory = new PurchaseHistory();
             purchaseHistory.setUser(currentUser);
@@ -147,8 +153,9 @@ public class PurchaseHistoryService {
         }
 
         public UserProductDTO getUserProductDTO(Long userProductId) {
+            System.out.println("Received userProductId: " + userProductId);
         UserProduct userProduct = userProductRepository.findById(userProductId)
-                .orElseThrow(() -> new IllegalArgumentException("해당 유저 제품을 찾을 수 없습니다."));
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저 제품을 찾을 수 없습니다2."));
         return userProduct.toDTO();
     }
 }
