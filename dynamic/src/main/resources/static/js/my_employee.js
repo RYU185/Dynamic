@@ -88,33 +88,50 @@ function AllData(response) {
           }
         });
       })
+      const delete_button = document.querySelectorAll(".delete_button");
+      delete_button.forEach((button) => {
+        button.addEventListener('click', function (e) {
+          const button = e.target;
+          const parent = button.closest('tr');
+          console.log(parent.id);
+          const isConfirmed = confirm('해당 직원을 삭제 처리하도록 할까요 ?');
+          if (isConfirmed) {
+            $.ajax({
+              url: 'api/employee/delete/' + encodeURIComponent(parent.id),
+              method: 'POST',
+              contentType: 'application/json',
+              success: function () {
+                window.location.href = '/my_employee.html';
+              },
+            });
+          } else {
+            alert('삭제 처리가 취소되었습니다');
+          }
+        })
+      })
     }
   });
-  // $(document).on('click', 'tr', function () {
-  //   const id = document.querySelector('tr');
-  //   console.log(id.id);
-  // })
 
 
   // 해당 직원 삭제처리
-  $(document).on('click', '.delete_button', function () {
-    const id = document.querySelector('.delete_button');
-    const parent = id.closest('tr');
-    console.log(parent.id);
-    const isConfirmed = confirm('해당 직원을 삭제 처리하도록 할까요 ?');
-    if (isConfirmed) {
-      $.ajax({
-        url: 'api/employee/delete/' + encodeURIComponent(parent.id),
-        method: 'POST',
-        contentType: 'application/json',
-        success: function () {
-          window.location.href = '/my_employee.html';
-        },
-      });
-    } else {
-      alert('삭제 처리가 취소되었습니다');
-    }
-  });
+  // $(document).on('click', '.delete_button', function (e) {
+  //   const button = e.target;
+  //   const parent = button.closest('tr');
+  //   console.log(parent.id);
+  //   const isConfirmed = confirm('해당 직원을 삭제 처리하도록 할까요 ?');
+  //   if (isConfirmed) {
+  //     $.ajax({
+  //       url: 'api/employee/delete/' + encodeURIComponent(parent.id),
+  //       method: 'POST',
+  //       contentType: 'application/json',
+  //       success: function () {
+  //         window.location.href = '/my_employee.html';
+  //       },
+  //     });
+  //   } else {
+  //     alert('삭제 처리가 취소되었습니다');
+  //   }
+  // });
 
 
   // title을 통한 검색
