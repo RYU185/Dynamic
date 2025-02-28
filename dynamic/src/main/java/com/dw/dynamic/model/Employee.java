@@ -64,7 +64,8 @@ public class Employee {
                 this.phoneNumber,
                 this.user.getUserName(),
                 this.user.getCompanyName(),
-                this.isActive
+                this.isActive,
+                this.freeTemplate
         );
     }
 }

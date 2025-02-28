@@ -38,4 +38,6 @@ public class EmployeeDTO {
     private String companyName;
 
     private Boolean isActive;
+
+    private Boolean freeTemplate;
 }
