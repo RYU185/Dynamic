@@ -128,6 +128,45 @@ header .header-wrap .sub {
 .wrap .box .informtion_box .planBusiness .box_icon {
   margin-left: 330px;
 }
+.wrap .box .informtion_box .planBusiness .box_icon:hover {
+  cursor: pointer;
+}
+
+/* hidden box */
+.wrap .hidden_box {
+  width: 300px;
+  background-image: linear-gradient(45deg, #eef4ff, #999ef9a8, #a1d2fb);
+  border-radius: 10px;
+
+  text-align: center;
+  margin-left: 350px;
+}
+.wrap .hidden_box .title_sub .abc {
+  width: 30%;
+  text-align: left;
+}
+.title_sub_input {
+  border: none;
+  display: flex;
+}
+.wrap .hidden_box .title_sub .abc_a {
+  display: flex;
+}
+.wrap .hidden_box .title_sub .abc_b {
+  display: flex;
+}
+.wrap .hidden_box .title_sub .abc_c {
+  display: flex;
+}
+.wrap .hidden_box .ok:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
 
 /* last button */
 .wrap .last {
