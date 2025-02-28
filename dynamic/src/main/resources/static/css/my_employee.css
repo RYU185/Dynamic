@@ -285,6 +285,8 @@ main .inner .upper .searchBar .add:hover {
     padding: 5px;
 }
 
+
+
 .table_wrap .employee_table td img {
     width: 30px;
     height: 30px;
@@ -453,8 +455,6 @@ main .content_box .add:hover {
     color: rgb(240, 240, 240);
 
 }
-
-
 
 /* footer */
 
