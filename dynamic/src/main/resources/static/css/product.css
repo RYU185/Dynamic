@@ -550,12 +550,25 @@ footer .inner .lower p {
 
 .purchaseConfirm {
   position: fixed; 
-  top: 50%;
-  left: 50%;
+  top: 30%;
+  left: 30%;
   width: 300px;
   background: rgb(119, 38, 38);
   padding: 20px;
   border: 2px solid black;
   border-radius: 8px;
   display: none;
+}
+
+.purchaseConfirm .close {
+  display: flex;
+  width: 30px;
+  height: 30px;
+
+}
+
+.purchaseConfirm .close img {
+  object-fit: cover;
+  width: 90%;
+  height: 90%;
 }

@@ -146,6 +146,7 @@ header .header-wrap .sub {
   border-radius: 5px;
   background: dodgerblue;
   cursor: pointer;
+  color: #fff;
 }
 .wrap .box .informtion_box .planBusiness {
   position: relative;

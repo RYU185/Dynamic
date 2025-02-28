@@ -1,5 +1,6 @@
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 
+
 // db랑 front랑 연결하는 코드
 $(document).ready(function () {
   $.ajax({
@@ -42,9 +43,10 @@ document.querySelectorAll('.x_btn').forEach((btn) => {
 
 function AllData(response) {
   console.log(response);
+  $('tbody').empty(); // 기존 테이블 내용 비우기
   response.forEach((element) => {
     if (element.isActive === true && element.freeTemplate === false) {
-      var $row = $(`<tr class="row">
+      var $row = $(`<tr class="row" id="${element.id}">
           <td>${element.name}</td>
           <td>${element.birthday}</td>
           <td>${element.hireDate}</td>
@@ -56,7 +58,11 @@ function AllData(response) {
               <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
             </td>
         </tr>`);
-      $('tbody').html($row); // 테이블에 새 행 추가
+      $('tbody').append($row); // 테이블에 새 행 추가
+      // $row.on("click", () => {
+      //   // console.log(element.id + " " + element.name);
+      //   window.location.href = "/my_employee.html?id=" + element.id;
+      // });
 
       // 나의 직원 급여명세서 작성 페이지로 이동
       const write = document.querySelector('.write');
@@ -82,84 +88,122 @@ function AllData(response) {
           }
         });
       })
-      // 해당 직원 삭제처리
-      $(document).on('click', '.delete_button', function () {
-        const isConfirmed = confirm('해당 직원을 삭제 처리하도록 할까요 ?');
-        if (isConfirmed) {
-          $.ajax({
-            url: 'api/board/delete/' + encodeURIComponent(element.id),
-            method: 'POST',
-            contentType: 'application/json',
-            success: function () {
-              window.location.href = '/my_employee.html';
-            },
-          });
-        } else {
-          alert('삭제 처리가 취소되었습니다');
+      const delete_button = document.querySelectorAll(".delete_button");
+      delete_button.forEach((button) => {
+        button.addEventListener('click', function (e) {
+          const button = e.target;
+          const parent = button.closest('tr');
+          console.log(parent.id);
+          const isConfirmed = confirm('해당 직원을 삭제 처리하도록 할까요 ?');
+          if (isConfirmed) {
+            $.ajax({
+              url: 'api/employee/delete/' + encodeURIComponent(parent.id),
+              method: 'POST',
+              contentType: 'application/json',
+              success: function () {
+                window.location.href = '/my_employee.html';
+              },
+            });
+          } else {
+            alert('삭제 처리가 취소되었습니다');
+          }
+        })
+      })
+    }
+  });
+
+
+  // 해당 직원 삭제처리
+  // $(document).on('click', '.delete_button', function (e) {
+  //   const button = e.target;
+  //   const parent = button.closest('tr');
+  //   console.log(parent.id);
+  //   const isConfirmed = confirm('해당 직원을 삭제 처리하도록 할까요 ?');
+  //   if (isConfirmed) {
+  //     $.ajax({
+  //       url: 'api/employee/delete/' + encodeURIComponent(parent.id),
+  //       method: 'POST',
+  //       contentType: 'application/json',
+  //       success: function () {
+  //         window.location.href = '/my_employee.html';
+  //       },
+  //     });
+  //   } else {
+  //     alert('삭제 처리가 취소되었습니다');
+  //   }
+  // });
+
+
+  // title을 통한 검색
+  function submit_go() {
+    let name = document.querySelector("input[id='search_employee']");
+    var sendData = name.value; // title 값만 사용
+    $.ajax({
+      url: '/api/employee/name/' + encodeURIComponent(sendData), // URL에 검색어(title) 추가
+      method: 'get',
+      contentType: 'application/json',
+      success: function (response) {
+        AllData(response);
+      },
+      error: function () {
+        alert('검색 오류가 발생했습니다.');
+      },
+    });
+  }
+
+  document.querySelector('.add').addEventListener('click', function () {
+    const name = document.querySelector('#name');
+    const birthday = document.querySelector('#birthday');
+    const position = document.querySelector('#position');
+    const department = document.querySelector('#department');
+    const hiredate = document.querySelector('#hiredate');
+    const phone = document.querySelector('#phone');
+    const hourly_rate = document.querySelector('#hourly_rate');
+
+    console.log(name, birthday, position, department, hiredate, phone, hourly_rate);
+
+    var sendData = {
+      "id": 0,
+      "name": name.innerText,
+      "department": department.innerText,
+      "position": position.innerText,
+      "hourlyRate": hourly_rate.innerText,
+      "birthday": birthday.innerText,
+      "hireDate": hiredate.innerText,
+      "phoneNumber": phone.innerText
+    }
+    console.log(sendData);
+    if (name &&
+      birthday &&
+      position &&
+      department &&
+      hiredate &&
+      hourly_rate &&
+      phone) {
+      $.ajax({
+        url: '/api/employee/save',
+        method: 'POST',
+        data: JSON.stringify(sendData),
+        contentType: 'application/json',
+        success: function (response) {
+          alert("직원이 정상 등록되었습니다.");
+          var $row = $(`<tr class="row">
+          <td>${response.name}</td>
+          <td>${response.birthday}</td>
+          <td>${response.hireDate}</td>
+           <td>${response.hourlyRate}</td>
+         <td >
+              <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+            </td>
+            <td >
+              <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+            </td>
+        </tr>`);
+          $('tbody').append($row);
+
+          window.location.href = '/my_employee.html';
         }
       });
     }
   });
-
 }
-
-// title을 통한 검색
-function submit_go() {
-  let name = document.querySelector("input[id='search_employee']");
-  var sendData = name.value; // title 값만 사용
-  $.ajax({
-    url: '/api/employee/name/' + encodeURIComponent(sendData), // URL에 검색어(title) 추가
-    method: 'get',
-    contentType: 'application/json',
-    success: function (response) {
-      AllData(response);
-    },
-    error: function () {
-      alert('검색 오류가 발생했습니다.');
-    },
-  });
-}
-
-document.querySelector('.add').addEventListener('click', function () {
-  const name = document.querySelector('#name');
-  const birthday = document.querySelector('#birthday');
-  const position = document.querySelector('#position');
-  const department = document.querySelector('#department');
-  const hiredate = document.querySelector('#hiredate');
-  const phone = document.querySelector('#phone');
-  const hourly_rate = document.querySelector('#hourly_rate');
-
-  console.log(name, birthday, position, department, hiredate, phone, hourly_rate);
-
-  var sendData = {
-    "id": 0,
-    "name": name.innerText,
-    "department": department.innerText,
-    "position": position.innerText,
-    "hourlyRate": hourly_rate.innerText,
-    "birthday": birthday.innerText,
-    "hireDate": hiredate.innerText,
-    "phoneNumber": phone.innerText
-  }
-  console.log(sendData);
-  if (name &&
-    birthday &&
-    position &&
-    department &&
-    hiredate &&
-    hourly_rate &&
-    phone) {
-    $.ajax({
-      url: '/api/employee/save',
-      method: 'POST',
-      data: JSON.stringify(sendData),
-      contentType: 'application/json',
-      success: function (response) {
-        alert("직원이 정상 등록되었습니다.");
-        AllData(response);
-
-        window.location.href = '/my_employee.html';
-      }
-    });
-  }
-});
