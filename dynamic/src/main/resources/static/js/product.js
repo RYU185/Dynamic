@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   loadingCart(userName);
 
-  // ✅ 장바구니 데이터 불러오기
+  // 장바구니 
   function loadingCart(userName) {
     $.ajax({
       url: "api/cart/username/" + userName,
@@ -30,7 +30,7 @@ $(document).ready(function () {
     });
   }
 
-  // ✅ 모든 제품 목록 불러오기
+  // 모든 제품 목록 불러오기
   function loadProductList() {
     $.ajax({
       url: "/api/product/all",
@@ -80,7 +80,7 @@ $(document).ready(function () {
   }
 });
 
-// ✅ 장바구니 추가 버튼
+//  장바구니 추가
 $(document).on("click", ".btnInCart", function () {
   var productId = $(this).data("id");
 
@@ -103,11 +103,11 @@ $(document).on("click", ".btnInCart", function () {
 
   var cartItemData = {
     productId: productId,
-    username: userName, // ✅ 필드명 변경 (userName → username)
+    username: userName, 
     cartId: 0,
   };
 
-  // ✅ 장바구니 추가 요청
+  // 장바구니 추가
   $.ajax({
     url: "/api/cart/save",
     type: "POST",
@@ -115,7 +115,7 @@ $(document).on("click", ".btnInCart", function () {
     data: JSON.stringify(cartItemData),
     success: function () {
       alert("제품이 정상적으로 장바구니에 담겼습니다.");
-      loadingCart(userName); // ✅ 장바구니 데이터 갱신
+      loadingCart(userName); 
     },
     error: function () {
       alert("장바구니 추가 중 오류가 발생했습니다.");
@@ -123,14 +123,13 @@ $(document).on("click", ".btnInCart", function () {
   });
 });
 
-// ✅ 구매 버튼 클릭 이벤트 (동적으로 생성된 버튼도 포함)
+// 구매 버튼 클릭 
 $(document).on("click", ".btnPurchase", function () {
-  selectedProductId = $(this).data("id"); // ✅ 동적 데이터 가져오기
+  selectedProductId = $(this).data("id"); 
   console.log("선택된 제품 ID:", selectedProductId);
-  $(".purchaseConfirm").show(); // ✅ 구매 확인창 표시
+  $(".purchaseConfirm").show();
 });
 
-// ✅ 구매 확인 버튼 클릭 이벤트
 $(document).on("click", "#yes", function () {
   console.log("구매 요청 사용자:", userName);
 
