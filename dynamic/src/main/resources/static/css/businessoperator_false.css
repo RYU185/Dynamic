@@ -29,7 +29,9 @@ li {
 a {
   text-decoration: none;
 }
-
+input:focus {
+  outline: none;
+}
 .wrap {
   margin: 20px 20%;
 }
@@ -84,7 +86,7 @@ header .header-wrap .sub {
 /* 체크 내용란 */
 .wrap .box .informtion_box {
   width: 400px;
-  height: 290px;
+  height: 460px;
   overflow: hidden;
   border-radius: 5px;
   background: #ffffff;
@@ -98,9 +100,9 @@ header .header-wrap .sub {
   transition: height 0.3s ease-in-out;
 }
 
-.wrap .box .informtion_box:hover {
+/* .wrap .box .informtion_box:hover {
   height: 460px;
-}
+} */
 .wrap .box .informtion_box form {
   display: flex;
   text-align: center;
@@ -158,20 +160,11 @@ header .header-wrap .sub {
 .wrap .box .informtion_box .planBusiness .box_icon:hover {
   cursor: pointer;
 }
-.wrap .box .informtion_box .abc_a .abc_a_a {
-  width: 32%;
-  text-align: center;
+
+.wrap .box .informtion_box .informtion .abc_radio {
+  width: 33.33%;
 }
 
-.wrap .box .informtion_box .abc_a .abc_a_b{
-  width: 32%;
-  text-align: center;
-}
-
-.wrap .box .informtion_box .abc_a .abc_a_c {
-  width: 32%;
-  text-align: center;
-}
 .wrap .box .informtion_box .else {
   display: flex;
   gap: 20px;
