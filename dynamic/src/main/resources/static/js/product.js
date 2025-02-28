@@ -3,7 +3,7 @@ let userName = null;
 let selectedProductId = null;
 
 $(document).ready(function () {
-  userName = JSON.parse(sessionStorage.getItem("userName")); // ✅ 전역 변수에 할당
+  userName = JSON.parse(sessionStorage.getItem("userName"));
   console.log("로그인된 사용자:", userName);
 
   if (!userName) {
@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   loadingCart(userName);
 
-  // 장바구니 
+  // 장바구니
   function loadingCart(userName) {
     $.ajax({
       url: "api/cart/username/" + userName,
@@ -103,7 +103,7 @@ $(document).on("click", ".btnInCart", function () {
 
   var cartItemData = {
     productId: productId,
-    username: userName, 
+    username: userName,
     cartId: 0,
   };
 
@@ -115,7 +115,7 @@ $(document).on("click", ".btnInCart", function () {
     data: JSON.stringify(cartItemData),
     success: function () {
       alert("제품이 정상적으로 장바구니에 담겼습니다.");
-      loadingCart(userName); 
+      loadingCart(userName);
     },
     error: function () {
       alert("장바구니 추가 중 오류가 발생했습니다.");
@@ -123,9 +123,10 @@ $(document).on("click", ".btnInCart", function () {
   });
 });
 
-// 구매 버튼 클릭 
+// show / hide 사용 : div를 숨김처리할 수 있다.
+
 $(document).on("click", ".btnPurchase", function () {
-  selectedProductId = $(this).data("id"); 
+  selectedProductId = $(this).data("id");
   console.log("선택된 제품 ID:", selectedProductId);
   $(".purchaseConfirm").show();
 });
@@ -138,33 +139,12 @@ $(document).on("click", "#yes", function () {
     return;
   }
 
-  if (!cartItem || cartItem.length === 0) {
-    alert("장바구니 데이터가 없습니다. 잠시 후 다시 시도하세요.");
-    return;
-  }
-
-  var cartId = null;
-  for (var i = 0; i < cartItem.length; i++) {
-    if (cartItem[i].productId === selectedProductId) {
-      cartId = cartItem[i].cartId;
-      break;
-    }
-  }
-
-  if (!cartId) {
-    alert("해당 제품의 장바구니 ID를 찾을 수 없습니다.");
-    return;
-  }
-
   var sendData = [
     {
-      cartId: cartId,
       username: userName,
       productId: selectedProductId,
     },
   ];
-
-  console.log("보낼 데이터:", JSON.stringify(sendData, null, 2));
 
   $.ajax({
     url: "/api/purchase-history/save/purchase-history-and-user-product",
@@ -178,6 +158,10 @@ $(document).on("click", "#yes", function () {
         alert("오류가 발생하여 해당 제품을 구매하지 못했습니다.");
       }
       $(".purchaseConfirm").hide();
+    },
+    error: function (xhr, status, error) {
+      console.error("서버 응답 오류:", xhr.responseText);
+      alert("이미 해당제품을 구매하였습니다.");
     },
   });
 });
