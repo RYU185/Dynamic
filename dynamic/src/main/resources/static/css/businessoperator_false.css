@@ -86,7 +86,7 @@ header .header-wrap .sub {
 /* 체크 내용란 */
 .wrap .box .informtion_box {
   width: 400px;
-  height: 460px;
+  height: 290px;
   overflow: hidden;
   border-radius: 5px;
   background: #ffffff;
@@ -100,9 +100,10 @@ header .header-wrap .sub {
   transition: height 0.3s ease-in-out;
 }
 
-/* .wrap .box .informtion_box:hover {
+.wrap .box .informtion_box:hover {
   height: 460px;
-} */
+}
+
 .wrap .box .informtion_box form {
   display: flex;
   text-align: center;
@@ -155,6 +156,7 @@ header .header-wrap .sub {
 }
 .wrap .box .informtion_box .planBusiness .box_icon {
   position: absolute;
+  font-size: 0.8rem;
   right: 0px;
 }
 .wrap .box .informtion_box .planBusiness .box_icon:hover {
