@@ -141,6 +141,7 @@ $(document).on("click", "#yes", function () {
 
   var sendData = [
     {
+      cartId: null,
       username: userName,
       productId: selectedProductId,
     },
@@ -153,8 +154,6 @@ $(document).on("click", "#yes", function () {
     contentType: "application/json",
     success: function (response) {
       if (response) {
-        alert("해당 제품이 구매되었습니다.");
-      } else {
         alert("오류가 발생하여 해당 제품을 구매하지 못했습니다.");
       }
       $(".purchaseConfirm").hide();
@@ -169,3 +168,5 @@ $(document).on("click", "#yes", function () {
 $(document).on("click", "#no", function () {
   $(".purchaseConfirm").hide();
 });
+
+// admin이 제품추가
