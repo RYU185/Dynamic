@@ -2,239 +2,287 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 직원 정보</title>
-    <link rel="stylesheet" href="css/my_employee.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나의 직원 정보</title>
+  <link rel="stylesheet" href="css/my_employee.css" />
 </head>
 
 <body>
-    <hr>
-    <div class="wrap">
-        <!-- header -->
-        <header>
-            <div class="inner">
-                <ul class="upper">
-                    <li>
-                        <a href="after_login.html"><span><b>홈</b></span></a>
-                    </li>
-                    <li>
-                        <a href="main_notice.html"><span>공지사항</span></a>
-                    </li>
-                    <li>
-                        <a href="product.html"><span>제품</span></a>
-                    </li>
-                    <li>
-                        <a href="main_board.html"><span>게시판</span></a>
-                    </li>
-                    <li>
-                        <a href="formation_data.html"><span>서식자료</span></a>
-                    </li>
-                    <li>
-                        <a href="main_guide.html"><span>가이드</span></a>
-                    </li>
-                    <li>
-                        <a href="cart.html"><span>장바구니</span></a>
-                    </li>
-                    <li>
-                        <a href="mypage.html"><span>마이페이지</span></a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        <!-- section -->
-        <section>
-            <div class="titlewrap">
-                <h1>DO YOURSELF<br> USE SERVICE</h1>
-                <div class="main_title">
-                    <h1>나의 직원 정보</h1>
-                </div>
-                <br />
-            </div>
-        </section>
+  <hr />
+  <div class="wrap">
+    <!-- header -->
+    <header>
+      <div class="inner">
+        <ul class="upper">
+          <li>
+            <a href="after_login.html"><span><b>홈</b></span></a>
+          </li>
+          <li>
+            <a href="main_notice.html"><span>공지사항</span></a>
+          </li>
+          <li>
+            <a href="product.html"><span>제품</span></a>
+          </li>
+          <li>
+            <a href="main_board.html"><span>게시판</span></a>
+          </li>
+          <li>
+            <a href="formation_data.html"><span>서식자료</span></a>
+          </li>
+          <li>
+            <a href="main_guide.html"><span>가이드</span></a>
+          </li>
+          <li>
+            <a href="cart.html"><span>장바구니</span></a>
+          </li>
+          <li>
+            <a href="mypage.html"><span>마이페이지</span></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- section -->
+    <section>
+      <div class="titlewrap">
+        <h1>
+          DO YOURSELF<br />
+          USE SERVICE
+        </h1>
+        <div class="main_title">
+          <h1>나의 직원 정보</h1>
+        </div>
+        <br />
+      </div>
+    </section>
 
-        <!-- main -->
-        <main>
-            <div class="inner">
-                <div class="upper">
-                    <div class="searchBar">
-                        <input type="button" value="급여명세서 작성" class="add" />
-                        <p><input type="text" placeholder="이름을 입력해주세요" id="search_employee" /></p>
-                        <img src="./img/search.png" onclick="submit_go()"><img src="/img/add.png" alt="추가 버튼"
-                            id="add_employee">
-                    </div>
-                </div>
-                <div class="table_wrap">
-                    <table class="employee_table">
-                        <tr>
-                            <th class="bold">성함</th>
-                            <th class="bold">생년월일</th>
-                            <th class="bold">입사일</th>
-                            <th class="bold">시급</th>
-                            <th class="bold">수정</th>
-                            <th class="bold">삭제</th>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                        <tr>
-                            <td class="name">김민수</td>
-                            <td class="birthday">981231</td>
-                            <td class="hiredate">2025-02-21</td>
-                            <td class="hourly_rate">10,030</td>
-                            <td class="modify_button"><img src="img/writing.png" alt="수정 버튼"></td>
-                            <td class="delete_button"><img src="img/쓰레기통 새로운거.png" alt="삭제 버튼"></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="pop-up1">
-                <h1>직원 추가</h1>
-                <img src="/img/X.png" alt="취소 버튼" class="x_btn">
-                <div class="content_box">
-                    <div class="content">
-                        <div><b>성함 :</b></div>
-                        <div contenteditable="true" id="name"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>생년월일 :</b></div>
-                        <div contenteditable="true" id="birthday"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>직위 :</b></div>
-                        <div contenteditable="true" id="position"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>부서명 :</b></div>
-                        <div contenteditable="true" id="department"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>입사일 :</b></div>
-                        <div contenteditable="true" id="hiredate"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>전화번호 :</b></div>
-                        <div contenteditable="true" id="phone"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>시급 :</b></div>
-                        <div contenteditable="true" id="hourly_rate"></div>
-                    </div>
-                    <input type="button" value="등록" class="add" />
-                </div>
-            </div>
-            <div class="pop-up2">
-                <h1>직원 수정</h1>
-                <img src="/img/X.png" alt="취소 버튼" class="x_btn">
-                <div class="content_box">
-                    <div class="content">
-                        <div><b>성함 :</b></div>
-                        <div contenteditable="true" id="name"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>직위 :</b></div>
-                        <div contenteditable="true" id="position"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>부서명 :</b></div>
-                        <div contenteditable="true" id="department"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>전화번호 :</b></div>
-                        <div contenteditable="true" id="phone"></div>
-                    </div>
-                    <div class="content">
-                        <div><b>시급 :</b></div>
-                        <div contenteditable="true" id="hourly_rate"></div>
-                    </div>
-                    <input type="button" value="등록" class="add" />
-                </div>
-            </div>
+    <!-- main -->
+    <main>
+      <div class="inner">
+        <div class="upper">
+          <div class="searchBar">
+            <input type="button" value="급여명세서 작성" class="write" />
+            <p>
+              <input type="text" placeholder="이름을 입력해주세요" id="search_employee" />
+            </p>
+            <img src="./img/search.png" onclick="submit_go()" />
+            <img src="/img/add.png" alt="추가 버튼" id="add_employee" />
+          </div>
+        </div>
+        <div class="table_wrap">
+          <table class="employee_table">
+            <thead>
+              <tr>
+                <th class="bold">성함</th>
+                <th class="bold">생년월일</th>
+                <th class="bold">입사일</th>
+                <th class="bold">시급</th>
+                <th class="bold">수정</th>
+                <th class="bold">삭제</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr>
+              <tr>
+                <td class="name">김민수</td>
+                <td class="birthday">981231</td>
+                <td class="hiredate">2025-02-21</td>
+                <td class="hourly_rate">10,030</td>
+                <td>
+                  <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
+                </td>
+                <td>
+                  <img src="img/쓰레기통 새로운거.png" alt="삭제 버튼" class="delete_button" />
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pop-up1">
+        <h1>직원 추가</h1>
+        <img src="/img/X.png" alt="취소 버튼" class="x_btn" />
+        <div class="content_box">
+          <div class="content">
+            <div><b>성함 :</b></div>
+            <div contenteditable="true" id="name"></div>
+          </div>
+          <div class="content">
+            <div><b>생년월일 :</b></div>
+            <div contenteditable="true" id="birthday"></div>
+          </div>
+          <div class="content">
+            <div><b>직위 :</b></div>
+            <div contenteditable="true" id="position"></div>
+          </div>
+          <div class="content">
+            <div><b>부서명 :</b></div>
+            <div contenteditable="true" id="department"></div>
+          </div>
+          <div class="content">
+            <div><b>입사일 :</b></div>
+            <div contenteditable="true" id="hiredate"></div>
+          </div>
+          <div class="content">
+            <div><b>전화번호 :</b></div>
+            <div contenteditable="true" id="phone"></div>
+          </div>
+          <div class="content">
+            <div><b>시급 :</b></div>
+            <div contenteditable="true" id="hourly_rate"></div>
+          </div>
+          <input type="button" value="등록" class="add" />
+        </div>
+      </div>
+      <div class="pop-up2">
+        <h1>직원 수정</h1>
+        <img src="/img/X.png" alt="취소 버튼" class="x_btn" />
+        <div class="content_box">
+          <div class="content">
+            <div><b>성함 :</b></div>
+            <div contenteditable="true" id="name"></div>
+          </div>
+          <div class="content">
+            <div><b>직위 :</b></div>
+            <div contenteditable="true" id="position"></div>
+          </div>
+          <div class="content">
+            <div><b>부서명 :</b></div>
+            <div contenteditable="true" id="department"></div>
+          </div>
+          <div class="content">
+            <div><b>전화번호 :</b></div>
+            <div contenteditable="true" id="phone"></div>
+          </div>
+          <div class="content">
+            <div><b>시급 :</b></div>
+            <div contenteditable="true" id="hourly_rate"></div>
+          </div>
+          <input type="button" value="수정" class="modify" />
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
+        </div>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- wrap 끝 -->
 
+  <div class="pop-up-background1"></div>
+  <div class="pop-up-background2"></div>
 
-        </main>
-        <!-- footer -->
-        <footer>
-            <div class="inner">
-                <div class="upper">
-                    <h1>DO YOURSELF or USE SERVICE</h1>
-                </div>
-                <div class="lower">
-                    <address>
-                        대전광역시 서구 둔산동 1524 <br>
-                        TEL : 03-111-1234 C.P : 010-1234-5678
-                    </address>
-                    <p>
-                        2020 DO YOURSELF or USE SERVICE &copy; copyright all right reserved.
-                    </p>
-                </div>
-            </div>
-        </footer>
-    </div> <!-- wrap 끝 -->
-
-    <div class="pop-up-background1"></div>
-    <div class="pop-up-background2"></div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/my_employee.js"></script>
 </body>
 
 </html>

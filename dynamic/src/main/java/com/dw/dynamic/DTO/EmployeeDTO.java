@@ -31,10 +31,11 @@ public class EmployeeDTO {
 
     private LocalDate hireDate; // 입사일
 
-
     private String phoneNumber;
 
     private String userName; // 단방향
 
-    private Long payrollTemplateId;
+    private String companyName;
+
+    private Boolean isActive;
 }

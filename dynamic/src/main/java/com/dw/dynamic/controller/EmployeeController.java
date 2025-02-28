@@ -53,9 +53,16 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<SaveEmployeeWithTemplateDTO> saveEmployee(@RequestBody SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO,HttpServletRequest request) {
+    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO,HttpServletRequest request) {
         return new ResponseEntity<>(
-                employeeService.saveEmployee(saveEmployeeWithTemplateDTO,request),
+                employeeService.saveEmployee(employeeDTO,request),
+                HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO employeeDTO,HttpServletRequest request) {
+        return new ResponseEntity<>(
+                employeeService.saveEmployee(employeeDTO,request),
                 HttpStatus.OK);
     }
     @PostMapping("/delete/{id}")
