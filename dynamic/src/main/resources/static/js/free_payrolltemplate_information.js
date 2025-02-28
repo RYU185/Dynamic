@@ -1,5 +1,23 @@
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 
+$(document).ready(function () {
+  $.ajax({
+    url: 'api/employee/free-template-count',
+    method: 'get',
+    contentType: 'application/json',
+    success: function (response) {
+      console.log(response);
+      if (userCopy != 'admin') {
+        if (response > 5) {
+          alert('이용 가능한 무료 횟수가 다 소진되었습니다');
+          return;
+        }
+        window.location.href = '/after_login.html';
+      }
+    },
+  });
+});
+
 // 정보 입력을 추가 하지 않으면 안보이도록 설정
 $(document).on('click', '.show_calendar', function () {
   // contenteditable로 설정된 값 가져오기

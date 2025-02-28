@@ -4,7 +4,8 @@ const data = JSON.parse(userData);
 // 데이터를 페이지에 반영
 const employee = data.employeeDTO;
 const payroll = data.payrollTemplateDTO;
-
+const limit_name = document.querySelector('#limit_name');
+const limit_num = document.querySelector('#limit_num');
 // db랑 front랑 연결하는 코드
 $(document).ready(function () {
   $.ajax({
@@ -12,6 +13,18 @@ $(document).ready(function () {
     method: 'get',
     contentType: 'application/json',
     success: function (response) {
+      if (userRole != 'admin') {
+        if (
+          limit_name.style.display != 'inline' ||
+          limit_num.style.display != 'block'
+        ) {
+          limit_name.style.display = 'inline';
+          limit_num.style.display = 'block';
+        }
+      } else {
+        limit_name.style.display = 'none';
+        limit_num.style.display = 'none';
+      }
       let count = response;
       $('#limit_num').text(5 - count + '/5');
     },
@@ -39,6 +52,13 @@ $(document).on('input', 'input[type="text"]', function () {
 });
 
 $(document).on('click', '#send', function () {
+  console.log(limit_num.innerText);
+  if (userRole != 'admin') {
+    if (limit_num.innerText === '0/5') {
+      alert('이용 가능한 무료 횟수가 다 소진되었습니다');
+      return;
+    }
+  }
   var sendData = {
     employeeDTO: {
       id: 0,
@@ -57,27 +77,14 @@ $(document).on('click', '#send', function () {
       paymentDate: payroll.paymentDate,
     },
   };
-  var count = 5;
-  const limit_name = document.querySelector('#limit_name');
-  const limit_num = document.querySelector('#limit_num');
+
   $.ajax({
     url: '/api/employee/use/free-payrolltemplate',
     method: 'POST',
     data: JSON.stringify(sendData),
     contentType: 'application/json',
     success: function (response) {
-      if (userRole != 'admin') {
-        if (
-          limit_name.style.display != 'inline' ||
-          limit_num.style.display != 'block'
-        ) {
-          limit_name.style.display = 'inline';
-          limit_num.style.display = 'block';
-        }
-      } else {
-        limit_name.style.display = 'none';
-        limit_num.style.display = 'none';
-      }
+      window.location.href = '/payrolltemplate.html';
     },
   });
 });

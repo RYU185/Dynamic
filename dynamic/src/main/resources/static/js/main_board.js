@@ -1,4 +1,5 @@
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
+
 if (userRole != undefined) {
   document.querySelector('#add_board').style.display = 'inline';
 }
