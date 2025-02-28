@@ -1,14 +1,19 @@
+let cartItem = [];
+let userName = null;
+let selectedProductId = null;
+
 $(document).ready(function () {
-  var userName = JSON.parse(sessionStorage.getItem("userName"));
+  userName = JSON.parse(sessionStorage.getItem("userName")); // ✅ 전역 변수에 할당
+  console.log("로그인된 사용자:", userName);
 
   if (!userName) {
     alert("로그인이 필요합니다");
     return;
   }
 
-  let cartItem = [];
+  loadingCart(userName);
 
-  // 모든 장바구니 데이터 가져오기
+  // ✅ 장바구니 데이터 불러오기
   function loadingCart(userName) {
     $.ajax({
       url: "api/cart/username/" + userName,
@@ -16,7 +21,7 @@ $(document).ready(function () {
       contentType: "application/json",
       success: function (cartResponse) {
         cartItem = cartResponse;
-        console.log(cartItem);
+        console.log("장바구니 데이터 업데이트됨:", cartItem);
         loadProductList();
       },
       error: function () {
@@ -25,7 +30,7 @@ $(document).ready(function () {
     });
   }
 
-  // 제품 목록 
+  // ✅ 모든 제품 목록 불러오기
   function loadProductList() {
     $.ajax({
       url: "/api/product/all",
@@ -61,112 +66,123 @@ $(document).ready(function () {
                         </article>
                     `);
 
-                  if (category === "강의") {
-                    $("#courseContainer").append($article);
-                  } else {
-                    $("#subscContainer").append($article);
-                  }
-                });
-              },
-              error: function () {
-                alert("제품 목록을 불러오는 데 실패했습니다.");
-              },
-            });
+          if (category === "강의") {
+            $("#courseContainer").append($article);
+          } else {
+            $("#subscContainer").append($article);
           }
-
-  // 중복 확인
-  function checkExistProduct(productId) {
-    let exist = false;
-
-    for (let i = 0; i < cartItem.length; i++) {
-      if (cartItem[i].productId === productId) {
-        console.log(productId);
-        exist = true;
-        break;
-      }
-    }
-    return exist;
-  }
-
-  // 장바구니 추가 버튼
-  $(document).on("click", ".btnInCart", function () {
-    var productId = $(this).data("id");
-
-    console.log(productId);
-
-    if (checkExistProduct(productId)) {
-      alert("모든 상품은 중복 구매가 불가능합니다");
-      return;
-    }
-
-    var cartItemData = {
-      productId: productId,
-      userName: userName,
-      cartId: 0,
-    };
-
-    // 장바구니 추가
-    $.ajax({
-      url: "/api/cart/save",
-      type: "POST",
-      contentType: "application/json",
-      data: JSON.stringify(cartItemData),
-      success: function () {
-        alert("제품이 정상적으로 장바구니에 담겼습니다.");
-        loadingCart(userName);
+        });
       },
       error: function () {
-        alert("장바구니 추가 중 오류가 발생했습니다.");
+        alert("제품 목록을 불러오는 데 실패했습니다.");
       },
     });
-  });
-
-  loadingCart(userName);
+  }
 });
 
+// ✅ 장바구니 추가 버튼
+$(document).on("click", ".btnInCart", function () {
+  var productId = $(this).data("id");
 
+  console.log(productId);
 
-const purchase_window = document.querySelector(".purchaseConfirm"); // 구매확정 window
-let seletedProductId = null;
-
-const purchase_btn = document.querySelectorAll(".btnPurchase").forEach((btn)=> {
-    btn.addEventListener("click", function(){
-      seletedProductId = this.attr("data-id");
-
-      purchase_window.style.display = "block";
-    })
-});
-
-$(document).on("click", "#go", function(){
-    if (!seletedProductId){
-      alert("구매할 제품을 선택하세요");
-      return;
+  // 중복 확인
+  let exist = false;
+  for (let i = 0; i < cartItem.length; i++) {
+    if (cartItem[i].productId === productId) {
+      console.log("이미 장바구니에 있는 제품:", productId);
+      exist = true;
+      break;
     }
+  }
 
-    var productId = $(".btnPurchase").data("id");
+  if (exist) {
+    alert("모든 상품은 중복 구매가 불가능합니다");
+    return;
+  }
 
-  var cartid
-
-  var sendData = {
-    cartId: cartId,
-    userName:userName,
-    productId:productId
+  var cartItemData = {
+    productId: productId,
+    username: userName, // ✅ 필드명 변경 (userName → username)
+    cartId: 0,
   };
+
+  // ✅ 장바구니 추가 요청
+  $.ajax({
+    url: "/api/cart/save",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(cartItemData),
+    success: function () {
+      alert("제품이 정상적으로 장바구니에 담겼습니다.");
+      loadingCart(userName); // ✅ 장바구니 데이터 갱신
+    },
+    error: function () {
+      alert("장바구니 추가 중 오류가 발생했습니다.");
+    },
+  });
+});
+
+// ✅ 구매 버튼 클릭 이벤트 (동적으로 생성된 버튼도 포함)
+$(document).on("click", ".btnPurchase", function () {
+  selectedProductId = $(this).data("id"); // ✅ 동적 데이터 가져오기
+  console.log("선택된 제품 ID:", selectedProductId);
+  $(".purchaseConfirm").show(); // ✅ 구매 확인창 표시
+});
+
+// ✅ 구매 확인 버튼 클릭 이벤트
+$(document).on("click", "#yes", function () {
+  console.log("구매 요청 사용자:", userName);
+
+  if (!selectedProductId) {
+    alert("구매할 제품을 선택하세요.");
+    return;
+  }
+
+  if (!cartItem || cartItem.length === 0) {
+    alert("장바구니 데이터가 없습니다. 잠시 후 다시 시도하세요.");
+    return;
+  }
+
+  var cartId = null;
+  for (var i = 0; i < cartItem.length; i++) {
+    if (cartItem[i].productId === selectedProductId) {
+      cartId = cartItem[i].cartId;
+      break;
+    }
+  }
+
+  if (!cartId) {
+    alert("해당 제품의 장바구니 ID를 찾을 수 없습니다.");
+    return;
+  }
+
+  var sendData = [
+    {
+      cartId: cartId,
+      username: userName,
+      productId: selectedProductId,
+    },
+  ];
+
+  console.log("보낼 데이터:", JSON.stringify(sendData, null, 2));
 
   $.ajax({
     url: "/api/purchase-history/save/purchase-history-and-user-product",
-    method:'POST',
-    data:JSON.stringify(sendData),
-    contentType:"application/json",
-    success: function(response){
-      if(response){
-        alert(
-          "해당 제품이 구매되었습니다. 마이페이지 > 나의 강의 목록을 확인하세요!"
-        );
-      }else{
-        alert("오류가 발생하여 해당 제품을 구매하지 못했습니다.")
+    method: "POST",
+    data: JSON.stringify(sendData),
+    contentType: "application/json",
+    success: function (response) {
+      if (response) {
+        alert("해당 제품이 구매되었습니다.");
+      } else {
+        alert("오류가 발생하여 해당 제품을 구매하지 못했습니다.");
       }
-      
-    }
+      $(".purchaseConfirm").hide();
+    },
   });
+});
+
+$(document).on("click", "#no", function () {
+  $(".purchaseConfirm").hide();
 });
