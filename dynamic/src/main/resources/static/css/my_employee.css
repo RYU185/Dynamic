@@ -231,7 +231,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
     color: transparent;
 }
 
-main .inner .upper .searchBar .add {
+main .inner .upper .searchBar .write {
     width: 120px;
     height: 40px;
     font-size: 16px;
@@ -242,7 +242,7 @@ main .inner .upper .searchBar .add {
     border: none;
 }
 
-main .inner .upper .searchBar .add:hover {
+main .inner .upper .searchBar .write:hover {
     background-color: rgba(58, 58, 58, 0.3);
     color: rgb(240, 240, 240);
 }

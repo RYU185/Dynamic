@@ -58,7 +58,8 @@ public class PayrollTemplate {
 //    @JoinColumn(name = "freelancer")
 //    private Freelancer freeLancer;
 
-    @OneToOne(mappedBy = "payrollTemplate_fk")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee")
     private Employee employee;
 
     public PayrollTemplateDTO toDTO(){
@@ -73,7 +74,8 @@ public class PayrollTemplate {
                this.startPayrollPeriod,
                this.lastPayrollPeriod,
                this.paymentDate,
-                this.isActive
+                this.isActive,
+                this.employee.getId()
 //               this.salary,
 //               this.bonus,
 //               this.mealAllowance,

@@ -35,8 +35,6 @@ public class EmployeeDTO {
 
     private String userName; // 단방향
 
-    private Long payrollTemplateId;
-
     private String companyName;
 
     private Boolean isActive;

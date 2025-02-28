@@ -7,15 +7,14 @@ import com.dw.dynamic.exception.InvalidRequestException;
 import com.dw.dynamic.exception.PermissionDeniedException;
 import com.dw.dynamic.exception.ResourceNotFoundException;
 import com.dw.dynamic.exception.UnauthorizedUserException;
-import com.dw.dynamic.model.Employee;
-import com.dw.dynamic.model.PayrollTemplate;
-import com.dw.dynamic.model.User;
+import com.dw.dynamic.model.*;
 import com.dw.dynamic.repository.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
@@ -97,74 +96,53 @@ public class EmployeeService {
                return employeeDTOList;
             }
     }
-    @Transactional
-    public SaveEmployeeWithTemplateDTO saveEmployee(SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO,HttpServletRequest request) {
+
+
+    public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if (currentUser==null){
             throw new PermissionDeniedException("로그인 후 직원 등록이 가능합니다");
         }
         try {
-            return employeeRepository.findById(saveEmployeeWithTemplateDTO.getEmployeeDTO().getId())
-                    .map((employee) -> {
-                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
-                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
-                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO(),
-                                employeeDTO);
-                        return saveEmployeeWithTemplateDTO1;
-                    })
-                    .orElseGet(() -> {
-                        PayrollTemplate payrollTemplate = new PayrollTemplate(
+            Employee employee = new Employee(
                                 null,
-                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
-                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
-                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
-                                true,
-//                                deductionAndTaxRepository.findAll(),
-//                                freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()).orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
-                                null);
-                        PayrollTemplateDTO payrollTemplateDTO = payrollTemplateRepository.save(payrollTemplate).toDTO();
-                        Employee employee = new Employee(
-                                null,
-                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
-                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getDepartment(),
-                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPosition(),
-                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getHourlyRate(),
-                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getBirthday(),
-                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
-                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
+                                employeeDTO.getName(),
+                    employeeDTO.getDepartment(),
+                    employeeDTO.getPosition(),
+                    employeeDTO.getHourlyRate(),
+                    employeeDTO.getBirthday(),
+                    employeeDTO.getHireDate(),
+                    employeeDTO.getPhoneNumber(),
                                 true,
                                 false,
-                                currentUser,
-                                payrollTemplate);
-                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
-                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
-                                payrollTemplateDTO,
-                                employeeDTO
-                        );
-                        return saveEmployeeWithTemplateDTO1;
-                    });
+                                currentUser);
+            return employeeRepository.save(employee).toDTO();
         }catch (InvalidRequestException e){
-            throw new InvalidRequestException("직원 이름, 입사일은 필수 입력 사항입니다. 급여명세서 측정 날짜/지급일/기본급은 필수입력 사항입니다");
-        }catch (DateTimeParseException e){
-            throw new InvalidRequestException("날짜 입력이 올바르지 않습니다.");
+            throw new InvalidRequestException("제목과 본문 모두 작성해주세요");
         }
-
     }
+
+
+    public EmployeeDTO updateEmployee(EmployeeDTO employeeDTO, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+
+        Employee employee =   employeeRepository.findById(employeeDTO.getId()).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은  ID입니다"));
+        employee.setName(employeeDTO.getName());
+        employee.setPosition(employeeDTO.getPosition());
+        employee.setDepartment(employeeDTO.getPhoneNumber());
+        employee.setHourlyRate(employee.getHourlyRate());
+        return employeeRepository.save(employee).toDTO();
+    }
+
+
     public String deleteEmployee(Long id,HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         Employee employee = employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않은 직원ID입니다"));
         if (!employee.getUser().getUserName().equals(currentUser.getUserName())){
             throw new PermissionDeniedException("본인 직원에 대한 정보만 조회가 가능합니다.");
         }
-        employee.getPayrollTemplate_fk().setIsActive(false);
         employee.setIsActive(false);
         employeeRepository.save(employee);
-
         return  "정상 삭제되었습니다";
     }
     @Transactional
@@ -175,21 +153,6 @@ public class EmployeeService {
         }
         Long count = employeeRepository.findByUser(currentUser).stream().filter(employee -> employee.getFreeTemplate().booleanValue()).count();
         if (currentUser.getAuthority().getAuthorityName().equals("USER")&&count<5){
-            PayrollTemplate payrollTemplate = new PayrollTemplate(
-                    null,
-                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
-                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
-                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
-                    true,
-//                    deductionAndTaxRepository.findAll(),
-//                    freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()) .orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
-                    null);
-            PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
             Employee employee = new Employee(
                     null,
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
@@ -201,30 +164,23 @@ public class EmployeeService {
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
                     true,
                     true,
-                    currentUser,
-                    payrollTemplate);
+                    currentUser);
             EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
+            PayrollTemplate payrollTemplate = new PayrollTemplate(
+                    null,
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
+                    true,
+                    employee);
+            PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
+
             SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
                     payrollTemplateDTO,
                     employeeDTO
             );
             return saveEmployeeWithTemplateDTO1;
         }else if (currentUser.getAuthority().getAuthorityName().equals("ADMIN")){
-            PayrollTemplate payrollTemplate = new PayrollTemplate(
-                    null,
-                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
-                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
-                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
-//                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
-                    true,
-//                    deductionAndTaxRepository.findAll(),
-//                    freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()) .orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
-                    null);
-            PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
             Employee employee = new Employee(
                     null,
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
@@ -236,9 +192,16 @@ public class EmployeeService {
                     saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
                     true,
                     true,
-                    currentUser,
-                    payrollTemplate);
+                    currentUser);
             EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
+            PayrollTemplate payrollTemplate = new PayrollTemplate(
+                    null,
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
+                    true,
+                    employee);
+            PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
             SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
                     payrollTemplateDTO,
                     employeeDTO
@@ -249,3 +212,63 @@ public class EmployeeService {
         }
     }
 }
+
+
+//    @Transactional
+//    public SaveEmployeeWithTemplateDTO saveEmployee(SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO,HttpServletRequest request) {
+//        User currentUser = userService.getCurrentUser(request);
+//        if (currentUser==null){
+//            throw new PermissionDeniedException("로그인 후 직원 등록이 가능합니다");
+//        }
+//        try {
+//            return employeeRepository.findById(saveEmployeeWithTemplateDTO.getEmployeeDTO().getId())
+//                    .map((employee) -> {
+//                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
+//                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
+//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO(),
+//                                employeeDTO);
+//                        return saveEmployeeWithTemplateDTO1;
+//                    })
+//                    .orElseGet(() -> {
+//                        PayrollTemplate payrollTemplate = new PayrollTemplate(
+//                                null,
+//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
+//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
+//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
+////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
+////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
+////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
+////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
+////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
+//                                true,
+////                                deductionAndTaxRepository.findAll(),
+////                                freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()).orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
+//                                null);
+//                        PayrollTemplateDTO payrollTemplateDTO = payrollTemplateRepository.save(payrollTemplate).toDTO();
+//                        Employee employee = new Employee(
+//                                null,
+//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
+//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getDepartment(),
+//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPosition(),
+//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getHourlyRate(),
+//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getBirthday(),
+//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
+//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
+//                                true,
+//                                false,
+//                                currentUser,
+//                                payrollTemplate);
+//                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
+//                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
+//                                payrollTemplateDTO,
+//                                employeeDTO
+//                        );
+//                        return saveEmployeeWithTemplateDTO1;
+//                    });
+//        }catch (InvalidRequestException e){
+//            throw new InvalidRequestException("직원 이름, 입사일은 필수 입력 사항입니다. 급여명세서 측정 날짜/지급일/기본급은 필수입력 사항입니다");
+//        }catch (DateTimeParseException e){
+//            throw new InvalidRequestException("날짜 입력이 올바르지 않습니다.");
+//        }
+//
+//    }

@@ -25,6 +25,8 @@ public class PayrollTemplateDTO {
 
     private Boolean isActive;
 
+    private Long employeeId;
+
 //    private Long salary;// 기본급
 //
 //    private Long bonus;  // 인센

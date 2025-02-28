@@ -30,12 +30,12 @@ public class PayrollTemplateController {
                 payrollTemplateService.getPayrollTemplateById(id),
                 HttpStatus.OK);
     }
-
-    @PutMapping("/update")
-    public ResponseEntity<PayrollTemplateDTO> updatePayrollTemplate( @RequestBody PayrollTemplateDTO payrollTemplateDTO, HttpServletRequest request) {
-        return new ResponseEntity<>(
-                payrollTemplateService.updatePayrollTemplate(payrollTemplateDTO,request),
-                HttpStatus.CREATED);
-    }
+//
+//    @PutMapping("/update")
+//    public ResponseEntity<PayrollTemplateDTO> updatePayrollTemplate( @RequestBody PayrollTemplateDTO payrollTemplateDTO, HttpServletRequest request) {
+//        return new ResponseEntity<>(
+//                payrollTemplateService.updatePayrollTemplate(payrollTemplateDTO,request),
+//                HttpStatus.CREATED);
+//    }
 
 }
