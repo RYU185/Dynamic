@@ -97,7 +97,7 @@ function AllData(response) {
 
 
   // 해당 직원 삭제처리
-  $(document).on('click', 'tbody tr', function () {
+  $(document).on('click', '.delete_button', function () {
     const id = document.querySelector('.delete_button');
     const parent = id.closest('tr');
     console.log(parent.id);
