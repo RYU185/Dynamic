@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class PurchaseHistoryService {
@@ -98,6 +99,7 @@ public class PurchaseHistoryService {
         if (currentUser == null) {
             throw new UnauthorizedUserException("올바르지 않은 접근입니다");
         }
+
         List<PurchaseHistory> purchaseHistories = new ArrayList<>();
         List<UserProduct> userProductList = new ArrayList<>();
         for (CartDTO data : cartDTOS){
@@ -124,32 +126,37 @@ public class PurchaseHistoryService {
             return purchaseHistoryRepository.saveAll(purchaseHistories).stream().map(PurchaseHistory::toDTO).toList();
         }
 
-        @Transactional
-        public PurchaseHistoryDTO instantBuy (String productId, HttpServletRequest request){
-            System.out.println("Received productId: " + productId);
-            productRepository.existsById("S2");
 
-            System.out.println(productId);
-            User currentUser = userService.getCurrentUser(request);
-            if (currentUser == null){
-                throw new UnauthorizedUserException("올바르지 않은 접근입니다");
-            }
+    @Transactional
+    public PurchaseHistoryDTO instantBuy(String productId, HttpServletRequest request) {
+        System.out.println("Received productId: " + productId);
+        System.out.println("Is productId null? " + (productId == null));
+        System.out.println("productId type: " + (productId != null ? productId.getClass().getName() : "null"));
 
-            Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("해당 제품을 찾을 수 없습니다1"));
 
-            PurchaseHistory purchaseHistory = new PurchaseHistory();
-            purchaseHistory.setUser(currentUser);
-            purchaseHistory.setProduct(product);
-            purchaseHistory.setPrice(product.getPrice());
-            purchaseHistory.setPurchaseDate(LocalDate.now());
-            purchaseHistoryRepository.save(purchaseHistory);
+        User currentUser = userService.getCurrentUser(request);
+        if (currentUser == null) {
+            throw new UnauthorizedUserException("올바르지 않은 접근입니다");
+        }
 
-            UserProduct userProduct = new UserProduct();
-            userProduct.setUser(currentUser);
-            userProduct.setProduct(product);
-            userProductRepository.save(userProduct);
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new ResourceNotFoundException("해당 제품을 찾을 수 없습니다."));
 
-            return purchaseHistory.toDTO();
+        // 결제 내역 생성 및 저장
+        PurchaseHistory purchaseHistory = new PurchaseHistory();
+        purchaseHistory.setUser(currentUser);
+        purchaseHistory.setProduct(product);
+        purchaseHistory.setPrice(product.getPrice());
+        purchaseHistory.setPurchaseDate(LocalDate.now());
+        purchaseHistoryRepository.save(purchaseHistory);
+
+        // 사용자 제품 등록
+        UserProduct userProduct = new UserProduct();
+        userProduct.setUser(currentUser);
+        userProduct.setProduct(product);
+        userProductRepository.save(userProduct);
+
+        return purchaseHistory.toDTO();
         }
 
         public UserProductDTO getUserProductDTO(Long userProductId) {

@@ -169,8 +169,57 @@ $(document).on("click", "#no", function () {
   $(".purchaseConfirm").hide();
 });
 
-// admin이 제품추가
+function submit_go(){
+  let title = document.querySelector("input[id='search_product']");
+  var sendData = title.value; 
 
-$.ajax ({
-  url
+  if(!sendData){
+    alert(
+      "검색어를 입력하세요!"
+    )
+  }
+}
+
+$.ajax({
+  url:"api/product/title/" + encodeURIComponent(sendData),
+  method:"get",
+  contentType:"application/json",
+  success: function (response){
+    let courseContainer = document.getElementById("courseContainer");
+    let subscContainer = document.getElementById("subscContainer");
+
+    courseContainer.innerHTML = "";
+    subscContainer.innerHTML = "";
+
+    if(response.length > 0 ){
+      response.forEach((product)=> {
+        let article = document.createElement("article");
+        article.innerHTML = `
+          <div class="thumbnail">
+          <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
+          </div>
+          <h2>${product.title}</h2>
+          <br>
+          <div>
+              <span>가격: </span><span class="price">${product.price}</span><span>원</span>
+          </div>
+          <p>${product.addDate ? product.addDate : "날짜 없음"}</p>
+          <p>별점: </p>
+          <button class="btnInCart" data-id="${product.id}" >장바구니</button>
+          <button class="btnPurchase" data-id="${product.id}">구매</button>
+        
+        `;
+
+        if(product.category === "강의"){
+          courseContainer.append(article);
+        }else {
+          subscContainer.append(article);
+        }
+      });
+    }else{
+      alert("검색 결과가 없습니다")
+    }
+  }, error:function(){
+  ("검색 오류가 발생하였습니다.")
+  }
 })

@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product,String> {
     @Query("select c from Course c where c.title like %:title%")
@@ -29,5 +30,8 @@ public interface ProductRepository extends JpaRepository<Product,String> {
     @Query("select new com.dw.dynamic.DTO.CategoryEnrollmentAndIncomeDTO(c.name,count(ph),sum(ph.product.price))" +
             "from Category c join PurchaseHistory ph on c.id = ph.product.category.id group by c.name")
     public List<CategoryEnrollmentAndIncomeDTO> getCategoryEnrollmentsAndIncomes();
+
+
+    Optional<Product> findById(String id);
 
 }

@@ -3,6 +3,7 @@ package com.dw.dynamic.controller;
 import com.dw.dynamic.DTO.CartDTO;
 import com.dw.dynamic.DTO.PurchaseHistoryDTO;
 import com.dw.dynamic.model.Cart;
+import com.dw.dynamic.model.Product;
 import com.dw.dynamic.model.PurchaseHistory;
 import com.dw.dynamic.service.PurchaseHistoryService;
 import jakarta.servlet.http.HttpServletRequest;
