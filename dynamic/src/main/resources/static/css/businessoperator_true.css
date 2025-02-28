@@ -139,6 +139,7 @@ header .header-wrap .sub {
   border-radius: 10px;
 
   text-align: center;
+  margin-top: 5px;
   margin-left: 350px;
 }
 .wrap .hidden_box .title_sub .abc {
@@ -151,12 +152,15 @@ header .header-wrap .sub {
 }
 .wrap .hidden_box .title_sub .abc_a {
   display: flex;
+  margin-top: 5px;
 }
 .wrap .hidden_box .title_sub .abc_b {
   display: flex;
+  margin-top: 5px;
 }
 .wrap .hidden_box .title_sub .abc_c {
   display: flex;
+  margin-top: 5px;
 }
 .wrap .hidden_box .ok:hover {
   cursor: pointer;
