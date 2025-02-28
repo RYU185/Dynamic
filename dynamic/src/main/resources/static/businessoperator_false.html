@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>businessoperator true</title>
-  <link rel="stylesheet" href="./css/businessoperator_true.css" />
+  <title>businessoperator false</title>
+  <link rel="stylesheet" href="./css/businessoperator_false.css" />
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <header>
       <div class="header-wrap">
         <div class="sub">
-          <h1>기존 사업자 회원가입</h1>
+          <h1>창업 예정자 회원가입</h1>
         </div>
       </div>
     </header>
@@ -117,11 +117,11 @@
         </div>
         <form action="/action_page.php">
           <div class="female">
-            <input type="radio" id="female" name="female" value="female" />
+            <input type="radio" id="female" name="gender" value="female" />
             <label for="female">여자</label>
           </div>
           <div class="male">
-            <input type="radio" id="male" name="male" value="male" />
+            <input type="radio" id="male" name="gender" value="male" />
             <label for="male">남자</label>
           </div>
         </form>
@@ -143,20 +143,55 @@
           <input type="text" class="phone_input right" id="phone" placeholder="전화번호를 입력해주세요" />
         </div>
         <div class="informtion planBusiness">
-          <p class="planBusiness box_text">업종명</p>
-          <p class="planBusiness box_icon">➕</p>
+          <p class="planBusiness box_text">예정업종</p>
+          <p class="planBusiness box_icon">▿</p>
         </div>
         <div class="informtion abc_a">
-          <p class="left">사업자 번호</p>
-          <input type="text" class="title_sub_input right" id="email" placeholder="이메일을 입력해주세요" />
+          <div class="abc_a_a">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="female">제조업</label>
+          </div>
+          <div class="abc_a_b">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">도매&소매</label>
+          </div>
+          <div class="abc_a_c">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">운수업</label>
+          </div>
         </div>
-        <div class="informtion abc_b">
-          <p class="left">회사명</p>
-          <input type="text" class="title_sub_input right" id="email" placeholder="이메일을 입력해주세요" />
+        <div class="informtion abc_a">
+          <div class="abc_a_a">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">출판</label>
+          </div>
+          <div class="abc_a_b">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">환경복원업</label>
+          </div>
+          <div class="abc_a_c">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">의료</label>
+          </div>
         </div>
-        <div class="informtion abc_c">
-          <p class="left">업종명</p>
-          <input type="text" class="title_sub_input right" id="email" placeholder="업종명을 입력해주세요" />
+        <div class="informtion abc_a">
+          <div class="abc_a_a">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">영상</label>
+          </div>
+          <div class="abc_a_b">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">정보서비스업</label>
+          </div>
+          <div class="abc_a_c">
+            <input type="radio" id="business" name="business" value="business" />
+            <label for="business">세무사</label>
+          </div>
+        </div>
+        <div class="else">
+          <p>기타</p>
+          <input type="text" class="name_input right" id="name" placeholder="이름을 입력해주세요" />
+        </div>
         </div>
       </div>
       <div class="last_box">

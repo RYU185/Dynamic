@@ -99,7 +99,7 @@ header .header-wrap .sub {
 }
 
 .wrap .box .informtion_box:hover {
-  height: 410px;
+  height: 480px;
 }
 .wrap .box .informtion_box form {
   display: flex;
@@ -157,6 +157,24 @@ header .header-wrap .sub {
 }
 .wrap .box .informtion_box .planBusiness .box_icon:hover {
   cursor: pointer;
+}
+.wrap .box .informtion_box .abc_a .abc_a_a {
+  width: 32%;
+  text-align: center;
+}
+
+.wrap .box .informtion_box .abc_a .abc_a_b{
+  width: 32%;
+  text-align: center;
+}
+
+.wrap .box .informtion_box .abc_a .abc_a_c {
+  width: 32%;
+  text-align: center;
+}
+.wrap .box .informtion_box .else {
+  display: flex;
+  gap: 20px;
 }
 
 /* last button */
