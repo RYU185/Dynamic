@@ -113,7 +113,6 @@ $(document).ready(function () {
       data: JSON.stringify(cartItemData),
       success: function () {
         alert("제품이 정상적으로 장바구니에 담겼습니다.");
-
         loadingCart(userName);
       },
       error: function () {
@@ -123,4 +122,51 @@ $(document).ready(function () {
   });
 
   loadingCart(userName);
+});
+
+
+
+const purchase_window = document.querySelector(".purchaseConfirm"); // 구매확정 window
+let seletedProductId = null;
+
+const purchase_btn = document.querySelectorAll(".btnPurchase").forEach((btn)=> {
+    btn.addEventListener("click", function(){
+      seletedProductId = this.attr("data-id");
+
+      purchase_window.style.display = "block";
+    })
+});
+
+$(document).on("click", "#go", function(){
+    if (!seletedProductId){
+      alert("구매할 제품을 선택하세요");
+      return;
+    }
+
+    var productId = $(".btnPurchase").data("id");
+
+  var cartid
+
+  var sendData = {
+    cartId: cartId,
+    userName:userName,
+    productId:productId
+  };
+
+  $.ajax({
+    url: "/api/purchase-history/save/purchase-history-and-user-product",
+    method:'POST',
+    data:JSON.stringify(sendData),
+    contentType:"application/json",
+    success: function(response){
+      if(response){
+        alert(
+          "해당 제품이 구매되었습니다. 마이페이지 > 나의 강의 목록을 확인하세요!"
+        );
+      }else{
+        alert("오류가 발생하여 해당 제품을 구매하지 못했습니다.")
+      }
+      
+    }
+  });
 });

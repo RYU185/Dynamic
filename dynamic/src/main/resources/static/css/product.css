@@ -547,3 +547,15 @@ footer .inner .lower p {
   font: 12px/1 "arial";
   color: #777;
 }
+
+.purchaseConfirm {
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  background: rgb(119, 38, 38);
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+  display: none;
+}
