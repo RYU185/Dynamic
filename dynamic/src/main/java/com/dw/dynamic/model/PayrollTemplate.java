@@ -30,7 +30,13 @@ public class PayrollTemplate {
     @Column(name = "payment_date",nullable = false)
     private LocalDate paymentDate;
 
-//    @Column(name = "salary",nullable = false)
+    @Column(name="is_active")
+    private Boolean isActive = true;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee")
+    private Employee employee;
+    //    @Column(name = "salary",nullable = false)
 //    private Long salary;// 기본급
 //
 //    @Column(name = "bonus")
@@ -44,10 +50,7 @@ public class PayrollTemplate {
 //
 //    @Column(name = "other_allowance")
 //    private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
-//
-    @Column(name="is_active")
-    private Boolean isActive = true;
-//
+
 //    @ManyToMany
 //    @JoinTable(name = "template_detail",
 //    joinColumns = @JoinColumn(name = "payroll_template"),
@@ -58,9 +61,6 @@ public class PayrollTemplate {
 //    @JoinColumn(name = "freelancer")
 //    private Freelancer freeLancer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee")
-    private Employee employee;
 
     public PayrollTemplateDTO toDTO(){
 //       List<String> deductionAndTaxName = new ArrayList<>();

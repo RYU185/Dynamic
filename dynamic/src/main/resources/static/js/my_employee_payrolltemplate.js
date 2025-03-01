@@ -21,6 +21,22 @@ function AllData(response) {
           <td >${element.birthday}</td>
         </tr>`);
       $('tbody').append($row);
+      $row.on('click', () => {
+        var employeeData = {
+          id: element.id,
+          name: element.name,
+          department: element.department,
+          position: element.position,
+          hourlyRate: element.hourlyRate,
+          birthday: element.birthday,
+          hireDate: element.hireDatet,
+          phoneNumber: element.phoneNumber,
+        };
+        console.log(employeeData);
+        sessionStorage.setItem('employeeData', JSON.stringify(employeeData));
+        window.location.href =
+          '/my_employee_payrolltemplate.html?id=' + element.id;
+      });
     }
   });
 }
@@ -45,3 +61,25 @@ $(document).on('click', '.show_calendar', function () {
 });
 
 // 입력된 값을 세션에 저장하고 급여명세서 양식 페이지로 이동
+
+const employeeData = sessionStorage.getItem('employeeData');
+const data = JSON.parse(employeeData);
+// 데이터를 페이지에 반영
+$(document).on('click', '.apply', function () {
+  const start_date = document.querySelector('#start_date').innerText;
+  const last_date = document.querySelector('#last_date').innerText;
+  const payment_date = document.querySelector('#payment_date').innerText;
+  var payrolltemplateData = {
+    id: 0,
+    startPayrollPeriod: start_date,
+    lastPayrollPeriod: last_date,
+    paymentDate: payment_date,
+    employeeId: data.id,
+  };
+  console.log(payrolltemplateData);
+  sessionStorage.setItem(
+    'payrolltemplateData',
+    JSON.stringify(payrolltemplateData)
+  );
+  window.location.href = '/payrolltemplate.html';
+});
