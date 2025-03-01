@@ -26,6 +26,11 @@ public class UserController {
                 userService.registerUser(userDTO),
                 HttpStatus.CREATED);
     }
+    @GetMapping("/check-id/{userName}")
+    public ResponseEntity<Boolean> checkId(@PathVariable String userName){
+        return new ResponseEntity<>(userService.checkId(userName),HttpStatus.OK);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<UserDTO>> getAllUser(HttpServletRequest request){
         return new ResponseEntity<>(

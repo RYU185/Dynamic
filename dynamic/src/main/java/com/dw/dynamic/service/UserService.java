@@ -59,6 +59,9 @@ public class UserService {
         ).toDTO();
     }
 
+    public boolean checkId(String userName){
+        return userRepository.existsById(userName);
+    }
     public boolean validateUser(String username, String password) {
         User user = userRepository.findById(username)
                 .orElseThrow(() -> new InvalidRequestException("Invalid Username"));

@@ -82,6 +82,10 @@ form > fieldset > ul {
   background: #99a8c5;
   cursor: pointer;
 }
+.wrap .signup_box_sub.selected {
+  background: #99a8c5;
+  cursor: pointer;
+}
 
 .wrap .next_box {
   width: 100px;
