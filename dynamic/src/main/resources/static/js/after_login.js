@@ -23,11 +23,12 @@ document.querySelector('.button').addEventListener('click', function () {
     success: function (response) {
       console.log(response);
       if (userCopy != 'admin') {
-        if (response > 5) {
+        if (response >= 5) {
           alert('이용 가능한 무료 횟수가 다 소진되었습니다');
           return;
+        } else {
+          window.location.href = '/free_payrolltemplate_information.html';
         }
-        window.location.href = '/free_payrolltemplate_information.html';
       } else {
         window.location.href = '/free_payrolltemplate_information.html';
       }

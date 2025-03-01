@@ -16,6 +16,16 @@ $(document).ready(function () {
   $('#company_name').text(employee.companyName);
   $('#payment_date').text(payrolltemplate.paymentDate);
 });
+$(document).on('input', 'input[type="text"]', function () {
+  let value = $(this)
+    .val()
+    .replace(/[^0-9]/g, ''); // 숫자 외의 문자 제거
+  if (value) {
+    // 3자리마다 ',' 추가
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  $(this).val(value); // 포맷팅된 값을 input에 설정
+});
 
 $(document).on('click', '#send', function () {
   var sendData = {

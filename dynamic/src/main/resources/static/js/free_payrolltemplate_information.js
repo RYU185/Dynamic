@@ -7,12 +7,13 @@ $(document).ready(function () {
     contentType: 'application/json',
     success: function (response) {
       console.log(response);
-      if (userCopy != 'admin') {
-        if (response > 5) {
+      if (userRole != 'admin') {
+        if (response >= 5) {
           alert('이용 가능한 무료 횟수가 다 소진되었습니다');
-          return;
+          window.location.href = '/after_login.html';
         }
-        window.location.href = '/after_login.html';
+      } else {
+        window.location.href = '/free_payrolltemplate_information.html';
       }
     },
   });
@@ -92,15 +93,4 @@ $(document).on('click', '.apply', function () {
   console.log(sendData);
   sessionStorage.setItem('userData', JSON.stringify(sendData));
   window.location.href = '/payrolltemplate.html';
-});
-
-$(document).on('input', 'input[type="text"]', function () {
-  let value = $(this)
-    .val()
-    .replace(/[^0-9]/g, ''); // 숫자 외의 문자 제거
-  if (value) {
-    // 3자리마다 ',' 추가
-    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
-  $(this).val(value); // 포맷팅된 값을 input에 설정
 });

@@ -101,4 +101,6 @@ form > fieldset > ul {
 }
 .wrap .next_box:hover {
   cursor: pointer;
+  background: #99a8c5;
+  cursor: pointer;
 }
