@@ -572,3 +572,12 @@ footer .inner .lower p {
   width: 90%;
   height: 90%;
 }
+
+.product_detail {
+  position: absolute;
+  background: rgba(168, 168, 168, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}

@@ -84,8 +84,8 @@ $(document).on("click", ".btnInCart", function () {
   console.log("장바구니 추가 요청, 제품 ID:", productId);
 
   $.ajax({
-    url: "/api/product/id" + encodeURIComponent(productId), 
-    method: "post",
+    url: "/api/product/id/" + encodeURIComponent(productId), 
+    method: "get",
     contentType: "application/json",
     success: function (selectedProduct) {
       if (!selectedProduct) {
@@ -147,6 +147,7 @@ $(document).on("click", ".btnInCart", function () {
         cartId: 0,
       };
 
+      // 장바구니 담기
       $.ajax({
         url: "/api/cart/save",
         type: "POST",
@@ -228,3 +229,66 @@ document.addEventListener("DOMContentLoaded", function () {
     searchButton.addEventListener("click", submit_go);
   }
 });
+
+// 마우스 오버 시 상세정보 조회
+$(document).ready(function(){
+  const productDetail = $(".product_detail");
+  const productTitle = productDetail.find(".product_title");
+  const productDate = productDetail.find(".upload_date");
+  const productDescription = productDetail.find(".description");
+  const productPrice = productDetail.find(".price");
+
+  $(".course article, .subsc article").on("mouseenter", function(event){
+    const productId = $(this).find("btnPurchase").data(id);
+    console.log(productId);
+
+    $.ajax({
+      url: `/api/product/${productId}`,
+      method: "GET",
+      dataType: "json",
+      beforeSend: function () {
+        console.log("🔄 서버 요청 시작 - ID:", productId);
+      },
+      success: function (data) {
+        console.log("✅ 서버 응답 성공 - 데이터:", data);
+
+        productTitle.text(data.title || "정보 없음");
+        productDescription.text(data.description || "설명이 없습니다.");
+
+        if (productId.startsWith("C")) {
+          productDate.text(data.addDate || "날짜 없음");
+        } else if (productId.startsWith("S")) {
+          productDate.text(`시작: ${data.startDate || "없음"} / 종료: ${data.expireDate || "없음"}`);
+        } else {
+          productDate.text("날짜 정보 없음");
+        }
+
+        productPrice.text(data.price ? `${data.price}원` : "가격 없음");
+        productDetail.css("display", "block");
+        console.log("🟢 상세 창 표시됨");
+      },
+      error: function (xhr, status, error) {
+        console.error("❌ 데이터 가져오기 실패:", error);
+      }
+    });
+  });
+
+  $(".course article, .subsc article").on("mousemove", function (event) {
+    const offsetX = 15; 
+    const offsetY = 15;
+
+    productDetail.css({
+      left: event.pageX + offsetX + "px",
+      top: event.pageY + offsetY + "px"
+    });
+
+    console.log(`🎯 마우스 이동 - X: ${event.pageX}, Y: ${event.pageY}`);
+  });
+
+  $(".course article, .subsc article").on("mouseleave", function () {
+    productDetail.css("display", "none");
+    console.log("🔵 마우스 떠남 - 상세 창 숨김");
+
+
+  })
+})
