@@ -230,4 +230,46 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// 마우스 오버 시 detail 출력
+$(document).ready(function(){
+  const productDetail = $(".product_detail");
+  const productTitle = productDetail.find(".product_title");
+  const productDate = productDetail.find(".upload_date");
+  const productDescription = productDetail.find(".description");
+  const productPrice = productDetail.find(".price");
 
+  $(".course article, .subsc article").on("mouseenter", function(event){
+    const productId = $(this).find("btnPurchase").data(id);
+    console.log(productId);
+
+    $.ajax({
+      url: `/api/product/${productId}`,
+      method: "GET",
+      dataType: "json",
+      beforeSend: function () {
+        console.log(productId);
+      },
+      success: function (data) {
+        console.log(data);
+
+        productTitle.text(data.title);
+        productDescription.text(data.description);
+
+        if (productId.startsWith("C")) { 
+          productDate.text(data.addDate);
+        } else if (productId.startsWith("S")) {
+          productDate.text(`시작: ${data.startDate || "없음"} / 종료: ${data.expireDate}`);
+        } else {
+          productDate.text("날짜 정보 없음");
+        }
+
+        productPrice.text(`${data.price}원`);
+        productDetail.css("display", "block");
+        console.log
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      }
+    });
+  });
+});
