@@ -57,6 +57,28 @@ public class PayrollTemplateService {
         return payrollTemplateRepository.findById(id).map(PayrollTemplate::toDTO).orElseThrow(() -> new InvalidRequestException("존재하지 않은 ID입니다"));
     }
 
+
+    public  PayrollTemplateDTO savePayrollTemplate(PayrollTemplateDTO payrollTemplateDTO, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        if (currentUser==null){
+            throw new PermissionDeniedException("로그인 후 직원 등록이 가능합니다");
+        }
+        try {
+            PayrollTemplate payrollTemplate = new PayrollTemplate(
+                    null,
+                    payrollTemplateDTO.getStartPayrollPeriod(),
+                    payrollTemplateDTO.getLastPayrollPeriod(),
+                    payrollTemplateDTO.getPaymentDate(),
+                    true,
+                    employeeRepository.findById(payrollTemplateDTO.getEmployeeId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 게시판ID입니다"))
+            );
+            return payrollTemplateRepository.save(payrollTemplate).toDTO();
+        }catch (InvalidRequestException e){
+            throw new InvalidRequestException("시작일, 종료일, 지급일 모두 작성해주세요");
+        }
+
+    }
+
 //    public PayrollTemplateDTO updatePayrollTemplate(PayrollTemplateDTO payrollTemplateDTO,HttpServletRequest request) {
 //        User currentUser = userService.getCurrentUser(request);
 //        if (currentUser==null){

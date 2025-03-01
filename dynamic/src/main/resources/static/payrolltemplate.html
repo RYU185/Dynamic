@@ -129,7 +129,12 @@
               </td>
               <td>3%</td>
               <td colspan="2">
-                <input type="text" id="3%" name="3%" class="element" />
+                <input
+                  type="text"
+                  id="freelancer_income"
+                  name="freelancer_income"
+                  class="element"
+                />
               </td>
             </tr>
             <tr>
@@ -144,7 +149,12 @@
               </td>
               <td>0.3%</td>
               <td colspan="2">
-                <input type="text" id="0.3%" name="0.3%" class="element" />
+                <input
+                  type="text"
+                  id="freelancer_local"
+                  name="freelancer_local"
+                  class="element"
+                />
               </td>
             </tr>
             <tr>
@@ -161,20 +171,20 @@
             </tr>
             <tr>
               <td>총 급여액</td>
-              <td class="total" id="total_amount"></td>
+              <td class="total" id="total_amount" readonly></td>
               <td>차인 지급액</td>
-              <td class="total" id="final_payment" colspan="2"></td>
+              <td class="total" id="final_payment" colspan="2" readonly></td>
             </tr>
             <tr>
               <td>회사명:</td>
               <td class="total" id="company_name"></td>
               <td>지급일:</td>
-              <td class="total" id="payment_date" colspan="2"></td>
+              <td class="total" id="payment_date" colspan="2" readonly></td>
             </tr>
           </table>
           <div class="buttom">
             <input type="button" id="send" value="저장" />
-            <input type="reset" id="reset" value="취소" />
+            <input type="button" id="reset" value="취소" />
             <span id="limit_name" style="display: inline">
               무료횟수
               <p id="limit_num" style="display: block"></p
