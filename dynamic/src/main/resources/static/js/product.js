@@ -78,18 +78,14 @@ $(document).ready(function () {
   }
 });
 
+// 장바구니 추가
 $(document).on("click", ".btnInCart", function () {
   var productId = $(this).data("id");
-  console.log(productId);
-
-  if(!productId){
-    alert("상품 id가 없다고 나옴")
-    return;
-  }
+  console.log("장바구니 추가 요청, 제품 ID:", productId);
 
   $.ajax({
-    url: "/api/product/id/" + encodeURIComponent(productId), 
-    method: "GET",
+    url: "/api/product/id" + encodeURIComponent(productId), 
+    method: "post",
     contentType: "application/json",
     success: function (selectedProduct) {
       if (!selectedProduct) {
@@ -116,14 +112,14 @@ $(document).on("click", ".btnInCart", function () {
         }
 
         // 강의 중복 검사
-        if (category === "강의") {  
+        if (category === "강의" && item.category === "강의") {  
           hasLecture = true;
         }
 
         // 구독권 중복 검사
-        if (category === "구독권" ) { 
-          var subStart = new Date(startDate);
-          var subExpire = new Date(expireDate);
+        if (category === "구독권" && item.category === "구독권") { 
+          var subStart = new Date(item.startDate);
+          var subExpire = new Date(item.expireDate);
           if (today >= subStart && today <= subExpire) {
             hasActiveSubscription = true;
           }
@@ -151,7 +147,6 @@ $(document).on("click", ".btnInCart", function () {
         cartId: 0,
       };
 
-      // 장바구니 추가
       $.ajax({
         url: "/api/cart/save",
         type: "POST",
@@ -172,48 +167,64 @@ $(document).on("click", ".btnInCart", function () {
   });
 });
 
+function submit_go() {
+  let titleInput = document.querySelector("input[id='search_product']");
+  let sendData = titleInput.value;
 
-$(document).on("click", ".btnPurchase", function () {
-  selectedProductId = $(this).data("id");
-  console.log("선택된 제품 ID:", selectedProductId);
-  $(".purchaseConfirm").show();
-});
-
-$(document).on("click", "#yes", function () {
-  console.log("구매 요청 사용자:", userName);
-
-  if (!selectedProductId) {
-    alert("구매할 제품을 선택하세요.");
-    return;
+  if (!sendData) {
+    alert("검색어를 입력하세요!");
+    return; 
   }
 
-  var sendData = [
-    {
-      cartId: null,
-      username: userName,
-      productId: selectedProductId,
-    },
-  ];
-
   $.ajax({
-    url: "/api/purchase-history/save/purchase-history-and-user-product",
-    method: "POST",
-    data: JSON.stringify(sendData),
+    url: "/api/product/title/" + encodeURIComponent(sendData),
+    method: "GET",
     contentType: "application/json",
     success: function (response) {
-      if (response) {
-        alert("오류가 발생하여 해당 제품을 구매하지 못했습니다.");
-      }
-      $(".purchaseConfirm").hide();
-    },
-    error: function (xhr, status, error) {
-      console.error("서버 응답 오류:", xhr.responseText);
-      alert("이미 해당 제품을 구매하였습니다.");
-    },
-  });
-});
+      let courseContainer = document.getElementById("courseContainer");
+      let subscContainer = document.getElementById("subscContainer");
 
-// "아니오" 버튼 클릭 시 구매 취소
-$(document).on("click", "#no", function () {
-  $(".purchaseConfirm").hide();
+      courseContainer.innerHTML = "";
+      subscContainer.innerHTML = "";
+
+      if (response.length > 0) {
+        response.forEach((product) => {
+          let article = document.createElement("article");
+          article.innerHTML = `
+            <div class="thumbnail">
+              <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
+            </div>
+            <h2>${product.title}</h2>
+            <br>
+            <div>
+              <span>가격: </span><span class="price">${product.price}</span><span>원</span>
+            </div>
+            <p>${product.addDate ? product.addDate : "날짜 없음"}</p>
+            <p>별점: </p>
+            <button class="btnInCart" data-id="${product.id}">장바구니</button>
+            <button class="btnPurchase" data-id="${product.id}">구매</button>
+          `;
+
+          if (product.category === "강의") {
+            courseContainer.appendChild(article);
+          } else {
+            subscContainer.appendChild(article);
+          }
+        });
+      } else {
+        alert("검색 결과가 없습니다.");
+      }
+    },
+    error: function () {
+      alert("검색 오류가 발생하였습니다.");
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  let searchButton = document.querySelector(".searchBar button");
+
+  if (searchButton) {
+    searchButton.addEventListener("click", submit_go);
+  }
 });
