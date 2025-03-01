@@ -30,3 +30,7 @@ $('.next_box').on('click', function () {
     alert('옵션을 선택해주세요.'); // 선택되지 않았을 경우 경고
   }
 });
+
+$('#home').on('click', function () {
+  window.location.href = '/index.html';
+});

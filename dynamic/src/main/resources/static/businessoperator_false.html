@@ -13,7 +13,7 @@
     <header>
       <div class="header-wrap">
         <div class="sub">
-          <h1>창업 예정자 회원가입</h1>
+          <h1>회원가입</h1>
         </div>
       </div>
     </header>
@@ -117,11 +117,11 @@
         </div>
         <form action="/action_page.php">
           <div class="female">
-            <input type="radio" id="female" name="gender" value="female" />
+            <input type="radio" id="female" name="gender" value="FEMALE" />
             <label for="female">여자</label>
           </div>
           <div class="male">
-            <input type="radio" id="male" name="gender" value="male" />
+            <input type="radio" id="male" name="gender" value="MALE" />
             <label for="male">남자</label>
           </div>
         </form>
@@ -132,7 +132,7 @@
         <div class="informtion id">
           <p class="left">아이디</p>
           <input type="text" class="id_input middle" id="id" placeholder="아이디을 입력해주세요" />
-          <p class="right">중복확인</p>
+          <p class="right" id="duplicate">중복확인</p>
         </div>
         <div class="informtion pwd">
           <p class="left">비밀번호</p>
@@ -194,12 +194,15 @@
         </div>
         </div>
         <div class="last_box">
-          <div class="button cancel">취소</div>
-          <div class="button join">회원가입</div>
+          <div class="button cancel" id="cancel">취소</div>
+          <div class="button join" id="regist">회원가입</div>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/businessoperator_false.js"></script>
 </body>
 
 </html>

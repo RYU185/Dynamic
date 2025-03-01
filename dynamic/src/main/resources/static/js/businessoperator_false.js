@@ -3,7 +3,7 @@ const data = JSON.parse(existBusinessOperator); // 기존 사업자 여부 true 
 const regist = document.querySelector('#regist');
 const userName = document.querySelector('#id');
 let duplicate = null;
-console.log(data);
+
 userName.addEventListener('input', function () {
   duplicate = null;
 });
@@ -33,10 +33,10 @@ $(document).on('click', '#regist', function () {
   const userName = document.querySelector('#id').value.trim();
   const password = document.querySelector('#pwd').value.trim();
   const phoneNumber = document.querySelector('#phone').value.trim();
-  const businessNumber = document.querySelector('#businessNumber').value.trim();
-  const companyName = document.querySelector('#companyName').value.trim();
-  const businessType = document.querySelector('#businessName').value.trim();
   const gender = document.querySelector("input[name='gender']:checked");
+  const plan = document.querySelector("input[name='business']:checked");
+  const other_plan = document.querySelector('#else').value.trim();
+
   if (!realName) {
     alert('이름을 작성해주세요');
     return;
@@ -61,16 +61,9 @@ $(document).on('click', '#regist', function () {
     alert('전화번호를 작성해주세요');
     return;
   }
-  if (!businessNumber) {
-    alert('사업자번호를 작성해주세요');
-    return;
-  }
-  if (!companyName) {
-    alert('회사명를 작성해주세요');
-    return;
-  }
-  if (!businessType) {
-    alert('업종명를 작성해주세요');
+
+  if (!plan && !other_plan) {
+    alert('예정 업종을 선택 혹은 작성해주세요');
     return;
   }
 
@@ -81,14 +74,14 @@ $(document).on('click', '#regist', function () {
 
   var sendData = {
     userName: userName,
-    companyName: companyName,
+    companyName: '없음',
     realName: realName,
     password: password,
     gender: gender.value,
     email: email,
     phoneNumber: phoneNumber,
-    businessNumber: businessNumber,
-    businessType: businessType,
+    businessNumber: '없음',
+    businessType: '없음',
     existBusinessOperator: data,
   };
   console.log(sendData);
