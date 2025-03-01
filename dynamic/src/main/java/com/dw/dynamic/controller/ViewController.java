@@ -94,14 +94,17 @@ public class ViewController {
     @GetMapping("/dynamic/free_payrolltemplate_information.html")
     public String free_payrolltemplate_information() {return "forward:/free_payrolltemplate_information.html";}
 
-    @GetMapping("/dynamic/my_employee_payrolltemplate.html")
-    public String my_employee_payrolltemplate() {return "forward:/my_employee_payrolltemplate.html";}
+    @GetMapping("/dynamic/my_employee_payrolltemplate_information.html")
+    public String my_employee_payrolltemplate_information() {return "forward:/my_employee_payrolltemplate_information.html";}
 
     @GetMapping("/dynamic/my_employee.html")
     public String my_employee() {return "forward:/my_employee.html";}
 
     @GetMapping("/dynamic/payrolltemplate.html")
     public String payrolltemplate() {return "forward:/payrolltemplate.html";}
+
+    @GetMapping("/dynamic/my_employee_payrolltemplate.html")
+    public String my_employee_payrolltemplate() {return "forward:/my_employee_payrolltemplate.html";}
 
 
 

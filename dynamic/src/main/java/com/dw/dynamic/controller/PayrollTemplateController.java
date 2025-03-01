@@ -37,5 +37,14 @@ public class PayrollTemplateController {
 //                payrollTemplateService.updatePayrollTemplate(payrollTemplateDTO,request),
 //                HttpStatus.CREATED);
 //    }
+    @PostMapping("/save")
+    public ResponseEntity< PayrollTemplateDTO> savePayrollTemplate(PayrollTemplateDTO payrollTemplateDTO, HttpServletRequest request){
+        return new ResponseEntity<>(
+                payrollTemplateService.savePayrollTemplate(payrollTemplateDTO,request),
+                HttpStatus.OK);
+    }
 
 }
+
+
+

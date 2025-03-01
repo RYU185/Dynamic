@@ -57,7 +57,7 @@ function AllData(response) {
       const write = document.querySelector('.write');
       $(write).on('click', () => {
         console.log(element.id + ' ' + element.name);
-        window.location.href = '/my_employee_payrolltemplate.html';
+        window.location.href = '/my_employee_payrolltemplate_information.html';
       });
       // 연결하는 동시에 직원 수정 버튼 클릭 될 수있도록 처리
 

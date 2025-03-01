@@ -68,6 +68,7 @@ $(document).on('click', '.apply', function () {
   const last_date = document.querySelector('#last_date');
   const hourly_rate = document.querySelector('#hourly_rate');
   const payment_date = document.querySelector('#payment_date');
+  const company_name = document.querySelector('#company_name');
 
   var sendData = {
     payrollTemplateDTO: {
@@ -85,9 +86,21 @@ $(document).on('click', '.apply', function () {
       birthday: birthday.innerText,
       hireDate: hiredate.innerText,
       phoneNumber: phone.innerText,
+      companyName: company_name.innerText,
     },
   };
   console.log(sendData);
   sessionStorage.setItem('userData', JSON.stringify(sendData));
   window.location.href = '/payrolltemplate.html';
+});
+
+$(document).on('input', 'input[type="text"]', function () {
+  let value = $(this)
+    .val()
+    .replace(/[^0-9]/g, ''); // 숫자 외의 문자 제거
+  if (value) {
+    // 3자리마다 ',' 추가
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  $(this).val(value); // 포맷팅된 값을 input에 설정
 });

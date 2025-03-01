@@ -72,6 +72,7 @@ public class PayrollTemplateService {
                     true,
                     employeeRepository.findById(payrollTemplateDTO.getEmployeeId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 게시판ID입니다"))
             );
+
             return payrollTemplateRepository.save(payrollTemplate).toDTO();
         }catch (InvalidRequestException e){
             throw new InvalidRequestException("시작일, 종료일, 지급일 모두 작성해주세요");

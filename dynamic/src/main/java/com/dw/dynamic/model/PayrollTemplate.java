@@ -33,8 +33,8 @@ public class PayrollTemplate {
     @Column(name="is_active")
     private Boolean isActive = true;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee")
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
     private Employee employee;
     //    @Column(name = "salary",nullable = false)
 //    private Long salary;// 기본급
