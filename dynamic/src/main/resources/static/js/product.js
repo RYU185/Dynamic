@@ -107,119 +107,169 @@ $(document).on("click", ".btnInCart", function () {
     cartId: 0,
   };
 
-  // 장바구니 추가
+// 장바구니 추가
+$(document).on("click", ".btnInCart", function () {
+  var productId = $(this).data("id");
+
+  console.log(productId);
+
+  // 1. 선택한 상품 정보 가져오기 (비동기)
   $.ajax({
-    url: "/api/cart/save",
-    type: "POST",
+    url: `/api/product/${productId}`,
+    method: "GET",
     contentType: "application/json",
-    data: JSON.stringify(cartItemData),
-    success: function () {
-      alert("제품이 정상적으로 장바구니에 담겼습니다.");
-      loadingCart(userName);
+    success: function (selectedProduct) {
+      if (!selectedProduct) {
+        alert("상품 정보를 불러오는 데 실패했습니다.");
+        return;
+      }
+
+      var category = selectedProduct.category.name;
+      var startDate = selectedProduct.startDate;
+      var expireDate = selectedProduct.expireDate;
+
+      var hasLecture = false;
+      var hasActiveSubscription = false;
+      var exist = false;
+
+      var today = new Date();
+
+      // 2. 장바구니 항목 검사 (반복문 사용)
+      for (var i = 0; i < cartItem.length; i++) {
+        var item = cartItem[i];
+
+        // 동일한 상품이 이미 있는 경우
+        if (item.productId === productId) {
+          exist = true;
+          break;
+        }
+
+        // 강의 중복 검사
+        if (category === "강의" && item.category === "강의") {
+          hasLecture = true;
+        }
+
+        // 구독권 중복 검사 (유효 기간 확인)
+        if (category === "구독권" && item.category === "구독권") {
+          var subStart = new Date(item.startDate);
+          var subExpire = new Date(item.expireDate);
+          if (today >= subStart && today <= subExpire) {
+            hasActiveSubscription = true;
+          }
+        }
+      }
+
+      // 3. 중복 검사 결과에 따른 처리
+      if (exist) {
+        alert("해당 제품은 이미 장바구니에 있습니다.");
+        return;
+      }
+
+      if (hasLecture) {
+        alert("강의는 하나만 장바구니에 담을 수 있습니다.");
+        return;
+      }
+
+      if (hasActiveSubscription) {
+        alert("현재 유효한 구독권이 있어 새로운 구독권을 추가할 수 없습니다.");
+        return;
+      }
+
+      // 4. 장바구니 추가 요청 (비동기)
+      var cartItemData = {
+        productId: productId,
+        username: userName,
+        cartId: 0,
+      };
+
+      $.ajax({
+        url: "/api/cart/save",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(cartItemData),
+        success: function () {
+          alert("제품이 정상적으로 장바구니에 담겼습니다.");
+          loadingCart(userName); // 장바구니 데이터 다시 불러오기
+        },
+        error: function () {
+          alert("장바구니 추가 중 오류가 발생했습니다.");
+        },
+      });
     },
     error: function () {
-      alert("장바구니 추가 중 오류가 발생했습니다.");
+      alert("상품 정보를 불러오는 데 실패했습니다.");
     },
   });
 });
 
-// show / hide 사용 : div를 숨김처리할 수 있다.
 
-$(document).on("click", ".btnPurchase", function () {
-  selectedProductId = $(this).data("id");
-  console.log("선택된 제품 ID:", selectedProductId);
-  $(".purchaseConfirm").show();
-});
 
-$(document).on("click", "#yes", function () {
-  console.log("구매 요청 사용자:", userName);
+// 검색창
 
-  if (!selectedProductId) {
-    alert("구매할 제품을 선택하세요.");
-    return;
+function submit_go() {
+  let titleInput = document.querySelector("input[id='search_product']");
+  let sendData = titleInput.value
+
+  if (!sendData) {
+    alert("검색어를 입력하세요!");
+    return; 
   }
-
-  var sendData = [
-    {
-      cartId: null,
-      username: userName,
-      productId: selectedProductId,
-    },
-  ];
 
   $.ajax({
-    url: "/api/purchase-history/save/purchase-history-and-user-product",
-    method: "POST",
-    data: JSON.stringify(sendData),
+    url: "/api/product/title/" + encodeURIComponent(sendData),
+    method: "GET",
     contentType: "application/json",
     success: function (response) {
-      if (response) {
-        alert("오류가 발생하여 해당 제품을 구매하지 못했습니다.");
+      let courseContainer = document.getElementById("courseContainer");
+      let subscContainer = document.getElementById("subscContainer");
+
+      courseContainer.innerHTML = "";
+      subscContainer.innerHTML = "";
+
+      if (response.length > 0) {
+        response.forEach((product) => {
+          let article = document.createElement("article");
+          article.innerHTML = `
+            <div class="thumbnail">
+              <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
+            </div>
+            <h2>${product.title}</h2>
+            <br>
+            <div>
+              <span>가격: </span><span class="price">${product.price}</span><span>원</span>
+            </div>
+            <p>${product.addDate ? product.addDate : "날짜 없음"}</p>
+            <p>별점: </p>
+            <button class="btnInCart" data-id="${product.id}">장바구니</button>
+            <button class="btnPurchase" data-id="${product.id}">구매</button>
+          `;
+
+          // 강의 또는 구독권에 따라 분류
+          if (product.category === "강의") {
+            courseContainer.appendChild(article);
+          } else {
+            subscContainer.appendChild(article);
+          }
+        });
+      } else {
+        alert("검색 결과가 없습니다.");
       }
-      $(".purchaseConfirm").hide();
     },
-    error: function (xhr, status, error) {
-      console.error("서버 응답 오류:", xhr.responseText);
-      alert("이미 해당제품을 구매하였습니다.");
-    },
+    error: function () {
+      alert("검색 오류가 발생하였습니다.");
+    }
   });
-});
-
-$(document).on("click", "#no", function () {
-  $(".purchaseConfirm").hide();
-});
-
-function submit_go(){
-  let title = document.querySelector("input[id='search_product']");
-  var sendData = title.value; 
-
-  if(!sendData){
-    alert(
-      "검색어를 입력하세요!"
-    )
-  }
 }
 
-$.ajax({
-  url:"api/product/title/" + encodeURIComponent(sendData),
-  method:"get",
-  contentType:"application/json",
-  success: function (response){
-    let courseContainer = document.getElementById("courseContainer");
-    let subscContainer = document.getElementById("subscContainer");
+document.addEventListener("DOMContentLoaded", function () {
+  let searchButton = document.querySelector(".searchBar button");
 
-    courseContainer.innerHTML = "";
-    subscContainer.innerHTML = "";
-
-    if(response.length > 0 ){
-      response.forEach((product)=> {
-        let article = document.createElement("article");
-        article.innerHTML = `
-          <div class="thumbnail">
-          <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
-          </div>
-          <h2>${product.title}</h2>
-          <br>
-          <div>
-              <span>가격: </span><span class="price">${product.price}</span><span>원</span>
-          </div>
-          <p>${product.addDate ? product.addDate : "날짜 없음"}</p>
-          <p>별점: </p>
-          <button class="btnInCart" data-id="${product.id}" >장바구니</button>
-          <button class="btnPurchase" data-id="${product.id}">구매</button>
-        
-        `;
-
-        if(product.category === "강의"){
-          courseContainer.append(article);
-        }else {
-          subscContainer.append(article);
-        }
-      });
-    }else{
-      alert("검색 결과가 없습니다")
-    }
-  }, error:function(){
-  ("검색 오류가 발생하였습니다.")
+  if (searchButton) {
+    searchButton.addEventListener("click", submit_go);
   }
-})
+});
+
+const come_back = document.querySelector(".wrapCourse h1");
+come_back.addEventListener("click", function(){
+  window.location.href = "product.html"
+});

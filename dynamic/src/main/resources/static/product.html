@@ -56,7 +56,7 @@
                     <div class="searchBar">
                         <p>
                             <input type="text" placeholder="강의 / 구독권을 입력하세요" id="search_product"/>
-                            <button onclick= "submit_go">검색</button>
+                            <button>검색</button>
                         </p>
                             <img src="./img/search.png">
                         <div class="adminOnly">
@@ -193,6 +193,18 @@
             </div>
         </section>
 
+        <!-- 제품 상세창(커서 오버 시) -->
+        <div class="product_detail">
+            <div class="detail_wrap">
+                <!-- 개졸려 -->
+                <span>제목: </span><span class="product_title"></span>
+                <span>상세설명: </span><span class="description"></span>
+                <span>업로드 일자: </span><span></span>
+                <span>가격: </span><span></span>
+            </div>
+        </div>
+
+
         <!-- 어드민이 제품 추가 -->
         <div class="product_add">
             
@@ -233,7 +245,7 @@
     
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="./js/product.js"></script>
+    <script src="/js/product.js"></script>
     
 </body>
 
