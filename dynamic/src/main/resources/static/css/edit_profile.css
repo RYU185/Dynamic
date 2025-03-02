@@ -172,13 +172,13 @@ hr {
   display: flex;
 }
 
-.wrap .box .informtion_box .no {
+/* 아이디 */
+.wrap .box .informtion_box .id {
   display: flex;
   background-color: #dfdede;
   border-radius: 10px;
   color: #b0b0b0;
 }
-
 .wrap .box .informtion_box .none {
   width: 80%;
   border: none;
@@ -217,6 +217,26 @@ hr {
 }
 .wrap .box .informtion_box .BoI .box_icon:hover {
   cursor: pointer;
+}
+
+.wrap .box .informtion_box .pwd .pwd_text {
+  width: 50%;
+  text-align: left;
+}
+.wrap .box .informtion_box .pwd .new_pwd {
+  width: 25%;
+  text-align: center;
+  margin-left: 30%;
+  border-bottom: none;
+  background: #e3e4e4;
+  border-radius: 5px;
+  padding: 3px;
+}
+.wrap .box .informtion_box .pwd .new_pwd:hover {
+  border-radius: 5px;
+  background: dodgerblue;
+  cursor: pointer;
+  color: #fff;
 }
 
 

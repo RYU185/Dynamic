@@ -1,17 +1,17 @@
 @charset 'utf-8';
 
 @font-face {
-  font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
-    format('woff2');
+  font-family: "NanumHumanTTFBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-    format('woff');
+  font-family: "GmarketSansMedium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -19,7 +19,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
   box-sizing: border-box;
 }
 ul,
@@ -40,10 +40,10 @@ input:focus {
   width: 100%;
 }
 header .header-wrap h1 {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   margin-right: 10px;
   font-size: 50px;
-  color: #4b4b4b;
+  color: #000000;
 }
 header .header-wrap .sub {
   width: 100%;
@@ -55,16 +55,8 @@ header .header-wrap .sub {
   margin: auto;
   border-radius: 20px;
   padding: 25px;
+
   background-image: linear-gradient(45deg, #a4d2f8, #7c93be, #fff);
-}
-.wrap .box > h1 {
-  width: 100%;
-  font-family: 'GmarketSansMedium';
-  font-size: 45px;
-  font-weight: 900;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 15px;
 }
 
 /* 동의란 */
@@ -154,7 +146,7 @@ header .header-wrap .sub {
 }
 .wrap .box .informtion_box .id .right:hover {
   border-radius: 5px;
-  background: rgb(178, 178, 178);
+  background: dodgerblue;
   cursor: pointer;
   color: #fff;
 }
@@ -189,6 +181,6 @@ header .header-wrap .sub {
 }
 .button:hover {
   cursor: pointer;
-  background-color: rgb(78, 163, 248);
+  background-color: dodgerblue;
   color: white;
 }
