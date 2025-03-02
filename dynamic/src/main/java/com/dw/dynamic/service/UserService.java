@@ -132,11 +132,10 @@ public class UserService {
 
     public List<String> getIdByEmail(String email) { // 이메일로 통하여 아이디 찾기
 
-        User user = userRepository.findByEmail(email);
-        if (user == null) {
+        if (userRepository.findByEmail(email).isEmpty()) {
             throw new ResourceNotFoundException("해당 이메일로 가입한 아이디가 없습니다.");
         }
-        List<String> userNameList = userRepository.findByUserName(email).stream().map(User::getUserName).toList();
+        List<String> userNameList = userRepository.findByEmail(email).stream().map(User::getUserName).toList();
         return userNameList;
     }
 

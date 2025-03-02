@@ -14,5 +14,5 @@ public interface UserRepository extends JpaRepository<User,String> {
 
     List<User> findUserByExistBusinessOperator(boolean existBusinessOperator);
 
-    User findByEmail(String email);
+    List<User> findByEmail(String email);
 }
