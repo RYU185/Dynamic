@@ -47,7 +47,7 @@ $(document).on('click', '#send', function () {
     },
   });
 });
-// 모든 input 필드 초기화
+// 총 급여액 계산!!
 $('#reset').on('click', function () {
   $('input[type="text"]').val('');
 });
@@ -93,7 +93,7 @@ document
     });
   });
 
-// 각 입력 필드에 'input' 이벤트 리스너를 추가하여 값이 변경될 때마다 계산하도록 설정
+//총 공제액
 document
   .querySelectorAll(
     '#health_insurance, #national_pension, #employeement_insurance, #income_tax, #local_tax, #freelancer_income, #freelancer_local,#other'

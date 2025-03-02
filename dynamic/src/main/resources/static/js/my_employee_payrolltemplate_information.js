@@ -42,11 +42,25 @@ function AllData(response) {
   });
 }
 
+document.querySelectorAll('.date').forEach(function (inputField) {
+  inputField.addEventListener('input', function (e) {
+    let value = e.target.value.replace(/[^0-9]/g, ''); // 숫자만 남기기
+    if (value.length <= 4) {
+      e.target.value = value; // 연도만 입력되었을 경우
+    } else if (value.length <= 6) {
+      e.target.value = value.slice(0, 4) + '-' + value.slice(4); // 연도-월
+    } else {
+      e.target.value =
+        value.slice(0, 4) + '-' + value.slice(4, 6) + '-' + value.slice(6, 8); // 연도-월-일
+    }
+  });
+});
+
 $(document).on('click', '.show_calendar', function () {
   // contenteditable로 설정된 값 가져오기
-  const start_date = document.querySelector('#start_date').innerText.trim();
-  const last_date = document.querySelector('#last_date').innerText.trim();
-  const payment_date = document.querySelector('#payment_date').innerText.trim();
+  const start_date = document.querySelector('#start_date').value.trim();
+  const last_date = document.querySelector('#last_date').value.trim();
+  const payment_date = document.querySelector('#payment_date').value.trim();
   const calendar = document.querySelector('.down'); // 달력 요소
 
   // 모든 필드가 입력되었는지 확인
@@ -67,9 +81,9 @@ const employeeData = sessionStorage.getItem('employeeData');
 const data = JSON.parse(employeeData);
 // 데이터를 페이지에 반영
 $(document).on('click', '.apply', function () {
-  const start_date = document.querySelector('#start_date').innerText;
-  const last_date = document.querySelector('#last_date').innerText;
-  const payment_date = document.querySelector('#payment_date').innerText;
+  const start_date = document.querySelector('#start_date').value.trim();
+  const last_date = document.querySelector('#last_date').value.trim();
+  const payment_date = document.querySelector('#payment_date').value.trim();
   var payrolltemplateData = {
     id: 0,
     startPayrollPeriod: start_date,

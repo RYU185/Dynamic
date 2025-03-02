@@ -199,6 +199,11 @@ main .inner .upper .information div {
   height: 15%;
   line-height: 37.5px;
 }
+main .inner .upper .information div > input {
+  width: 90%;
+  outline: none;
+  border: none;
+}
 
 main .inner .upper .show_calendar {
   width: 150px;

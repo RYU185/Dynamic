@@ -93,7 +93,7 @@ $('#reset').on('click', function () {
   $('input[type="text"]').val('');
 });
 
-// 각 입력 필드에 'input' 이벤트 리스너를 추가하여 값이 변경될 때마다 계산하도록 설정
+//총 급여액 구하기!
 document
   .querySelectorAll(
     '#salary, #bonus, #meal, #transfer, #night, #holiday, #other_allowance'
@@ -135,7 +135,7 @@ document
     });
   });
 
-// 각 입력 필드에 'input' 이벤트 리스너를 추가하여 값이 변경될 때마다 계산하도록 설정
+//총 공제액 !!
 document
   .querySelectorAll(
     '#health_insurance, #national_pension, #employeement_insurance, #income_tax, #local_tax, #freelancer_income, #freelancer_local,#other'
@@ -194,26 +194,3 @@ document
       document.querySelector('#total_insurance').value = total.toLocaleString();
     });
   });
-
-// // 각 입력 필드에 'input' 이벤트 리스너를 추가하여 값이 변경될 때마다 계산하도록 설정
-// document
-//   .querySelectorAll('#total_insurance, #total_amount')
-//   .forEach((element) => {
-//     element.addEventListener('input', function () {
-//       // 각 입력값을 숫자로 변환 (빈 문자열을 처리하려면 0으로 기본값을 설정)
-//       const total_insurance =
-//         parseFloat(
-//           document.querySelector('#total_insurance').value.replace(/,/g, '')
-//         ) || 0;
-//       const total_amount =
-//         parseFloat(
-//           document.querySelector('#total_amount').value.replace(/,/g, '')
-//         ) || 0;
-
-//       // 총합 계산
-//       const total = total_amount - total_insurance;
-
-//       const finalPaymentElement = document.querySelector('#final_payment');
-//       finalPaymentElement.value = total.toLocaleString();
-//     });
-//   });

@@ -281,6 +281,11 @@ main .inner .box2 .information .info {
   margin-right: 10px;
   margin-left: 15px;
 }
+main .inner .box2 .information div > input {
+  width: 90%;
+  outline: none;
+  border: none;
+}
 
 main .inner .box2 .information div {
   width: 50%;
