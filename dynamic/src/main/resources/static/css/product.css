@@ -580,5 +580,19 @@ footer .inner .lower p {
   color: white;
   padding: 10px;
   border-radius: 5px;
+  display: block;
+}
+
+.product_add {
   display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  border: 1px solid #000;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 300px;
+  border-radius: 5px;
 }

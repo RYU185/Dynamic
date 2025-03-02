@@ -196,7 +196,6 @@
         <!-- 제품 상세창(커서 오버 시) -->
         <div class="product_detail">
             <div class="detail_wrap">
-                <!-- 개졸려 -->
                 <span>제목: </span><span class="product_title"></span>
                 <span>상세설명: </span><span class="description"></span>
                 <span>업로드 일자: </span><span class="upload_date"></span>
@@ -207,7 +206,15 @@
 
         <!-- 관리자가 제품 추가 -->
         <div class="product_add">
-            
+            <button class="closeBtn">X</button>
+            <div class="product_add_wrap">
+                <span>제목: </span><span class="new_title"></span>
+                <span>설명: </span><span class="new_description"></span>
+                <span>동영상: </span><label for="fileUpload" class="file-label">파일 선택</label>
+                <input type="file" id="fileUpload" class="file-input">
+                <span>날짜: </span><span class="new_add_date"></span>
+                <span>가격: </span><span class="new_price"></span>
+            </div>
         </div>
 
 
@@ -245,7 +252,7 @@
     
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/product.js"></script>
+    <script src="./js/product.js"></script>
     
 </body>
 

@@ -46,7 +46,7 @@ $(document).ready(function () {
           var category = product.category?.name;
           var description = product.description || "";
 
-          var $article = $(`  
+          var $article = $(`
             <article>
                 <div class="thumbnail">
                     <img src="./img/courseThumnail1.png" alt="${title} 썸네일" />
@@ -84,8 +84,8 @@ $(document).on("click", ".btnInCart", function () {
   console.log("장바구니 추가 요청, 제품 ID:", productId);
 
   $.ajax({
-    url: "/api/product/id/" + encodeURIComponent(productId), 
-    method: "get",
+    url: "/api/product/id/" + encodeURIComponent(productId),
+    method: "GET",
     contentType: "application/json",
     success: function (selectedProduct) {
       if (!selectedProduct) {
@@ -96,7 +96,6 @@ $(document).on("click", ".btnInCart", function () {
       var category = selectedProduct.category.name;
       var startDate = selectedProduct.startDate;
       var expireDate = selectedProduct.expireDate;
-
       var hasLecture = false;
       var hasActiveSubscription = false;
       var exist = false;
@@ -112,15 +111,22 @@ $(document).on("click", ".btnInCart", function () {
         }
 
         // 강의 중복 검사
-        if (category === "강의" && item.category === "강의") {  
+        if (category === "강의" && item.category === "강의") {
           hasLecture = true;
         }
 
         // 구독권 중복 검사
-        if (category === "구독권" && item.category === "구독권") { 
+        if (category === "구독권" && item.category === "구독권") {
           var subStart = new Date(item.startDate);
           var subExpire = new Date(item.expireDate);
-          if (today >= subStart && today <= subExpire) {
+
+          var selectedStart = new Date(startDate);
+          var selectedExpire = new Date(expireDate);
+
+          if (
+            (today >= subStart && today <= subExpire) ||
+            (today >= selectedStart && today <= selectedExpire)
+          ) {
             hasActiveSubscription = true;
           }
         }
@@ -147,7 +153,6 @@ $(document).on("click", ".btnInCart", function () {
         cartId: 0,
       };
 
-      // 장바구니 담기
       $.ajax({
         url: "/api/cart/save",
         type: "POST",
@@ -168,81 +173,19 @@ $(document).on("click", ".btnInCart", function () {
   });
 });
 
-function submit_go() {
-  let titleInput = document.querySelector("input[id='search_product']");
-  let sendData = titleInput.value;
-
-  if (!sendData) {
-    alert("검색어를 입력하세요!");
-    return; 
-  }
-
-  $.ajax({
-    url: "/api/product/title/" + encodeURIComponent(sendData),
-    method: "GET",
-    contentType: "application/json",
-    success: function (response) {
-      let courseContainer = document.getElementById("courseContainer");
-      let subscContainer = document.getElementById("subscContainer");
-
-      courseContainer.innerHTML = "";
-      subscContainer.innerHTML = "";
-
-      if (response.length > 0) {
-        response.forEach((product) => {
-          let article = document.createElement("article");
-          article.innerHTML = `
-            <div class="thumbnail">
-              <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
-            </div>
-            <h2>${product.title}</h2>
-            <br>
-            <div>
-              <span>가격: </span><span class="price">${product.price}</span><span>원</span>
-            </div>
-            <p>${product.addDate ? product.addDate : "날짜 없음"}</p>
-            <p>별점: </p>
-            <button class="btnInCart" data-id="${product.id}">장바구니</button>
-            <button class="btnPurchase" data-id="${product.id}">구매</button>
-          `;
-
-          if (product.category === "강의") {
-            courseContainer.appendChild(article);
-          } else {
-            subscContainer.appendChild(article);
-          }
-        });
-      } else {
-        alert("검색 결과가 없습니다.");
-      }
-    },
-    error: function () {
-      alert("검색 오류가 발생하였습니다.");
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  let searchButton = document.querySelector(".searchBar button");
-
-  if (searchButton) {
-    searchButton.addEventListener("click", submit_go);
-  }
-});
-
 // 마우스 오버 시 detail 출력
-$(document).ready(function(){
+$(document).ready(function () {
   const productDetail = $(".product_detail");
   const productTitle = productDetail.find(".product_title");
   const productDate = productDetail.find(".upload_date");
   const productDescription = productDetail.find(".description");
   const productPrice = productDetail.find(".price");
 
-  $(".course article, .subsc article").on("mouseenter", function(event){
-    const productId = $(this).find(".btnPurchase").data(id);
-    console.log(productId);
+  $(document).on("mouseenter", ".course article, .subsc article", function (event) {
+    const productId = $(this).find(".btnPurchase").data("id");
+    console.log("마우스 오버 - 제품 ID:", productId);
 
-    if(!productId){
+    if (!productId) {
       return;
     }
 
@@ -254,31 +197,26 @@ $(document).ready(function(){
         console.log(data);
 
         productTitle.text(data.title);
-        productDescription.text(data.description);
-        productPrice.text(data.price);
+        productDescription.text(data.description || "설명 없음");
+        productPrice.text(`${data.price}원`);
 
         if (data.category === "강의") {
-          productDate.text(data.addDate);
-      } else if (data.category === "구독권") {
-          productDate.text(`시작: ${data.startDate} / 종료: ${data.expireDate}`);
-      } else {
+          productDate.text(data.addDate || "날짜 없음");
+        } else if (data.category === "구독권") {
+          productDate.text(`시작: ${data.startDate || "없음"} / 종료: ${data.expireDate || "없음"}`);
+        } else {
           productDate.text("날짜 정보 없음");
-      }
+        }
 
-        productPrice.text(`${data.price}원`);
         productDetail.css("display", "block");
       },
       error: function () {
-        console.error("상품정보를 불러오지 못했습니다.");
-      }
+        console.error("상품 정보를 불러오지 못했습니다.");
+      },
     });
   });
 
-  $(document).on("mouseleave", ".course article, .subsc article", function(){
-    productDetail.css("display","none");
-  })
+  $(document).on("mouseleave", ".course article, .subsc article", function () {
+    productDetail.css("display", "none");
+  });
 });
-
-$(document).ready(function(){
-  const courseDetail = $(".")
-})
