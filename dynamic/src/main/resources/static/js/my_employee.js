@@ -98,7 +98,7 @@ function AllData(response) {
             method: 'POST',
             contentType: 'application/json',
             success: function () {
-              // window.location.href = '/my_employee.html';
+              window.location.href = '/my_employee.html';
             },
           });
         } else {

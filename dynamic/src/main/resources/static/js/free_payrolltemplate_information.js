@@ -12,8 +12,6 @@ $(document).ready(function () {
           alert('이용 가능한 무료 횟수가 다 소진되었습니다');
           window.location.href = '/after_login.html';
         }
-      } else {
-        window.location.href = '/free_payrolltemplate_information.html';
       }
     },
   });
