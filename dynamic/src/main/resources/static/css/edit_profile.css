@@ -171,36 +171,17 @@ hr {
   border-bottom: 1px solid gray;
 }
 
-.wrap .box .informtion_box .id .middle {
-  width: 60%;
-  border: none;
-  border-bottom: 1px solid gray;
-}
-
-.wrap .box .informtion_box .id .right {
-  width: 20%;
-  text-align: center;
-  border-bottom: none;
-  background: #e3e4e4;
-  border-radius: 5px;
-  padding: 3px;
-}
-.wrap .box .informtion_box .id .right:hover {
-  border-radius: 5px;
-  background: dodgerblue;
-  cursor: pointer;
-  color: #fff;
-}
-.wrap .box .informtion_box .planBusiness {
+.wrap .box .informtion_box .BoI {
   position: relative;
 }
-.wrap .box .informtion_box .planBusiness .box_icon {
+.wrap .box .informtion_box .BoI .box_icon {
   position: absolute;
   right: 0px;
 }
-.wrap .box .informtion_box .planBusiness .box_icon:hover {
+.wrap .box .informtion_box .BoI .box_icon:hover {
   cursor: pointer;
 }
+
 
 /* last button */
 .last_box {
