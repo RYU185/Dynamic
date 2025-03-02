@@ -62,5 +62,4 @@ public class Product {
             return "제목 없음";
         }
     }
-
 }

@@ -288,3 +288,68 @@ $(document).ready(function () {
     productDetail.css("display", "none");
   });
 });
+
+
+$(document).ready(function () {
+  const userRole = JSON.parse(sessionStorage.getItem("userName"));
+
+  if (userRole === "admin") {
+    document.querySelector(".adminOnly").style.display = "block";
+  }
+
+  console.log("로그인 계정:", userName)
+
+  if(!userRole){
+    alert("로그인이 필요합니다");
+    window.location.href = "/login.html"
+  }
+
+  $(".add").on("click", function(){
+    $(".product_add").css("display","block");
+  });
+
+  $(".closeBtn").on("click", function(){
+    $(".product_add").css("display","none");
+  });
+
+
+  $(".submit_add").on("click", function(){
+    const newTitle = document.querySelector(".new_title").value;
+    const newDescription = document.querySelector(".new_description").value;
+    const newAddDate = document.querySelector(".new_add_date").value;
+    const newPrice = document.querySelector(".new_price").value;
+    const fileData = document.getElementById("fileUpload").files[0];
+  })
+
+  if(!newTitle || !! newDescription || !newAddDate || !newPrice || !fileData){
+    alert("모든 필드를 채워주세요")
+    return;
+  }
+
+  const productData = {
+    title: newTitle,
+    price: newPrice, 
+    category: "강의", 
+    isActive: true,
+    courseDetails:{
+      description: newDescription,
+      addDate: newAddDate
+    } 
+  };
+  
+  $.ajax({
+    url: "/api/product/save",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(productData),
+    success: function () {
+        alert("강의가 성공적으로 추가되었습니다.");
+        $(".product_add").css("display", "none");
+        loadProductList();
+
+    },
+    error:function(){
+      alert("강의 추가 중 오류 발생")
+    }
+  })
+});
