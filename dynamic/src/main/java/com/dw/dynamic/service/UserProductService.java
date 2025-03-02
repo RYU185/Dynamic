@@ -25,8 +25,7 @@ public class UserProductService {
     UserProductRepository userProductRepository;
     @Autowired
     UserService userService;
-    @Autowired
-    PurchaseHistoryService purchaseHistoryService;
+
 
 
     public List<UserProductDTO> getAllUserProducts (HttpServletRequest request){

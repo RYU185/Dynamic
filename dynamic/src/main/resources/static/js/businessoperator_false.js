@@ -74,14 +74,14 @@ $(document).on('click', '#regist', function () {
 
   var sendData = {
     userName: userName,
-    companyName: '없음',
+    companyName: '',
     realName: realName,
     password: password,
     gender: gender.value,
     email: email,
     phoneNumber: phoneNumber,
-    businessNumber: '없음',
-    businessType: '없음',
+    businessNumber: '',
+    businessType: '',
     existBusinessOperator: data,
   };
   console.log(sendData);

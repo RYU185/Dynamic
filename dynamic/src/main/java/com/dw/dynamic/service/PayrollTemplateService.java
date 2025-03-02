@@ -23,14 +23,12 @@ public class PayrollTemplateService {
     @Autowired
     PayrollTemplateRepository payrollTemplateRepository;
 
-    @Autowired
-    FreelancerRepository freelancerRepository;
+
 
     @Autowired
     EmployeeRepository employeeRepository;
 
-    @Autowired
-    DeductionAndTaxRepository deductionAndTaxRepository;
+
 
     @Autowired
     UserService userService;
@@ -79,26 +77,11 @@ public class PayrollTemplateService {
         }
 
     }
+     public List<PayrollTemplateDTO> getPayrollTemplateByPaymentDate(int month,HttpServletRequest request){
+         User currentUser = userService.getCurrentUser(request);
 
-//    public PayrollTemplateDTO updatePayrollTemplate(PayrollTemplateDTO payrollTemplateDTO,HttpServletRequest request) {
-//        User currentUser = userService.getCurrentUser(request);
-//        if (currentUser==null){
-//            throw new PermissionDeniedException("로그인 후 사용 가능합니다");
-//        }
-//
-//        PayrollTemplate payrollTemplate=payrollTemplateRepository.findById(payrollTemplateDTO.getId()).orElseThrow(()->new ResourceNotFoundException("조회되는 급여명세서Id가 없습니다"));
-//        if (!payrollTemplate.getEmployee().getUser().getUserName().equals(currentUser.getUserName())){
-//            throw new PermissionDeniedException("다른 유저의 급여명세서를 수정할 수 없습니다");
-//        }
-//        List<Employee> employee =  employeeRepository.findByUser(currentUser);
-//
-//        payrollTemplate.setStartPayrollPeriod(payrollTemplateDTO.getStartPayrollPeriod());
-//        payrollTemplate.setLastPayrollPeriod(payrollTemplateDTO.getLastPayrollPeriod());
-//        payrollTemplate.setPaymentDate(payrollTemplateDTO.getPaymentDate());
-//
-//
-//
-//            return payrollTemplateRepository.save(payrollTemplate).toDTO();
-//    }
+          return  payrollTemplateRepository.findByPaymentDate(month).stream().map(PayrollTemplate::toDTO).toList();
+     }
+
 
 }

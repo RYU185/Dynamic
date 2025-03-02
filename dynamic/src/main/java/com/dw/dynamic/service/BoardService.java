@@ -26,8 +26,6 @@ public class BoardService {
     @Autowired
     UserService userService;
 
-    @Autowired
-    UserRepository userRepository;
 
     public List<BoardDTO> getAllBoards() {
         try {

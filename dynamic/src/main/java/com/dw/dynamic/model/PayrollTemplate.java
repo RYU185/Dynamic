@@ -36,38 +36,11 @@ public class PayrollTemplate {
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
-    //    @Column(name = "salary",nullable = false)
-//    private Long salary;// 기본급
-//
-//    @Column(name = "bonus")
-//    private Long bonus;  // 인센
-//
-//    @Column(name = "meal_allowance")
-//    private Long mealAllowance; // 식대
-//
-//    @Column(name="transport_allowance")
-//    private Long transportAllowance; // 교통비
-//
-//    @Column(name = "other_allowance")
-//    private  Long otherAllowance; // 그 외(야간, 연장, 휴일)
 
-//    @ManyToMany
-//    @JoinTable(name = "template_detail",
-//    joinColumns = @JoinColumn(name = "payroll_template"),
-//    inverseJoinColumns = @JoinColumn(name = "deduction_and_taxname"))
-//    private List<DeductionAndTax> deductionAndTax;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "freelancer")
-//    private Freelancer freeLancer;
 
 
     public PayrollTemplateDTO toDTO(){
-//       List<String> deductionAndTaxName = new ArrayList<>();
-//       for (DeductionAndTax data : deductionAndTax) {
-//           deductionAndTaxName.add(data.getName());
-//       }
-//        EmployeeDTO employeeDTO= this.employee !=null ?this.employee.toDTO() : null;
+
 
        return  new PayrollTemplateDTO(
                this.id,
@@ -76,13 +49,7 @@ public class PayrollTemplate {
                this.paymentDate,
                 this.isActive,
                 this.employee.getId()
-//               this.salary,
-//               this.bonus,
-//               this.mealAllowance,
-//               this.transportAllowance,
-//               this.otherAllowance,
-//               deductionAndTaxName,
-//               this.freeLancer.getName()
+
        );
 
     }

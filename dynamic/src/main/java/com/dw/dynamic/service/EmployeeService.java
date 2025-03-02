@@ -27,17 +27,10 @@ public class EmployeeService {
     @Autowired
     UserService userService;
 
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     PayrollTemplateRepository payrollTemplateRepository;
 
-    @Autowired
-    DeductionAndTaxRepository deductionAndTaxRepository;
-
-    @Autowired
-    FreelancerRepository freelancerRepository;
 
     public List<EmployeeDTO> getAllEmployeesByAdmin(HttpServletRequest request) {  // 관리자가 전체 직원 조회
         User currentUser = userService.getCurrentUser(request);
@@ -221,62 +214,4 @@ public class EmployeeService {
 }
 
 
-//    @Transactional
-//    public SaveEmployeeWithTemplateDTO saveEmployee(SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO,HttpServletRequest request) {
-//        User currentUser = userService.getCurrentUser(request);
-//        if (currentUser==null){
-//            throw new PermissionDeniedException("로그인 후 직원 등록이 가능합니다");
-//        }
-//        try {
-//            return employeeRepository.findById(saveEmployeeWithTemplateDTO.getEmployeeDTO().getId())
-//                    .map((employee) -> {
-//                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
-//                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO(),
-//                                employeeDTO);
-//                        return saveEmployeeWithTemplateDTO1;
-//                    })
-//                    .orElseGet(() -> {
-//                        PayrollTemplate payrollTemplate = new PayrollTemplate(
-//                                null,
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getStartPayrollPeriod(),
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
-//                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
-////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getSalary(),
-////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getBonus(),
-////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getMealAllowance(),
-////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTransportAllowance(),
-////                                saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getOtherAllowance(),
-//                                true,
-////                                deductionAndTaxRepository.findAll(),
-////                                freelancerRepository.findById(saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFreeLancerName()).orElseThrow(() -> new InvalidRequestException("3.3% 여부를 작성해주세요")),
-//                                null);
-//                        PayrollTemplateDTO payrollTemplateDTO = payrollTemplateRepository.save(payrollTemplate).toDTO();
-//                        Employee employee = new Employee(
-//                                null,
-//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getName(),
-//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getDepartment(),
-//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPosition(),
-//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getHourlyRate(),
-//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getBirthday(),
-//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getHireDate(),
-//                                saveEmployeeWithTemplateDTO.getEmployeeDTO().getPhoneNumber(),
-//                                true,
-//                                false,
-//                                currentUser,
-//                                payrollTemplate);
-//                        EmployeeDTO employeeDTO = employeeRepository.save(employee).toDTO();
-//                        SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
-//                                payrollTemplateDTO,
-//                                employeeDTO
-//                        );
-//                        return saveEmployeeWithTemplateDTO1;
-//                    });
-//        }catch (InvalidRequestException e){
-//            throw new InvalidRequestException("직원 이름, 입사일은 필수 입력 사항입니다. 급여명세서 측정 날짜/지급일/기본급은 필수입력 사항입니다");
-//        }catch (DateTimeParseException e){
-//            throw new InvalidRequestException("날짜 입력이 올바르지 않습니다.");
-//        }
-//
-//    }
 

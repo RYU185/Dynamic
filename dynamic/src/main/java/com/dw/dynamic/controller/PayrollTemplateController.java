@@ -30,17 +30,18 @@ public class PayrollTemplateController {
                 payrollTemplateService.getPayrollTemplateById(id),
                 HttpStatus.OK);
     }
-//
-//    @PutMapping("/update")
-//    public ResponseEntity<PayrollTemplateDTO> updatePayrollTemplate( @RequestBody PayrollTemplateDTO payrollTemplateDTO, HttpServletRequest request) {
-//        return new ResponseEntity<>(
-//                payrollTemplateService.updatePayrollTemplate(payrollTemplateDTO,request),
-//                HttpStatus.CREATED);
-//    }
+
     @PostMapping("/save")
     public ResponseEntity< PayrollTemplateDTO> savePayrollTemplate(@RequestBody PayrollTemplateDTO payrollTemplateDTO, HttpServletRequest request){
         return new ResponseEntity<>(
                 payrollTemplateService.savePayrollTemplate(payrollTemplateDTO,request),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/payment_date_month")
+    public ResponseEntity< List<PayrollTemplateDTO>> getPayrollTemplateByPaymentDate(@PathVariable int month, HttpServletRequest request){
+        return new ResponseEntity<>(
+                payrollTemplateService.getPayrollTemplateByPaymentDate(month,request),
                 HttpStatus.OK);
     }
 

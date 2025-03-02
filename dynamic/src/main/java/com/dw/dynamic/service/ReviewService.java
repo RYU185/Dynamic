@@ -29,8 +29,6 @@ public class ReviewService {
 
     @Autowired
     ProductRepository productRepository;
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     PurchaseHistoryRepository purchaseHistoryRepository;

@@ -18,8 +18,6 @@ public class AuthorityService {
     @Autowired
     AuthorityRepository authorityRepository;
 
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     UserService userService;

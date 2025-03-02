@@ -30,13 +30,35 @@ INSERT INTO category (name) VALUES('정기 구독권');
 
 INSERT INTO product (id,price,category_name,is_active) VALUES('C1',15000,'강의',true);
 INSERT INTO product (id,price,category_name,is_active) VALUES('C2',17000,'강의',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S1',30000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S2',55000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S1',20000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S2',38000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S3',55000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S4',70000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S5',90000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S6',110000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S7',125000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S8',152000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S9',164000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S10',1850000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S11',2020000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S12',213000,'정기 구독권',true);
 
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개월 구독권','2025-01-13','2025-04-12','S1');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('6개월 구독권','2025-01-13','2025-07-12','S2');
+
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('1개월 정기 구독권','2025-01-13','2025-04-12','S1');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('2개월 정기 구독권','2025-01-13','2025-07-12','S2');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개월 정기 구독권','2025-01-13','2025-07-12','S3');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('4개월 정기 구독권','2025-01-13','2025-07-12','S4');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('5개월 정기 구독권','2025-01-13','2025-07-12','S5');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('6개월 정기 구독권','2025-01-13','2025-07-12','S6');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('7개월 정기 구독권','2025-01-13','2025-07-12','S7');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('8개월 정기 구독권','2025-01-13','2025-07-12','S8');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('9개월 정기 구독권','2025-01-13','2025-07-12','S9');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('10개월 정기 구독권','2025-01-13','2025-07-12','S10');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('11개월 정기 구독권','2025-01-13','2025-07-12','S11');
+INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('12개월 정기 구독권','2025-01-13','2025-07-12','S12');
+
 INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','급여 계산 방법 및 공제 방법에 대한 설명','C1');
-INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','사업자 등록 방법에 대한 설명','C2');
+INSERT INTO course(title,add_date,description,id) VALUES('사업자 등록 방법','2025-01-13','사업자 등록 방법에 대한 설명','C2');
 
 INSERT INTO review(text,rating,add_date,modified_date,user_name,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
 INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', false,'2025-01-13','2025-01-16',true,'sangsu1234');
@@ -76,8 +98,11 @@ INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_da
 VALUES ('2025-01-13','2025-02-12','2025-02-12',true,3);
 
 
-INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('S1','sangsu1234',15000,'2025-01-13');
+INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('S1','sangsu1234',20000,'2025-01-13');
 INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('C2','sangsu1234',17000,'2025-01-22');
 
 INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','S1');
 INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','C2');
+--
+INSERT INTO point(amount,add_date,purchase_history_id) VALUES (20000,'2025-01-13',1)
+INSERT INTO point(amount,add_date,purchase_history_id) VALUES (17000,'2025-01-22',2)

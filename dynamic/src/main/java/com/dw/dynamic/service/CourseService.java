@@ -20,11 +20,7 @@ public class CourseService {
     @Autowired
     CourseRepository courseRepository;
 
-    @Autowired
-    UserService userService;
 
-    @Autowired
-    ProductRepository productRepository;
 
     public List<Course> getAllCourses() {
         return courseRepository.findAllWhereProductIsActiveIsTrue();
@@ -45,15 +41,5 @@ public class CourseService {
         return courseRepository.findByTitleWhereProductIsActiveIsTrue(title);
     }
 
-//    public String deleteCourse (String title, HttpServletRequest request){
-//        User currentUser = userService.getCurrentUser(request);
-//        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
-//            throw new PermissionDeniedException("권한이 없습니다.");
-//        }
-//        if (courseRepository.findByTitle(title).isEmpty()){
-//            throw new ResourceNotFoundException("존재하지 않는 강의명입니다");
-//        }
-//        courseRepository.deleteByTitle(title);
-//        return "강의명 : "+title + "이(가) 정상 삭제되었습니다";
-//    }
+
 }

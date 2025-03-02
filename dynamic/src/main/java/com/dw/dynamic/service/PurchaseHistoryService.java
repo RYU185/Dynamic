@@ -24,14 +24,10 @@ import java.util.Objects;
 public class PurchaseHistoryService {
     @Autowired
     PurchaseHistoryRepository purchaseHistoryRepository;
-    @Autowired
-    UserRepository userRepository;
+
     @Autowired
     UserService userService;
-    @Autowired
-    CourseRepository courseRepository;
-    @Autowired
-    PayrollSubscriptionRepository payrollSubscriptionRepository;
+
     @Autowired
     ProductRepository productRepository;
 
@@ -40,6 +36,12 @@ public class PurchaseHistoryService {
 
     @Autowired
     UserProductRepository userProductRepository;
+
+    @Autowired
+    PointService pointService;
+
+    @Autowired
+    PointRepository pointRepository;
 
     public List<PurchaseHistoryDTO> getAllPurchaseHistorys(HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
@@ -93,7 +95,7 @@ public class PurchaseHistoryService {
         }
         return purchaseHistory.stream().map(PurchaseHistory::toDTO).toList();
     }
-
+    @Transactional
     public List<PurchaseHistoryDTO> savePurchaseHistoryAndUserProduct(List<CartDTO> cartDTOS, HttpServletRequest request){
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {
@@ -102,26 +104,35 @@ public class PurchaseHistoryService {
 
         List<PurchaseHistory> purchaseHistories = new ArrayList<>();
         List<UserProduct> userProductList = new ArrayList<>();
+        List<Point> pointList = new ArrayList<>();
         for (CartDTO data : cartDTOS){
             Cart cart1 = cartRepository.findById(data.getCartId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 장바구니ID입니다"));
             if (cart1.getIsActive().equals(false)){
                 throw new InvalidRequestException("이미 구매한 제품입니다");
             }
+            //구매내역 추가
             PurchaseHistory purchaseHistory = new PurchaseHistory();
             purchaseHistory.setPurchaseDate(LocalDate.now());
             purchaseHistory.setUser(currentUser);
             Product product = productRepository.findById(data.getProductId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 제품번호입니다"));
             purchaseHistory.setProduct(product);
             purchaseHistory.setPrice(product.getPrice());
-
+            //유저제품 추가
             UserProduct userProduct = new UserProduct();
             userProduct.setUser(currentUser);
             userProduct.setProduct(product);
+            //포인트 추가
+            Point point = new Point();
+            point.setAmount(pointService.calculatePoint(product.getPrice()));
+            point.setPurchaseHistory(purchaseHistory);
+            point.setAddDate(LocalDate.now());
 
             cart1.setIsActive(false);
             purchaseHistories.add(purchaseHistory);
             userProductList.add(userProduct);
+            pointList.add(point);
         }
+                    pointRepository.saveAll(pointList).stream().map(Point::toDTO).toList();
                     userProductRepository.saveAll(userProductList).stream().map(UserProduct::toDTO).toList();
             return purchaseHistoryRepository.saveAll(purchaseHistories).stream().map(PurchaseHistory::toDTO).toList();
         }

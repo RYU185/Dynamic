@@ -63,6 +63,7 @@ public class UserService {
     public boolean checkId(String userName){
         return userRepository.existsById(userName);
     }
+
     public boolean validateUser(String username, String password) {
         User user = userRepository.findById(username)
                 .orElseThrow(() -> new InvalidRequestException("Invalid Username"));
@@ -78,6 +79,7 @@ public class UserService {
         return userRepository.findById(userName)
                 .orElseThrow(() -> new InvalidRequestException("No username"));
     }
+
 
     public List<UserDTO> getAllUsers(HttpServletRequest request) { // 관리자가 전체 유저 조회
         User currentUser = getCurrentUser(request);

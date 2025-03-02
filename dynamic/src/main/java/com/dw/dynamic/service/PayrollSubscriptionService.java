@@ -17,8 +17,7 @@ public class PayrollSubscriptionService {
     @Autowired
     PayrollSubscriptionRepository payrollSubscriptionRepository;
 
-    @Autowired
-    UserService userService;
+
 
     public List<PayrollSubscription> getAllPayrollSubscriptions() {
         return payrollSubscriptionRepository.findAll().stream().toList();
@@ -29,6 +28,5 @@ public class PayrollSubscriptionService {
                 .orElseThrow(() -> new ResourceNotFoundException("존재하지 않는 제품ID 입니다 : " + id));
     }
 
-//    public PayrollSubscription
 
 }

@@ -9,6 +9,11 @@ import java.util.List;
 
 public interface PayrollTemplateRepository extends JpaRepository<PayrollTemplate,Long> {
 
+    @Query("SELECT p FROM PayrollTemplate p WHERE FUNCTION('MONTH', p.paymentDate) = :month AND p.isActive = true")
+    public List<PayrollTemplate> findByPaymentDate(int month);
+
+
+
 
 
 }
