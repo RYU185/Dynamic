@@ -9,44 +9,45 @@
   <body>
     <div class="wrap">
       <header>
-        <div class="header-wrap">
-          <div class="home">
-            <a href="#">
-              <img src="./img/home.png" />
-            </a>
-          </div>
-          <div class="findId">
-            <h1>아이디 찾기</h1>
-          </div>
+        <div class="findId">
+          <h1>아이디 찾기</h1>
         </div>
       </header>
 
-      <div class="total_box">
-        <div class="boxes email_box">
-          <p class="email_box_sub">이메일</p>
-          <p class="doublecheck_box_text">인증번호</p>
-          <input
-            type="text"
-            class="email_box_input"
-            id="email"
-            placeholder="이메일을 입력해주세요"
-          />
+      <div class="box">
+        <div class="informtion_box">
+          <div class="informtion email">
+            <p class="left">이메일</p>
+            <input
+              type="text"
+              class="email_input middle"
+              id="email"
+              placeholder="이메일을 입력해주세요"
+            />
+            <p class="right" id="Verification number">인증번호</p>
+          </div>
+          <div class="informtion verification_number">
+            <p class="left">인증번호</p>
+            <input
+              type="text"
+              class="verification_number_input middle"
+              id="verification_number"
+              placeholder="인증번호를 입력해주세요"
+            />
+            <p class="right" id="done">인증완료</p>
+          </div>
+          <div class="informtion myid">
+            <p class="left">나의 아이디</p>
+            <p class="right" id="copy">복사</p>
+          </div>
         </div>
-        <div class="boxes check_box">
-          <p class="check_box_text">인증번호</p>
-          <p class="done_box_text">인증완료</p>
-          <input
-            type="text"
-            class="check_email_box_input"
-            id="check_email"
-            placeholder="인증번호를 입력해주세요"
-          />
-        </div>
-        <div class="boxes myid_box">
-          <p class="myid_box_text">나의 아이디</p>
-          <p class="copy_box_text">복사</p>
+        <div class="last_box">
+          <div class="button cancel" id="cancel">취소</div>
+          <div class="button home" id="regist">홈</div>
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/businessoperator_true.js"></script>
   </body>
 </html>

@@ -107,8 +107,10 @@ hr {
 
 .wrap .title .second_header {
   width: 350px;
+  color: #4b4b4b;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
   border-radius: 15px;
 }
 .wrap .title .second_header .second_header_box {
@@ -125,9 +127,18 @@ hr {
 
   background-image: linear-gradient(45deg, #a4d2f8, #7c93be, #fff);
 }
+.wrap .box > h1 {
+  width: 100%;
+  font-family: 'GmarketSansMedium';
+  font-size: 45px;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 15px;
+}
 .wrap .box .informtion_box {
   width: 400px;
-  height: 330px;
+  /* height: 360px; */
   overflow: hidden;
   border-radius: 5px;
   background: #ffffff;
@@ -143,6 +154,7 @@ hr {
 .wrap .box .informtion_box .gender {
   background-color: #dfdede;
   border-radius: 10px;
+  padding: 5px;
   color: #b0b0b0;
   display: flex;
   justify-content: center;
@@ -153,11 +165,35 @@ hr {
 
 .wrap .box .informtion_box .gender .gender_text{
   font-size: 1.2rem;
-  color: #949494;
+  color: #787777;
 }
 
 .wrap .box .informtion {
   display: flex;
+}
+
+.wrap .box .informtion_box .no {
+  display: flex;
+  background-color: #dfdede;
+  border-radius: 10px;
+  color: #b0b0b0;
+}
+
+.wrap .box .informtion_box .none {
+  width: 80%;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-right: 60px;
+  color: #949494;
+  background-color: #dfdede;
+  border-radius: 10px;
+}
+.wrap .box .informtion_box .id .id_text {
+  margin-top: 10px;
+  width: 20%;
+  text-align: left;
 }
 
 .wrap .box .informtion_box .left {
@@ -170,6 +206,7 @@ hr {
   border: none;
   border-bottom: 1px solid gray;
 }
+
 
 .wrap .box .informtion_box .BoI {
   position: relative;
@@ -185,7 +222,7 @@ hr {
 
 /* last button */
 .last_box {
-  width: 400px;
+  width: 350px;
   display: flex;
   justify-content: space-around;
   gap: 20px;
