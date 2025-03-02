@@ -239,37 +239,46 @@ $(document).ready(function(){
   const productPrice = productDetail.find(".price");
 
   $(".course article, .subsc article").on("mouseenter", function(event){
-    const productId = $(this).find("btnPurchase").data(id);
+    const productId = $(this).find(".btnPurchase").data(id);
     console.log(productId);
 
+    if(!productId){
+      return;
+    }
+
     $.ajax({
-      url: `/api/product/${productId}`,
+      url: `/api/product/id/${productId}`,
       method: "GET",
       dataType: "json",
-      beforeSend: function () {
-        console.log(productId);
-      },
       success: function (data) {
         console.log(data);
 
         productTitle.text(data.title);
         productDescription.text(data.description);
+        productPrice.text(data.price);
 
-        if (productId.startsWith("C")) { 
+        if (data.category === "강의") {
           productDate.text(data.addDate);
-        } else if (productId.startsWith("S")) {
-          productDate.text(`시작: ${data.startDate || "없음"} / 종료: ${data.expireDate}`);
-        } else {
+      } else if (data.category === "구독권") {
+          productDate.text(`시작: ${data.startDate} / 종료: ${data.expireDate}`);
+      } else {
           productDate.text("날짜 정보 없음");
-        }
+      }
 
         productPrice.text(`${data.price}원`);
         productDetail.css("display", "block");
-        console.log
       },
-      error: function (xhr, status, error) {
-        console.error(error);
+      error: function () {
+        console.error("상품정보를 불러오지 못했습니다.");
       }
     });
   });
+
+  $(document).on("mouseleave", ".course article, .subsc article", function(){
+    productDetail.css("display","none");
+  })
 });
+
+$(document).ready(function(){
+  const courseDetail = $(".")
+})

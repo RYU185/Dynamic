@@ -26,6 +26,4 @@ public class Course extends Product {
 
     @Column(name = "description", length = 500, updatable = false)
     private String description; // 상세 설명
-
-
 }

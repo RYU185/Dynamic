@@ -233,6 +233,7 @@ section .allCourse .wrapCourse h1 {
   position: absolute;
   z-index: 1;
   line-height: 140px;
+  cursor: pointer;
 }
 
 .adminOnly {
