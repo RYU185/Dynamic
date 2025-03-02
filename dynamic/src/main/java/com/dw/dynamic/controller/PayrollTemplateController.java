@@ -38,7 +38,7 @@ public class PayrollTemplateController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/payment_date_month")
+    @GetMapping("/payment_date_month/{month}")
     public ResponseEntity< List<PayrollTemplateDTO>> getPayrollTemplateByPaymentDate(@PathVariable int month, HttpServletRequest request){
         return new ResponseEntity<>(
                 payrollTemplateService.getPayrollTemplateByPaymentDate(month,request),

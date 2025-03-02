@@ -80,7 +80,12 @@ public class PayrollTemplateService {
      public List<PayrollTemplateDTO> getPayrollTemplateByPaymentDate(int month,HttpServletRequest request){
          User currentUser = userService.getCurrentUser(request);
 
-          return  payrollTemplateRepository.findByPaymentDate(month).stream().map(PayrollTemplate::toDTO).toList();
+        if (payrollTemplateRepository.findByPaymentDateAndUser(month,currentUser).isEmpty()){
+            throw new ResourceNotFoundException("해당월로 발급하신 급여명세서는 없습니다");
+        }
+             return  payrollTemplateRepository.findByPaymentDateAndUser(month,currentUser).stream().map(PayrollTemplate::toDTO).toList();
+
+
      }
 
 

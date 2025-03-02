@@ -38,6 +38,6 @@ public class PointService {
     }
 
     public long calculatePoint(double amount){
-        return (long)(amount * 0.5);
+        return (long)(amount * 0.05);
     }
 }

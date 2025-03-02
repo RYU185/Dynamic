@@ -39,8 +39,8 @@ INSERT INTO product (id,price,category_name,is_active) VALUES('S6',110000,'정�
 INSERT INTO product (id,price,category_name,is_active) VALUES('S7',125000,'정기 구독권',true);
 INSERT INTO product (id,price,category_name,is_active) VALUES('S8',152000,'정기 구독권',true);
 INSERT INTO product (id,price,category_name,is_active) VALUES('S9',164000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S10',1850000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S11',2020000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S10',185000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('S11',202000,'정기 구독권',true);
 INSERT INTO product (id,price,category_name,is_active) VALUES('S12',213000,'정기 구독권',true);
 
 
@@ -103,6 +103,6 @@ INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('C
 
 INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','S1');
 INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','C2');
---
-INSERT INTO point(amount,add_date,purchase_history_id) VALUES (20000,'2025-01-13',1)
-INSERT INTO point(amount,add_date,purchase_history_id) VALUES (17000,'2025-01-22',2)
+
+INSERT INTO point(amount,add_date,purchase_history_id) VALUES (1000,'2025-01-13',1)
+INSERT INTO point(amount,add_date,purchase_history_id) VALUES (850,'2025-01-22',2)
