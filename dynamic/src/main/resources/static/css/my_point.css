@@ -105,14 +105,14 @@ hr {
 }
 
 .wrap .box .second_header {
-  margin-top: 150px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
 }
 .wrap .box .second_header .second_header_box {
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
+  color: #4b4b4b;
 }
 
 .wrap .box .point {
