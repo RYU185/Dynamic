@@ -342,10 +342,7 @@ section .allCourse .courseList .course .arrow img {
 section .allCourse .courseList .course article {
   width: 280px;
   height: 390px;
-  background: #ffffff;
-  border-radius: 20px;
   border: 2px solid #25a8ff;
-  text-align: left;
 }
 
 section .allCourse .courseList .course article .thumbnail {
@@ -361,10 +358,9 @@ section .allCourse .courseList .course article .thumbnail {
 
 section .allCourse .courseList .course article .thumbnail img {
   object-fit: cover;
-  border: 2px solid #0241b6;
-  border-radius: 20px;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: auto;
+  max-height: 150px;
 }
 
 section .allCourse .courseList .course article h2 {

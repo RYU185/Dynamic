@@ -173,6 +173,74 @@ $(document).on("click", ".btnInCart", function () {
   });
 });
 
+
+// 검색
+
+function submit_go() {
+  let titleInput = document.querySelector("input[id='search_product']");
+  let sendData = titleInput.value;
+
+  if (!sendData) {
+    alert("검색어를 입력하세요!");
+    return; 
+  }
+
+  $.ajax({
+    url: "/api/product/title/" + encodeURIComponent(sendData),
+    method: "GET",
+    contentType: "application/json",
+    success: function (response) {
+      let courseContainer = document.getElementById("courseContainer");
+      let subscContainer = document.getElementById("subscContainer");
+
+      courseContainer.innerHTML = "";
+      subscContainer.innerHTML = "";
+
+      if (response.length > 0) {
+        response.forEach((product) => {
+          let article = document.createElement("article");
+          article.innerHTML = `
+            <div class="thumbnail">
+              <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
+            </div>
+            <h2>${product.title}</h2>
+            <br>
+            <div>
+              <span>가격: </span><span class="price">${product.price}</span><span>원</span>
+            </div>
+            <p>${product.addDate ? product.addDate : "날짜 없음"}</p>
+            <p>별점: </p>
+            <button class="btnInCart" data-id="${product.id}">장바구니</button>
+            <button class="btnPurchase" data-id="${product.id}">구매</button>
+          `;
+
+          if (product.category === "강의") {
+            courseContainer.appendChild(article);
+          } else {
+            subscContainer.appendChild(article);
+          }
+        });
+      } else {
+        alert("검색 결과가 없습니다.");
+      }
+    },
+    error: function () {
+      alert("검색 오류가 발생하였습니다.");
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  let searchButton = document.querySelector(".searchBar button");
+
+  if (searchButton) {
+    searchButton.addEventListener("click", submit_go);
+  }
+});
+
+
+
+
 // 마우스 오버 시 detail 출력
 $(document).ready(function () {
   const productDetail = $(".product_detail");
@@ -208,7 +276,7 @@ $(document).ready(function () {
           productDate.text("날짜 정보 없음");
         }
 
-        productDetail.css("display", "block");
+        productDetail.css("display", "block"); // none이었던 css block으로
       },
       error: function () {
         console.error("상품 정보를 불러오지 못했습니다.");
