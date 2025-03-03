@@ -24,11 +24,11 @@
               type="text"
               class="email_input middle"
               id="email"
-              placeholder="이메일을 입력해주세요"
+              placeholder="_ _ _@_ _ _.com"
             />
-            <p class="right" id="duplicate">인증번호</p>
+            <p class="right" id="duplicate">인증하기</p>
           </div>
-          <div class="informtion id">
+          <!-- <div class="informtion id">
             <p class="left">인증번호</p>
             <input
               type="text"
@@ -37,8 +37,8 @@
               placeholder="인증번호를 입력해주세요"
             />
             <p class="right" id="finish">인증완료</p>
-          </div>
-          <div class="informtion id">
+          </div> -->
+          <div class="informtion id" id="id_box">
             <p class="left">나의 아이디</p>
             <input
               type="text"
@@ -50,11 +50,14 @@
           </div>
 
         <div class="last_box">
-          <div class="button cancel">취소</div>
-          <div class="button join">완료</div>
+          <div class="button cancel" id="reset">취소</div>
+          <div class="button join" id="home">완료</div>
         </div>
       </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/find_id.js"></script>
   </body>
   
   </html>
