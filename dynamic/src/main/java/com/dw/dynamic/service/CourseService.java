@@ -40,6 +40,4 @@ public class CourseService {
         }
         return courseRepository.findByTitleWhereProductIsActiveIsTrue(title);
     }
-
-
 }
