@@ -41,6 +41,23 @@ document.querySelectorAll('.phone').forEach(function (inputField) {
   });
 });
 
+// title을 통한 검색
+function submit_go() {
+  let name = document.querySelector("input[id='search_employee']");
+  var sendData = name.value; // title 값만 사용
+  $.ajax({
+    url: '/api/employee/name/' + encodeURIComponent(sendData), // URL에 검색어(title) 추가
+    method: 'get',
+    contentType: 'application/json',
+    success: function (response) {
+      AllData(response);
+    },
+    error: function () {
+      alert('검색 오류가 발생했습니다.');
+    },
+  });
+}
+
 // db랑 front랑 연결하는 코드
 $(document).ready(function () {
   $.ajax({
@@ -155,17 +172,19 @@ function AllData(response) {
     const position = document.querySelector('#position1').value.trim();
     const department = document.querySelector('#department1').value.trim();
     const phone = document.querySelector('#phone1').value.trim();
-    const hourly_rate = document.querySelector('#hourly_rate1').value.trim();
-    const birthday = document.querySelector('.birthday').value.trim();
-    const hiredate = document.querySelector('.hiredate').value.trim();
-    const employee_id = document.querySelector('#employee_id').value.trim();
+    const hourly_rate =
+      document.querySelector('#hourly_rate1').value.trim().replace(/,/g, '') ||
+      0;
+    const birthday = document.querySelector('.birthday').value;
+    const hiredate = document.querySelector('.hiredate').value;
+    const employee_id = document.querySelector('#employee_id').value;
 
     var sendData = {
       id: employee_id,
       name: name,
       department: department,
       position: position,
-      hourlyRate: hourly_rate.value.replace(/,/g, ''),
+      hourlyRate: hourly_rate,
       birthday: birthday,
       hireDate: hiredate,
       phoneNumber: phone,
@@ -185,31 +204,16 @@ function AllData(response) {
     });
   });
 
-  // title을 통한 검색
-  function submit_go() {
-    let name = document.querySelector("input[id='search_employee']");
-    var sendData = name.value; // title 값만 사용
-    $.ajax({
-      url: '/api/employee/name/' + encodeURIComponent(sendData), // URL에 검색어(title) 추가
-      method: 'get',
-      contentType: 'application/json',
-      success: function (response) {
-        AllData(response);
-      },
-      error: function () {
-        alert('검색 오류가 발생했습니다.');
-      },
-    });
-  }
-
   document.querySelector('.add').addEventListener('click', function () {
     const name = document.querySelector('#name').value.trim();
-    const birthday = document.querySelector('#birthday').value.trim();
+    const birthday = document.querySelector('#birthday').value;
     const position = document.querySelector('#position').value.trim();
     const department = document.querySelector('#department').value.trim();
-    const hiredate = document.querySelector('#hiredate').value.trim();
-    const phone = document.querySelector('#phone').value.trim();
-    const hourly_rate = document.querySelector('#hourly_rate').value.trim();
+    const hiredate = document.querySelector('#hiredate').value;
+    const phone = document.querySelector('#phone').value;
+    const hourly_rate =
+      document.querySelector('#hourly_rate').value.trim().replace(/,/g, '') ||
+      0;
 
     console.log(
       name,
