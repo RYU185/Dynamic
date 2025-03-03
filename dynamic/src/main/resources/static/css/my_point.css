@@ -125,9 +125,9 @@ hr {
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-top: 20px;
-  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
+  background-image: linear-gradient(45deg, #a4d2f883, #7c93be81, #ffffff7d);
 }
 
 .wrap .box .point .plusPoint .plusPoint_icon {
@@ -161,8 +161,8 @@ hr {
   margin-right: auto;
   margin-top: 20px;
   display: flex;
-  border-radius: 15px;
-  background-image: linear-gradient(45deg, #9cd1fd, #c1c0f3, #99a8c5);
+  border-radius: 5px;
+  background-image: linear-gradient(45deg, #a4d2f883, #7c93be81, #ffffff7d);
 }
 .wrap .box .point .minusPoint .minusPoint_icon {
   font-size: 30px;
