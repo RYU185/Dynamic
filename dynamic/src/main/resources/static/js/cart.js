@@ -1,3 +1,4 @@
+let cartItem = [];
 // 전체 장바구니
 $(document).ready(function (){
     var userName = JSON.parse(sessionStorage.getItem("userName"));
@@ -9,7 +10,7 @@ $(document).ready(function (){
 
     //
     let productData = {};
-    let cartItem = [];
+
 
     $.ajax({
         url:"api/product/all",
@@ -103,51 +104,69 @@ $(document).ready(function (){
         updateCartSummary();
     }
 
-    function deleteCartFromServer(){
-        $.ajax({
-            url: "/api/cart/delete-by-username/" + userName,
-            method: "DELETE",
-            success: function() {
-                cartItem = [];
-                onCart(); 
-            },
-            error: function() {
-                console.error("장바구니 삭제 중 오류 발생:");
-                alert("장바구니 삭제 중 오류가 발생했습니다.");
-            }
+    function deleteCartFromServer() {
+        if (cartItem.length === 0) return;
+    
+        cartItem.forEach(item => {
+            $.ajax({
+                url: "/api/cart/delete/" + item.cartId,
+                method: "POST"
+            });
         });
+    
+        cartItem = [];
+        onCart();
     }
 
-    $(".btn-purchase").on("click", function(){
+let purchaseData = [];
+
+$(document).ready(function(){
+    $(".btn-purchase").on("click", function() {
+
+        console.log("cartItem:", JSON.stringify(cartItem, null, 2));
+        purchaseData = []; 
+
         if(cartItem.length === 0){
             alert("장바구니가 비어있습니다.");
             return;
         }
-
+    
         if (!confirm("결제를 진행하시겠습니까?")) return;
 
-        let purchaseData = cartItem.map(item => ({
-            cartId: item.cartId,
-            productId: item.productId,
-            username: userName
-        }));
+        let today = new Date().toISOString().split("T")[0];
+    
+        for (let i = 0; i < cartItem.length; i++) {
+            let item = cartItem[i];
 
-        console.log("purchaseData");
+            console.log(`cartItem[${i}]:`, item);
+    
+            let data = {
+                product: item.productId, 
+                username: userName,  
+                purchaseDate: today 
+            };
+    
+            purchaseData.push(data);
+        }
 
-        $.ajax({
-            url:"/api/purchase-history/save/purchase-history-and-user-product",
-            method:"POST",
-            contentType:"application/json",
-            data: JSON.stringify(purchaseData),
-            success: function(response){
-                alert("결제가 완료되었습니다.")
-                deleteCartFromServer()
-            },       
-        
-            error:function(){
-                alert("결제 처리 중 오류가 발생했습니다");
-            }
-        })
+        console.log("서버로 전송할 데이터:", JSON.stringify(purchaseData, null, 2));
+
+            $.ajax({
+                url:"/api/purchase-history/save/purchase-history-and-user-product",
+                method:"POST",
+                contentType:"application/json",
+                data: JSON.stringify(purchaseData),
+                success: function(){
+                    alert("결제가 완료되었습니다.");
+                    deleteCartFromServer();
+                    window.location.href = '/mypage.html';
+                },       
+            
+                error:function(){
+                    alert("결제 처리 중 오류가 발생했습니다");
+                }
+            })
+        });
+        window.purchaseData = purchaseData;
     });
-});
-
+})
