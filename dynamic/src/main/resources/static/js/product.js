@@ -313,29 +313,31 @@ $(document).ready(function () {
   });
 
 
+  
   $(".submit_add").on("click", function(){
+    console.log("추가 버튼 클릭");
     const newTitle = document.querySelector(".new_title").value;
     const newDescription = document.querySelector(".new_description").value;
     const newAddDate = document.querySelector(".new_add_date").value;
     const newPrice = document.querySelector(".new_price").value;
     const fileData = document.getElementById("fileUpload").files[0];
+
+      const productData = {
+        title: newTitle,
+        price: newPrice, 
+        category: "강의", 
+        isActive: true,
+        courseDetails:{
+          description: newDescription,
+          addDate: newAddDate
+        } 
+    };
   })
 
   if(!newTitle || !! newDescription || !newAddDate || !newPrice || !fileData){
     alert("모든 필드를 채워주세요")
     return;
   }
-
-  const productData = {
-    title: newTitle,
-    price: newPrice, 
-    category: "강의", 
-    isActive: true,
-    courseDetails:{
-      description: newDescription,
-      addDate: newAddDate
-    } 
-  };
   
   $.ajax({
     url: "/api/product/save",
@@ -343,6 +345,7 @@ $(document).ready(function () {
     contentType: "application/json",
     data: JSON.stringify(productData),
     success: function () {
+
         alert("강의가 성공적으로 추가되었습니다.");
         $(".product_add").css("display", "none");
         loadProductList();
