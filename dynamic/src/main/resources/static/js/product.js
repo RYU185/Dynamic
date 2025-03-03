@@ -312,47 +312,61 @@ $(document).ready(function () {
     $(".product_add").css("display","none");
   });
 
+  //h1 누르면 원상태로 복귀
+  const come_back = document.querySelector('.wrapCourse h1');
+  come_back.addEventListener('click', function(){
+    window.location.href = 'product.html';
+  })
 
+  //장바구니 추가 버튼
   
   $(".submit_add").on("click", function(){
     console.log("추가 버튼 클릭");
+    const newId = document.querySelector(".new_id").value;
     const newTitle = document.querySelector(".new_title").value;
     const newDescription = document.querySelector(".new_description").value;
     const newAddDate = document.querySelector(".new_add_date").value;
     const newPrice = document.querySelector(".new_price").value;
     const fileData = document.getElementById("fileUpload").files[0];
 
-      const productData = {
-        title: newTitle,
-        price: newPrice, 
-        category: "강의", 
-        isActive: true,
-        courseDetails:{
-          description: newDescription,
-          addDate: newAddDate
-        } 
-    };
-  })
-
-  if(!newTitle || !! newDescription || !newAddDate || !newPrice || !fileData){
+  if(!newTitle || !newDescription || !newAddDate || !newPrice || !fileData){
     alert("모든 필드를 채워주세요")
     return;
   }
-  
-  $.ajax({
-    url: "/api/product/save",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(productData),
-    success: function () {
 
+  const productData = {
+    id: newId,
+    type: "course",
+    title: newTitle,
+    price: newPrice, 
+    category: { name: "강의" }, 
+    isActive: true,
+    courseDetails:{
+    description: newDescription,
+    addDate: newAddDate
+    } 
+  };  
+    
+    $.ajax({
+      url: "/api/product/save",
+      method: "POST",
+      data: JSON.stringify(productData),
+      contentType: "application/json",  
+      success: function (response) {
         alert("강의가 성공적으로 추가되었습니다.");
         $(".product_add").css("display", "none");
-        loadProductList();
 
-    },
-    error:function(){
-      alert("강의 추가 중 오류 발생")
-    }
-  })
+        `<h2>${response.title}</h2>
+            <p>가격: ${response.price}원</p>
+            <p>설명: ${response.courseDetails.description}</p>
+            <p>업로드 날짜: ${response.courseDetails.addDate}</p>
+          `;
+        document.getElementById("courseContainer").appendChild(newProduct);
+        window.location.href = "/product.html";
+      },
+      error:function(){
+        alert("강의 추가 중 오류 발생")
+      }
+    })
+  });
 });
