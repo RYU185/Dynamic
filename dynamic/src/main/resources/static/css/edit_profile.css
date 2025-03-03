@@ -1,17 +1,17 @@
 @charset 'utf-8';
 
 @font-face {
-  font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
-    format("woff2");
+  font-family: 'NanumHumanTTFBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
+    format('woff2');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,7 +19,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
+  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
   box-sizing: border-box;
 }
 
@@ -163,7 +163,7 @@ hr {
   gap: 40px;
 }
 
-.wrap .box .informtion_box .gender .gender_text{
+.wrap .box .informtion_box .gender .gender_text {
   font-size: 1.2rem;
   color: #787777;
 }
@@ -189,6 +189,7 @@ hr {
   color: #949494;
   background-color: #dfdede;
   border-radius: 10px;
+  outline: none;
 }
 .wrap .box .informtion_box .id .id_text {
   margin-top: 10px;
@@ -206,7 +207,6 @@ hr {
   border: none;
   border-bottom: 1px solid gray;
 }
-
 
 .wrap .box .informtion_box .BoI {
   position: relative;
@@ -238,7 +238,6 @@ hr {
   cursor: pointer;
   color: #fff;
 }
-
 
 /* last button */
 .last_box {

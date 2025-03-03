@@ -89,11 +89,20 @@ public class UserService {
         return userRepository.findAll().stream().map(User::toDTO).toList();
     }
 
-    public UserDTO getUserById(String id, HttpServletRequest request) { //id를 통한 유저 조회
+    public UserDTO getUserByIdAdmin(String id, HttpServletRequest request) { //id를 통한 유저 조회
         User currentUser = getCurrentUser(request);
         if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
             throw new PermissionDeniedException("권한이 없습니다");
         }
+        Optional<User> users = userRepository.findById(id);
+        if (users.isEmpty()) {
+            throw new ResourceNotFoundException("존재하지 않는 ID입니다.");
+        }
+        return userRepository.findById(id).map(User::toDTO).orElseThrow(() -> new ResourceNotFoundException("유저를 찾을 수 없습니다"));
+    }
+
+    public UserDTO getUserById(String id, HttpServletRequest request) { //id를 통한 유저 조회
+        User currentUser = getCurrentUser(request);
         Optional<User> users = userRepository.findById(id);
         if (users.isEmpty()) {
             throw new ResourceNotFoundException("존재하지 않는 ID입니다.");
@@ -171,7 +180,7 @@ public class UserService {
             currentUser.setRealName(userDTO.getRealName());
         }
         if (userDTO.getEmail()!=null){
-            currentUser.setPhoneNumber(userDTO.getEmail());
+            currentUser.setEmail(userDTO.getEmail());
         }
         if (userDTO.getPhoneNumber()!=null){
             currentUser.setPhoneNumber(userDTO.getPhoneNumber());

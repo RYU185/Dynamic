@@ -38,12 +38,20 @@ public class UserController {
                 HttpStatus.OK);
     }
 
+    @GetMapping("admin/id/{userName}")
+    public ResponseEntity<UserDTO> getUserByIdAdim(@PathVariable String userName, HttpServletRequest request) {
+        return new ResponseEntity<>(
+                userService.getUserByIdAdmin(userName, request),
+                HttpStatus.OK);
+    }
+
     @GetMapping("/id/{userName}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable String userName, HttpServletRequest request) {
         return new ResponseEntity<>(
                 userService.getUserById(userName, request),
                 HttpStatus.OK);
     }
+
     @GetMapping("/realname/{realName}")
     public ResponseEntity<List<UserDTO>> getUserByRealName (@PathVariable String realName, HttpServletRequest request) {
         return new ResponseEntity<>(

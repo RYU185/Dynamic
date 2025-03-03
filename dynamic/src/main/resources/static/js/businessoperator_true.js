@@ -26,6 +26,34 @@ $(document).on('click', '#duplicate', function () {
     },
   });
 });
+document.querySelector('#phone').addEventListener('input', function (e) {
+  let value = e.target.value.replace(/\D/g, ''); // 숫자만 남기기
+
+  // 000-0000-0000으로 제한
+  if (value.length <= 3) {
+    e.target.value = value; // 3자리까지만 입력
+  } else if (value.length <= 7) {
+    e.target.value = value.slice(0, 3) + '-' + value.slice(3); // 3자리-4자리
+  } else {
+    e.target.value =
+      value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11); // 3자리-4자리-4자리
+  }
+});
+document
+  .querySelector('#businessNumber')
+  .addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, ''); // 숫자만 남기기
+
+    // 000-00-00000으로 제한
+    if (value.length <= 3) {
+      e.target.value = value; // 3자리까지만 입력
+    } else if (value.length <= 5) {
+      e.target.value = value.slice(0, 3) + '-' + value.slice(3); // 3자리-2자리
+    } else {
+      e.target.value =
+        value.slice(0, 3) + '-' + value.slice(3, 5) + '-' + value.slice(5, 10); // 3자리-2자리-5자리
+    }
+  });
 
 $(document).on('click', '#regist', function () {
   const realName = document.querySelector('#name').value.trim();

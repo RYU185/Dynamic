@@ -54,10 +54,9 @@
             <p class="left">이름</p>
             <input type="text" class="name_input right" id="name" placeholder="이름을 입력해주세요" />
           </div>
-          <div class="gender">
-            <p>여자</p>
-            <p class="gender_text">수정 불가</p>
-            <p>남자</p>
+          <div class="informtion gender">
+            <p class="left">성별</p>
+            <input type="text" class="id_input none" id="gender" readonly/>
           </div>
           <div class="informtion email">
             <p class="left">이메일</p>
@@ -69,12 +68,13 @@
               type="text"
               class="id_input none"
               id="id"
-              placeholder="수정 불가"
+              readonly
+        
             />
           </div>
           <div class="informtion phone">
             <p class="left">전화번호</p>
-            <input type="text" class="phone_input right" id="phone" placeholder="전화번호를 입력해주세요" />
+            <input type="text" class="phone_input right" maxlength="13" id="phone" placeholder="전화번호를 입력해주세요" />
           </div>
           <div class="informtion pwd">
             <p class="pwd_text">비밀번호</p>
@@ -85,11 +85,14 @@
               <p class="BoI box_icon">▽</p>
           </div>
         <div class="last_box">
-          <div class="button cancel">취소</div>
-          <div class="button join">저장</div>
+          <div class="button cancel" id="reset">취소</div>
+          <div class="button join" id="save">저장</div>
         </div>
       </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/edit_profile.js"></script>
   </body>
   
   </html>
