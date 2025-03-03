@@ -152,3 +152,25 @@ document
       document.querySelector('#total_insurance').value = total.toLocaleString();
     });
   });
+
+//총액!!
+// document
+//   .querySelectorAll('#total_amount, #total_insurance')
+//   .forEach((element) => {
+//     element.addEventListener('input', function () {
+//       const total_amount =
+//         parseFloat(
+//           document.querySelector('#total_amount').value.replace(/,/g, '')
+//         ) || 0;
+//       const total_insurance =
+//         parseFloat(
+//           document.querySelector('#total_insurance').value.replace(/,/g, '')
+//         ) || 0;
+
+//       // 총합 계산
+//       const total = total_amount - total_insurance;
+
+//       console.log(total);
+//       document.querySelector('#final_payment').value = total.toLocaleString();
+//     });
+//   });

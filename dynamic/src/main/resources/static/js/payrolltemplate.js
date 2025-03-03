@@ -194,3 +194,27 @@ document
       document.querySelector('#total_insurance').value = total.toLocaleString();
     });
   });
+
+// //총액!!
+// document
+//   .querySelectorAll('#total_amount, #total_insurance')
+//   .forEach((element) => {
+//     element.addEventListener('input', function () {
+//       // 각 입력값을 숫자로 변환 (빈 문자열을 처리하려면 0으로 기본값을 설정)
+//       const total_amount =
+//         parseFloat(
+//           document.querySelector('#total_amount').value.replace(/,/g, '')
+//         ) || 0;
+//       const total_insurance =
+//         parseFloat(
+//           document.querySelector('#total_insurance').value.replace(/,/g, '')
+//         ) || 0;
+
+//       // 총합 계산
+//       const total = total_amount - total_insurance;
+
+//       // 계산된 총합을 total_amount 요소에 표시
+//       console.log(total);
+//       document.querySelector('#final_payment').value = total.toLocaleString();
+//     });
+//   });
