@@ -103,6 +103,21 @@ $(document).ready(function (){
         updateCartSummary();
     }
 
+    function deleteCartFromServer(){
+        $.ajax({
+            url: "/api/cart/delete-by-username/" + userName,
+            method: "DELETE",
+            success: function() {
+                cartItem = [];
+                onCart(); 
+            },
+            error: function() {
+                console.error("장바구니 삭제 중 오류 발생:");
+                alert("장바구니 삭제 중 오류가 발생했습니다.");
+            }
+        });
+    }
+
     $(".btn-purchase").on("click", function(){
         if(cartItem.length === 0){
             alert("장바구니가 비어있습니다.");
@@ -112,6 +127,7 @@ $(document).ready(function (){
         if (!confirm("결제를 진행하시겠습니까?")) return;
 
         let purchaseData = cartItem.map(item => ({
+            cartId: item.cartId,
             productId: item.productId,
             username: userName
         }));
@@ -125,8 +141,7 @@ $(document).ready(function (){
             data: JSON.stringify(purchaseData),
             success: function(response){
                 alert("결제가 완료되었습니다.")
-                cartItem = [];
-                onCart();
+                deleteCartFromServer()
             },       
         
             error:function(){
