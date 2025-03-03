@@ -240,6 +240,9 @@ main .inner {
 .table_wrap .employee_table tr {
   transition: background 0.3s, color 0.3s;
 }
+.table_wrap .employee_table tr:hover {
+  cursor: pointer;
+}
 
 .table_wrap .employee_table tr:not(:first-child):hover {
   background-color: #c5d9ff;
