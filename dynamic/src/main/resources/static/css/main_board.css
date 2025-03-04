@@ -1,15 +1,17 @@
 @charset 'utf-8';
 
 @font-face {
-  font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+  font-family: "NanumHumanTTFBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-family: "GmarketSansMedium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -17,7 +19,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
 }
 
 ul,
@@ -42,14 +44,6 @@ body {
   position: relative;
 }
 
-hr {
-  width: 100%;
-  border-color: #4c6b7e;
-  opacity: 0.2;
-  position: absolute;
-  top: 50px;
-}
-
 section {
   width: 100%;
   padding: 20px;
@@ -63,10 +57,10 @@ section .titlewrap {
   text-align: center;
 }
 
-section .titlewrap>h1 {
+section .titlewrap > h1 {
   font-size: 30px;
   font-weight: 800;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
   color: #ffff;
 }
 
@@ -77,7 +71,7 @@ section .titlewrap .main_title {
 }
 
 section .titlewrap .main_title h1 {
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
@@ -169,7 +163,6 @@ main .inner .upper .searchBar p input:focus::placeholder {
   color: transparent;
 }
 
-
 main .inner .main_box {
   margin-top: 5px;
   width: 90%;
@@ -222,7 +215,18 @@ main .inner .main_box table tr .bold {
   font-weight: 800;
 }
 
-main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td:nth-child(3) {
+main
+  .inner
+  .main_box
+  table
+  tr
+  td:nth-child(3)
+  main
+  .inner
+  .main_box
+  table
+  tr
+  td:nth-child(3) {
   width: 10px;
 }
 
@@ -247,7 +251,7 @@ main .pop-up1 {
   display: none;
 }
 
-main .pop-up1>img {
+main .pop-up1 > img {
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -256,7 +260,7 @@ main .pop-up1>img {
   right: 10px;
 }
 
-main .pop-up1>img:hover {
+main .pop-up1 > img:hover {
   background-color: rgb(126, 126, 126);
   color: white;
 }
@@ -370,7 +374,7 @@ footer .inner .upper ul {
 }
 
 footer .inner .upper::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -381,7 +385,7 @@ footer .inner .upper ul li {
 }
 
 footer .inner .upper ul::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
