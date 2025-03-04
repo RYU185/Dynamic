@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
           li.classList.toggle("hidden");
         });
         $(".name").text(userInfo);
+      } else {
+        if (window.location.pathname.includes('cart.html') || window.location.pathname.includes('mypage.html')) {
+          alert('로그인 후 이용 가능합니다.');
+          window.location.href = '/login.html';
+        }
       }
 
       // 로그아웃 버튼 이벤트
