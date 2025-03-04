@@ -34,7 +34,6 @@ public class PayrollTemplateDTO {
 
     private Long totalAmount;
 
-
     private Long finalPayment;
 
 
