@@ -104,5 +104,5 @@ INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('C
 INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','S1');
 INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','C2');
 
-INSERT INTO point(amount,add_date,purchase_history_id) VALUES (1000,'2025-01-13',1)
-INSERT INTO point(amount,add_date,purchase_history_id) VALUES (850,'2025-01-22',2)
+INSERT INTO point(amount,add_date,purchase_history_id) VALUES (1000,'2025-01-13',1);
+INSERT INTO point(amount,add_date,purchase_history_id) VALUES (850,'2025-01-22',2);
