@@ -1,17 +1,17 @@
 @charset 'utf-8';
 
 @font-face {
-  font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
-    format('woff2');
+  font-family: "NanumHumanTTFBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-    format('woff');
+  font-family: "GmarketSansMedium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -19,7 +19,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
   box-sizing: border-box;
 }
 ul,
@@ -36,18 +36,14 @@ input:focus {
   margin: 20px 20%;
 }
 
-.wrap header {
-  width: 100%;
-}
-header .header-wrap h1 {
-  margin-bottom: 30px;
-  margin-right: 10px;
-  font-size: 50px;
-  color: #4b4b4b;
-}
-header .header-wrap .sub {
+.wrap .main_title {
   width: 100%;
   text-align: center;
+}
+.wrap .main_title > h1 {
+  margin-bottom: 30px;
+  font-size: 50px;
+  color: #353535;
 }
 
 .wrap .box {
@@ -61,7 +57,7 @@ header .header-wrap .sub {
 
 .wrap .box > h1 {
   width: 100%;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
   font-size: 45px;
   font-weight: 900;
   color: #ffffff;
