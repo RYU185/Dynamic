@@ -44,42 +44,35 @@ body {
   position: relative;
 }
 
-/* section */
-
-section {
-  width: 100%;
+.wrap > h1 {
+  width: auto;
+  height: 9rem;
   padding: 20px;
   background-color: #f6f8fc;
   background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
-}
 
-section .titlewrap {
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-}
-
-section .titlewrap > h1 {
   font-size: 30px;
   font-weight: 800;
   font-family: "GmarketSansMedium";
   color: #ffff;
+
+  text-align: center;
+  align-content: center;
+}
+/* section */
+
+.title-wrap {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 45px;
+  text-align: center;
 }
 
-section .titlewrap .main_title {
-  display: block;
-  margin: 0 auto;
-  width: 1000px;
-}
-
-section .titlewrap .main_title h1 {
+section .title-wrap .title h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
-  color: #050505ee;
-  margin: 70px 0px 0px 300px;
-  position: absolute;
-  z-index: 1;
+  color: #0241b6;
 }
 
 main {

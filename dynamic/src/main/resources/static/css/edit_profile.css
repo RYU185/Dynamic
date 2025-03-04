@@ -45,20 +45,37 @@ body {
   position: relative;
 }
 
-.wrap .title .second_header {
-  width: 350px;
-  color: #4b4b4b;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-  border-radius: 15px;
-}
-.wrap .title .second_header .second_header_box {
+.wrap > h1 {
+  width: auto;
+  height: 9rem;
+  padding: 20px;
+  background-color: #f6f8fc;
+  background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
+
+  font-size: 30px;
+  font-weight: 800;
+  font-family: "GmarketSansMedium";
+  color: #ffff;
+
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
+  align-content: center;
 }
+/* section */
+
+.title-wrap {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 45px;
+  text-align: center;
+}
+
+section .title-wrap .title h1 {
+  font-family: "GmarketSansMedium";
+  font-size: 3rem;
+  font-weight: 900;
+  color: #313030;
+}
+
 .wrap .box {
   width: 500px;
   margin: auto;
@@ -67,7 +84,7 @@ body {
 
   background-image: linear-gradient(45deg, #a4d2f8, #7c93be, #fff);
 }
-.wrap .box > h1 {
+/* .wrap .box > h1 {
   width: 100%;
   font-family: "GmarketSansMedium";
   font-size: 45px;
@@ -75,7 +92,7 @@ body {
   color: #ffffff;
   text-align: center;
   margin-bottom: 15px;
-}
+} */
 .wrap .box .informtion_box {
   width: 400px;
   /* height: 360px; */
