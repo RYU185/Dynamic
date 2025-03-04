@@ -139,13 +139,35 @@ $(document).ready(function(){
             method:"GET",
             contentType:"application/json",
             success: function(purchaseHistory){
-                
-                
+                console.log(purchaseHistory);
 
+                let alreadyPurchased =[];
+
+                for(let i = 0; i< cartItem.length; i++){
+                    let cart = cartItem[i];
+
+                    for (let j = 0; j<purchaseHistory.length; j++){
+                        let purchase = purchaseHistory[j];
+
+                        if(cart.productId === purchase.productId){
+                            alreadyPurchased.push(cart.productId);
+                        }
+                    }
+                }
+
+                if (alreadyPurchased.length > 0) {
+                    let productNames = alreadyPurchased.join(", ");
+                    alert(`이미 구매한 제품이 있습니다: ${productNames}`);
+                    return; 
+                }
+                
+                processPurchase();
             }
-        })
+        });
+    });
 
-            $.ajax({
+    function processPurchase(){
+        $.ajax({
                 url:"/api/purchase-history/save/purchase-history-and-user-product",
                 method:"POST",
                 contentType:"application/json",
@@ -160,6 +182,6 @@ $(document).ready(function(){
                     alert("결제 처리 중 오류가 발생했습니다");
                 }
             })
-        });
+        }
     });
-})
+});
