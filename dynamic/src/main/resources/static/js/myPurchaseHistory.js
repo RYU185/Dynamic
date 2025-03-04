@@ -7,7 +7,7 @@ $(document).ready(function(){
             method:"get",
             contentType:"application/json",
             success: function(data){
-                console.log
+                console.log("서버 응답 데이터: ", data);
             }
         })
     }
