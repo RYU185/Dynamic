@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     subscList.innerHTML += `
                         <article>
                             <div class="thumbnail">
-                            <img src="./img/default-subscription.png"}" alt="구독권 이미지" />
+                            <img src="./img/default-subscription.png" alt="구독권 이미지" />
                             </div>
                             <h2>${product.title}</h2>
                             <p>시작일: ${formatDate(product.startDate)}</p>
