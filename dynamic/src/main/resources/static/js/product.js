@@ -1,17 +1,17 @@
 let cartItem = [];
 let userName = null;
 let selectedProductId = null;
+userName = JSON.parse(sessionStorage.getItem("userName"));
 
-if (!userName) {
-  alert("로그인이 필요합니다");
-  window.location.href = 'login.html';
-}
+
 
 $(document).ready(function () {
-  userName = JSON.parse(sessionStorage.getItem("userName"));
   console.log("로그인된 사용자:", userName);
 
-  
+  if (!userName) {
+    alert("로그인이 필요합니다");
+    window.location.href = "login.html";
+  }
 
   loadingCart(userName);
 
