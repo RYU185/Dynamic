@@ -109,6 +109,15 @@ main .inner .upper {
   justify-content: end;
 }
 
+main .inner .upper {
+  margin-top: 5px;
+  width: 90%;
+  height: 50px;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: end;
+}
+
 main .inner .upper .searchBar {
   width: 100%;
   margin: 0 auto;
@@ -151,6 +160,17 @@ main .inner .upper .searchBar img {
   cursor: pointer;
 }
 
+main .inner .upper .searchBar img:hover {
+  width: 40px;
+  height: 40px;
+}
+
+main .inner .upper .searchBar #modify_notice,
+#add_notice,
+#delete_notice {
+  display: none;
+}
+
 main .inner .upper .searchBar p input::placeholder {
   color: #465c6b;
   font-size: 16px;
@@ -159,11 +179,6 @@ main .inner .upper .searchBar p input::placeholder {
 
 main .inner .upper .searchBar p input:focus::placeholder {
   color: transparent;
-}
-
-main .inner .upper .searchBar #add_notice,
-#delete_notice {
-  display: none;
 }
 
 main .inner .main_box {
