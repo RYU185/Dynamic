@@ -28,4 +28,7 @@ public class CommentDTO {
     private String text;
 
     private LocalDate addDate;
+
+    private Boolean isActive;
+
 }

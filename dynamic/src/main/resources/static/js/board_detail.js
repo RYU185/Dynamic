@@ -59,8 +59,8 @@ $(document).ready(function () {
         contentType: 'application/json',
         success: function (response) {
           $('.list').empty();
-
           response.forEach((element) => {
+            console.log(element.isActive);
             if (element.isActive === true) {
               var $row = $(`
                 <div class="comment_box" id="${element.id}">

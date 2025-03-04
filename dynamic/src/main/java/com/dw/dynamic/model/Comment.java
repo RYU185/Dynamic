@@ -45,7 +45,8 @@ public class Comment {
 //                this.board.getTitle(),
                 this.user.getUserName(),
                 this.text,
-                this.addDate
+                this.addDate,
+                this.isActive
         );
     }
 }
