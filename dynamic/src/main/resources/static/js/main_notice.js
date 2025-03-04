@@ -111,7 +111,7 @@ $(document).ready(function () {
       response.forEach((element) => {
         // 공지사항 제목, ID, 작성일만 표시
         var $row = $(`<tr class="row">
-                    <td">${count++}</td>
+                    <td>${count++}</td>
                     <td>${element.noticeTitle}</td>
                     <td>${element.addDate}</td>
                   </tr>`);
