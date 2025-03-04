@@ -118,13 +118,12 @@ $(document).ready(function (){
         onCart();
     }
 
-let purchaseData = [];
 
 $(document).ready(function(){
     $(".btn-purchase").on("click", function() {
 
         console.log("cartItem:", JSON.stringify(cartItem, null, 2));
-        purchaseData = []; 
+
 
         if(cartItem.length === 0){
             alert("장바구니가 비어있습니다.");
@@ -133,29 +132,13 @@ $(document).ready(function(){
     
         if (!confirm("결제를 진행하시겠습니까?")) return;
 
-        let today = new Date().toISOString().split("T")[0];
-    
-        for (let i = 0; i < cartItem.length; i++) {
-            let item = cartItem[i];
-
-            console.log(`cartItem[${i}]:`, item);
-    
-            let data = {
-                product: item.productId, 
-                username: userName,  
-                purchaseDate: today 
-            };
-    
-            purchaseData.push(data);
-        }
-
-        console.log("서버로 전송할 데이터:", JSON.stringify(purchaseData, null, 2));
+        console.log("서버로 전송할 데이터:", JSON.stringify(cartItem, null, 2));
 
             $.ajax({
                 url:"/api/purchase-history/save/purchase-history-and-user-product",
                 method:"POST",
                 contentType:"application/json",
-                data: JSON.stringify(purchaseData),
+                data: JSON.stringify(cartItem),
                 success: function(){
                     alert("결제가 완료되었습니다.");
                     deleteCartFromServer();
@@ -167,6 +150,5 @@ $(document).ready(function(){
                 }
             })
         });
-        window.purchaseData = purchaseData;
     });
 })

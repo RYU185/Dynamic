@@ -295,6 +295,7 @@ $(document).ready(function () {
 
   if (userRole === "admin") {
     document.querySelector(".adminOnly").style.display = "block";
+    $(".product-checkbox").css("display","inline-block");
   }
 
   console.log("로그인 계정:", userName)
@@ -369,4 +370,42 @@ $(document).ready(function () {
       }
     })
   });
+
+$(".delete").on("click", function(){
+  const selectedPrduct = $(".product-checkbox:checked");
+
+  if(selectedPrduct.length === 0){
+    alert("삭제할 제품을 선택해 주세요");
+    return;
+
+  } 
+
+  if(!confirm("선택한 제품을 삭제하시겠습니까?")){
+    return;
+  }
+
+  const productIds= [];
+  selectedPrduct.each(function(){
+    productIds.push($(this).data("id"))
+  })
+
+  deleteProduct(productIds);
+
+})
+
+function deleteProduct(productIds){
+  productIds.forEach((id)=>{
+    $.ajax({
+      url:`/api/product/delete/${id}`,
+      method: "POST",
+      contentType: "application/json",
+      success: function(){
+        $(`.product-checkbox`)
+      }
+    })
+  })
+}
+
+
 });
+
