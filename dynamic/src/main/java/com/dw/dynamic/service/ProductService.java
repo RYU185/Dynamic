@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,11 +59,27 @@ public class ProductService {
         if (product instanceof Course) {
 
             Course course = (Course) product;
-        } else {
-            PayrollSubscription payrollSubscription = (PayrollSubscription) product;
         }
+//        else {
+//            PayrollSubscription payrollSubscription = (PayrollSubscription) product;
+//        }
         return productRepository.save(product);
     }
+
+    public Product savePayrollsubscription(int month,Product product, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+
+        if (product instanceof PayrollSubscription) {
+            PayrollSubscription payrollSubscription = (PayrollSubscription) product;
+            payrollSubscription.setStartDate(LocalDate.now());
+            payrollSubscription.setExpireDate(LocalDate.now().plusMonths(month));
+        }
+
+        return productRepository.save(product);
+
+    }
+
+
     // 관리자 권한으로 제품 삭제
     @Transactional
     public String deleteProduct(String id,HttpServletRequest request){
