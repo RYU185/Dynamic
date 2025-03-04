@@ -133,55 +133,35 @@ $(document).ready(function(){
 
         console.log("서버로 전송할 데이터:", JSON.stringify(cartItem, null, 2));
 
-
-        $.ajax({
-            url:`/api/purchase-history/username/` + userName,
-            method:"GET",
-            contentType:"application/json",
-            success: function(purchaseHistory){
-                console.log(purchaseHistory);
-
-                let alreadyPurchased =[];
-
-                for(let i = 0; i< cartItem.length; i++){
-                    let cart = cartItem[i];
-
-                    for (let j = 0; j<purchaseHistory.length; j++){
-                        let purchase = purchaseHistory[j];
-
-                        if(cart.productId === purchase.productId){
-                            alreadyPurchased.push(cart.productId);
-                        }
-                    }
-                }
-
-                if (alreadyPurchased.length > 0) {
-                    let productNames = alreadyPurchased.join(", ");
-                    alert(`이미 구매한 제품이 있습니다: ${productNames}`);
-                    return; 
-                }
-                
-                processPurchase();
-            }
-        });
-    });
-
-    function processPurchase(){
-        $.ajax({
-                url:"/api/purchase-history/save/purchase-history-and-user-product",
-                method:"POST",
-                contentType:"application/json",
+            $.ajax({
+                url: "/api/purchase-history/save/purchase-history-and-user-product",
+                method: "POST",
+                contentType: "application/json",
                 data: JSON.stringify(cartItem),
-                success: function(){
+                success: function () {
                     alert("결제가 완료되었습니다.");
                     deleteCartFromServer();
-                    window.location.href = '/mypage.html';
-                },       
-            
-                error:function(){
-                    alert("결제 처리 중 오류가 발생했습니다");
-                }
-            })
-        }
-    });
-});
+                    window.location.href = "/mypage.html";
+                    },
+
+                    error: function (xhr) {
+                        console.error("결제 처리 중 오류 발생:", xhr.responseText);
+
+                        let errorMessage = "결제 처리 중 오류가 발생했습니다.";
+
+                        try {
+                            let response = JSON.parse(xhr.responseText);
+                            if (response["Invalid Request"]) {
+                            errorMessage = response["Invalid Request"];
+                            }
+
+                        } catch (e) {
+                        console.error("JSON 파싱 오류:", e);
+                        }
+
+                        alert(errorMessage);
+                    },
+                });
+            });
+        });
+})
