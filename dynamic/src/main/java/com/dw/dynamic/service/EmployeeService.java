@@ -167,7 +167,9 @@ public class EmployeeService {
                     saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
                     saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
                     true,
-                    employee);
+                    employee,
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTotalAmount(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFinalPayment());
             PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
 
             SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
@@ -195,7 +197,9 @@ public class EmployeeService {
                     saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getLastPayrollPeriod(),
                     saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getPaymentDate(),
                     true,
-                    employee);
+                    employee,
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getTotalAmount(),
+                    saveEmployeeWithTemplateDTO.getPayrollTemplateDTO().getFinalPayment());
             PayrollTemplateDTO payrollTemplateDTO= payrollTemplateRepository.save(payrollTemplate).toDTO();
             SaveEmployeeWithTemplateDTO saveEmployeeWithTemplateDTO1 = new SaveEmployeeWithTemplateDTO(
                     payrollTemplateDTO,

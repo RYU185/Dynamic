@@ -1,6 +1,7 @@
 package com.dw.dynamic.DTO;
 
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,16 @@ public class PayrollTemplateDTO {
     private Boolean isActive;
 
     private Long employeeId;
+
+    private String employeeName;
+
+    private String position;
+
+    private Long totalAmount;
+
+
+    private Long finalPayment;
+
 
 
 

@@ -37,6 +37,11 @@ public class PayrollTemplate {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @Column(name = "total_amount",nullable = false)
+    private Long totalAmount;
+
+    @Column(name = "final_payment",nullable = false)
+    private Long finalPayment;
 
 
     public PayrollTemplateDTO toDTO(){
@@ -48,7 +53,11 @@ public class PayrollTemplate {
                this.lastPayrollPeriod,
                this.paymentDate,
                 this.isActive,
-                this.employee.getId()
+                this.employee.getId(),
+               this.employee.getName(),
+               this.employee.getPosition(),
+               this.totalAmount,
+               this.finalPayment
 
        );
 

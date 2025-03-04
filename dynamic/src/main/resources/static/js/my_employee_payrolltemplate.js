@@ -90,6 +90,8 @@ document
       console.log(total);
       // 계산된 총합을 total_amount 요소에 표시
       document.querySelector('#total_amount').value = total.toLocaleString();
+
+      sessionStorage.setItem("total_amount", total);
     });
   });
 
