@@ -1,362 +1,287 @@
 @charset 'utf-8';
 
-
 @font-face {
-    font-family: 'NanumHumanTTFBold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
-    font-weight: 900;
-    font-style: normal;
+  font-family: "NanumHumanTTFBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-style: normal;
 }
 
-
-
 @font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "GmarketSansMedium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+  margin: 0px;
+  padding: 0px;
+  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
 }
 
 ul,
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .wrap {
-    margin: 20px 20% 20px 20%;
+  margin: 20px 20% 20px 20%;
 }
 
 hr {
-    border-color: #4c6b7e;
-    opacity: 0.2;
+  border-color: #4c6b7e;
+  opacity: 0.2;
 }
 
 body {
-    position: relative;
-}
-
-/* header */
-header {
-    width: 100%;
-    background-color: #fff;
-
-}
-
-header .inner {
-    width: 100%;
-    height: 90px;
-    margin: 0 auto;
-    position: relative;
-}
-
-
-header .inner .upper {
-    width: 100%;
-    margin: 0px auto;
-    display: flex;
-    justify-content: space-between;
-    height: 30px;
-}
-
-header .inner .upper li {
-    border-radius: 1px 0 solid;
-    margin-top: 8px;
-    text-align: center;
-    height: 42px;
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-header .inner .upper li:hover {
-    background-color: rgb(236, 235, 235);
-    color: #868686;
-}
-
-header .inner .upper li a {
-    display: block;
-    color: black;
-    display: flex;
-    align-items: center;
-    width: 120px;
-}
-
-header .inner .upper li a span {
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    width: 120px;
+  position: relative;
 }
 
 hr {
-    width: 100%;
-    border-color: #4c6b7e;
-    opacity: 0.2;
-    position: absolute;
-    top: 50px;
+  width: 100%;
+  border-color: #4c6b7e;
+  opacity: 0.2;
+  position: absolute;
+  top: 50px;
 }
 
 /* section */
 
-section{
-    width: 100%;
-    padding-top: 20px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+section {
+  width: 100%;
+  padding-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.main-title{
-    margin-top: 20px;
-    font-size: 45px;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-left: 130px;
+.main-title {
+  margin-top: 20px;
+  font-size: 45px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 130px;
 }
 
-.main-title h1{
-    font-size: 3rem;
-    font-weight: 900;
-    color: #0241b6;
-
+.main-title h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #0241b6;
 }
 
 .wrap-section {
-    width: 80%;
-    margin-top: 1rem;
+  width: 80%;
+  margin-top: 1rem;
 }
 
-.course-item{   
-    margin-top: 70px;
-    width: 100%;
-    
+.course-item {
+  margin-top: 70px;
+  width: 100%;
 }
 
 .title {
-    width: 40%;
-    display: flex;
-    text-align: center;
-    /* margin: 20px; */
-    padding: 0px 9px 6px 30px;
-    border-radius: 25px;
-    
+  width: 40%;
+  display: flex;
+  text-align: center;
+  /* margin: 20px; */
+  padding: 0px 9px 6px 30px;
+  border-radius: 25px;
 }
 
-.title h1{
-    font-size: 26px;
-    font-weight: 200;
-    color: #3465c2;
-    /* 임의로 색 따로 뽑았습니다 */
+.title h1 {
+  font-size: 26px;
+  font-weight: 200;
+  color: #3465c2;
+  /* 임의로 색 따로 뽑았습니다 */
 }
 
 .item-wrap {
-    width: 100%;
-    height: 700px;
-    border: 3px solid #0241b6;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  height: 700px;
+  border: 3px solid #0241b6;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .item-wrap .checkbox-wrap {
-    width: 100%;
-    border: none;
-    padding: 30px;
-    border-radius: 20px;
-    padding-bottom: 0;
-    
+  width: 100%;
+  border: none;
+  padding: 30px;
+  border-radius: 20px;
+  padding-bottom: 0;
 }
 
 .item-wrap .checkbox-wrap .checkValue {
+  border: 5px solid rgb(230, 230, 230);
 
-    border: 5px solid rgb(230, 230, 230);
-    
-    border-bottom: none;
-    height: 40px;
-    width: 300px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+  border-bottom: none;
+  height: 40px;
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 .item-wrap .checkbox-wrap .checkValue p {
-    font-size: 24px;
+  font-size: 24px;
 }
 
-.item-wrap .checkbox-wrap .checkValue .delete{
-    width: 100px;
-    height: 30px;
-    line-height: 25px;
-    margin-left: 40px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: rgba(58, 58, 58, 0.1);
+.item-wrap .checkbox-wrap .checkValue .delete {
+  width: 100px;
+  height: 30px;
+  line-height: 25px;
+  margin-left: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(58, 58, 58, 0.1);
 }
 
-.item-wrap .checkbox-wrap .checkValue .delete:hover{
-    background-color: rgba(58, 58, 58, 0.3);
-    color: rgb(240, 240, 240);
+.item-wrap .checkbox-wrap .checkValue .delete:hover {
+  background-color: rgba(58, 58, 58, 0.3);
+  color: rgb(240, 240, 240);
 }
 
-.item-wrap .checkbox-wrap .cart-item-list{
-    height: 600px;
-    border: 5px solid rgb(230, 230, 230);
-    border-radius: 0px 5px 5px 5px;
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+.item-wrap .checkbox-wrap .cart-item-list {
+  height: 600px;
+  border: 5px solid rgb(230, 230, 230);
+  border-radius: 0px 5px 5px 5px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.item-wrap .checkbox-wrap .cart-item-list .cart-item{
-    border: 5px solid #03045e;
-    border-radius: 5px;
-    margin: 30px;
-    display: grid;
-    grid-area: item;
-    grid-template-columns: 10% 30% 40% 10% 10%;
-    grid-template-rows: auto;
-    height: 150px;
-    gap: 10px;
-
+.item-wrap .checkbox-wrap .cart-item-list .cart-item {
+  border: 5px solid #03045e;
+  border-radius: 5px;
+  margin: 30px;
+  display: grid;
+  grid-area: item;
+  grid-template-columns: 10% 30% 40% 10% 10%;
+  grid-template-rows: auto;
+  height: 150px;
+  gap: 10px;
 }
 
-
-
-.item-wrap .checkbox-wrap .cart-item-list .cart-item .check{
-    border-right: 5px solid rgb(230, 230, 230);
-    padding: 20px;
-    display: flex;
-    align-items: center;
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .check {
+  border-right: 5px solid rgb(230, 230, 230);
+  padding: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .item-wrap .checkbox-wrap .cart-item-list .cart-item .pic {
-    width: 260px;
-    height: 140px;
-    justify-content: left;
+  width: 260px;
+  height: 140px;
+  justify-content: left;
 }
 
-.item-wrap .checkbox-wrap .cart-item-list .cart-item .pic img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.item-wrap .checkbox-wrap .cart-item-list .cart-item .description{
-    padding: 15px;
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .description {
+  padding: 15px;
 }
 
-.item-wrap .checkbox-wrap .cart-item-list .cart-item .description h1{
-    padding-bottom: 10px;
-} 
-
-.item-wrap .checkbox-wrap .cart-item-list .cart-item .description p{
-    font-size: 15px;
-    padding-bottom: 5px;
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .description h1 {
+  padding-bottom: 10px;
 }
 
-.item-wrap .checkbox-wrap .cart-item-list .cart-item .counter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    padding-left: 20px;
-    gap: 10px;
-    
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .description p {
+  font-size: 15px;
+  padding-bottom: 5px;
 }
 
-.item-wrap .checkbox-wrap .cart-item-list .cart-item .counter button{
-    width: 30px;
-    height: 30px;
-    border: 1px solid #75a5ff;
-    border-radius: 15px;
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding-left: 20px;
+  gap: 10px;
+}
 
+.item-wrap .checkbox-wrap .cart-item-list .cart-item .counter button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #75a5ff;
+  border-radius: 15px;
 }
 
 .close {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: right;
-    padding-top: 10px;
-    
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: right;
+  padding-top: 10px;
 }
 
 .close img {
-    object-fit: cover;
-    cursor: pointer;
+  object-fit: cover;
+  cursor: pointer;
 }
-
-
 
 .purchase-all {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    bottom: 0;
-    justify-content: center;
-    background-color: #eeeeee;
-    
+  width: 100%;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+  background-color: #eeeeee;
 }
 
-.purchase-all .calc-all{
-    height: 42px;
-    margin: 30px;
-    border: 5px solid #03045e;
-    padding: 10px 60px 10px 60px;
-    background-color: #fff;
-    border-radius: 10px;
-    padding-bottom: 20px;
+.purchase-all .calc-all {
+  height: 42px;
+  margin: 30px;
+  border: 5px solid #03045e;
+  padding: 10px 60px 10px 60px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding-bottom: 20px;
 }
-
-
 
 .purchase-all .purchase-final {
-    margin: 30px;
-    border: none;
-    padding: 0 10px 0 10px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-
-    
+  margin: 30px;
+  border: none;
+  padding: 0 10px 0 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
 }
 
-.purchase-all .purchase-final button{
-    width: 400px;
-    height: 70px;
-    border: none;
-    border-radius: 6px;
-    background-color: #fff;
-    font-size: 35px;
-    color: #03045e;
-    border: 5px solid #03045e;
-    cursor: pointer;
-    transition: background 0.6s, color 0.3s;
+.purchase-all .purchase-final button {
+  width: 400px;
+  height: 70px;
+  border: none;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 35px;
+  color: #03045e;
+  border: 5px solid #03045e;
+  cursor: pointer;
+  transition: background 0.6s, color 0.3s;
 }
 
-
-.purchase-all .purchase-final button:hover{
-    background-color: #03045e;
-    color: #fff;
+.purchase-all .purchase-final button:hover {
+  background-color: #03045e;
+  color: #fff;
 }
