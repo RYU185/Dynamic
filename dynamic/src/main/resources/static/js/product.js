@@ -3,8 +3,6 @@ let userName = null;
 let selectedProductId = null;
 userName = JSON.parse(sessionStorage.getItem("userName"));
 
-
-
 $(document).ready(function () {
   console.log("로그인된 사용자:", userName);
 
