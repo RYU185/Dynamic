@@ -2,7 +2,7 @@ const userRole = JSON.parse(sessionStorage.getItem("userName"));
 
 window.onload = function () {
   if (userRole) {
-    window.location.href = "/after_login.html";
+    window.location.href = "/index.html";
   }
 };
 
