@@ -375,54 +375,111 @@ $(document).ready(function () {
   // 바로구매 버튼 클릭시 유저제품/구매내역
   $(document).on("click", ".btnPurchase", function(){
     selectedProductId = $(this).data("id");
+    console.log("즉시 구매 요청, 제품 ID:", selectedProductId);
 
     if(!userName){
       alert("로그인이 필요합니다")
       return;
     }
 
-    $(".purchaseConfirm").css("display", "block");
+    // 기존 구매 내역 조회
+    $.ajax({
+      url: `/api/purchase-history/username/${userName}`,
+      method: "get",
+      contentType:"application/json",
+      success: function(purchaseHistory){
+        console.log("구매내역: ",purchaseHistory);
 
-    $("#no").on("click", function () {
-    $(".purchaseConfirm").css("display", "none"); // 구매 확인 창 닫기
+        let isPurchased = false;
+        let isActiveSubscription = false;
+        let selectedProduct = null;
+
+        // 현재 선택한 제품 가져오기
+        $.ajax({
+        url: `/api/product/id/${selectedProductId}`,
+        method: "GET",
+        contentType: "application/json",
+        success: function (product) {
+          if (!product) {
+            alert("상품 정보를 불러올 수 없습니다.");
+            return;
+          }
+
+          selectedProduct = product;
+          let category = product.category.name;
+
+          // 구매내역 조회하고 중복확인
+          purchaseHistory.forEach((item)=> {
+            if (item.productId === selectedProductId){
+              isPurchased = true;
+            }
+          
+
+            // 조건2.
+            if (category === "구독권" && item.product.category.name === "구독권") {
+              let today = new Date();
+              let expire = new Date(item.expireDate);
+
+              if (today <= expire) {
+                isActiveSubscription = true;
+              }
+            }
+          });
+
+          if (category === "강의" && isPurchased) {
+            alert("이미 구매한 강의입니다");
+            return;
+          }
+
+          if (category === "구독권" && isActiveSubscription) {
+            alert("현재 활성화된 구독권이 있어 구매할 수 없습니다.");
+            return;
+          }
+
+          // 구매 확정 창 띄우기
+          $(".purchaseConfirm").css("display", "block");
+        }
+      });
+    },
+      error:function(){
+        alert("구매 내역을 불러올 수 없습니다.");
+  }
   });
 
-    $("#yes").on("click", function () {
+    // 아니오/x 누르면 끄기
+    $("#no").on("click", function () {
+    $(".purchaseConfirm").css("display", "none");
+  });
+
+    $("#yes").off("click").on("click", function () {
       var purchaseData = {
         productId: selectedProductId,
         username: userName
       }
 
       $.ajax({
-        url:"/api/purchase-history/save/instant-buy",
+        url: `/api/purchase-history/save/instant-buy/${selectedProductId}`,
         method: "post",
         contentType: "application/json",
         data: JSON.stringify(purchaseData),
-        success: function(response){
+        success: function (response) {
           alert("구매가 완료되었습니다");
 
           console.log("구매성공", response);
-          
+
           $(".purchaseConfirm").css("display", "none");
         },
-        error:function(){
+        error: function () {
           alert("바로구매 처리 중 에러가 발생하였습니다");
           console.error();
-        }
-      })
-    });
-    
-    $(".purchaseConfirm .close").on("click", function () {
-      $(".purchaseConfirm").css("display", "none");
+        },
+      });
     });
 
+      $(".purchaseConfirm .close").off("click").on("click", function () {
+      $(".purchaseConfirm").off("click").css("display", "none");
+    });
   });
-
-    
-
-    
-
-
 
 $(document).ready(function () {
   // 전체 선택 체크박스
