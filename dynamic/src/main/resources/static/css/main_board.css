@@ -97,8 +97,8 @@ main .inner {
 
 main .inner .upper {
   margin-top: 5px;
-  width: 100%;
-  height: 10px;
+  width: 90%;
+  height: 50px;
   /* border: 1px solid black; */
   display: flex;
   justify-content: end;
@@ -108,8 +108,11 @@ main .inner .upper .searchBar {
   width: 100%;
   margin: 0 auto;
   display: flex;
+  /* 가로 정렬 */
   align-items: center;
+  /* 세로 정렬 */
   justify-content: right;
+  /* 가운데 정렬 */
   gap: 10px;
 }
 
@@ -146,10 +149,11 @@ main .inner .upper .searchBar img {
 main .inner .upper .searchBar img:hover {
   width: 40px;
   height: 40px;
-  cursor: pointer;
 }
 
-main .inner .upper .searchBar #add_board {
+main .inner .upper .searchBar #modify_notice,
+#add_notice,
+#delete_notice {
   display: none;
 }
 
