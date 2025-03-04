@@ -41,18 +41,19 @@
             <div class="day_content">
               <label for="options">월 선택 </label>
               <select id="options" name="options">
-                <option value="option1">1월</option>
-                <option value="option2">2월</option>
-                <option value="option3">3월</option>
-                <option value="option4">4월</option>
-                <option value="option5">5월</option>
-                <option value="option6">6월</option>
-                <option value="option7">7월</option>
-                <option value="option8">8월</option>
-                <option value="option9">9월</option>
-                <option value="option10">10월</option>
-                <option value="option11">11월</option>
-                <option value="option12">12월</option>
+                <option value="0">전체 선택</option>
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7">7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
               </select>
               <div class="description">
                 <p>*원하는 명세서의 해당 월을 선택해 주세요.</p>
@@ -60,8 +61,8 @@
 
               <div class="employee_header">
                 <div class="searchBar">
-                  <input type="text" placeholder="직원 성함을 입력해주세요" />
-                  <img src="./img/search.png" />
+                  <input type="text" placeholder="직원 성함을 입력해주세요" id="search_employee" />
+                  <img src="./img/search.png" onclick="submit_go()" />
                 </div>
               </div>
             </div>

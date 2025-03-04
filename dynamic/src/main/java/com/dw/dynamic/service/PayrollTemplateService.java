@@ -90,5 +90,18 @@ public class PayrollTemplateService {
 
      }
 
+    public List<PayrollTemplateDTO> getPayrollTemplateByName(String name,HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        List<PayrollTemplate> payrollTemplate = payrollTemplateRepository.findByEmployeeNameLike("%" + name + "%");
+        List<PayrollTemplateDTO> payrollTemplateDTOList = payrollTemplate.stream().filter(payrollTemplate1 -> payrollTemplate1.getEmployee().getUser().getUserName().equals(currentUser.getUserName())).map(PayrollTemplate::toDTO).toList();
+        if (payrollTemplateDTOList.isEmpty()) {
+            throw new ResourceNotFoundException("해당 이름으로 조회되는 직원이 없습니다");
+        } else {
+            return payrollTemplateDTOList
+                    ;
+        }
+
+    }
+
 
 }

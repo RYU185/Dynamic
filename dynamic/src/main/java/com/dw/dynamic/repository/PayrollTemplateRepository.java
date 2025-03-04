@@ -15,6 +15,8 @@ public interface PayrollTemplateRepository extends JpaRepository<PayrollTemplate
     @Query("select p from PayrollTemplate p where p.employee.user=:user")
     List<PayrollTemplate> findByUser(User user);
 
+    List<PayrollTemplate> findByEmployeeNameLike(String name);
+
 
 
 
