@@ -1,167 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>공지사항</title>
-    <link rel="stylesheet" href="css/main_notice.css" />
-    <link rel="stylesheet" href="css/header.css" />
-  </head>
 
-  <body>
-    <hr />
-    <div class="wrap">
-      <!-- header -->
-      <header>
-      </header>
-      <section>
-        <div class="titlewrap">
-          <h1>
-            DO YOURSELF <br />
-            USE SERVICE
-          </h1>
-          <div class="main_title">
-            <h1>공지사항</h1>
-          </div>
-          <br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>공지사항</title>
+  <link rel="stylesheet" href="css/main_notice.css" />
+  <link rel="stylesheet" href="css/header.css" />
+</head>
+
+<body>
+  <hr />
+  <div class="wrap">
+    <!-- header -->
+    <header>
+    </header>
+    <section>
+      <div class="titlewrap">
+        <h1>
+          DO YOURSELF <br />
+          USE SERVICE
+        </h1>
+        <div class="main_title">
+          <h1>공지사항</h1>
         </div>
-      </section>
-      <main>
-        <div class="inner">
-          <div class="upper">
-            <div class="searchBar">
-              <p>
-                <input
-                  type="text"
-                  placeholder="제목을 입력해주세요"
-                  id="search_notice"
-                />
-              </p>
-              <img src="./img/search.png" onclick="submit_go()" /><img
-                src="/img/add.png"
-                alt="추가 버튼"
-                id="add_notice"
-                style="display: none"
-              />
-            </div>
+        <br />
+      </div>
+    </section>
+    <main>
+      <div class="inner">
+        <div class="upper">
+          <div class="searchBar">
+            <p>
+              <input type="text" placeholder="제목을 입력해주세요" id="search_notice" />
+            </p>
+            <img src="./img/search.png" onclick="submit_go()" /><img src="/img/add.png" alt="추가 버튼" id="add_notice"
+              style="display: none" />
           </div>
-          <div class="main_box">
-            <table id="payrollTable">
-              <thead>
-                <tr>
-                  <th class="bold">NO.</th>
-                  <th>제목</th>
-                  <th>일자</th>
-                </tr>
-              </thead>
-              <tbody id="payrollTableBody">
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                </tr>
-              </tbody>
-            </table>
-            <div id="pagination">
-              <button id="prevButton" onclick="changePage(currentPage - 1)">
+        </div>
+        <div class="main_box">
+          <table id="payrollTable">
+            <thead>
+              <tr>
+                <th class="bold">NO.</th>
+                <th>제목</th>
+                <th>일자</th>
+              </tr>
+            </thead>
+            <tbody id="payrollTableBody">
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <div id="pagination">
+              <button id="prevButton"">
                 Previous
               </button>
               <span id="pageNumber">Page: 1</span>
-              <button id="nextButton" onclick="changePage(currentPage + 1)">
+              <button id="nextButton" ">
                 Next
               </button>
-            </div>
-          </div>
+            </div> -->
         </div>
+      </div>
 
-        <!-- 공지사항 등록 박스(pop-up) -->
-        <div class="pop-up2">
-          <img src="/img/X.png" alt="취소 버튼" class="x_btn2" />
-          <h1>공지사항 작성</h1>
-          <div class="content_box">
-            <div class="content">
-              <div><b>제목 :</b></div>
-              <div contenteditable="true" class="write"></div>
-            </div>
-            <div class="content">
-              <div><b>공지내용 :</b></div>
-              <div contenteditable="true" class="text_content"></div>
-            </div>
-            <div class="date">
-              <div><b>등록일자 : </b></div>
-              <div class="add_date"></div>
-              <input type="button" value="등록" class="add" />
-            </div>
+      <!-- 공지사항 등록 박스(pop-up) -->
+      <div class="pop-up2">
+        <img src="/img/X.png" alt="취소 버튼" class="x_btn2" />
+        <h1>공지사항 작성</h1>
+        <div class="content_box">
+          <div class="content">
+            <div><b>제목 :</b></div>
+            <div contenteditable="true" class="write"></div>
+          </div>
+          <div class="content">
+            <div><b>공지내용 :</b></div>
+            <div contenteditable="true" class="text_content"></div>
+          </div>
+          <div class="date">
+            <div><b>등록일자 : </b></div>
+            <div class="add_date"></div>
+            <input type="button" value="등록" class="add" />
           </div>
         </div>
-      </main>
-      <footer>
-        <div class="inner">
-          <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
-          </div>
-          <div class="lower">
-            <address>
-              대전광역시 서구 둔산동 1524 <br />
-              TEL : 03-111-1234 C.P : 010-1234-5678
-            </address>
-            <p>
-              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-              reserved.
-            </p>
-          </div>
+      </div>
+    </main>
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
         </div>
-      </footer>
-    </div>
-    <div class="pop-up-background2"></div>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="pop-up-background2"></div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/main_notice.js"></script>
-    <script src="/js/header.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/main_notice.js"></script>
+  <script src="/js/header.js"></script>
+</body>
+
 </html>
