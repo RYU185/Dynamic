@@ -22,7 +22,7 @@ public interface PurchaseHistoryRepository extends JpaRepository<PurchaseHistory
             "and (c.title like %:productName% OR ps.title like %:productName%)")
     List<PurchaseHistory> findByProductNameLike(String productName,String currentUser);
 
-
+    List<PurchaseHistory> findByUser_UserName(String userName);
 
 
 

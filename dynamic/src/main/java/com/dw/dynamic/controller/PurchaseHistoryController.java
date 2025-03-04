@@ -48,6 +48,15 @@ public class PurchaseHistoryController {
                 HttpStatus.OK
         );
     }
+
+        @GetMapping("/username/{userName}")
+    public ResponseEntity<List<PurchaseHistoryDTO>> getPurchaseHistoryByUserName(@PathVariable String userName, HttpServletRequest request){
+        return new ResponseEntity<>(
+                purchaseHistoryService.getPurchaseHistoryByUserName(userName, request),
+                HttpStatus.OK
+        );
+    }
+
     @PostMapping("/save/purchase-history-and-user-product")
     public ResponseEntity<List<PurchaseHistoryDTO>> savePurchaseHistoryAndUserProduct(@RequestBody List<CartDTO> carts, HttpServletRequest request){
         return new ResponseEntity<>(
