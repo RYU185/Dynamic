@@ -3,11 +3,6 @@ let cartItem = [];
 $(document).ready(function (){
     var userName = JSON.parse(sessionStorage.getItem("userName"));
 
-    if(!userName){
-        alert("로그인이 필요합니다");
-        return;
-    }
-
     //
     let productData = {};
 

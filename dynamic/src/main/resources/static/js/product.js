@@ -295,11 +295,6 @@ $(document).ready(function () {
 
   console.log("로그인 계정:", userName)
 
-  if(!userRole){
-    alert("로그인이 필요합니다");
-    window.location.href = "/login.html"
-  }
-
   $(".add").on("click", function(){
     $(".product_add").css("display","block");
   });
@@ -371,11 +366,6 @@ $(document).ready(function () {
   $(document).on("click", ".btnPurchase", function(){
     selectedProductId = $(this).data("id");
     console.log("즉시 구매 요청, 제품 ID:", selectedProductId);
-
-    if(!userName){
-      alert("로그인이 필요합니다")
-      return;
-    }
 
     // 기존 구매 내역 조회
     $.ajax({
