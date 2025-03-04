@@ -4,7 +4,7 @@ let selectedProductId = null;
 
 if (!userName) {
   alert("로그인이 필요합니다");
-  return;
+  window.location.href = 'login.html';
 }
 
 $(document).ready(function () {
