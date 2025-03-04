@@ -124,7 +124,6 @@ $(document).ready(function(){
 
         console.log("cartItem:", JSON.stringify(cartItem, null, 2));
 
-
         if(cartItem.length === 0){
             alert("장바구니가 비어있습니다.");
             return;
@@ -133,6 +132,11 @@ $(document).ready(function(){
         if (!confirm("결제를 진행하시겠습니까?")) return;
 
         console.log("서버로 전송할 데이터:", JSON.stringify(cartItem, null, 2));
+
+
+        $.ajax({
+            url:`/api/purchase-history`
+        })
 
             $.ajax({
                 url:"/api/purchase-history/save/purchase-history-and-user-product",

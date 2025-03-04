@@ -83,6 +83,21 @@ public class PurchaseHistoryService {
 
     }
 
+    public List<PurchaseHistoryDTO> getPurchaseHistoryByUserName(String userName, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+
+        if (currentUser == null){
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        }
+        List<PurchaseHistory> purchaseHistories = purchaseHistoryRepository.findByUser_UserName(userName);
+
+        if (purchaseHistories.isEmpty()){
+            throw new ResourceNotFoundException("해당 유저 계정으로 조회되는 구매내역이 없습니다");
+        }
+        return purchaseHistories.stream().map(PurchaseHistory::toDTO).toList();
+
+    }
+
     public List<PurchaseHistoryDTO> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {
