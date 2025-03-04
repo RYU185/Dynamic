@@ -135,7 +135,14 @@ $(document).ready(function(){
 
 
         $.ajax({
-            url:`/api/purchase-history`
+            url:`/api/purchase-history/username/` + userName,
+            method:"GET",
+            contentType:"application/json",
+            success: function(purchaseHistory){
+                
+                
+
+            }
         })
 
             $.ajax({
