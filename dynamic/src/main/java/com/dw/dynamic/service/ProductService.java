@@ -52,11 +52,11 @@ public class ProductService {
     // 관리자 권한으로 강의 추가 // 결제 버튼을 누르면 product 추가
     public Product saveProduct(Product product, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
-
+        if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
+            throw new PermissionDeniedException("권한이 없습니다");
+        }
         if (product instanceof Course) {
-            if (!currentUser.getAuthority().getAuthorityName().equals("ADMIN")) {
-                throw new PermissionDeniedException("권한이 없습니다");
-            }
+
             Course course = (Course) product;
         } else {
             PayrollSubscription payrollSubscription = (PayrollSubscription) product;
