@@ -1,4 +1,4 @@
-const userRole = JSON.parse(sessionStorage.getItem("userName"));
+const userInfo = JSON.parse(sessionStorage.getItem("userName"));
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("header.html")
@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector("header").innerHTML = data;
 
       // 로그인여부 확인
-      if (userRole) {
+      if (userInfo) {
         document.querySelectorAll(".header_upper li").forEach((li) => {
           li.classList.toggle("hidden");
         });
-        $(".name").text(userRole);
+        $(".name").text(userInfo);
       }
 
       // 로그아웃 버튼 이벤트
@@ -22,14 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 버튼과 콘텐츠 요소 가져오기
       document.querySelector(".button").addEventListener("click", function () {
-        if (userRole) {
+        if (userInfo) {
           $.ajax({
             url: "api/employee/free-template-count",
             method: "get",
             contentType: "application/json",
             success: function (response) {
               console.log(response);
-              if (userRole != "admin") {
+              if (userInfo != "admin") {
                 if (response >= 5) {
                   alert("이용 가능한 무료 횟수가 다 소진되었습니다");
                   return;
