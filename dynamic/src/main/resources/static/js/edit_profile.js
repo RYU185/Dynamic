@@ -1,4 +1,6 @@
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
+const existBusinessOperator = sessionStorage.getItem('existBusinessOperator');
+console.log(existBusinessOperator);
 
 // db랑 front랑 연결하는 코드
 $(document).ready(function () {
@@ -14,7 +16,8 @@ function getUserInformation() {
     method: 'get',
     contentType: 'application/json',
     success: function (response) {
-      document.querySelector('#name').value = response.realName;
+      console.log(response);
+      document.querySelector('#login_name').value = response.realName;
       document.querySelector('#gender').value = response.gender;
       document.querySelector('#email').value = response.email;
       document.querySelector('#id').value = response.userName;
@@ -24,7 +27,7 @@ function getUserInformation() {
 }
 
 $(document).on('click', '#save', function () {
-  const realName = document.querySelector('#name').value.trim();
+  const realName = document.querySelector('#login_name').value.trim();
   const email = document.querySelector('#email').value.trim();
   const phone = document.querySelector('#phone').value.trim();
 
@@ -59,5 +62,85 @@ document.querySelector('#phone').addEventListener('input', function (e) {
   } else {
     e.target.value =
       value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11); // 3자리-4자리-4자리
+  }
+});
+
+const button2 = document.querySelector('#password');
+const content3 = document.querySelector('.pop-up3');
+const background = document.querySelector('.pop-up-background1');
+
+button2.addEventListener('click', function () {
+  if (content3.style.display === 'none' || content3.style.display === '') {
+    content3.style.display = 'block'; // display: block 으로 변경
+    background.style.display = 'block';
+  }
+});
+
+document.querySelector('.x_btn1').addEventListener('click', function () {
+  document.querySelector('.pop-up1').style.display = 'none';
+  document.querySelector('.pop-up-background1').style.display = 'none';
+});
+document.querySelector('.x_btn2').addEventListener('click', function () {
+  document.querySelector('.pop-up2').style.display = 'none';
+  document.querySelector('.pop-up-background1').style.display = 'none';
+});
+document.querySelector('.x_btn3').addEventListener('click', function () {
+  document.querySelector('.pop-up3').style.display = 'none';
+  document.querySelector('.pop-up-background1').style.display = 'none';
+});
+
+$(document).on('click', '#modify_pwd', function () {
+  const pwd = document.querySelector('#pwd');
+  const new_password = document.querySelector('#new_password');
+  const one_more = document.querySelector('#one_more');
+
+  console.log(pwd, new_password, one_more);
+
+  var sendData = {
+    userId: userRole,
+    currentPassword: pwd.value,
+    newPassword: new_password.value,
+    confirmNewPassword: one_more.value,
+  };
+  console.log(sendData);
+  if (new_password.value !== one_more.value) {
+    alert('입력하신 비밀번호가 일치하지 않습니다 ');
+    one_more.focus();
+    return;
+  }
+
+  $.ajax({
+    url: '/api/user/modify-pw',
+    method: 'POST',
+    data: JSON.stringify(sendData),
+    contentType: 'application/json',
+    success: function (response) {
+      alert('비밀번호를 정상적으로 수정하였습니다');
+      window.location.href = '/edit_profile.html';
+    },
+    error: function () {
+      alert('현재 비밀번호를 확인하여 올바르게 작성하세요');
+      pwd.focus();
+      return;
+    },
+  });
+});
+
+const button1 = document.querySelector('#company');
+const content1 = document.querySelector('.pop-up1');
+const content2 = document.querySelector('.pop-up2');
+
+$(document).on('click', '#add_button', function () {
+  const isexist = existBusinessOperator === 'true';
+  if (!isexist) {
+    if (content2.style.display === 'none' || content2.style.display === '') {
+      content2.style.display = 'block'; // display: block 으로 변경
+      background.style.display = 'block';
+    }
+  } else {
+    if (content1.style.display === 'none' || content3.style.display === '') {
+      content1.style.display = 'block'; // display: block 으로 변경
+      background.style.display = 'block';
+    }
   }
 });

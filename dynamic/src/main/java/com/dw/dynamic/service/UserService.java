@@ -173,6 +173,15 @@ public class UserService {
         userRepository.save(currentUser);
         return "유저 id: "+ currentUser.getUserName() + " 님의 비밀번호가 정상적으로 변경되었습니다.";
     }
+//
+//    public boolean checkCurrentPassword(String userName, String currentPassword) {
+//        User user = userRepository.findById(userName).orElse(null);
+//        if (user != null) {
+//            return passwordEncoder.matches(currentPassword, user.getPassword());
+//        }
+//        return false;
+//    }
+
 
     public UserDTO ModifyUserData(UserDTO userDTO, HttpServletRequest request) { // 회원 정보 수정(이름, 이메일, 전화번호)
         User currentUser = getCurrentUser(request);
