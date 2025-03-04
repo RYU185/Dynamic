@@ -39,6 +39,10 @@ public class ProductController {
     public ResponseEntity<Product> saveProduct(@RequestBody Product product, HttpServletRequest request){
         return new ResponseEntity<>(productService.saveProduct(product, request), HttpStatus.CREATED);
     }
+    @PostMapping("/save/payrollsubscription/{month}")
+    public ResponseEntity<Product> savePayrollsubscription(@PathVariable int month, @RequestBody Product product, HttpServletRequest request){
+        return new ResponseEntity<>(productService.savePayrollsubscription(month,product, request), HttpStatus.CREATED);
+    }
 
 
     @GetMapping("/payrollsubscription/enrollments-and-income")
