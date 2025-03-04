@@ -5,12 +5,12 @@ $(document).ready(function () {
     $.ajax({
       url: "/api/user-product/all",
       method: "GET",
-      dataType: "json",
+      contentType: "application/json",
       success: function (data) {
-            console.log("서버 응답 데이터:", data);
-            courses = data.filter((item) => item.product.type === "course");
-            console.log("담긴 강의: ", courses);
-            renderCourses();
+        console.log("서버 응답 데이터:", data);
+        courses = data.filter((item) => item.product.type === "course");
+        console.log("담긴 강의: ", courses);
+        renderCourses();
       },
       error: function (xhr, status, error) {
         console.error("데이터 불러오기 실패:", error);
@@ -23,9 +23,8 @@ $(document).ready(function () {
     cardWrap.empty();
 
     courses.forEach((course) => {
-      const title = course.product.title
-      const description = course.product.description
-
+      const title = course.product.title;
+      const description = course.product.description;
 
       const courseCard = `
             <div class="card">
@@ -39,11 +38,12 @@ $(document).ready(function () {
             </div>
             `;
       cardWrap.append(courseCard);
-      });
-      }
-
+    });
+  }
   fetchUserCourses();
-});
+
+  // card클릭시 모달 창 열기
+  
 
 
 // title을 통한 검색 기능
