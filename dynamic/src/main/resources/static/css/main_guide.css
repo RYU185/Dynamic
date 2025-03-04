@@ -61,18 +61,25 @@ body {
 }
 /* section */
 
-.title-wrap {
+section {
   width: 100%;
-  margin-top: 1rem;
-  font-size: 45px;
-  text-align: center;
+  padding-top: 20px;
 }
 
-section .title-wrap .title h1 {
+.title-wrap .main_title {
+  display: block;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.title-wrap .main_title h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
+  margin: 0 40px 0px 40px;
+  position: absolute;
+  z-index: 1;
 }
 
 main {
