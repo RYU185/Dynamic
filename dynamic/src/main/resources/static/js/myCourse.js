@@ -25,65 +25,91 @@ $(document).ready(function () {
     courses.forEach((course) => {
       const title = course.product.title;
       const description = course.product.description;
+      const productId = course.product.id;
 
       const courseCard = `
-            <div class="card">
-                  <div class="pic">
-                  <a href="#"><img src="./img/courseThumnail1.png" /></a>
+                  <div class="card" data-product-id="${productId}">
+                        <div class="pic">
+                        <a href="#"><img src="./img/courseThumnail1.png" /></a>
+                        </div>
+                        <p>강의 제목:</p>
+                        <br />
+                        <p>${title}</p>
+                        <p>강의 설명:${description}</p>
                   </div>
-                  <p>강의 제목:</p>
-                  <br />
-                  <p>${title}</p>
-                  <p>강의 설명:${description}</p>
-            </div>
-            `;
+                  `;
       cardWrap.append(courseCard);
     });
+    viewCourseDetail();
   }
-  fetchUserCourses();
 
-  // card클릭시 모달 창 열기
-  
+    function viewCourseDetail(){
+      $(".card").on("click", function(){
+            const productId = $(this).data("product-id");
+            if (!productId) return;
 
 
-// title을 통한 검색 기능
-function submit_go(){
-      let title = document.querySelector("input[id='search_mycourse']");
-      var sendData = title.value;
-
-      if(sendData === ""){
-            alert("검색어를 입력해주세요");
-            return;
+            $.ajax({
+                  url:`/api/course/id/${productId}`,
+                  method: "get",
+                  contentType: "application/json",
+                  success: function(course){
+                        $(".modal .title p").text(course.title);
+                        $(".modal .description p").text(course.description);
+                        $(".modal").css("display", "block");
+                  },
+                  error: function (xhr, status, error) {
+                  console.error("강의 정보 불러오기 실패:", error);
+                  }
+            })
+      })
       }
 
-      $.ajax({
-            url:"/api/user-product/product-name/" + encodeURIComponent(sendData),
-            method:"get",
-            contentType: 'application/json',
-            success: function(response){
-                  const cardWrap = $(".cardwrap");
-                  cardWrap.empty();
-                  if(response.length > 0){
-                        response.forEach((course)=>{
-                              const courseCard = `
-                              <div class="card">
-                                    <div class="pic">
-                                    <a href="#"><img src="${course.product.thumbnail}" alt="강의 썸네일" /></a>
-                                    </div>
-                                    <p>강의 제목:</p>
-                                    <p>${course.product.title}</p>
-                                    <p>강의 설명: ${course.product.description}</p>
-                              </div>
-                              `;
-                              cardWrap.append(courseCard);
-                        });
-                  }else{
-                        cardWrap.append("<p>검색 결과가 없습니다</p>");
-                  }
-            },
-            error: function (xhr, status, error) {
-            console.error("검색 요청 실패:", error);
-            }
-      })
-}
 
+      $(".modal .close").on("click", function () {
+            $(".modal").css("display", "none");
+      });
+
+  fetchUserCourses();
+});
+
+// title을 통한 검색 기능
+function submit_go() {
+  let title = document.querySelector("input[id='search_mycourse']");
+  var sendData = title.value;
+
+  if (sendData === "") {
+    alert("검색어를 입력해주세요");
+    return;
+  }
+
+  $.ajax({
+    url: "/api/user-product/product-name/" + encodeURIComponent(sendData),
+    method: "get",
+    contentType: "application/json",
+    success: function (response) {
+      const cardWrap = $(".cardwrap");
+      cardWrap.empty();
+      if (response.length > 0) {
+        response.forEach((course) => {
+          const courseCard = `
+            <div class="card">
+                  <div class="pic">
+                  <a href="#"><img src="${course.product.thumbnail}" alt="강의 썸네일" /></a>
+                  </div>
+                  <p>강의 제목:</p>
+                  <p>${course.product.title}</p>
+                  <p>강의 설명: ${course.product.description}</p>
+            </div>
+            `;
+          cardWrap.append(courseCard);
+        });
+      } else {
+        cardWrap.append("<p>검색 결과가 없습니다</p>");
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("검색 요청 실패:", error);
+    },
+  });
+}
