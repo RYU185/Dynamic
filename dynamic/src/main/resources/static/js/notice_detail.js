@@ -45,6 +45,9 @@ $(document).ready(function () {
                 </div>
             </div>
         `;
+            document.querySelector('.modify_title').innerText = response.noticeTitle;
+            document.querySelector('.modify_text').innerText = response.text;
+
             $('.detail_box').append(row);
         }
     });

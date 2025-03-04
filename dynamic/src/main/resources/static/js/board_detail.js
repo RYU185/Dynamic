@@ -37,6 +37,9 @@ $(document).ready(function () {
       document.querySelector('.add_date').innerHTML = response.addDate;
       document.querySelector('.modified_date').innerHTML = response.modifyDate;
       document.querySelector('.description').innerHTML = response.title;
+
+      document.querySelector('.modify_text').innerText = response.title;
+
       const writeUser = response.userName;
       console.log(writeUser);
       console.log(userRole);
@@ -66,6 +69,8 @@ $(document).ready(function () {
             if (pushDates[index]) pushDates[index].innerHTML = element.addDate;
             if (comments[index]) comments[index].innerHTML = element.text;
           });
+
+
         },
       });
     },
