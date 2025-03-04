@@ -84,6 +84,7 @@ header .inner .header_lower li .free_template {
   white-space: pre-line;
   width: 150px;
   height: 50px;
+  line-height: 10px;
   border-radius: 30px;
   font-size: 15px;
   font-weight: 500;
