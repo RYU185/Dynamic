@@ -51,58 +51,6 @@ body {
   min-height: 100%;
 }
 
-/* header */
-header {
-  width: 100%;
-  background-color: #fff;
-}
-
-header .inner {
-  width: 100%;
-  height: 50px;
-  margin: 0 auto;
-  position: relative;
-}
-
-header .inner .upper {
-  width: 100%;
-  margin: 0px auto;
-  display: flex;
-  justify-content: space-between;
-  height: 30px;
-}
-
-header .inner .upper li {
-  border-radius: 1px 0 solid;
-  margin-top: 8px;
-  text-align: center;
-  height: 42px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header .inner .upper li:hover {
-  background-color: rgb(236, 235, 235);
-  color: #868686;
-}
-
-header .inner .upper li a {
-  display: block;
-  color: black;
-  display: flex;
-  align-items: center;
-  width: 120px;
-}
-
-header .inner .upper li a span {
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  width: 120px;
-}
-
 hr {
   width: 100%;
   border-color: #4c6b7e;
@@ -126,70 +74,6 @@ hr {
   text-align: center;
   align-content: center;
 }
-
-header .inner .upper {
-  width: 100%;
-  margin: 0px auto;
-  display: flex;
-  justify-content: space-between;
-  height: 30px;
-}
-
-header .inner .upper li {
-  border-radius: 1px 0 solid;
-  margin-top: 8px;
-  text-align: center;
-  height: 42px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header .inner .upper li:hover {
-  background-color: rgb(236, 235, 235);
-  color: #868686;
-}
-
-header .inner .upper li a {
-  display: block;
-  color: black;
-  display: flex;
-  align-items: center;
-  width: 120px;
-}
-
-header .inner .upper li a span {
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  width: 120px;
-}
-
-hr {
-  width: 100%;
-  border-color: #4c6b7e;
-  opacity: 0.2;
-  position: absolute;
-  top: 70px;
-}
-
-.wrap > h1 {
-  width: auto;
-  height: 9rem;
-  padding: 20px;
-  background-color: #f6f8fc;
-  background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
-
-  font-size: 30px;
-  font-weight: 800;
-  font-family: "GmarketSansMedium";
-  color: #ffff;
-
-  text-align: center;
-  align-content: center;
-}
-
 /* section */
 
 section {
@@ -379,10 +263,8 @@ section .allCourse .courseList .course article h2 {
   margin-left: 15px;
 }
 
-
 section .allCourse .courseList .course article div span {
   text-align: left;
-
 }
 
 section .allCourse .courseList .course article p {
@@ -555,7 +437,7 @@ footer .inner .lower p {
 }
 
 .purchaseConfirm {
-  position: fixed; 
+  position: fixed;
   top: 30%;
   left: 30%;
   width: 300px;
@@ -570,7 +452,6 @@ footer .inner .lower p {
   display: flex;
   width: 30px;
   height: 30px;
-
 }
 
 .purchaseConfirm .close img {

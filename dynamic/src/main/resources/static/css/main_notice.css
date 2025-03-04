@@ -1,15 +1,17 @@
 @charset 'utf-8';
 
 @font-face {
-  font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
+  font-family: "NanumHumanTTFBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-family: "GmarketSansMedium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -17,7 +19,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
+  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
 }
 
 ul,
@@ -42,58 +44,6 @@ body {
   position: relative;
 }
 
-/* header */
-header {
-  width: 100%;
-  background-color: #fff;
-}
-
-header .inner {
-  width: 100%;
-  height: 50px;
-  margin: 0 auto;
-  position: relative;
-}
-
-header .inner .upper {
-  width: 100%;
-  margin: 0px auto;
-  display: flex;
-  justify-content: space-between;
-  height: 30px;
-}
-
-header .inner .upper li {
-  border-radius: 1px 0 solid;
-  margin-top: 8px;
-  text-align: center;
-  height: 42px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header .inner .upper li:hover {
-  background-color: rgb(236, 235, 235);
-  color: #868686;
-}
-
-header .inner .upper li a {
-  display: block;
-  color: black;
-  display: flex;
-  align-items: center;
-  width: 120px;
-}
-
-header .inner .upper li a span {
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  width: 120px;
-}
-
 hr {
   width: 100%;
   border-color: #4c6b7e;
@@ -109,10 +59,10 @@ section {
   background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
 }
 
-section .titlewrap>h1 {
+section .titlewrap > h1 {
   font-size: 30px;
   font-weight: 800;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
   color: #ffff;
 }
 
@@ -129,7 +79,7 @@ section .titlewrap .main_title {
 }
 
 section .titlewrap .main_title h1 {
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
@@ -245,7 +195,6 @@ main .inner .main_box table tr {
   border: 1px solid #6d6d6d;
   text-align: center;
   width: 100%;
-
 }
 
 main .inner .main_box table tr th {
@@ -273,7 +222,6 @@ main .inner .main_box table tr td {
   font-size: 18px;
   font-weight: 500;
   height: 40px;
-
 }
 
 main .inner .main_box table tr .bold {
@@ -281,7 +229,18 @@ main .inner .main_box table tr .bold {
   font-weight: 800;
 }
 
-main .inner .main_box table tr td:nth-child(3) main .inner .main_box table tr td:nth-child(3) {
+main
+  .inner
+  .main_box
+  table
+  tr
+  td:nth-child(3)
+  main
+  .inner
+  .main_box
+  table
+  tr
+  td:nth-child(3) {
   width: 10px;
 }
 
@@ -306,12 +265,9 @@ main .pop-up1,
   text-align: center;
   position: relative;
   display: none;
-
 }
 
-
-
-main .pop-up1>img {
+main .pop-up1 > img {
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -320,7 +276,7 @@ main .pop-up1>img {
   right: 10px;
 }
 
-main .pop-up2>img {
+main .pop-up2 > img {
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -329,17 +285,15 @@ main .pop-up2>img {
   right: 10px;
 }
 
-main .pop-up1>img:hover {
+main .pop-up1 > img:hover {
   background-color: rgb(126, 126, 126);
   color: white;
 }
 
-main .pop-up2>img:hover {
+main .pop-up2 > img:hover {
   background-color: rgb(126, 126, 126);
   color: white;
 }
-
-
 
 main .pop-up1 {
   position: absolute;
@@ -457,7 +411,7 @@ footer .inner .upper ul {
 }
 
 footer .inner .upper::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -468,7 +422,7 @@ footer .inner .upper ul li {
 }
 
 footer .inner .upper ul::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
