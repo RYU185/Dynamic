@@ -317,21 +317,18 @@ main .inner .detail_box .comment_list .comment_box .comment {
   width: 60%;
 }
 
-main .inner .detail_box .comment_list .comment_box .modify_comment {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  cursor: pointer;
+main .inner .detail_box .comment_list .comment_box .delete_comment {
+  margin-top: 5px;
   display: none;
 }
 
-main .inner .detail_box .comment_list .comment_box .delete_comment {
-  width: 30px;
-  height: 30px;
+main .inner .detail_box .comment_list .comment_box .delete_comment img {
+  width: 20px;
+  height: 20px;
   object-fit: contain;
   cursor: pointer;
-  display: none;
 }
+
 
 
 

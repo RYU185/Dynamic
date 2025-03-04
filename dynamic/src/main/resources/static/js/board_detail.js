@@ -5,8 +5,6 @@ const modify_board = document.querySelector('#modify_board');
 const delete_board = document.querySelector('#delete_board');
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 
-const modify_comment = document.querySelector('.modify_comment');
-const delete_comment = document.querySelector('.delete_comment');
 
 $(document).ready(function () {
   $.ajax({
@@ -61,35 +59,47 @@ $(document).ready(function () {
         contentType: 'application/json',
         success: function (response) {
           $('.list').empty();
-          response.forEach((element) => {
-            var $row = $(`
-               <div class="comment_box">
-               <div class="name">${element.userName}</div>
-                <div class="push_date">${element.addDate}</div>
-                 <div class="comment">${element.text}</div>
-                 <div class="modify_comment"><img src="img/writing.png" alt="수정버튼"></div>
-                  <div class="delete_comment">'<img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
-                </div>
-                  `);
-            console.log(modify_comment.style.display);
-            console.log(delete_comment.style.display);
-            $('.list').append($row);
-            if (userRole === element.userName) {
-              if (
-                modify_comment.style.display != 'block' &&
-                delete_comment.style.display != 'block'
-              ) {
-                modify_comment.style.display = 'block';
-                delete_comment.style.display = 'block';
-              }
-            }
 
+          response.forEach((element) => {
+            if (element.isActive === true) {
+              var $row = $(`
+                <div class="comment_box" id="${element.id}">
+                <div class="name">${element.userName}</div>
+                 <div class="push_date">${element.addDate}</div>
+                  <div class="comment">${element.text}</div>
+                   <div  class="delete_comment"><img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
+                 </div>
+                   `);
+              if (userRole === element.userName) {
+                $row.find('.delete_comment').css('display', 'block');
+              }
+              const delete_comment = $row.find('.delete_comment');
+              delete_comment.on('click', function (e) {
+                const button = e.target;
+                const parent = button.closest('.comment_box');
+                console.log(parent.id);
+                const isConfirmed = confirm('해당 댓글을 삭제 처리하도록 할까요 ?');
+                if (isConfirmed) {
+                  $.ajax({
+                    url: '/api/comment/delete/' + parent.id,
+                    method: 'POST',
+                    contentType: 'application/json',
+                    success: function () {
+                      window.location.href = "board_detail.html?id=" + encodeURIComponent(id);
+                    },
+                  });
+                }
+              });
+              $('.list').append($row);
+            }
           });
         },
       });
     },
   });
 });
+
+
 
 // 제목 클릭 시 해당 내용으로 본문 상세 내용 변경
 $(document).on('click', 'tbody tr', function () {
@@ -113,6 +123,46 @@ $(document).on('click', 'tbody tr', function () {
             window.location.href = '/board_detail.html?id=' + element.id;
           });
         }
+        $(document).on('click', '.modify', function (e) {
+          e.target;
+
+          const name = document.querySelector('#name1').value.trim();
+          const position = document.querySelector('#position1').value.trim();
+          const department = document.querySelector('#department1').value.trim();
+          const phone = document.querySelector('#phone1').value.trim();
+          const hourly_rate =
+            document.querySelector('#hourly_rate1').value.trim().replace(/,/g, '') ||
+            0;
+          const birthday = document.querySelector('.birthday').value;
+          const hiredate = document.querySelector('.hiredate').value;
+          const employee_id = document.querySelector('#employee_id').value;
+
+          var sendData = {
+            id: employee_id,
+            name: name,
+            department: department,
+            position: position,
+            hourlyRate: hourly_rate,
+            birthday: birthday,
+            hireDate: hiredate,
+            phoneNumber: phone,
+          };
+          console.log(sendData);
+
+          $.ajax({
+            url: '/api/employee/update',
+            method: 'PUT',
+            data: JSON.stringify(sendData),
+            contentType: 'application/json',
+            success: function (response) {
+              console.log(response);
+              alert('직원이 정상 수정되었습니다.');
+              window.location.href = 'my_employee.html';
+            },
+          });
+        });
+
+
       });
     },
   });
@@ -150,14 +200,9 @@ $(document).on('click', '.press', function () {
       <div class="name">${response.userName}</div>
       <div class="push_date">${response.addDate}</div>
       <div class="comment">${response.text}</div>
-      <div class="modify_comment"><img src="img/writing.png" alt="수정버튼"></div>
-        <div class="delete_comment"><img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
+        <div  class="delete_comment" ><img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
       `;
-      // 답변한 사람의 유저네임이 관리자이면 상단에 고정하기!!(근데 안돼)
-      // const comment_list = document.querySelector('.list');
-      // if (response.userName === 'admin') {
-      //   comment_list.prepend(newComment);
-      // }
+
 
       window.location.href = '/board_detail.html?id=' + id;
     },
