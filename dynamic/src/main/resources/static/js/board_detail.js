@@ -5,6 +5,9 @@ const modify_board = document.querySelector('#modify_board');
 const delete_board = document.querySelector('#delete_board');
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
 
+const modify_comment = document.querySelector('.modify_comment');
+const delete_comment = document.querySelector('.delete_comment');
+
 $(document).ready(function () {
   $.ajax({
     url: '/api/board/all',
@@ -39,7 +42,6 @@ $(document).ready(function () {
       document.querySelector('.description').innerHTML = response.title;
 
       document.querySelector('.modify_text').innerText = response.title;
-
       const writeUser = response.userName;
       console.log(writeUser);
       console.log(userRole);
@@ -58,19 +60,31 @@ $(document).ready(function () {
         method: 'get',
         contentType: 'application/json',
         success: function (response) {
-          // 각 데이터를 순회하며 .name, .push_date, .comment 요소에 넣기
-          const names = document.querySelectorAll('.name');
-          const pushDates = document.querySelectorAll('.push_date');
-          const comments = document.querySelectorAll('.comment');
+          $('.list').empty();
+          response.forEach((element) => {
+            var $row = $(`
+               <div class="comment_box">
+               <div class="name">${element.userName}</div>
+                <div class="push_date">${element.addDate}</div>
+                 <div class="comment">${element.text}</div>
+                 <div class="modify_comment"><img src="img/writing.png" alt="수정버튼"></div>
+                  <div class="delete_comment">'<img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
+                </div>
+                  `);
+            console.log(modify_comment.style.display);
+            console.log(delete_comment.style.display);
+            $('.list').append($row);
+            if (userRole === element.userName) {
+              if (
+                modify_comment.style.display != 'block' &&
+                delete_comment.style.display != 'block'
+              ) {
+                modify_comment.style.display = 'block';
+                delete_comment.style.display = 'block';
+              }
+            }
 
-          response.forEach((element, index) => {
-            // 각 항목에 대응하는 요소가 있는지 확인하고 값을 삽입
-            if (names[index]) names[index].innerHTML = element.userName;
-            if (pushDates[index]) pushDates[index].innerHTML = element.addDate;
-            if (comments[index]) comments[index].innerHTML = element.text;
           });
-
-
         },
       });
     },
@@ -136,7 +150,9 @@ $(document).on('click', '.press', function () {
       <div class="name">${response.userName}</div>
       <div class="push_date">${response.addDate}</div>
       <div class="comment">${response.text}</div>
-    `;
+      <div class="modify_comment"><img src="img/writing.png" alt="수정버튼"></div>
+        <div class="delete_comment"><img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
+      `;
       // 답변한 사람의 유저네임이 관리자이면 상단에 고정하기!!(근데 안돼)
       // const comment_list = document.querySelector('.list');
       // if (response.userName === 'admin') {
