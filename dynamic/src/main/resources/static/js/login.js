@@ -1,3 +1,4 @@
+const userCopy = JSON.parse(sessionStorage.getItem("userName"));
 function submit_go() {
   let id = document.querySelector("input[name='id']");
   let pw = document.querySelector("input[name='pw']");
@@ -22,18 +23,35 @@ function submit_go() {
     password: pw.value,
   };
   $.ajax({
+    url: "/api/user/business-operator/" + id.value,
+    method: "get",
+    contentType: "application/json",
+    success: function (response) {
+      console.log(response);
+      sessionStorage.setItem("existBusinessOperator", response);
+    },
+  });
+
+
+  $.ajax({
     url: "/api/user/login",
     method: "POST",
     data: JSON.stringify(sendData),
     contentType: "application/json",
     success: function (response) {
+
       sessionStorage.setItem("userName", JSON.stringify(sendData.userName));
-      const userCopy = JSON.parse(sessionStorage.getItem("userName"));
       $(".name").text(userCopy);
       $(".hello").text("환영합니다");
       window.location.href = "/index.html";
     },
   });
+
+
+
+
+
+
 }
 const find_id = document.querySelector(".find_id");
 const register = document.querySelector(".register");

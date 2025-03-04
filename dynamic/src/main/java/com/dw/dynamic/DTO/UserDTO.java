@@ -32,7 +32,7 @@ public class UserDTO {
 
     private String businessType; // 업종
 
-    private boolean existBusinessOperator; // 기존 사업자 여부
+    private Boolean existBusinessOperator; // 기존 사업자 여부
 
     private long point;
 

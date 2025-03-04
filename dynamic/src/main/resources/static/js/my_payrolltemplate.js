@@ -23,7 +23,7 @@ $(document).ready(function () {
 }
 )
 
-$(document).on('click', '#options', function () {
+$(document).on('change', '#options', function () {
 
     const month = document.querySelector('#options').value;
 
@@ -34,18 +34,22 @@ $(document).on('click', '#options', function () {
             method: 'get',
             contentType: 'application/json',
             success: function (response) {
-                $('tbody').empty();
-                response.forEach((element) => {
-                    //  가이드 제목, ID, 제목만 표시       
-                    var $row = $(`<tr class="row" id ="${element.id}">
+                if (response.length > 0) {
+                    $('tbody').empty();
+                    response.forEach((element) => {
+                        //  가이드 제목, ID, 제목만 표시       
+                        var $row = $(`<tr class="row" id ="${element.id}">
               <td>${element.employeeName}</td>
               <td>${element.position}</td>
               <td>${element.totalAmount}</td>
               <td>${element.finalPayment}</td>
               <td>${element.paymentDate}</td>
             </tr>`);
-                    $('tbody').append($row); // 테이블에 새 행 추가
-                });
+                        $('tbody').append($row); // 테이블에 새 행 추가
+                    });
+                }
+            }, error: function () {
+                $('tbody').empty();
             }
         })
     } else {

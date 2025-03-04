@@ -52,7 +52,7 @@ public class UserService {
                         userDTO.getPhoneNumber(),
                         userDTO.getBusinessNumber(),
                         userDTO.getBusinessType(),
-                        userDTO.isExistBusinessOperator(),
+                        userDTO.getExistBusinessOperator(),
                         0,
                         authorityRepository.findById("USER")
                                 .orElseThrow(() -> new ResourceNotFoundException("No role"))
@@ -137,6 +137,11 @@ public class UserService {
         }
         return userRepository.findUserByExistBusinessOperator(existBusinessOperator)
                 .stream().map(User::toDTO).toList();
+    }
+
+    public boolean getExistBusinessOperator(String userName, HttpServletRequest request){
+        return userRepository.findByBusinessOperator(userName);
+
     }
 
     public List<String> getIdByEmail(String email) { // 이메일로 통하여 아이디 찾기
