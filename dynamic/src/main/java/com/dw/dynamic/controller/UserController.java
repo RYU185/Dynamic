@@ -66,6 +66,13 @@ public class UserController {
                 HttpStatus.OK);
     }
 
+    @GetMapping("/business-operator/{userName}")
+    public ResponseEntity<Boolean>getExistBusinessOperator (@PathVariable String userName, HttpServletRequest request ) {
+        return new ResponseEntity<>(
+                userService.getExistBusinessOperator(userName, request),
+                HttpStatus.OK);
+    }
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody UserDTO userDTO,
                                         HttpServletRequest request) {

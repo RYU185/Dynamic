@@ -16,3 +16,4 @@ $(document).on("click", ".nav", function () {
   window.location.href = "/index.html";
   window.location.href = "/header.html";
 });
+

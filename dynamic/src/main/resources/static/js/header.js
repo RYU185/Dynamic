@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 버튼과 콘텐츠 요소 가져오기
       document.querySelector(".button").addEventListener("click", function () {
+
         if (userInfo) {
           $.ajax({
             url: "api/employee/free-template-count",
@@ -34,8 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
                   alert("이용 가능한 무료 횟수가 다 소진되었습니다");
                   return;
                 } else {
-                  window.location.href =
-                    "/free_payrolltemplate_information.html";
+                  const existBusinessOperator = sessionStorage.getItem('existBusinessOperator');
+                  console.log(existBusinessOperator);
+                  const isexist = existBusinessOperator === 'true';
+                  if (!isexist) {
+                    alert('사업자가 없을 경우 무료 급여명세서 이용이 불가능합니다');
+                    return;
+                  } else {
+                    window.location.href = '/free_payrolltemplate_information.html';
+                  }
+
                 }
               } else {
                 window.location.href = "/free_payrolltemplate_information.html";
