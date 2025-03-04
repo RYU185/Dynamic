@@ -44,14 +44,6 @@ body {
   position: relative;
 }
 
-hr {
-  width: 100%;
-  border-color: #4c6b7e;
-  opacity: 0.2;
-  position: absolute;
-  top: 50px;
-}
-
 section {
   width: 100%;
   padding: 20px;
