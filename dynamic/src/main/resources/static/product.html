@@ -1,236 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>제품</title>
-    <link rel="stylesheet" href="./css/product.css">
-    <link rel="stylesheet" href="./css/header.css">
-</head>
+    <link rel="stylesheet" href="./css/product.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+  </head>
 
-<body>
+  <body>
     <div class="wrap">
-        <!-- header -->
-        <header>
-        </header>
-        <hr>        
-        <h1>DO YOURSELF <br> USE SERVICE</h1>
+      <!-- header -->
+      <header></header>
+      <hr />
+      <h1>
+        DO YOURSELF <br />
+        USE SERVICE
+      </h1>
 
-        <!-- section -->
-        <!-- 강의 정렬 -->
-        <section>
-            <div class="allCourse">
-                <div class="wrapCourse">
-                    <h1>제품</h1>
+      <!-- section -->
+      <!-- 강의 정렬 -->
+      <section>
+        <div class="allCourse">
+          <div class="wrapCourse">
+            <h1>제품</h1>
 
-                    <div class="searchBar">
-                        <p>
-                            <input type="text" placeholder="강의 / 구독권을 입력하세요" id="search_product"/>
-                            <button>검색</button>
-                        </p>
-                            <img src="./img/search.png">
-                        <div class="adminOnly">
-                            <button class="delete">
-                                <img src="./img/쓰레기통.png" alt="쓰레기통 아이콘">
-                            </button>
-                            <button class="add">
-                                <img src="./img/add.png" alt="추가 아이콘">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 강의 카드 정렬 -->
-                <div class="courseList" id="courseContainer">
-                    <div class="course">
-                        <div class="arrow">
-                            <img src="./img/back page.png">
-                        </div>
-                        <article>
-                            <input type="checkbox" class="product-checkbox adminOnly" data-id="C1">
-                            <div class="thumbnail">
-                                <img src="./img/courseThumnail1.png" alt="1번째 동영상">
-                            </div>
-                            <h2>강의 제목</h2>
-                            <div>
-                                <span>가격:</span><span class="price">30000</span><span>원</span>
-                            </div>
-                            <button class="btnInCart" data-id="C1">장바구니</button>
-                            <button class="btnPurchase" data-id="C1">구매</button>
-                        </article>
-
-                        <article>
-                            <input type="checkbox" class="product-checkbox adminOnly" data-id="C2">
-
-                            <div class="thumbnail">
-                                <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
-                            </div>
-                            <h2></h2>
-                            <br>
-                            <div>
-                                <span>가격: </span><span class="price"></span><span>원</span>
-                            </div>
-                            <p>2024.05.08 </p>
-                            <p>별점: </p>
-                            <button class="btnInCart" data-id="C2" >장바구니</button>
-                            <button class="btnPurchase" data-id="C2">구매</button>
-                        </article>
-
-                        <article>
-                            <input type="checkbox" class="product-checkbox adminOnly" data-id="C3">
-                            <div class="thumbnail">
-                                <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
-                            </div>
-                            <h2></h2>
-                            <br>
-                            <div>
-                                <span>가격: </span><span class="price"></span><span>원</span>
-                            </div>
-                            <p>2024.05.08 </p>
-                            <p>별점: </p>
-                            <button class="btnInCart" data-id="C3" >장바구니</button>
-                            <button class="btnPurchase" data-id="C3">구매</button>
-                        </article>
-
-                        <div class="arrow">
-                            <img src="./img/next page.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr />
-
-        <!-- 구독권 정렬 -->
-        <section>
-            <div class="allSubsc">
-                <!-- 구독권 카드 목록 -->
-                <div class="subscList" id="subscContainer">
-                    <div class="subsc">
-                        <div class="arrow">
-                            <img src="./img/back page.png">
-                        </div>
-                        <article>
-                            <input type="checkbox" class="product-checkbox adminOnly" data-id="S1">
-                            <div class="thumbnail">
-                                <img src="./img/number1.png" alt="1번째 구독권" />
-                            </div>
-                            <h2>1개월 구독권</h2>
-                            <div>
-                                <span>가격: </span><span class="price"></span><span>원</span>
-                            </div>                            
-                            
-                            <div class="btn">
-                                <button class="btnInCart" data-id="S1" >장바구니</button>
-                            <button class="btnPurchase" data-id="S1">구매</button>
-                            </div>
-
-                        </article>
-
-                        <article>
-                            <input type="checkbox" class="product-checkbox adminOnly" data-id="S2">
-                            <div class="thumbnail">
-                                <img src="./img/number3.png" alt="2번째 구독권" />
-                            </div>
-                            <h2>3개월 구독권</h2>
-                            <div>
-                                <span>가격: </span><span class="price"></span><span>원</span>
-                            </div>
-                            <div class="btn">
-                                <button class="btnInCart" data-id="S2" >장바구니</button>
-                                <button class="btnPurchase" data-id="S2">구매</button>
-                            </div>
-
-
-                        </article>
-
-                        <article>
-                            <input type="checkbox" class="product-checkbox adminOnly" data-id="S3">
-                            <div class="thumbnail">
-                                <img src="./img/number5.png" alt="3번째 구독권" />
-                            </div>
-                            <h2>5개월 구독권</h2>
-                            <div>
-                                <span>가격: </span><span class="price"></span><span>원</span>
-                            </div>
-                            <div class="btn">
-                                <button class="btnInCart" data-id="S3" >장바구니</button>
-                                <button class="btnPurchase" data-id="S3">구매</button>
-                            </div>
-                        </article>
-                        <div class="arrow">
-                            <img src="./img/next page.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 제품 상세창(커서 오버 시) -->
-        <div class="product_detail">
-            <div class="detail_wrap">
-                <span>제목: </span><span class="product_title"></span>
-                <span>상세설명: </span><span class="description"></span>
-                <span>업로드 일자: </span><span class="upload_date"></span>
-                <span>가격: </span><span class="price"></span>
-            </div>
-        </div>
-
-
-        <!-- 관리자가 제품 추가 -->
-        <div class="product_add">
-            <button class="closeBtn">X</button>
-            <div class="product_add_wrap">
-                <label>ID: </label> <input type = "text" class = "new_id" placeholder ="C1, C2 형식으로 입력하세요">
-                <label>제목:</label> <input type="text" class="new_title"><br>
-                <label>설명:</label> <textarea class="new_description"></textarea><br>
-                <label>동영상:</label> <input type="file" id="fileUpload" class="file-input"><br>
-                <label>날짜:</label> <input type="date" class="new_add_date"><br>
-                <label>가격:</label> <input type="number" class="new_price"><br>
-                <button class="submit_add">추가</button>
-            </div>
-        </div>
-
-
-        <!-- 구매 확정 창(yes/no) -->
-        <div class="purchaseConfirm">
-                <span>해당 제품을 구매하시겠습니까?</span>
-                <button class="close">
-                    <img src="./img/X.png">
+            <div class="searchBar">
+              <p>
+                <input
+                  type="text"
+                  placeholder="강의 / 구독권을 입력하세요"
+                  id="search_product"
+                />
+                <button>검색</button>
+              </p>
+              <img src="./img/search.png" />
+              <div class="adminOnly">
+                <button class="delete">
+                  <img src="./img/쓰레기통.png" alt="쓰레기통 아이콘" />
                 </button>
-                <div class="confirm_wrap">
-                    <button class="confirm" id="yes">예</button>
-                    <button class="confirm" id="no">아니오</button>
+                <button class="add">
+                  <img src="./img/add.png" alt="추가 아이콘" />
+                </button>
+              </div>
             </div>
+          </div>
+
+          <!-- 강의 카드 정렬 -->
+          <div class="courseList" id="courseContainer">
+            <div class="course">
+              <div class="arrow">
+                <img src="./img/back page.png" />
+              </div>
+              <article>
+                <input
+                  type="checkbox"
+                  class="product-checkbox adminOnly"
+                  data-id="C1"
+                />
+                <div class="thumbnail">
+                  <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
+                </div>
+                <h2>강의 제목</h2>
+                <div>
+                  <span>가격:</span><span class="price">30000</span
+                  ><span>원</span>
+                </div>
+                <button class="btnInCart" data-id="C1">장바구니</button>
+                <button class="btnPurchase" data-id="C1">구매</button>
+              </article>
+
+              <article>
+                <input
+                  type="checkbox"
+                  class="product-checkbox adminOnly"
+                  data-id="C2"
+                />
+
+                <div class="thumbnail">
+                  <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
+                </div>
+                <h2></h2>
+                <br />
+                <div>
+                  <span>가격: </span><span class="price"></span><span>원</span>
+                </div>
+                <p>2024.05.08</p>
+                <p>별점:</p>
+                <button class="btnInCart" data-id="C2">장바구니</button>
+                <button class="btnPurchase" data-id="C2">구매</button>
+              </article>
+
+              <article>
+                <input
+                  type="checkbox"
+                  class="product-checkbox adminOnly"
+                  data-id="C3"
+                />
+                <div class="thumbnail">
+                  <img src="./img/courseThumnail1.png" alt="1번째 동영상" />
+                </div>
+                <h2></h2>
+                <br />
+                <div>
+                  <span>가격: </span><span class="price"></span><span>원</span>
+                </div>
+                <p>2024.05.08</p>
+                <p>별점:</p>
+                <button class="btnInCart" data-id="C3">장바구니</button>
+                <button class="btnPurchase" data-id="C3">구매</button>
+              </article>
+
+              <div class="arrow">
+                <img src="./img/next page.png" />
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
+      <hr />
 
-        <footer>
-            <div class="inner">
-                <div class="upper">
-                    <h1>DO YOURSELF or USE SERVICE</h1>
+      <!-- 구독권 정렬 -->
+      <section>
+        <div class="allSubsc">
+          <!-- 구독권 카드 목록 -->
+          <div class="subscList" id="subscContainer">
+            <div class="subsc">
+              <div class="arrow">
+                <img src="./img/back page.png" />
+              </div>
+              <article>
+                <input
+                  type="checkbox"
+                  class="product-checkbox adminOnly"
+                  data-id="S1"
+                />
+                <div class="thumbnail">
+                  <img src="./img/number1.png" alt="1번째 구독권" />
                 </div>
-                <div class="lower">
-                    <address>
-                        대전광역시 서구 둔산동 1524 <br>
-                        TEL : 03-111-1234 C.P : 010-1234-5678
-                    </address>
-                    <p>
-                        2020 DO YOURSELF or USE SERVICE &copy; copyright all right reserved.
-                    </p>
+                <h2>1개월 구독권</h2>
+                <div>
+                  <span>가격: </span><span class="price"></span><span>원</span>
                 </div>
+
+                <div class="btn">
+                  <button class="btnInCart" data-id="S1">장바구니</button>
+                  <button class="btnPurchase" data-id="S1">구매</button>
+                </div>
+              </article>
+
+              <article>
+                <input
+                  type="checkbox"
+                  class="product-checkbox adminOnly"
+                  data-id="S2"
+                />
+                <div class="thumbnail">
+                  <img src="./img/number3.png" alt="2번째 구독권" />
+                </div>
+                <h2>3개월 구독권</h2>
+                <div>
+                  <span>가격: </span><span class="price"></span><span>원</span>
+                </div>
+                <div class="btn">
+                  <button class="btnInCart" data-id="S2">장바구니</button>
+                  <button class="btnPurchase" data-id="S2">구매</button>
+                </div>
+              </article>
+
+              <article>
+                <input
+                  type="checkbox"
+                  class="product-checkbox adminOnly"
+                  data-id="S3"
+                />
+                <div class="thumbnail">
+                  <img src="./img/number5.png" alt="3번째 구독권" />
+                </div>
+                <h2>5개월 구독권</h2>
+                <div>
+                  <span>가격: </span><span class="price"></span><span>원</span>
+                </div>
+                <div class="btn">
+                  <button class="btnInCart" data-id="S3">장바구니</button>
+                  <button class="btnPurchase" data-id="S3">구매</button>
+                </div>
+              </article>
+              <div class="arrow">
+                <img src="./img/next page.png" />
+              </div>
             </div>
-        </footer>
-    </div>
+          </div>
+        </div>
+      </section>
 
-    
+      <!-- 제품 상세창(커서 오버 시) -->
+      <div class="product_detail">
+        <div class="detail_wrap">
+          <span>제목: </span><span class="product_title"></span>
+          <span>상세설명: </span><span class="description"></span>
+          <span>업로드 일자: </span><span class="upload_date"></span>
+          <span>가격: </span><span class="price"></span>
+        </div>
+      </div>
+
+      <!-- 관리자가 제품 추가 -->
+      <div class="product_add">
+        <button class="closeBtn">X</button>
+        <div class="product_add_wrap">
+          <label>ID: </label>
+          <input
+            type="text"
+            class="new_id"
+            placeholder="C1, C2 형식으로 입력하세요"
+          />
+          <label>제목:</label> <input type="text" class="new_title" /><br />
+          <label>설명:</label> <textarea class="new_description"></textarea
+          ><br />
+          <label>동영상:</label>
+          <input type="file" id="fileUpload" class="file-input" /><br />
+          <label>날짜:</label> <input type="date" class="new_add_date" /><br />
+          <label>가격:</label> <input type="number" class="new_price" /><br />
+          <button class="submit_add">추가</button>
+        </div>
+      </div>
+
+      <!-- 구매 확정 창(yes/no) -->
+      <div class="purchaseConfirm">
+        <span>해당 제품을 구매하시겠습니까?</span>
+        <button class="close">
+          <img src="./img/X.png" />
+        </button>
+        <div class="confirm_wrap">
+          <button class="confirm" id="yes">예</button>
+          <button class="confirm" id="no">아니오</button>
+        </div>
+      </div>
+
+      <footer>
+        <div class="inner">
+          <div class="upper">
+            <h1>DO YOURSELF or USE SERVICE</h1>
+          </div>
+          <div class="lower">
+            <address>
+              대전광역시 서구 둔산동 1524 <br />
+              TEL : 03-111-1234 C.P : 010-1234-5678
+            </address>
+            <p>
+              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+              reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/product.js"></script>
     <script src="./js/header.js"></script>
-    
-</body>
-
+  </body>
 </html>
