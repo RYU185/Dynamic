@@ -92,6 +92,7 @@ INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_da
 VALUES ('2025-01-13','2025-02-12','2025-02-12',true,2,1500000,1470000);
 
 
+
 INSERT INTO employee (name, department,position,hourly_rate,birthday,hire_date, phone_number, user_name,is_active,free_template)VALUES
 ('홍길동', '없음', '직원',10030 ,'2025-01-13','1998-02-13','010-1234-1111', 'admin',true,false);
 INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_date,is_active,employee_id,total_amount,final_payment)
