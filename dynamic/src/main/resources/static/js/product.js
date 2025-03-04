@@ -5,12 +5,7 @@ userName = JSON.parse(sessionStorage.getItem("userName"));
 
 $(document).ready(function () {
   console.log("로그인된 사용자:", userName);
-
-  if (!userName) {
-    alert("로그인이 필요합니다");
-    window.location.href = "login.html";
-  }
-
+  
   loadingCart(userName);
 
   function loadingCart(userName) {
