@@ -371,18 +371,69 @@ $(document).ready(function () {
     })
   });
 
+  let selectedProductId;
+  // 바로구매 버튼 클릭시 유저제품/구매내역
+  $(document).on("click", ".btnPurchase", function(){
+    selectedProductId = $(this).data("id");
+
+    if(!userName){
+      alert("로그인이 필요합니다")
+      return;
+    }
+
+    $(".purchaseConfirm").css("display", "block");
+
+    $("#no").on("click", function () {
+    $(".purchaseConfirm").css("display", "none"); // 구매 확인 창 닫기
+  });
+
+    $("#yes").on("click", function () {
+      var purchaseData = {
+        productId: selectedProductId,
+        username: userName
+      }
+
+      $.ajax({
+        url:"/api/purchase-history/save/instant-buy",
+        method: "post",
+        contentType: "application/json",
+        data: JSON.stringify(purchaseData),
+        success: function(response){
+          alert("구매가 완료되었습니다");
+
+          console.log("구매성공", response);
+          
+          $(".purchaseConfirm").css("display", "none");
+        },
+        error:function(){
+          alert("바로구매 처리 중 에러가 발생하였습니다");
+          console.error();
+        }
+      })
+    });
+    
+    $(".purchaseConfirm .close").on("click", function () {
+      $(".purchaseConfirm").css("display", "none");
+    });
+
+  });
+
+    
+
+    
+
+
+
 $(document).ready(function () {
   // 전체 선택 체크박스
   $("#selectAll").on("change", function () {
     $(".product-checkbox").prop("checked", $(this).prop("checked"));
   });
 
-  // 개별 체크박스 변경 시 전체 선택
   $(document).on("change", ".product-checkbox", function () {
     $("#selectAll").prop("checked", $(".product-checkbox:checked").length === $(".product-checkbox").length);
   });
 
-  // 삭제 버튼 클릭 이벤트
   $(".delete").on("click", function () {
     const selectedProducts = $(".product-checkbox:checked");
 
@@ -402,7 +453,7 @@ $(document).ready(function () {
     deleteProducts(productIds);
   });
 
-  // 삭제 API 요청 함수
+  // 삭제 요청
   function deleteProducts(productIds) {
     productIds.forEach((id) => {
       $.ajax({
