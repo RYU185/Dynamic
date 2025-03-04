@@ -59,6 +59,7 @@ public class ProductService {
         if (product instanceof Course) {
 
             Course course = (Course) product;
+            course.setAddDate(LocalDate.now());
         }
 //        else {
 //            PayrollSubscription payrollSubscription = (PayrollSubscription) product;
