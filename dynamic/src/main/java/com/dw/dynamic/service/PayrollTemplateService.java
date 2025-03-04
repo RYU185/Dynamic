@@ -43,7 +43,7 @@ public class PayrollTemplateService {
             if (employeeRepository.findByUser(currentUser).isEmpty()) {
                 throw new ResourceNotFoundException("등록한 직원이 없어, 급여명세서 양식 또한 없습니다");
             } else {
-                return payrollTemplateRepository.findAll().stream().map(PayrollTemplate::toDTO).toList();
+                return payrollTemplateRepository.findByUser(currentUser).stream().map(PayrollTemplate::toDTO).toList();
             }
         } catch (InvalidRequestException e) {
             throw new InvalidRequestException("정상적인 요청이 아닙니다");
@@ -68,7 +68,9 @@ public class PayrollTemplateService {
                     payrollTemplateDTO.getLastPayrollPeriod(),
                     payrollTemplateDTO.getPaymentDate(),
                     true,
-                    employeeRepository.findById(payrollTemplateDTO.getEmployeeId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 게시판ID입니다"))
+                    employeeRepository.findById(payrollTemplateDTO.getEmployeeId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 게시판ID입니다")),
+                    payrollTemplateDTO.getTotalAmount(),
+                    payrollTemplateDTO.getFinalPayment()
             );
 
             return payrollTemplateRepository.save(payrollTemplate).toDTO();

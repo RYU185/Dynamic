@@ -1,0 +1,1 @@
+const total_amount = sessionStorage.getItem("total_amount");
