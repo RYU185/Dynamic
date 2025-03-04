@@ -19,9 +19,6 @@
         USE SERVICE
       </h1>
 
-      <!-- section -->
-      <!-- 수정 필요 : 페이지 목록보다는 양 옆 화살표로 페이지 넘기는 방식 -->
-      <!-- 화살표 아이콘 필요 -->
       <section>
         <div class="titlewrap">
           <div class="coursetitle">
@@ -29,8 +26,8 @@
           </div>
           <br />
           <div class="searchBar">
-            <p><input type="text" placeholder="강의명을 입력해주세요" /></p>
-            <img src="./img/search.png" />
+            <p><input type="text" placeholder="강의명을 입력해주세요" id="search_mycourse" /></p>
+            <img src="./img/search.png" alt="검색" onclick="submit_go()" style="cursor: pointer;"/>
           </div>
         </div>
         <div class="cardwrap">
@@ -41,7 +38,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
 
@@ -52,7 +49,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
 
@@ -63,7 +60,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
           <div class="card">
@@ -73,7 +70,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
           <div class="card">
@@ -83,7 +80,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
           <div class="card">
@@ -93,7 +90,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
           <div class="card">
@@ -103,7 +100,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
           <div class="card">
@@ -113,7 +110,7 @@
 
             <p>강의 제목:</p>
             <br />
-            <h1>&nbsp;</h1>
+            <p>&nbsp;</p>
             <p>강의 설명:</p>
           </div>
         </div>
@@ -125,7 +122,7 @@
               <!-- 닫기버튼 -->
             </div>
             <div class="title">
-              <h1>강의 제목</h1>
+              <p>강의 제목</p>
             </div>
             <hr />
 
@@ -152,7 +149,7 @@
       <footer>
         <div class="inner">
           <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
+            <p>DO YOURSELF or USE SERVICE</p>
           </div>
           <div class="lower">
             <address>
@@ -169,5 +166,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/js/header.js"></script>
+    <script src="./js/myCourse.js"></script>
   </body>
 </html>
