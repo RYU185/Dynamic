@@ -371,41 +371,52 @@ $(document).ready(function () {
     })
   });
 
-$(".delete").on("click", function(){
-  const selectedPrduct = $(".product-checkbox:checked");
+$(document).ready(function () {
+  // 전체 선택 체크박스
+  $("#selectAll").on("change", function () {
+    $(".product-checkbox").prop("checked", $(this).prop("checked"));
+  });
 
-  if(selectedPrduct.length === 0){
-    alert("삭제할 제품을 선택해 주세요");
-    return;
+  // 개별 체크박스 변경 시 전체 선택
+  $(document).on("change", ".product-checkbox", function () {
+    $("#selectAll").prop("checked", $(".product-checkbox:checked").length === $(".product-checkbox").length);
+  });
 
-  } 
+  // 삭제 버튼 클릭 이벤트
+  $(".delete").on("click", function () {
+    const selectedProducts = $(".product-checkbox:checked");
 
-  if(!confirm("선택한 제품을 삭제하시겠습니까?")){
-    return;
+    if (selectedProducts.length === 0) {
+      alert("삭제할 제품을 선택해 주세요");
+      return;
+    }
+
+    if (!confirm("선택한 제품을 삭제하시겠습니까?")) {
+      return;
+    }
+
+    const productIds = selectedProducts.map(function () {
+      return $(this).data("id");
+    }).get();
+
+    deleteProducts(productIds);
+  });
+
+  // 삭제 API 요청 함수
+  function deleteProducts(productIds) {
+    productIds.forEach((id) => {
+      $.ajax({
+        url: `/api/product/delete/${id}`,
+        method: "POST",
+        contentType: "application/json",
+        success: function () {
+          $(`.product-checkbox[data-id="${id}"]`).closest("article").remove();
+        },
+        error: function () {
+          alert(`제품 ID ${id} 삭제 중 오류 발생`);
+        }
+      });
+    });
   }
-
-  const productIds= [];
-  selectedPrduct.each(function(){
-    productIds.push($(this).data("id"))
-  })
-
-  deleteProduct(productIds);
-
-})
-
-function deleteProduct(productIds){
-  productIds.forEach((id)=>{
-    $.ajax({
-      url:`/api/product/delete/${id}`,
-      method: "POST",
-      contentType: "application/json",
-      success: function(){
-        $(`.product-checkbox`)
-      }
-    })
-  })
-}
-
-
 });
-
+});
