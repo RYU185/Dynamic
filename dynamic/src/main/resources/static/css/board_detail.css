@@ -43,60 +43,71 @@ hr {
 body {
   position: relative;
 }
-
-section {
-  width: 100%;
+.wrap > h1 {
+  width: auto;
+  height: 9rem;
   padding: 20px;
   background-color: #f6f8fc;
   background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
-}
 
-section .titlewrap > h1 {
   font-size: 30px;
   font-weight: 800;
   font-family: "GmarketSansMedium";
   color: #ffff;
+
+  text-align: center;
+  align-content: center;
+}
+/* section */
+
+section {
+  width: 100%;
+  padding-top: 20px;
 }
 
-section .titlewrap {
+section .titlewrap .main_title {
+  display: block;
+  text-align: left;
   width: 100%;
-  padding: 20px;
-  text-align: center;
+}
+
+.title-wrap .main_title h1 {
+  width: 100%;
+  font-family: "GmarketSansMedium";
+  font-size: 3rem;
+  font-weight: 900;
+  color: #050505ee;
+  margin: 0 40px 0px 40px;
+  position: absolute;
+  z-index: 1;
 }
 
 main {
   margin-top: 100px;
   width: 100%;
-  /* position: relative; */
 }
 
 main .inner {
   width: 100%;
+  height: 900px;
   position: relative;
 }
-
-main .inner .upper_box {
-  width: 100%;
-  height: 10%;
-  display: flex;
-  justify-content: space-between;
-}
-
-main .inner .upper_box .main_title {
-  display: block;
+main .inner .main_title {
+  /* display: block; */
+  text-align: left;
   margin: 0 auto;
-  width: 300px;
+  width: 100%;
 }
 
-main .inner .upper_box .main_title h1 {
+main .inner .main_title h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
-  /* margin: 120px 0px 0px 0px; */
+  margin: 0 40px;
 }
 
-main .inner .upper_box .upper {
+main .inner .upper {
   margin-top: 0px;
   width: 90%;
   height: 50px;
@@ -308,50 +319,6 @@ main .inner .detail_box .comment_list .write_box .write .press footer .inner {
   position: absolute;
   right: 0px;
   width: 10%;
-}
-
-main .inner .detail_box .upper {
-  margin-top: 0px;
-  width: 100%;
-  /* display: flex;
-  justify-content: end;
-  margin: 0px 0px 0px 0px; */
-}
-
-main .inner .detail_box .upper .searchBar {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  top: 10px;
-  gap: 10px;
-}
-
-main .inner .detail_box .upper .searchBar img {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-main .inner .detail_box .upper .searchBar img:hover {
-  width: 40px;
-  height: 40px;
-}
-
-main .inner .detail_box .upper .searchBar #modify_board,
-#delete_board {
-  display: none;
-}
-
-main .inner .detail_box .upper .searchBar p input::placeholder {
-  color: #465c6b;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-main .inner .detail_box .upper .searchBar p input:focus::placeholder {
-  color: transparent;
 }
 
 .pop-up-background1 {

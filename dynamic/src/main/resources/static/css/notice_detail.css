@@ -44,82 +44,66 @@ body {
   position: relative;
 }
 
-section {
-  width: 100%;
+.wrap > h1 {
+  width: auto;
+  height: 9rem;
   padding: 20px;
   background-color: #f6f8fc;
   background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
-}
 
-section .titlewrap > h1 {
   font-size: 30px;
   font-weight: 800;
   font-family: "GmarketSansMedium";
   color: #ffff;
+
+  text-align: center;
+  align-content: center;
+}
+/* section */
+
+section {
+  width: 100%;
+  /* padding-top: 20px; */
 }
 
-section .titlewrap {
-  width: 100%;
-  padding: 20px;
-  text-align: center;
+.titlewrap .main_title {
+  display: block;
+  width: 1000px;
+}
+
+.title-wrap .main_title h1 {
+  font-family: "GmarketSansMedium";
+  font-size: 3rem;
+  font-weight: 900;
+  color: #050505ee;
+  margin: 0 0px 0px 40px;
+  position: absolute;
+  z-index: 1;
 }
 
 main {
   margin-top: 100px;
   width: 100%;
-  /* position: relative; */
 }
 
 main .inner {
   width: 100%;
+  height: 900px;
   position: relative;
 }
-
-main .inner .upper_box {
-  width: 100%;
-  height: 10%;
-  display: flex;
-  justify-content: space-between;
-}
-
-main .inner .upper_box .main_title {
+main .inner .main_title {
   /* display: block; */
+  text-align: left;
   margin: 0 auto;
-  width: 300px;
+  width: 100%;
 }
 
-main .inner .upper_box .main_title h1 {
+main .inner .main_title h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
-  /* margin: 120px 0px 0px 0px; */
-}
-
-main .inner .upper_box .upper .searchBar img {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-main .inner .upper_box .upper .searchBar img:hover {
-  width: 40px;
-  height: 40px;
-}
-
-main .inner .upper_box .upper .searchBar #modify_notice,
-#delete_notice {
-  display: none;
-}
-
-main .inner .upper_box .upper .searchBar p input::placeholder {
-  color: #465c6b;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-main .inner .upper_box .upper .searchBar p input:focus::placeholder {
-  color: transparent;
+  margin: 0 40px;
 }
 
 main .inner .main_box {
@@ -164,45 +148,44 @@ main .inner .main_box table tr td {
   font-weight: 500;
 }
 
-main .inner .main_box table tr td:first-child {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-main .inner .main_box table tr:hover {
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
-  transform: translateY(-3px);
-}
-
-main .inner .main_box table tr:hover td {
-  background-color: #fff;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-main .inner .main_box table tr:first-child:hover {
-  transform: none;
-  box-shadow: none;
+main .inner .main_box table tr td:hover {
+  color: #777;
+  cursor: pointer;
 }
 
 /* detail_box */
 main .inner .detail_box {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
+  border-radius: 10px;
   width: 60%;
-  /* height: 100%; */
+  height: 250px;
   position: relative;
   background-color: #eaf1ff;
   position: absolute;
   right: 0;
-  top: 55px;
+  top: 60px;
 }
 
 main .inner .detail_box .title {
-  margin: 20px;
+  margin: 20px 20px 0px 20px;
   text-align: center;
-  font-size: 3.44em;
+  font-size: 3em;
+  font-weight: 400;
+  color: rgb(22, 22, 22);
+}
+
+main .inner .detail_box .content {
+  width: 100%;
+  /* border: 1px solid black; */
+  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .inner .detail_box .content div {
+  font-size: 14px;
   font-weight: 500;
+  padding-left: 10px;
   color: rgb(22, 22, 22);
 }
 
@@ -214,43 +197,9 @@ main .inner .detail_box .description {
   position: absolute;
   right: 50px;
   background-color: white;
+  margin-top: 40px;
   padding: 20px;
   color: rgb(22, 22, 22);
-}
-
-main .inner .detail_box .buttom {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-}
-
-main .inner .detail_box .buttom .content {
-  width: 100%;
-  /* border: 1px solid black; */
-  display: flex;
-  flex-wrap: wrap;
-}
-
-main .inner .detail_box .buttom .content div {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  color: rgb(22, 22, 22);
-}
-
-main .inner .detail_box .buttom .content div:last-child {
-  padding-top: 1px;
-}
-
-.pop-up-background1 {
-  width: 100%;
-  /* height: 100%; */
-  background-color: black;
-  opacity: 0.3;
-  position: absolute;
-  top: 0px;
-  display: none;
 }
 
 /* pop-up1 */
@@ -287,7 +236,6 @@ main .pop-up1 {
   left: 20px;
 }
 
-/* content_box */
 main .content_box {
   margin: 20px;
 
@@ -345,7 +293,7 @@ main .content_box .date div:nth-child(2) {
 
 main .content_box .date .add {
   width: 100px;
-  height: 35px;
+
   margin-left: 170px;
   font-size: 20px;
   font-weight: 500;
@@ -362,6 +310,7 @@ main .content_box .date .add:hover {
 }
 
 /* footer */
+
 footer .inner {
   padding-top: 50px;
   width: 100%;
