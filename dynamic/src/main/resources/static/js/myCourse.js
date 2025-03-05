@@ -87,26 +87,6 @@ function submit_go() {
     method: "get",
     contentType: "application/json",
     success: function (response) {
-      // const cardWrap = $(".cardwrap");
-      // cardWrap.empty();
-      // if (response.length > 0) {
-      //   response.forEach((course) => {
-      //     const courseCard = `
-      //       <div class="card" data-product-id="${course.product.id}">
-      //             <div class="pic">
-      //             <a href="#"><img src="./img/courseThumnail1.png" alt="강의 썸네일" /></a>
-      //             </div>
-      //             <p>강의 제목:</p>
-      //             <p>${course.product.title}</p>
-      //             <p>강의 설명: ${course.product.description}</p>
-      //       </div>
-      //       `;
-      //     cardWrap.append(courseCard);
-      //   });
-
-      // } else {
-      //   cardWrap.append("<p>검색 결과가 없습니다</p>");
-      // }
       renderCourses(response);
     },
     error: function (xhr, status, error) {
