@@ -3,9 +3,10 @@ let userName = null;
 let selectedProductId = null;
 userName = JSON.parse(sessionStorage.getItem("userName"));
 
+// 중복 체크용 유저네임을 통한 장바구니 가지고 오기
 $(document).ready(function () {
   console.log("로그인된 사용자:", userName);
-  
+
   loadingCart(userName);
 
   function loadingCart(userName) {
@@ -16,6 +17,7 @@ $(document).ready(function () {
       success: function (cartResponse) {
         cartItem = cartResponse;
         console.log("장바구니 데이터 업데이트됨:", cartItem);
+        //전체 제품을 가지고와서 중복 여부 비교
         loadProductList();
       },
       error: function () {
@@ -23,7 +25,7 @@ $(document).ready(function () {
       },
     });
   }
-
+  // 전체 제품 가지고 오기
   function loadProductList() {
     $.ajax({
       url: "/api/product/all",
@@ -72,6 +74,8 @@ $(document).ready(function () {
     });
   }
 });
+
+
 
 // 장바구니 추가
 $(document).on("click", ".btnInCart", function () {
@@ -177,7 +181,7 @@ function submit_go() {
 
   if (!sendData) {
     alert("검색어를 입력하세요!");
-    return; 
+    return;
   }
 
   $.ajax({
@@ -290,28 +294,28 @@ $(document).ready(function () {
 
   if (userRole === "admin") {
     document.querySelector(".adminOnly").style.display = "block";
-    $(".product-checkbox").css("display","inline-block");
+    $(".product-checkbox").css("display", "inline-block");
   }
 
   console.log("로그인 계정:", userName)
 
-  $(".add").on("click", function(){
-    $(".product_add").css("display","block");
+  $(".add").on("click", function () {
+    $(".product_add").css("display", "block");
   });
 
-  $(".closeBtn").on("click", function(){
-    $(".product_add").css("display","none");
+  $(".closeBtn").on("click", function () {
+    $(".product_add").css("display", "none");
   });
 
   //h1 누르면 원상태로 복귀
   const come_back = document.querySelector('.wrapCourse h1');
-  come_back.addEventListener('click', function(){
+  come_back.addEventListener('click', function () {
     window.location.href = 'product.html';
   })
 
   //장바구니 추가 버튼
-  
-  $(".submit_add").on("click", function(){
+
+  $(".submit_add").on("click", function () {
     console.log("추가 버튼 클릭");
     const newId = document.querySelector(".new_id").value;
     const newTitle = document.querySelector(".new_title").value;
@@ -320,29 +324,29 @@ $(document).ready(function () {
     const newPrice = document.querySelector(".new_price").value;
     const fileData = document.getElementById("fileUpload").files[0];
 
-  if(!newTitle || !newDescription || !newAddDate || !newPrice || !fileData){
-    alert("모든 필드를 채워주세요")
-    return;
-  }
+    if (!newTitle || !newDescription || !newAddDate || !newPrice || !fileData) {
+      alert("모든 필드를 채워주세요")
+      return;
+    }
 
-  const productData = {
-    id: newId,
-    type: "course",
-    title: newTitle,
-    price: newPrice, 
-    category: { name: "강의" }, 
-    isActive: true,
-    courseDetails:{
-    description: newDescription,
-    addDate: newAddDate
-    } 
-  };  
-    
+    const productData = {
+      id: newId,
+      type: "course",
+      title: newTitle,
+      price: newPrice,
+      category: { name: "강의" },
+      isActive: true,
+      courseDetails: {
+        description: newDescription,
+        addDate: newAddDate
+      }
+    };
+
     $.ajax({
       url: "/api/product/save",
       method: "POST",
       data: JSON.stringify(productData),
-      contentType: "application/json",  
+      contentType: "application/json",
       success: function (response) {
         alert("강의가 성공적으로 추가되었습니다.");
         $(".product_add").css("display", "none");
@@ -355,7 +359,7 @@ $(document).ready(function () {
         document.getElementById("courseContainer").appendChild(newProduct);
         window.location.href = "/product.html";
       },
-      error:function(){
+      error: function () {
         alert("강의 추가 중 오류 발생")
       }
     })
@@ -363,7 +367,7 @@ $(document).ready(function () {
 
   let selectedProductId;
   // 바로구매 버튼 클릭시 유저제품/구매내역
-  $(document).on("click", ".btnPurchase", function(){
+  $(document).on("click", ".btnPurchase", function () {
     selectedProductId = $(this).data("id");
     console.log("즉시 구매 요청, 제품 ID:", selectedProductId);
 
@@ -371,9 +375,9 @@ $(document).ready(function () {
     $.ajax({
       url: `/api/purchase-history/username/${userName}`,
       method: "get",
-      contentType:"application/json",
-      success: function(purchaseHistory){
-        console.log("구매내역: ",purchaseHistory);
+      contentType: "application/json",
+      success: function (purchaseHistory) {
+        console.log("구매내역: ", purchaseHistory);
 
         let isPurchased = false;
         let isActiveSubscription = false;
@@ -381,60 +385,59 @@ $(document).ready(function () {
 
         // 현재 선택한 제품 가져오기
         $.ajax({
-        url: `/api/product/id/${selectedProductId}`,
-        method: "GET",
-        contentType: "application/json",
-        success: function (product) {
-          if (!product) {
-            alert("상품 정보를 불러올 수 없습니다.");
-            return;
-          }
-
-          selectedProduct = product;
-          let category = product.category.name;
-
-          // 구매내역 조회하고 중복확인
-          purchaseHistory.forEach((item)=> {
-            if (item.productId === selectedProductId){
-              isPurchased = true;
+          url: `/api/product/id/${selectedProductId}`,
+          method: "GET",
+          contentType: "application/json",
+          success: function (product) {
+            if (!product) {
+              alert("상품 정보를 불러올 수 없습니다.");
+              return;
             }
-          
 
-            // 조건2.
-            if (category === "구독권" && item.product.category.name === "구독권") {
-              let today = new Date();
-              let expire = new Date(item.expireDate);
+            selectedProduct = product;
+            let category = product.category.name;
 
-              if (today <= expire) {
-                isActiveSubscription = true;
+            // 구매내역 조회하고 중복확인
+            purchaseHistory.forEach((item) => {
+              if (item.productId === selectedProductId) {
+                isPurchased = true;
               }
+
+              // 조건2.
+              if (category === "구독권" || item.product.category.name === "구독권") {
+                let today = new Date();
+                let expire = new Date(item.expireDate);
+
+                if (today <= expire) {
+                  isActiveSubscription = true;
+                }
+              }
+            });
+
+            if (category === "강의" && isPurchased) {
+              alert("이미 구매한 강의입니다");
+              return;
             }
-          });
 
-          if (category === "강의" && isPurchased) {
-            alert("이미 구매한 강의입니다");
-            return;
+            if (category === "구독권" && isActiveSubscription) {
+              alert("현재 활성화된 구독권이 있어 구매할 수 없습니다.");
+              return;
+            }
+
+            // 구매 확정 창 띄우기
+            $(".purchaseConfirm").css("display", "block");
           }
-
-          if (category === "구독권" && isActiveSubscription) {
-            alert("현재 활성화된 구독권이 있어 구매할 수 없습니다.");
-            return;
-          }
-
-          // 구매 확정 창 띄우기
-          $(".purchaseConfirm").css("display", "block");
-        }
-      });
-    },
-      error:function(){
+        });
+      },
+      error: function () {
         alert("구매 내역을 불러올 수 없습니다.");
-  }
-  });
+      }
+    });
 
     // 아니오/x 누르면 끄기
     $("#no").on("click", function () {
-    $(".purchaseConfirm").css("display", "none");
-  });
+      $(".purchaseConfirm").css("display", "none");
+    });
 
     $("#yes").off("click").on("click", function () {
       var purchaseData = {
@@ -461,55 +464,55 @@ $(document).ready(function () {
       });
     });
 
-      $(".purchaseConfirm .close").off("click").on("click", function () {
+    $(".purchaseConfirm .close").off("click").on("click", function () {
       $(".purchaseConfirm").off("click").css("display", "none");
     });
   });
 
-$(document).ready(function () {
-  // 전체 선택 체크박스
-  $("#selectAll").on("change", function () {
-    $(".product-checkbox").prop("checked", $(this).prop("checked"));
-  });
-
-  $(document).on("change", ".product-checkbox", function () {
-    $("#selectAll").prop("checked", $(".product-checkbox:checked").length === $(".product-checkbox").length);
-  });
-
-  $(".delete").on("click", function () {
-    const selectedProducts = $(".product-checkbox:checked");
-
-    if (selectedProducts.length === 0) {
-      alert("삭제할 제품을 선택해 주세요");
-      return;
-    }
-
-    if (!confirm("선택한 제품을 삭제하시겠습니까?")) {
-      return;
-    }
-
-    const productIds = selectedProducts.map(function () {
-      return $(this).data("id");
-    }).get();
-
-    deleteProducts(productIds);
-  });
-
-  // 삭제 요청
-  function deleteProducts(productIds) {
-    productIds.forEach((id) => {
-      $.ajax({
-        url: `/api/product/delete/${id}`,
-        method: "POST",
-        contentType: "application/json",
-        success: function () {
-          $(`.product-checkbox[data-id="${id}"]`).closest("article").remove();
-        },
-        error: function () {
-          alert(`제품 ID ${id} 삭제 중 오류 발생`);
-        }
-      });
+  $(document).ready(function () {
+    // 전체 선택 체크박스
+    $("#selectAll").on("change", function () {
+      $(".product-checkbox").prop("checked", $(this).prop("checked"));
     });
-  }
-});
+
+    $(document).on("change", ".product-checkbox", function () {
+      $("#selectAll").prop("checked", $(".product-checkbox:checked").length === $(".product-checkbox").length);
+    });
+
+    $(".delete").on("click", function () {
+      const selectedProducts = $(".product-checkbox:checked");
+
+      if (selectedProducts.length === 0) {
+        alert("삭제할 제품을 선택해 주세요");
+        return;
+      }
+
+      if (!confirm("선택한 제품을 삭제하시겠습니까?")) {
+        return;
+      }
+
+      const productIds = selectedProducts.map(function () {
+        return $(this).data("id");
+      }).get();
+
+      deleteProducts(productIds);
+    });
+
+    // 삭제 요청
+    function deleteProducts(productIds) {
+      productIds.forEach((id) => {
+        $.ajax({
+          url: `/api/product/delete/${id}`,
+          method: "POST",
+          contentType: "application/json",
+          success: function () {
+            $(`.product-checkbox[data-id="${id}"]`).closest("article").remove();
+          },
+          error: function () {
+            alert(`제품 ID ${id} 삭제 중 오류 발생`);
+          }
+        });
+      });
+    }
+  });
 });

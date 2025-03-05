@@ -63,7 +63,7 @@ public class CartService {
             throw new InvalidRequestException("장바구니에 존재하는 제품입니다");
         }
 
-        Product product=productRepository.findById(cartDTO.getProductId()).filter(p -> p.getIsActive().equals(true)).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 제품ID입니다"));
+        Product product=productRepository.findById(cartDTO.getProduct().getId()).filter(p -> p.getIsActive().equals(true)).orElseThrow(() -> new ResourceNotFoundException("존재하지 않은 제품ID입니다"));
         System.out.println(product);
 
         Cart cart = new Cart(
@@ -95,7 +95,24 @@ public class CartService {
         return id + "가 정상적으로 삭제되었습니다.";
     }
 
-
+    public List<CartDTO> getCartByProductId(String id, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+      List<Cart> cart = cartRepository.findByProductId(id,currentUser);
+        if (cart.isEmpty()){
+            throw new ResourceNotFoundException("카트에 담긴 상품이 아닙니다");
+        }else {
+            return cartRepository.findByProductId(id,currentUser).stream().map(Cart::toDTO).toList();
+        }
+    }
+    public List<CartDTO> getCartByProductCategory(String categoryName, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        List<Cart> cart = cartRepository.findByProductCategoryLike(categoryName,currentUser);
+        if (cart.isEmpty()){
+            throw new ResourceNotFoundException("카트에 담긴 상품이 아닙니다");
+        }else {
+            return cartRepository.findByProductCategoryLike(categoryName,currentUser).stream().map(Cart::toDTO).toList();
+        }
+    }
 }
 
 

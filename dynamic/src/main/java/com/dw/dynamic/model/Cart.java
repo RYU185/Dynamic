@@ -36,7 +36,8 @@ public class Cart {
         return new CartDTO(
                 this.cartId,
                 this.user.getUserName(),
-                this.product.getId()
+                this.product,
+                this.isActive
         );
     }
 

@@ -24,6 +24,9 @@ public interface PurchaseHistoryRepository extends JpaRepository<PurchaseHistory
 
     List<PurchaseHistory> findByUser_UserName(String userName);
 
+    @Query("select ph from PurchaseHistory ph where ph.user.userName=:userName and ph.product.category.name ='정기 구독권'")
+    PurchaseHistory getPurchaseHistoryOfPayrollsubscriptionByUserName(String userName);
+
 
 
 }

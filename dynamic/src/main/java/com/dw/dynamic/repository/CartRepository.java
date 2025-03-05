@@ -14,8 +14,14 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
 
     List<Cart> findByUserUserName(String userName);
 
-    List<Cart> findByProductId(String id);
+    @Query("select c from Cart c where c.product.id=:id and c.user=:user")
+    List<Cart> findByProductId(String id,User user);
 
     @Query("select c from Cart c where c.isActive=true")
     List<Cart> findByIsActive();
+
+   @Query("select c from Cart c where c.product.category.name like %:categoryName% and c.user=user")
+    List<Cart> findByProductCategoryLike(String categoryName,User user);
+
+
 }

@@ -72,4 +72,13 @@ public class PurchaseHistoryController {
                 HttpStatus.OK
         );
     }
+
+    @GetMapping("/payrollsubscription/username/{userName}")
+    public ResponseEntity<PurchaseHistoryDTO> getPurchaseHistoryOfPayrollsubscriptionByUserName(@PathVariable String userName, HttpServletRequest request){
+        return new ResponseEntity<>(
+                purchaseHistoryService.getPurchaseHistoryOfPayrollsubscriptionByUserName(userName, request),
+                HttpStatus.OK
+        );
+    }
+
 }

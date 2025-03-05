@@ -22,10 +22,10 @@ public class PayrollSubscription extends Product {
     @Column(name = "title",nullable = false)
     private String title; // 구독권 제목(ex. 3개월 구독권)
 
-    @Column(name = "start_date", updatable = false)
+    @Column(name = "start_date", nullable = false)
     private LocalDate startDate; // 구독 시작일
 
-    @Column(name="expire_date", updatable = false)
+    @Column(name="expire_date",  nullable = false)
     private LocalDate expireDate; // 구독 만료일
 
 

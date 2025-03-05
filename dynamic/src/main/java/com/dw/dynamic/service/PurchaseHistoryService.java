@@ -90,13 +90,25 @@ public class PurchaseHistoryService {
             throw new IllegalArgumentException("올바르지 않은 접근입니다");
         }
         List<PurchaseHistory> purchaseHistories = purchaseHistoryRepository.findByUser_UserName(userName);
-
         if (purchaseHistories.isEmpty()){
             throw new ResourceNotFoundException("해당 유저 계정으로 조회되는 구매내역이 없습니다");
         }
         return purchaseHistories.stream().map(PurchaseHistory::toDTO).toList();
+    }
+    public PurchaseHistoryDTO getPurchaseHistoryOfPayrollsubscriptionByUserName(String userName, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+
+        if (currentUser == null){
+            throw new IllegalArgumentException("올바르지 않은 접근입니다");
+        }
+        try {
+            return purchaseHistoryRepository.getPurchaseHistoryOfPayrollsubscriptionByUserName(userName).toDTO();
+        }catch (ResourceNotFoundException e){
+            throw new ResourceNotFoundException("존재하는 정기구독권이 없습니다");
+        }
 
     }
+
 
     public List<PurchaseHistoryDTO> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
@@ -129,7 +141,7 @@ public class PurchaseHistoryService {
             PurchaseHistory purchaseHistory = new PurchaseHistory();
             purchaseHistory.setPurchaseDate(LocalDate.now());
             purchaseHistory.setUser(currentUser);
-            Product product = productRepository.findById(data.getProductId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 제품번호입니다"));
+            Product product = productRepository.findById(data.getProduct().getId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 제품번호입니다"));
             purchaseHistory.setProduct(product);
             purchaseHistory.setPrice(product.getPrice());
             //유저제품 추가

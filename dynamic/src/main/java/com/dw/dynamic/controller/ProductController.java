@@ -44,6 +44,12 @@ public class ProductController {
         return new ResponseEntity<>(productService.savePayrollsubscription(month,product, request), HttpStatus.CREATED);
     }
 
+    @PutMapping("/update/payrollsubscription/{month}")
+    public ResponseEntity<Product> modifyPayrollsubscription(@PathVariable int month, @RequestBody Product product, HttpServletRequest request){
+        return new ResponseEntity<>(productService.modifyPayrollsubscription(month,product, request), HttpStatus.CREATED);
+    }
+
+
 
     @GetMapping("/payrollsubscription/enrollments-and-income")
     public ResponseEntity<List<PayrollSubscriptionsEnrollmentAndIncomeDTO>> etPayrollSubscriptionsEnrollmentsAndIncomes(HttpServletRequest request){

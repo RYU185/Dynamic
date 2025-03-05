@@ -105,6 +105,9 @@ public class ViewController {
 
     @GetMapping("/dynamic/my_employee_payrolltemplate.html")
     public String my_employee_payrolltemplate() {return "forward:/my_employee_payrolltemplate.html";}
+    @GetMapping("/dynamic/product!.html")
+    public String producth1() {return "forward:/product!.html";}
+
 
 
 

@@ -1,4 +1,6 @@
 const userInfo = JSON.parse(sessionStorage.getItem("userName"));
+const expireDate = sessionStorage.getItem('expireDate');
+console.log(expireDate);
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("header.html")

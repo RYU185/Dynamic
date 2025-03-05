@@ -31,7 +31,15 @@ function submit_go() {
       sessionStorage.setItem("existBusinessOperator", response);
     },
   });
-
+  $.ajax({
+    url: "/api/purchase-history/payrollsubscription/username/" + sendData.userName,
+    method: "get",
+    contentType: "application/json",
+    success: function (response) {
+      console(response);
+      sessionStorage.setItem("expireDate", response.product.expireDate);
+    },
+  });
 
   $.ajax({
     url: "/api/user/login",
@@ -46,11 +54,6 @@ function submit_go() {
       window.location.href = "/index.html";
     },
   });
-
-
-
-
-
 
 }
 const find_id = document.querySelector(".find_id");

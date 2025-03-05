@@ -63,4 +63,18 @@ public class    CartController {
                 cartService.deleteCart(id,request),
                 HttpStatus.OK);
     }
+
+    @GetMapping("/product-id/{id}")
+    public ResponseEntity<List<CartDTO>> getCartByProductId(@PathVariable String id,HttpServletRequest request) {
+        return new ResponseEntity<>(
+                cartService.getCartByProductId(id,request),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/product-category/{name}")
+    public ResponseEntity<List<CartDTO>> getCartByProductCategory(@PathVariable String name,HttpServletRequest request) {
+        return new ResponseEntity<>(
+                cartService.getCartByProductCategory(name,request),
+                HttpStatus.OK);
+    }
 }

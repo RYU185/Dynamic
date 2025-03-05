@@ -79,6 +79,22 @@ public class ProductService {
         return productRepository.save(product);
 
     }
+    public Product modifyPayrollsubscription(int month,Product product, HttpServletRequest request){
+        User currentUser = userService.getCurrentUser(request);
+        Product product1 = productRepository.findById(product.getId()).orElseThrow(()->new ResourceNotFoundException("존재하지 않은 아이디입니다") );
+        if(!(product1 instanceof PayrollSubscription)){
+            throw new IllegalArgumentException("이 제품은 급여명세서 구독권이 아닙니다");
+        }
+            PayrollSubscription payrollSubscription = (PayrollSubscription) product1;
+
+        LocalDate startDate = LocalDate.now();
+        payrollSubscription.setStartDate(startDate);
+        LocalDate expireDate = LocalDate.now().plusMonths(month);
+        payrollSubscription.setExpireDate(expireDate);
+        productRepository.save(payrollSubscription);
+        return payrollSubscription;
+    }
+
 
 
     // 관리자 권한으로 제품 삭제
@@ -89,7 +105,7 @@ public class ProductService {
             throw new PermissionDeniedException("권한이 없습니다");
         }
         Product product = productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("존재하지 않는 ID입니다"));
-        List<Cart> carts = cartRepository.findByProductId(id);
+        List<Cart> carts = cartRepository.findByProductId(id,currentUser);
         for (Cart cart: carts){
             if (cart.getIsActive().equals(true)) {
                 cart.setIsActive(false);

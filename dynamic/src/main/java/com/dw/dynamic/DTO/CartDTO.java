@@ -19,6 +19,8 @@ public class CartDTO {
 
     private String username;
 
-    private String productId;
+    private Product product;
+
+    private Boolean isActive;
 
 }
