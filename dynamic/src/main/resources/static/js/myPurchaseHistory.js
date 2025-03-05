@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const searchInput = document.querySelector(".searchBar input");
+    const courseSearchInput = document.getElementById("courseSearch");
+    const subscSearchInput = document.getElementById("subscSearch"); 
     const courseList = document.querySelector(".courseList .course");
     const subscList = document.querySelector(".subscList .subsc");
 
@@ -24,9 +25,6 @@ document.addEventListener("DOMContentLoaded", function(){
     function renderPurchaseHistory(data){
         console.log("🔹 renderPurchaseHistory 실행됨!", data);
 
-        const courseList = document.querySelector(".courseList .course");
-        const subscList = document.querySelector(".subscList .subsc");
-
         courseList.innerHTML = "";
         subscList.innerHTML = "";
 
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function(){
             if(product.isActive){
             if(product.type === "course"){
                 console.log("강의추가: ",product.title);
-                const courseHTML =`
+                courseList.innerHTML +=`
                         <article>
                             <div class="thumbnail">
                                 <img
@@ -46,10 +44,8 @@ document.addEventListener("DOMContentLoaded", function(){
                             <h2>${product.title}</h2>
                             <p>구매날짜:${formatDate(item.addDate)}</p>
                             <p>구매금액:${product.price.toLocaleString()}원</p>
-                        </article>
-                    
+                        </article>    
                     `;
-                    courseList.innerHTML += courseHTML;
                 }else if (product.type === "payrollsubscription"){
                     console.log("구독권 추가: ",product.title)
                     subscList.innerHTML += `
@@ -68,23 +64,57 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log("화면 업데이트 완료")
     }
 
-    searchInput.addEventListener("input", function(){
-        const query = searchInput.value;
+    courseSearchInput.addEventListener("input", function () {
+        const query = courseSearchInput.value;
 
-        if(query===""){
+        if (query === "") {
             renderPurchaseHistory(purchaseData);
             return;
         }
 
-        const filteredData = purchaseData.filter((item) => 
-            item.isActive && item.title.toLowerCase().includes(query)
+        const filteredCourses= purchaseData.filter(
+        (item) =>
+            item.product.isActive &&
+            item.product.title.toLowerCase().includes(query)
         );
 
-        if(filteredData.length === 0 ){
-            alert("검색 결과가 없습니다");
+        courseList.innerHTML = "";
+        filteredCourses.forEach((item)=>{
+            const product = item.product;
+            courseList.innerHTML += `
+            <article>
+                    <h2>${product.title}</h2>
+                    <p>구매날짜: ${formatDate(item.purchaseDate)}</p>
+                    <p>구매금액: ${product.price.toLocaleString()}원</p>
+                </article>
+            `;
+        })
+    });
+
+    subscSearchInput.addEventListener("input", function(){
+        const query = subscSearchInput.value;
+
+        if (query === "") {
+            renderPurchaseHistory(purchaseData);
+            return;
         }
 
-        renderPurchaseHistory(filteredData);
+        const filteredSubscriptions = purchaseData.filter((item) => 
+            item.product.isActive && item.product.type === "payrollsubscription" &&
+            item.product.title.toLowerCase().includes(query)
+    );
+
+        subscList.innerHTML = "";
+        filteredSubscriptions.forEach((item) => {
+            const product = item.product;
+            subscList.innerHTML += `
+                <article>
+                    <h2>${product.title}</h2>
+                    <p>시작일: ${formatDate(product.startDate)}</p>
+                    <p>종료일: ${formatDate(product.expireDate)}</p>
+                </article>
+            `;
+        });
     });
 
     loadingPurchaseHistory();
