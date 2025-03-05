@@ -1,4 +1,5 @@
 const userRole = JSON.parse(sessionStorage.getItem('userName'));
+const expireDate = sessionStorage.getItem('expireDate');
 if (userRole === 'admin') {
     document.querySelector('#add_course').style.display = 'inline';
 }
@@ -40,7 +41,7 @@ $(document).ready(function () {
                             success: function (response) {
                                 console.log(response);
                                 response.forEach((element) => {
-                                    alert('이미 장바구니에 담긴 제품입니다')
+                                    alert('이미 장바구니에 담긴 혹은 구매한 제품입니다')
                                     return;
                                 })
                             },
@@ -66,11 +67,12 @@ $(document).ready(function () {
 
 document.querySelectorAll('.cart1').forEach(function (cart) {
     cart.addEventListener('click', function (e) {
-
-
-
-
-
+        expireDate
+        const currentDate = new Date().toLocaleString();
+        if (expireDate > currentDate) {
+            alert("아직 만료일이 지나지 않은 구독권이 있습니다");
+            return;
+        }
         const button = e.target;
         const parent = button.closest('.box2');
         console.log(parent.id);

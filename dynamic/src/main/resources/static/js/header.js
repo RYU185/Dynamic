@@ -1,6 +1,5 @@
 const userInfo = JSON.parse(sessionStorage.getItem("userName"));
-const expireDate = sessionStorage.getItem('expireDate');
-console.log(expireDate);
+
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("header.html")
@@ -67,4 +66,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       console.log("DOMContentLoaded 완료");
     });
+  $.ajax({
+    url: "/api/purchase-history/payrollsubscription/username/" + userInfo,
+    method: "get",
+    contentType: "application/json",
+    success: function (response) {
+      sessionStorage.setItem("expireDate", response.product.expireDate);
+      const expireDate = sessionStorage.getItem('expireDate');
+    },
+  });
 });

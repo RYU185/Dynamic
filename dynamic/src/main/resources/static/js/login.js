@@ -31,15 +31,7 @@ function submit_go() {
       sessionStorage.setItem("existBusinessOperator", response);
     },
   });
-  $.ajax({
-    url: "/api/purchase-history/payrollsubscription/username/" + sendData.userName,
-    method: "get",
-    contentType: "application/json",
-    success: function (response) {
-      console(response);
-      sessionStorage.setItem("expireDate", response.product.expireDate);
-    },
-  });
+
 
   $.ajax({
     url: "/api/user/login",
@@ -47,7 +39,6 @@ function submit_go() {
     data: JSON.stringify(sendData),
     contentType: "application/json",
     success: function (response) {
-
       sessionStorage.setItem("userName", JSON.stringify(sendData.userName));
       $(".name").text(userCopy);
       $(".hello").text("환영합니다");
