@@ -50,7 +50,7 @@ INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'빠르
 INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'이용 가이드를 확인하시면 상세한 설명이 되어있어 참조 부탁드립니다.','2025-01-15',true,'admin');
 
 --INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S1',true);
---INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C1',true);
+INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C1',true);
 --INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S2',true);
 --INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C2',false);
 
