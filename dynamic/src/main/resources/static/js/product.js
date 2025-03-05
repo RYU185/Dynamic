@@ -226,10 +226,10 @@ function submit_go() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  let searchButton = document.querySelector(".searchBar button");
+  let searchIcon = document.getElementById("search_icon");
 
-  if (searchButton) {
-    searchButton.addEventListener("click", submit_go);
+  if (searchIcon) {
+    searchIcon.addEventListener("click", submit_go);
   }
 });
 
