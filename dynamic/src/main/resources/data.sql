@@ -24,53 +24,35 @@ VALUES
 ('급여명세서 양식','2025-02-25');
 
 
-
 INSERT INTO category (name) VALUES('강의');
 INSERT INTO category (name) VALUES('정기 구독권');
 
 INSERT INTO product (id,price,category_name,is_active) VALUES('C1',15000,'강의',true);
 INSERT INTO product (id,price,category_name,is_active) VALUES('C2',17000,'강의',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S1',20000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S2',38000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S3',55000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S4',70000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S5',90000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S6',110000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S7',125000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S8',152000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S9',164000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S10',185000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S11',202000,'정기 구독권',true);
-INSERT INTO product (id,price,category_name,is_active) VALUES('S12',213000,'정기 구독권',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('C3',15000,'강의',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('C4',17000,'강의',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('C5',17000,'강의',true);
+INSERT INTO product (id,price,category_name,is_active) VALUES('C6',17000,'강의',true);
 
 
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('1개월 정기 구독권','2025-01-13','2025-04-12','S1');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('2개월 정기 구독권','2025-01-13','2025-07-12','S2');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('3개월 정기 구독권','2025-01-13','2025-07-12','S3');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('4개월 정기 구독권','2025-01-13','2025-07-12','S4');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('5개월 정기 구독권','2025-01-13','2025-07-12','S5');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('6개월 정기 구독권','2025-01-13','2025-07-12','S6');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('7개월 정기 구독권','2025-01-13','2025-07-12','S7');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('8개월 정기 구독권','2025-01-13','2025-07-12','S8');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('9개월 정기 구독권','2025-01-13','2025-07-12','S9');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('10개월 정기 구독권','2025-01-13','2025-07-12','S10');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('11개월 정기 구독권','2025-01-13','2025-07-12','S11');
-INSERT INTO payroll_subscription(title,start_date,expire_date,id) VALUES('12개월 정기 구독권','2025-01-13','2025-07-12','S12');
 
 INSERT INTO course(title,add_date,description,id) VALUES('급여계산 및 공제','2025-01-13','급여 계산 방법 및 공제 방법에 대한 설명','C1');
 INSERT INTO course(title,add_date,description,id) VALUES('사업자 등록 방법','2025-01-13','사업자 등록 방법에 대한 설명','C2');
+INSERT INTO course(title,add_date,description,id) VALUES('근로계약서 작성 방법','2025-01-13','근로계약서 직원, 알바생별 작성 방법','C3');
+INSERT INTO course(title,add_date,description,id) VALUES('원활한 매출 관리에 비법','2025-01-13','원활한 매출 관리에 대한 비법을 상세하게 다루고 있습니다. 한정된 업종인(카페업, 음식, 도소매업)','C4');
+INSERT INTO course(title,add_date,description,id) VALUES('신고기간에 대한 설명','2025-01-13','면세, 법인, 간이, 개인사업자들의 필수 항목인 신고기간에 대한 설명','C5');
+INSERT INTO course(title,add_date,description,id) VALUES('세금의 최소화를 위한 방법','2025-01-13','매년 최소 2번 이상 납부하는 세금에 대한 부담을 완하하기 위한 필수 시청 강의','C6');
 
-INSERT INTO review(text,rating,add_date,modified_date,user_name,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
+--INSERT INTO review(text,rating,add_date,modified_date,user_name,product_id,is_active) VALUES('이용하기 편해요', 5 , '2025-01-13','2025-01-13','sangsu1234','S1',true);
 INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', false,'2025-01-13','2025-01-16',true,'sangsu1234');
 INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('그냥 안녕 ?', false,'2025-01-13','2025-01-16',false,'sangsu1234');
-INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'저도 궁금해요','2025-01-13',true,'sangsu1234');
-INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'저도 궁금해요','2025-01-13',true,'sangsu1234');
-INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'저도 궁금해요','2025-01-13',true,'admin');
+INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'빠르게 알려주시면 감사하겠습니다.','2025-01-13',true,'sangsu1234');
+INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'이용 가이드를 확인하시면 상세한 설명이 되어있어 참조 부탁드립니다.','2025-01-15',true,'admin');
 
-INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S1',true);
-INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C1',true);
-INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S2',true);
-INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C2',false);
+--INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S1',true);
+--INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C1',true);
+--INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S2',true);
+--INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','C2',false);
 
 INSERT INTO deduction_and_tax(name, amount) VALUES('건강보험',3.545);
 INSERT INTO deduction_and_tax(name, amount) VALUES('국민연금',4.5);
@@ -92,18 +74,18 @@ INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_da
 VALUES ('2025-01-13','2025-02-12','2025-02-12',true,2,1500000,1470000);
 
 
-
-INSERT INTO employee (name, department,position,hourly_rate,birthday,hire_date, phone_number, user_name,is_active,free_template)VALUES
-('홍길동', '없음', '직원',10030 ,'2025-01-13','1998-02-13','010-1234-1111', 'admin',true,false);
-INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_date,is_active,employee_id,total_amount,final_payment)
-VALUES ('2025-01-13','2025-02-12','2025-02-12',true,3,3000000,2860000);
-
-
-INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('S1','sangsu1234',20000,'2025-01-13');
-INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('C2','sangsu1234',17000,'2025-01-22');
-
-INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','S1');
-INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','C2');
-
-INSERT INTO point(amount,add_date,purchase_history_id) VALUES (1000,'2025-01-13',1);
-INSERT INTO point(amount,add_date,purchase_history_id) VALUES (850,'2025-01-22',2);
+--
+--INSERT INTO employee (name, department,position,hourly_rate,birthday,hire_date, phone_number, user_name,is_active,free_template)VALUES
+--('홍길동', '없음', '직원',10030 ,'2025-01-13','1998-02-13','010-1234-1111', 'admin',true,false);
+--INSERT INTO payroll_template(start_payroll_period,last_payroll_period,payment_date,is_active,employee_id,total_amount,final_payment)
+--VALUES ('2025-01-13','2025-02-12','2025-02-12',true,3,3000000,2860000);
+--
+--
+--INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('S1','sangsu1234',20000,'2025-01-13');
+--INSERT INTO purchase_history(product_id,user_name,price,purchase_date) VALUES('C2','sangsu1234',17000,'2025-01-22');
+--
+--INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','S1');
+--INSERT INTO user_product(user_name,product_id) VALUES('sangsu1234','C2');
+--
+--INSERT INTO point(amount,add_date,purchase_history_id) VALUES (1000,'2025-01-13',1);
+--INSERT INTO point(amount,add_date,purchase_history_id) VALUES (850,'2025-01-22',2);

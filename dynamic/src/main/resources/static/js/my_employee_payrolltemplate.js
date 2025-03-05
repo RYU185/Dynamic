@@ -15,7 +15,6 @@ $(document).ready(function () {
   $('#last_date').text(payrolltemplate.lastPayrollPeriod);
   $('#company_name').text(employee.companyName);
   $('#payment_date').text(payrolltemplate.paymentDate);
-
 });
 $(document).on('input', 'input[type="text"]', function () {
   let value = $(this)
@@ -29,9 +28,12 @@ $(document).on('input', 'input[type="text"]', function () {
 });
 
 $(document).on('click', '#send', function () {
-
-  const total_amount = document.querySelector('#total_amount').value.replace(/,/g, "");
-  const final_payment = document.querySelector('#final_payment').value.replace(/,/g, "");
+  const total_amount = document
+    .querySelector('#total_amount')
+    .value.replace(/,/g, '');
+  const final_payment = document
+    .querySelector('#final_payment')
+    .value.replace(/,/g, '');
 
   var sendData = {
     id: 0,
@@ -42,7 +44,7 @@ $(document).on('click', '#send', function () {
     employeeName: employee.name,
     position: employee.position,
     totalAmount: total_amount,
-    finalPayment: final_payment
+    finalPayment: final_payment,
   };
 
   $.ajax({
@@ -52,6 +54,7 @@ $(document).on('click', '#send', function () {
     contentType: 'application/json',
     success: function (response) {
       console.log(response);
+      alert('나의 급여명세서 목록에서 확인 가능합니다');
       window.location.href = '/my_employee_payrolltemplate_information.html';
     },
   });
@@ -63,34 +66,34 @@ $('#reset').on('click', function () {
 
 document
   .querySelectorAll(
-    "#salary, #bonus, #meal, #transfer, #night, #holiday, #other_allowance"
+    '#salary, #bonus, #meal, #transfer, #night, #holiday, #other_allowance'
   )
   .forEach((element) => {
-    element.addEventListener("change", function () {
+    element.addEventListener('change', function () {
       // 각 입력값을 숫자로 변환 (빈 문자열을 처리하려면 0으로 기본값을 설정)
       const salary =
-        parseFloat(document.querySelector("#salary").value.replace(/,/g, "")) ||
+        parseFloat(document.querySelector('#salary').value.replace(/,/g, '')) ||
         0;
       const bonus =
-        parseFloat(document.querySelector("#bonus").value.replace(/,/g, "")) ||
+        parseFloat(document.querySelector('#bonus').value.replace(/,/g, '')) ||
         0;
       const meal =
-        parseFloat(document.querySelector("#meal").value.replace(/,/g, "")) ||
+        parseFloat(document.querySelector('#meal').value.replace(/,/g, '')) ||
         0;
       const transfer =
         parseFloat(
-          document.querySelector("#transfer").value.replace(/,/g, "")
+          document.querySelector('#transfer').value.replace(/,/g, '')
         ) || 0;
       const night =
-        parseFloat(document.querySelector("#night").value.replace(/,/g, "")) ||
+        parseFloat(document.querySelector('#night').value.replace(/,/g, '')) ||
         0;
       const holiday =
         parseFloat(
-          document.querySelector("#holiday").value.replace(/,/g, "")
+          document.querySelector('#holiday').value.replace(/,/g, '')
         ) || 0;
       const other_allowance =
         parseFloat(
-          document.querySelector("#other_allowance").value.replace(/,/g, "")
+          document.querySelector('#other_allowance').value.replace(/,/g, '')
         ) || 0;
 
       // 총합 계산
@@ -98,54 +101,54 @@ document
         salary + bonus + meal + transfer + night + holiday + other_allowance;
       console.log(total);
       // 계산된 총합을 total_amount 요소에 표시
-      document.querySelector("#total_amount").value = total.toLocaleString();
+      document.querySelector('#total_amount').value = total.toLocaleString();
       document
-        .querySelector("#final_payment")
-        .dispatchEvent(new Event("change"));
+        .querySelector('#final_payment')
+        .dispatchEvent(new Event('change'));
     });
   });
 
 //총 공제액
 document
   .querySelectorAll(
-    "#health_insurance, #national_pension, #employeement_insurance, #income_tax, #local_tax, #freelancer_income, #freelancer_local,#other"
+    '#health_insurance, #national_pension, #employeement_insurance, #income_tax, #local_tax, #freelancer_income, #freelancer_local,#other'
   )
   .forEach((element) => {
-    element.addEventListener("change", function () {
+    element.addEventListener('change', function () {
       // 각 입력값을 숫자로 변환 (빈 문자열을 처리하려면 0으로 기본값을 설정)
       const health_insurance =
         parseFloat(
-          document.querySelector("#health_insurance").value.replace(/,/g, "")
+          document.querySelector('#health_insurance').value.replace(/,/g, '')
         ) || 0;
       const national_pension =
         parseFloat(
-          document.querySelector("#national_pension").value.replace(/,/g, "")
+          document.querySelector('#national_pension').value.replace(/,/g, '')
         ) || 0;
       const employeement_insurance =
         parseFloat(
           document
-            .querySelector("#employeement_insurance")
-            .value.replace(/,/g, "")
+            .querySelector('#employeement_insurance')
+            .value.replace(/,/g, '')
         ) || 0;
       const income_tax =
         parseFloat(
-          document.querySelector("#income_tax").value.replace(/,/g, "")
+          document.querySelector('#income_tax').value.replace(/,/g, '')
         ) || 0;
       const local_tax =
         parseFloat(
-          document.querySelector("#local_tax").value.replace(/,/g, "")
+          document.querySelector('#local_tax').value.replace(/,/g, '')
         ) || 0;
       const freelancer_income =
         parseFloat(
-          document.querySelector("#freelancer_income").value.replace(/,/g, "")
+          document.querySelector('#freelancer_income').value.replace(/,/g, '')
         ) || 0;
       const freelancer_local =
         parseFloat(
-          document.querySelector("#freelancer_local").value.replace(/,/g, "")
+          document.querySelector('#freelancer_local').value.replace(/,/g, '')
         ) || 0;
 
       const other =
-        parseFloat(document.querySelector("#other").value.replace(/,/g, "")) ||
+        parseFloat(document.querySelector('#other').value.replace(/,/g, '')) ||
         0;
 
       // 총합 계산
@@ -161,27 +164,26 @@ document
 
       // 계산된 총합을 total_amount 요소에 표시
       console.log(total);
-      document.querySelector("#total_insurance").value = total.toLocaleString();
+      document.querySelector('#total_insurance').value = total.toLocaleString();
       document
-        .querySelector("#final_payment")
-        .dispatchEvent(new Event("change"));
+        .querySelector('#final_payment')
+        .dispatchEvent(new Event('change'));
     });
   });
 
 function calculateFinalPayment() {
   const total_amount =
     parseFloat(
-      document.querySelector("#total_amount").value.replace(/,/g, "")
+      document.querySelector('#total_amount').value.replace(/,/g, '')
     ) || 0;
   const total_insurance =
     parseFloat(
-      document.querySelector("#total_insurance").value.replace(/,/g, "")
+      document.querySelector('#total_insurance').value.replace(/,/g, '')
     ) || 0;
   const total = total_amount - total_insurance;
-  document.querySelector("#final_payment").value = total.toLocaleString();
+  document.querySelector('#final_payment').value = total.toLocaleString();
 }
 
 document
-  .querySelector("#final_payment")
-  .addEventListener("change", calculateFinalPayment);
-
+  .querySelector('#final_payment')
+  .addEventListener('change', calculateFinalPayment);
