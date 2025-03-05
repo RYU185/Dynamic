@@ -22,6 +22,9 @@ function getUserInformation() {
       document.querySelector('#email').value = response.email;
       document.querySelector('#id').value = response.userName;
       document.querySelector('#phone').value = response.phoneNumber;
+      document.querySelector('#read_businessNumber').value = response.businessNumber;
+      document.querySelector('#modify_company_name').value = response.companyName;
+      document.querySelector('#modify_businessName').value = response.businessType;
     },
   });
 }
@@ -130,8 +133,9 @@ const button1 = document.querySelector('#company');
 const content1 = document.querySelector('.pop-up1');
 const content2 = document.querySelector('.pop-up2');
 
-$(document).on('click', '#add_button', function () {
+$(document).on('click', '#company', function () {
   const isexist = existBusinessOperator === 'true';
+  console.log(isexist);
   if (!isexist) {
     if (content2.style.display === 'none' || content2.style.display === '') {
       content2.style.display = 'block'; // display: block 으로 변경
@@ -141,6 +145,79 @@ $(document).on('click', '#add_button', function () {
     if (content1.style.display === 'none' || content3.style.display === '') {
       content1.style.display = 'block'; // display: block 으로 변경
       background.style.display = 'block';
+
     }
   }
+});
+
+
+$(document).on('click', '#modify', function () {
+  const businessType = document.querySelector('#modify_businessName');
+  const companyName = document.querySelector('#modify_company_name');
+
+  console.log(businessType, companyName);
+
+  var sendData = {
+    "userName ": userRole,
+    "businessType": businessType.value,
+    "companyName": companyName.value,
+  };
+  console.log(sendData);
+
+  $.ajax({
+    url: '/api/user/user-business-number',
+    method: 'POST',
+    data: JSON.stringify(sendData),
+    contentType: 'application/json',
+    success: function (response) {
+      alert('사업자 정보가 정상적으로 수정되었습니다');
+      window.location.href = '/edit_profile.html';
+    }
+  });
+});
+document
+  .querySelector('#add_businessNumber')
+  .addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, ''); // 숫자만 남기기
+
+    // 000-00-00000으로 제한
+    if (value.length <= 3) {
+      e.target.value = value; // 3자리까지만 입력
+    } else if (value.length <= 5) {
+      e.target.value = value.slice(0, 3) + '-' + value.slice(3); // 3자리-2자리
+    } else {
+      e.target.value =
+        value.slice(0, 3) + '-' + value.slice(3, 5) + '-' + value.slice(5, 10); // 3자리-2자리-5자리
+    }
+  });
+
+
+$(document).on('click', '#add', function () {
+  const businessType = document.querySelector('#add_businessName');
+  const companyName = document.querySelector('#add_company_name');
+  const businessNumber = document.querySelector('#add_businessNumber');
+
+  // console.log(businessType.value, companyName.value, businessNumber.value);
+
+  var sendData = {
+    "userName ": userRole,
+    "businessType": businessType.value,
+    "companyName": companyName.value,
+    "businessNumber": businessNumber.value
+  };
+  console.log(sendData);
+
+  $.ajax({
+    url: '/api/user/user-business-number',
+    method: 'POST',
+    data: JSON.stringify(sendData),
+    contentType: 'application/json',
+    success: function (response) {
+      alert('사업자 정보가 정상적으로 등록되었습니다');
+      window.location.href = '/edit_profile.html';
+      newExistBusinessOperator = existBusinessOperator ? existBusinessOperator : {};
+      newExistBusinessOperator.someField = 'new value';
+      sessionStorage.setItem("existBusinessOperator", response.existBusinessOperator);
+    }
+  });
 });

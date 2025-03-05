@@ -51,6 +51,7 @@ function submit_go() {
     contentType: 'application/json',
     success: function (response) {
       AllData(response);
+      formatSpecificCells();
     },
     error: function () {
       alert('검색 오류가 발생했습니다.');
@@ -66,6 +67,7 @@ $(document).ready(function () {
     contentType: 'application/json',
     success: function (response) {
       AllData(response);
+      formatSpecificCells();
     },
   });
 });
@@ -102,7 +104,7 @@ function AllData(response) {
           <td >${element.name}</td>
           <td class="birthday">${element.birthday}</td>
           <td class="hiredate">${element.hireDate}</td>
-           <td >${element.hourlyRate}</td>
+           <td class="hourly_rate">${element.hourlyRate}</td>
          <td >
               <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
             </td>
@@ -214,11 +216,11 @@ function AllData(response) {
         contentType: 'application/json',
         success: function (response) {
           alert('직원이 정상 등록되었습니다.');
-          var $row = $(`<tr class="row">
-          <td>${response.name}</td>
-          <td>${response.birthday}</td>
-          <td>${response.hireDate}</td>
-           <td>${response.hourlyRate}</td>
+          var $row = $(`<tr  class="row" id="${element.id}">
+          <td >${response.name}</td>
+          <td class="birthday">${response.birthday}</td>
+          <td class="hire_date">${response.hireDate}</td>
+           <td class="hourly_rate">${response.hourlyRate}</td>
          <td >
               <img src="img/writing.png" alt="수정 버튼" class="modify_button" />
             </td>
@@ -234,3 +236,19 @@ function AllData(response) {
     }
   });
 }
+
+function formatSpecificCells() {
+  // 'price' 클래스를 가진 td 요소만 선택
+  const priceCells = document.querySelectorAll('.hourly_rate');
+
+  priceCells.forEach(cell => {
+    const price = parseInt(cell.textContent, 10); // 텍스트를 숫자로 변환
+
+    if (!isNaN(price)) {
+      // 천 단위 구분 기호 추가
+      cell.textContent = price.toLocaleString();
+    }
+  });
+}
+
+

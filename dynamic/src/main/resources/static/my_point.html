@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>포인트 조회</title>
-    <link rel="stylesheet" href="./css/my_point.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-  </head>
-  <body>
-    <div class="wrap">
-      <!-- header -->
-      <header></header>
-      <hr />
 
-      <h1>
-        DO YOURSELF <br />
-        USE SERVICE
-      </h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>포인트 조회</title>
+  <link rel="stylesheet" href="./css/my_point.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+</head>
 
-      <!-- section -->
-      <section>
-        <div class="title-wrap">
-          <div class="title">
-            <h1>포인트 조회</h1>
-          </div>
+<body>
+  <div class="wrap">
+    <!-- header -->
+    <header></header>
+    <hr />
+
+    <h1>
+      DO YOURSELF <br />
+      USE SERVICE
+    </h1>
+
+    <!-- section -->
+    <section>
+      <div class="title-wrap">
+        <div class="title">
+          <h1>포인트 조회</h1>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <main>
-        <div class="table_wrap">
-          <table class="employee_table">
+    <main>
+      <div class="table_wrap">
+        <table class="employee_table">
+          <thead>
             <tr>
               <th class="bold">구분</th>
               <th class="bold">적립금액</th>
               <th class="bold">적립일</th>
               <th class="bold">총 적립금</th>
             </tr>
-            <tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
               <td>적립</td>
               <td>+1,000</td>
               <td>2025-03-05</td>
@@ -59,30 +64,33 @@
               <td>+1,000</td>
               <td>2025-02-03</td>
               <td>2,000</td>
-            </tr>
-          </table>
-        </div>
-      </main>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </main>
 
-      <footer>
-        <div class="inner">
-          <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
-          </div>
-          <div class="lower">
-            <address>
-              대전광역시 서구 둔산동 1524 <br />
-              TEL : 03-111-1234 C.P : 010-1234-5678
-            </address>
-            <p>
-              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-              reserved.
-            </p>
-          </div>
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
         </div>
-      </footer>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/header.js"></script>
-  </body>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/my_point.js"></script>
+</body>
+
 </html>

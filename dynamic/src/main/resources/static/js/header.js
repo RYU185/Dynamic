@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // 로그아웃 버튼 이벤트
       document.querySelector(".log_out").addEventListener("click", function () {
         sessionStorage.removeItem("userName");
+        sessionStorage.removeItem("existBusinessOperator");
+
         window.location.href = "/index.html";
       });
 
