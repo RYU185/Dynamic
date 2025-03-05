@@ -359,26 +359,31 @@ main .content_box .add:hover,
 
 /* footer */
 
+footer {
+  position: relative;
+  margin-top: 5rem;
+  border-top: 1px solid #888;
+  width: 100%;
+}
+
 footer .inner {
-  padding-top: 120px;
   width: 100%;
   margin: 0px auto;
+  display: flex;
+  justify-content: space-between; /* 좌우로 정렬 */
+  align-items: center;
+  margin: 0 auto;
+  height: 100px;
 }
 
 footer .inner .upper {
   width: 100%;
-  border-bottom: 1px solid#777;
   padding-bottom: 20px;
-}
-
-footer .inner .lower {
-  width: 100%;
 }
 
 footer .inner .upper h1 {
   float: left;
-  font-size: 24px;
-  font-weight: 500;
+  font: bold 24px "arial";
   color: #666;
 }
 
@@ -387,6 +392,7 @@ footer .inner .upper ul {
 }
 
 footer .inner .upper::after {
+  /* 상단 영역 float 해제 */
   content: "";
   display: block;
   clear: both;
@@ -394,7 +400,7 @@ footer .inner .upper::after {
 
 footer .inner .upper ul li {
   float: left;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 footer .inner .upper ul::after {
@@ -404,23 +410,23 @@ footer .inner .upper ul::after {
 }
 
 footer .inner .upper ul li a {
-  font-size: 14px;
-  font-weight: 500;
+  font: bold 14px/1 "arial";
   color: #666;
 }
 
-footer .inner .lower address {
-  margin-top: 20px;
+footer .inner .lower {
   width: 100%;
-  font-size: 12px;
-  font-weight: 500;
+}
+
+footer .inner .lower address {
+  width: 100%;
+  font: 12px/1.3 "arial";
   color: #777;
   margin-bottom: 20px;
 }
 
 footer .inner .lower p {
   width: 100%;
-  font-size: 12px;
-  font-weight: 500;
+  font: 12px/1 "arial";
   color: #777;
 }

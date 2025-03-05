@@ -1,87 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내 급여명세서</title>
+    <link rel="stylesheet" href="./css/my_payrolltemplate.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>내 급여명세서</title>
-  <link rel="stylesheet" href="./css/my_payrolltemplate.css" />
-  <link rel="stylesheet" href="./css/header.css" />
-</head>
+  <body>
+    <div class="wrap">
+      <!-- header -->
+      <header></header>
+      <hr />
 
-<body>
-  <div class="wrap">
-    <!-- header -->
-    <header></header>
-    <hr />
+      <h1>
+        DO YOURSELF <br />
+        USE SERVICE
+      </h1>
 
-    <h1>
-      DO YOURSELF <br />
-      USE SERVICE
-    </h1>
-
-    <!-- section -->
-    <section>
-      <div class="title-wrap">
-        <div class="title">
-          <h1>나의 급여명세서</h1>
+      <!-- section -->
+      <section>
+        <div class="title-wrap">
+          <div class="title">
+            <h1>나의 급여명세서</h1>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <main>
-      <div class="inner">
-        <div class="main_box">
-          <div class="day_box">
-            <div class="subtitle">
-              <p>급여 명세서 조회</p>
-            </div>
-
-            <!-- 날짜 설정 -->
-            <div class="day_content">
-              <label for="options">월 선택 </label>
-              <select id="options" name="options">
-                <option value="0">전체 선택</option>
-                <option value="1">1월</option>
-                <option value="2">2월</option>
-                <option value="3">3월</option>
-                <option value="4">4월</option>
-                <option value="5">5월</option>
-                <option value="6">6월</option>
-                <option value="7">7월</option>
-                <option value="8">8월</option>
-                <option value="9">9월</option>
-                <option value="10">10월</option>
-                <option value="11">11월</option>
-                <option value="12">12월</option>
-              </select>
-              <div class="description">
-                <p>*원하는 명세서의 해당 월을 선택해 주세요.</p>
+      <main>
+        <div class="inner">
+          <div class="main_box">
+            <div class="day_box">
+              <div class="subtitle">
+                <p>급여 명세서 조회</p>
               </div>
 
-              <div class="employee_header">
-                <div class="searchBar">
-                  <input type="text" placeholder="직원 성함을 입력해주세요" id="search_employee" />
-                  <img src="./img/search.png" onclick="submit_go()" />
+              <!-- 날짜 설정 -->
+              <div class="day_content">
+                <label for="options">월 선택 </label>
+                <select id="options" name="options">
+                  <option value="0">전체 선택</option>
+                  <option value="1">1월</option>
+                  <option value="2">2월</option>
+                  <option value="3">3월</option>
+                  <option value="4">4월</option>
+                  <option value="5">5월</option>
+                  <option value="6">6월</option>
+                  <option value="7">7월</option>
+                  <option value="8">8월</option>
+                  <option value="9">9월</option>
+                  <option value="10">10월</option>
+                  <option value="11">11월</option>
+                  <option value="12">12월</option>
+                </select>
+                <div class="description">
+                  <p>*원하는 명세서의 해당 월을 선택해 주세요.</p>
+                </div>
+
+                <div class="employee_header">
+                  <div class="searchBar">
+                    <input
+                      type="text"
+                      placeholder="직원 성함을 입력해주세요"
+                      id="search_employee"
+                    />
+                    <img src="./img/search.png" onclick="submit_go()" />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="employee_box">
-            <div class="table_wrap">
-              <table class="employee_table">
-                <thead>
-                  <tr>
-                    <th class="bold">성함</th>
-                    <th class="bold">직위</th>
-                    <th class="bold">월급(세전)</th>
-                    <th class="bold">월급(세후)</th>
-                    <th class="bold">지급일자</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- <tr>
+            <div class="employee_box">
+              <div class="table_wrap">
+                <table class="employee_table">
+                  <thead>
+                    <tr>
+                      <th class="bold">성함</th>
+                      <th class="bold">직위</th>
+                      <th class="bold">월급(세전)</th>
+                      <th class="bold">월급(세후)</th>
+                      <th class="bold">지급일자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr>
                     <td>김민수</td>
                     <td>아르바이트</td>
                     <td>510,000</td>
@@ -144,35 +147,32 @@
                     <td>502,000</td>
                     <td>매월 4일</td>
                   </tr> -->
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-
-    <footer>
-      <div class="inner">
-        <div class="upper">
-          <h1>DO YOURSELF or USE SERVICE</h1>
+      </main>
+      <footer>
+        <div class="inner">
+            <div class="upper">
+                <h1>DO YOURSELF or USE SERVICE</h1>
+            </div>
+            <div class="lower">
+                <address>
+                    대전광역시 서구 둔산동 1524 <br>
+                    TEL : 03-111-1234 C.P : 010-1234-5678
+                </address>
+                <p>
+                    2020 DO YOURSELF or USE SERVICE &copy; copyright all right reserved.
+                </p>
+            </div>
         </div>
-        <div class="lower">
-          <address>
-            대전광역시 서구 둔산동 1524 <br />
-            TEL : 03-111-1234 C.P : 010-1234-5678
-          </address>
-          <p>
-            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-            reserved.
-          </p>
-        </div>
-      </div>
     </footer>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="/js/my_payrolltemplate.js"></script>
-  <script src="/js/header.js"></script>
-</body>
-
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/my_payrolltemplate.js"></script>
+    <script src="/js/header.js"></script>
+  </body>
 </html>

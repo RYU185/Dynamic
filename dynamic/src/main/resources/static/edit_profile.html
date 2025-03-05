@@ -1,178 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edit profile</title>
+    <link rel="stylesheet" href="./css/edit_profile.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>edit profile</title>
-  <link rel="stylesheet" href="./css/edit_profile.css" />
-  <link rel="stylesheet" href="./css/header.css" />
-</head>
+  <body>
+    <div class="wrap">
+      <!-- header -->
+      <header></header>
+      <hr />
 
-<body>
-  <div class="wrap">
-    <!-- header -->
-    <header></header>
-    <hr />
+      <h1>
+        DO YOURSELF <br />
+        USE SERVICE
+      </h1>
 
-    <h1>
-      DO YOURSELF <br />
-      USE SERVICE
-    </h1>
+      <!-- section -->
+      <section>
+        <div class="title-wrap">
+          <div class="title">
+            <h1>프로필 수정</h1>
+          </div>
+        </div>
+      </section>
 
-    <!-- section -->
-    <section>
-      <div class="title-wrap">
-        <div class="title">
-          <h1>프로필 수정</h1>
+      <div class="box">
+        <div class="informtion_box">
+          <div class="informtion login_name">
+            <p class="left">이름</p>
+            <input
+              type="text"
+              class="login_name_input right"
+              id="login_name"
+              placeholder="이름을 입력해주세요"
+            />
+          </div>
+          <div class="informtion gender">
+            <p class="left">성별</p>
+            <input type="text" class="id_input none" id="gender" readonly />
+          </div>
+          <div class="informtion email">
+            <p class="left">이메일</p>
+            <input
+              type="text"
+              class="email_input right"
+              id="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <div class="id">
+            <p class="id_text">아이디</p>
+            <input type="text" class="id_input none" id="id" readonly />
+          </div>
+          <div class="informtion phone">
+            <p class="left">전화번호</p>
+            <input
+              type="text"
+              class="phone_input right"
+              maxlength="13"
+              id="phone"
+              placeholder="전화번호를 입력해주세요"
+            />
+          </div>
+          <div class="informtion pwd">
+            <p class="pwd_text">비밀번호</p>
+            <p class="new_pwd" id="password">새비밀번호</p>
+          </div>
+          <div class="informtion BoI" id="company">
+            <p class="BoI box_text">사업자 정보</p>
+            <p class="BoI box_icon">
+              <img src="img/add.png" id="add_button" />
+            </p>
+          </div>
+          <div class="last_box">
+            <div class="button cancel" id="reset">취소</div>
+            <div class="button join" id="save">저장</div>
+          </div>
         </div>
       </div>
-    </section>
-
-    <div class="box">
-      <div class="informtion_box">
-        <div class="informtion login_name">
-          <p class="left">이름</p>
-          <input type="text" class="login_name_input right" id="login_name" placeholder="이름을 입력해주세요" />
-        </div>
-        <div class="informtion gender">
-          <p class="left">성별</p>
-          <input type="text" class="id_input none" id="gender" readonly />
-        </div>
-        <div class="informtion email">
-          <p class="left">이메일</p>
-          <input type="text" class="email_input right" id="email" placeholder="이메일을 입력해주세요" />
-        </div>
-        <div class="id">
-          <p class="id_text">아이디</p>
-          <input type="text" class="id_input none" id="id" readonly />
-        </div>
-        <div class="informtion phone">
-          <p class="left">전화번호</p>
-          <input type="text" class="phone_input right" maxlength="13" id="phone" placeholder="전화번호를 입력해주세요" />
-        </div>
-        <div class="informtion pwd">
-          <p class="pwd_text">비밀번호</p>
-          <p class="new_pwd" id="password">새비밀번호</p>
-        </div>
-        <div class="informtion BoI" id="company">
-          <p class="BoI box_text">사업자 정보</p>
-          <p class="BoI box_icon">
-            <img src="img/add.png" id="add_button" />
-          </p>
-        </div>
-        <div class="last_box">
-          <div class="button cancel" id="reset">취소</div>
-          <div class="button join" id="save">저장</div>
+      <!-- 기존 사업자 정보 변경 -->
+      <div class="pop-up1">
+        <img src="/img/X.png" alt="취소 버튼" class="x_btn1" />
+        <h1>사업자 정보 변경</h1>
+        <div class="content_box">
+          <div class="content">
+            <div><b>상호명 :</b></div>
+            <div>
+              <input
+                type="text"
+                name="modify_company_name"
+                id="modify_company_name"
+              />
+            </div>
+          </div>
+          <div class="content">
+            <div><b>사업자번호 :</b></div>
+            <div>
+              <input type="text" id="read_businessNumber" readonly />
+            </div>
+          </div>
+          <div class="content">
+            <div><b>업종 :</b></div>
+            <div>
+              <input type="text" id="modify_businessName" />
+            </div>
+          </div>
+          <div>
+            <input type="button" value="수정" class="add" id="modify" />
+          </div>
         </div>
       </div>
+      <!-- 사업자 정보 추가 -->
+      <div class="pop-up2">
+        <img src="/img/X.png" alt="취소 버튼" class="x_btn2" />
+        <h1>사업자 정보 추가</h1>
+        <div class="content_box">
+          <div class="content">
+            <div><b>상호명 :</b></div>
+            <div>
+              <input
+                type="text"
+                name="add_company_name"
+                id="add_company_name"
+              />
+            </div>
+          </div>
+          <div class="content">
+            <div><b>사업자번호 :</b></div>
+            <div>
+              <input
+                type="text"
+                name="add_businessNumber"
+                id="add_businessNumber"
+              />
+            </div>
+          </div>
+          <div class="content">
+            <div><b>업종 :</b></div>
+            <div>
+              <input
+                type="text"
+                name="add_businessName"
+                id="add_businessName"
+              />
+            </div>
+          </div>
+          <div>
+            <input type="button" value="등록" class="add" id="add" />
+          </div>
+        </div>
+      </div>
+
+      <div class="pop-up3">
+        <img src="/img/X.png" alt="취소 버튼" class="x_btn3" />
+        <h1>비밀번호 변경</h1>
+        <div class="content_box">
+          <div class="content">
+            <div><b>현재 비밀번호 : </b></div>
+            <div>
+              <input type="password" name="pwd" id="pwd" />
+            </div>
+          </div>
+          <div class="content">
+            <div><b>새 비밀번호 : </b></div>
+            <div>
+              <input type="password" name="new_password" id="new_password" />
+            </div>
+          </div>
+          <div class="content">
+            <div><b>비밀번호 확인 :</b></div>
+            <div>
+              <input type="password" name="one_more" id="one_more" />
+            </div>
+          </div>
+          <div>
+            <input type="button" value="변경하기" class="add" id="modify_pwd" />
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="inner">
+          <div class="upper">
+            <h1>DO YOURSELF or USE SERVICE</h1>
+          </div>
+          <div class="lower">
+            <address>
+              대전광역시 서구 둔산동 1524 <br />
+              TEL : 03-111-1234 C.P : 010-1234-5678
+            </address>
+            <p>
+              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+              reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+      <div class="pop-up-background1"></div>
     </div>
-    <!-- 기존 사업자 정보 변경 -->
-    <div class="pop-up1">
-      <img src="/img/X.png" alt="취소 버튼" class="x_btn1" />
-      <h1>사업자 정보 변경</h1>
-      <div class="content_box">
-        <div class="content">
-          <div><b>상호명 :</b></div>
-          <div>
-            <input type="text" name="modify_company_name" id="modify_company_name" />
-          </div>
-        </div>
-        <div class="content">
-          <div><b>사업자번호 :</b></div>
-          <div>
-            <input type="text" id="read_businessNumber" readonly />
-          </div>
-        </div>
-        <div class="content">
-          <div><b>업종 :</b></div>
-          <div>
-            <input type="text" id="modify_businessName" />
-          </div>
-        </div>
-        <div>
-          <input type="button" value="수정" class="add" id="modify" />
-        </div>
-      </div>
-    </div>
-    <!-- 사업자 정보 추가 -->
-    <div class="pop-up2">
-      <img src="/img/X.png" alt="취소 버튼" class="x_btn2" />
-      <h1>사업자 정보 추가</h1>
-      <div class="content_box">
-        <div class="content">
-          <div><b>상호명 :</b></div>
-          <div>
-            <input type="text" name="add_company_name" id="add_company_name" />
-          </div>
-        </div>
-        <div class="content">
-          <div><b>사업자번호 :</b></div>
-          <div>
-            <input type="text" name="add_businessNumber" id="add_businessNumber" />
-          </div>
-        </div>
-        <div class="content">
-          <div><b>업종 :</b></div>
-          <div>
-            <input type="text" name="add_businessName" id="add_businessName" />
-          </div>
-        </div>
-        <div>
-          <input type="button" value="등록" class="add" id="add" />
-        </div>
-      </div>
-    </div>
-
-    <div class="pop-up3">
-      <img src="/img/X.png" alt="취소 버튼" class="x_btn3" />
-      <h1>비밀번호 변경</h1>
-      <div class="content_box">
-        <div class="content">
-          <div><b>현재 비밀번호 : </b></div>
-          <div>
-            <input type="password" name="pwd" id="pwd" />
-          </div>
-        </div>
-        <div class="content">
-          <div><b>새 비밀번호 : </b></div>
-          <div>
-            <input type="password" name="new_password" id="new_password" />
-          </div>
-        </div>
-        <div class="content">
-          <div><b>비밀번호 확인 :</b></div>
-          <div>
-            <input type="password" name="one_more" id="one_more" />
-          </div>
-        </div>
-        <div>
-          <input type="button" value="변경하기" class="add" id="modify_pwd" />
-        </div>
-      </div>
-    </div>
-    <footer>
-      <div class="inner">
-        <div class="upper">
-          <h1>DO YOURSELF or USE SERVICE</h1>
-        </div>
-        <div class="lower">
-          <address>
-            대전광역시 서구 둔산동 1524 <br />
-            TEL : 03-111-1234 C.P : 010-1234-5678
-          </address>
-          <p>
-            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-            reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-    <div class="pop-up-background1"></div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="/js/edit_profile.js"></script>
-  <script src="/js/header.js"></script>
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/edit_profile.js"></script>
+    <script src="/js/header.js"></script>
+  </body>
 </html>
