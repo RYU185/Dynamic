@@ -1,17 +1,17 @@
 @charset 'utf-8';
 
 @font-face {
-  font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
-    format("woff2");
+  font-family: 'NanumHumanTTFBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
+    format('woff2');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,7 +19,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "NanumHumanTTFBold", "GmarketSansMedium";
+  font-family: 'NanumHumanTTFBold', 'GmarketSansMedium';
 }
 
 ul,
@@ -52,7 +52,7 @@ body {
 
   font-size: 30px;
   font-weight: 800;
-  font-family: "GmarketSansMedium";
+  font-family: 'GmarketSansMedium';
   color: #ffff;
 
   text-align: center;
@@ -73,7 +73,7 @@ section .titlewrap .main_title {
 
 .title-wrap .main_title h1 {
   width: 100%;
-  font-family: "GmarketSansMedium";
+  font-family: 'GmarketSansMedium';
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
@@ -100,7 +100,7 @@ main .inner .main_title {
 }
 
 main .inner .main_title h1 {
-  font-family: "GmarketSansMedium";
+  font-family: 'GmarketSansMedium';
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
@@ -315,6 +315,41 @@ main .inner .detail_box .comment_list .write_box .write .press footer .inner {
   width: 10%;
 }
 
+/* 다시 */
+main .inner .detail_box .upper {
+  margin-top: 0px;
+  width: 100%;
+  /* display: flex;
+  justify-content: end;
+  margin: 0px 0px 0px 0px; */
+}
+
+main .inner .detail_box .upper .searchBar {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  top: 10px;
+  gap: 10px;
+}
+
+main .inner .detail_box .upper .searchBar img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+main .inner .detail_box .upper .searchBar img:hover {
+  width: 40px;
+  height: 40px;
+}
+
+main .inner .detail_box .upper .searchBar #modify_board,
+#delete_board {
+  /* display: none; */
+}
+
 .pop-up-background1 {
   width: 100%;
   height: 100%;
@@ -453,7 +488,7 @@ footer .inner .upper ul {
 }
 
 footer .inner .upper::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -464,7 +499,7 @@ footer .inner .upper ul li {
 }
 
 footer .inner .upper ul::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
