@@ -58,12 +58,9 @@ body {
     align-content: center;
 }
 
-/* section */
+/*  */
 
-section {
-    width: 100%;
-    padding-top: 20px;
-}
+
 
 main {
     margin-top: 50px;
@@ -173,3 +170,343 @@ main .inner .upper .searchBar p input:focus::placeholder {
     color: transparent;
 }
 
+  .allCourse .courseList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0px auto;
+  }
+  
+    .allCourse .courseList .course {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .arrow {
+    width: 50px;
+    height: 50px;
+    background-color: #c1d3f3;
+    line-height: 320px;
+    margin: 20px 20px;
+    border: none;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+    .allCourse .courseList .course .arrow img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+    .allCourse .courseList .course article {
+    width: 280px;
+    height: 390px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #25a8ff;
+    justify-content: center;
+  }
+  
+    .allCourse .courseList .course article .thumbnail {
+    width: 100%;
+    height: 160px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+    .allCourse .courseList .course article .thumbnail img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+  }
+  
+    .allCourse .courseList .course article h2 {
+    font: bold 20px/1 "arial";
+  
+    text-align: left;
+    margin-left: 15px;
+  }
+  
+    .allCourse .courseList .course article div span {
+    text-align: left;
+  }
+  
+    .allCourse .courseList .course article p {
+    font: small 9px/1 "arial";
+    text-align: left;
+    margin-left: 15px;
+  }
+  
+  article button {
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #000149;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  .btnInCart,
+  .btnPurchase {
+    margin: 20px;
+    width: 80px;
+    height: 50px;
+    font: bold 15px black;
+  }
+  
+  article button:hover {
+    background-color: #0064a7;
+  }
+  
+  .allSubsc {
+    width: 100%;
+  }
+  
+  .allSubsc .subscList {
+    width: 100%;
+    margin: 0px auto;
+    padding: 25px 0 25px 0;
+  }
+  
+  .allSubsc .subscList .subsc {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .allSubsc .subscList .subsc .arrow img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .allSubsc .subscList .subsc article {
+    width: 280px;
+    height: 390px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #25a8ff;
+    justify-content: center;
+  }
+  
+  .allSubsc .subscList .subsc article .thumbnail {
+    width: 100%;
+    height: 160px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .allSubsc .subscList .subsc article .thumbnail img {
+    object-fit: cover;
+    border: 2px solid #0241b6;
+    border-radius: 20px;
+    width: 90%;
+    height: 90%;
+  }
+  
+  .subsc article .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .subsc article h2 {
+    text-align: center;
+    clear: both;
+  }
+  
+  .subsc article p {
+    text-align: left;
+    padding: 15px;
+  }
+  
+  footer {
+    position: relative;
+    margin-top: 5rem;
+    border-top: 1px solid #888;
+    width: 100%;
+  }
+  
+  footer .inner {
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    /* 좌우로 정렬 */
+    align-items: center;
+    margin: 0 auto;
+    height: 100px;
+  }
+  
+  footer .inner .upper {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  
+  footer .inner .upper h1 {
+    float: left;
+    font: bold 24px "arial";
+    color: #666;
+  }
+  
+  footer .inner .upper ul {
+    float: right;
+  }
+  
+  footer .inner .upper::after {
+    /* 상단 영역 float 해제 */
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  footer .inner .upper ul li {
+    float: left;
+    margin-left: 30px;
+  }
+  
+  footer .inner .upper ul::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  footer .inner .upper ul li a {
+    font: bold 14px/1 "arial";
+    color: #666;
+  }
+  
+  footer .inner .lower {
+    width: 100%;
+  }
+  
+  footer .inner .lower address {
+    width: 100%;
+    font: 12px/1.3 "arial";
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  footer .inner .lower p {
+    width: 100%;
+    font: 12px/1 "arial";
+    color: #777;
+  }
+  
+  .purchaseConfirm {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    width: 300px;
+    background: rgb(119, 38, 38);
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: none;
+  }
+  
+  .purchaseConfirm .close {
+    display: flex;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .purchaseConfirm .close img {
+    object-fit: cover;
+    width: 90%;
+    height: 90%;
+  }
+  
+  .product_detail {
+    position: absolute;
+    background: rgba(168, 168, 168, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+  }
+  
+  .product_add {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    border: 1px solid #000;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 300px;
+    border-radius: 5px;
+  }
+
+  .pop-up {
+    position: absolute;
+    top: 10%;
+    left:28%;
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 35rem;
+    height: 40rem;
+    z-index: 2;
+  }
+
+  .pop-up-title {
+    margin: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pop-up img {
+    width: 1.4rem;
+    height: 2rem;
+    object-fit: cover;
+  }
+
+  .content_box {
+    height: auto;
+    margin: 1.25rem;
+  }
+
+  .content {
+    margin-bottom: 2rem;
+  }
+
+  .write, .text_content {
+    border: 1px solid #000;
+    outline: none;
+    padding: .25rem;
+  }
+
+  .date .add_product {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    outline: none;
+    padding: .2rem;
+  }
