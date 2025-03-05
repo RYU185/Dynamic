@@ -166,8 +166,44 @@ function AllData(response) {
       });
     }
   });
+  $(document).on('click', '.modify', function (e) {
+    e.target;
 
+    const name = document.querySelector('#name1').value.trim();
+    const position = document.querySelector('#position1').value.trim();
+    const department = document.querySelector('#department1').value.trim();
+    const phone = document.querySelector('#phone1').value.trim();
+    const hourly_rate =
+      document.querySelector('#hourly_rate1').value.trim().replace(/,/g, '') ||
+      0;
+    const birthday = document.querySelector('.birthday').value;
+    const hiredate = document.querySelector('.hiredate').value;
+    const employee_id = document.querySelector('#employee_id').value;
 
+    var sendData = {
+      id: employee_id,
+      name: name,
+      department: department,
+      position: position,
+      hourlyRate: hourly_rate,
+      birthday: birthday,
+      hireDate: hiredate,
+      phoneNumber: phone,
+    };
+    console.log(sendData);
+
+    $.ajax({
+      url: '/api/employee/update',
+      method: 'PUT',
+      data: JSON.stringify(sendData),
+      contentType: 'application/json',
+      success: function (response) {
+        console.log(response);
+        alert('직원이 정상 수정되었습니다.');
+        window.location.href = 'my_employee.html';
+      },
+    });
+  });
   document.querySelector('.add').addEventListener('click', function () {
     const name = document.querySelector('#name').value.trim();
     const birthday = document.querySelector('#birthday').value;
@@ -236,6 +272,8 @@ function AllData(response) {
     }
   });
 }
+
+
 
 function formatSpecificCells() {
   // 'price' 클래스를 가진 td 요소만 선택
