@@ -159,25 +159,9 @@ main .inner .main_box table tr td {
   font-weight: 500;
 }
 
-main .inner .main_box table tr td:first-child {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-main .inner .main_box table tr:hover {
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
-  transform: translateY(-3px);
-}
-
-main .inner .main_box table tr:hover td {
-  background-color: #fff;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-main .inner .main_box table tr:first-child:hover {
-  transform: none;
-  box-shadow: none;
+main .inner .main_box table tr td:hover {
+  color: #777;
+  cursor: pointer;
 }
 
 main .inner .detail_box {
@@ -211,11 +195,18 @@ main .inner .detail_box .description {
 }
 
 main .inner .detail_box .date {
-  font-size: 15px;
+  width: 100%;
+  /* border: 1px solid black; */
+  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .inner .detail_box .date div {
+  font-size: 14px;
   font-weight: 500;
-  position: absolute;
-  top: 80px;
-  left: 25px;
+  padding-left: 10px;
+  color: rgb(22, 22, 22);
 }
 
 main .inner .detail_box .comment_list {
@@ -226,6 +217,7 @@ main .inner .detail_box .comment_list {
   background-color: white;
   padding: 20px;
   margin: 0 auto;
+  margin-top: 10px;
   font-size: 18px;
   font-weight: 500;
 }
@@ -242,7 +234,7 @@ main .inner .detail_box .comment_list .comment_box {
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  margin-top: 5px;
+  margin-top: 10px;
   background-color: rgb(237, 236, 236);
   display: flex;
   flex-wrap: nowrap;
@@ -253,6 +245,7 @@ main .inner .detail_box .comment_list .comment_box .name {
   font-size: 15px;
   text-align: center;
   line-height: 30px;
+  margin-left: 10px;
   width: 10%;
 }
 
@@ -271,13 +264,14 @@ main .inner .detail_box .comment_list .comment_box .comment {
 }
 
 main .inner .detail_box .comment_list .comment_box .delete_comment {
-  margin-top: 5px;
+  margin-top: 20x;
   display: none;
 }
 
 main .inner .detail_box .comment_list .comment_box .delete_comment img {
   width: 20px;
-  height: 20px;
+  height: 30px;
+  margin-right: 10px;
   object-fit: contain;
   cursor: pointer;
 }
@@ -287,7 +281,7 @@ main .inner .detail_box .comment_list .write_box {
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  margin-top: 45px;
+  margin-top: 20px;
   background-color: rgb(237, 236, 236);
 }
 
@@ -310,7 +304,7 @@ main .inner .detail_box .comment_list .write_box .write .write_comment {
   font-size: 15px;
   line-height: 30px;
   outline: none;
-  width: 90%;
+  width: 93%;
   margin-left: 10px;
 }
 
