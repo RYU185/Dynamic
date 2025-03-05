@@ -250,7 +250,6 @@ section .cardwrap .card .pic img {
 }
 
 footer {
-  position: relative;
   margin-top: 5rem;
   border-top: 1px solid #888;
   width: 100%;
@@ -282,7 +281,6 @@ footer .inner .upper ul {
 }
 
 footer .inner .upper::after {
-  /* 상단 영역 float 해제 */
   content: "";
   display: block;
   clear: both;

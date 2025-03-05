@@ -185,7 +185,7 @@ main .inner .detail_box .description {
   width: 85%;
   height: 150px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: white;
   padding: 20px;
   color: rgb(22, 22, 22);
@@ -196,9 +196,9 @@ main .inner .detail_box .description {
 
 main .inner .detail_box .date {
   width: 100%;
-  /* border: 1px solid black; */
-  text-align: right;
+  justify-content: end;
   display: flex;
+  padding-right: 70px;
   flex-wrap: wrap;
 }
 
