@@ -286,11 +286,6 @@ main .inner .upper .searchBar p input:focus::placeholder {
   margin-top: 30px;
 }
 
-.main_box .subscription_box .subtitle {
-  display: inline-block;
-
-}
-
 .main_box .subscription_box .box2 {
   width: 21.875rem;
   height: 11rem;
@@ -298,9 +293,10 @@ main .inner .upper .searchBar p input:focus::placeholder {
   background-color: #ffffff;
   border: 1px solid #9f9f9f;
   border-radius: .3125rem;
-  display: flex;
   flex-direction: column;
   position: relative;
+  display: flex;
+  text-align: left;
 }
 
 .main_box .subscription_box .box2 .img {
@@ -326,18 +322,19 @@ main .inner .upper .searchBar p input:focus::placeholder {
   font-size: 1.2rem;
   margin-bottom: 16px;
   margin-left: 30px;
-  justify-content: start;
   width: 100%;
-  display: flex ;
+  display: flex;
+  align-items: center;
+
 }
 
 .main_box .subscription_box .box2 .price_wrap {
-  display: flex;
-  font-size: 1rem;
-  color: #000000;
-  margin-left: 30px;
-  justify-content: start;
   width: 100%;
+  margin-bottom: 1rem;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 30px;
 }
 
 .main_box .subscription_box .box2 .cart1 {
@@ -360,9 +357,6 @@ main .inner .upper .searchBar p input:focus::placeholder {
   background-color: #939393;
   cursor: pointer;
 }
-
-
-
 
 footer .inner {
   padding-top: 50px;
