@@ -114,9 +114,10 @@ section .titlewrap .searchBar p input {
   width: 250px;
   height: 40px;
   font-family: "GmarketSansMedium";
+  padding: 0 15px 0 15px;
   border: 2px solid #0241b6;
   border-radius: 8px;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 section .titlewrap .searchBar img {
