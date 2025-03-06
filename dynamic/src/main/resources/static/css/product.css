@@ -48,19 +48,15 @@ body {
     padding: 20px;
     background-color: #f6f8fc;
     background-image: linear-gradient(45deg, #e9f5ff, #dae7ff, #fff);
-
     font-size: 30px;
     font-weight: 800;
     font-family: "GmarketSansMedium";
     color: #ffff;
-
     text-align: center;
     align-content: center;
 }
 
-/*  */
-
-
+/* main */
 
 main {
     margin-top: 50px;
@@ -79,7 +75,6 @@ main .inner {
 
 .upper {
     margin-top: 5px;
-    width: 100%;
     height: 50px;
     /* border: 1px solid black; */
     display: flex;
@@ -88,23 +83,28 @@ main .inner {
 }
 
 .title-wrap {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+
+  width: 100%;
 }
 
 .title-wrap .main_title {
-    align-items: center;
+  flex-grow: 1;
+  text-align: center;
 }
 
 .main_title h1 {
+    width: 100%;
     font-family: "GmarketSansMedium";
     font-size: 3rem;
     font-weight: 900;
     color: #050505ee;
     position: relative;
     z-index: 1;
+    display: block;
+    text-align: center;
 }
 
 .searchBar {
@@ -473,6 +473,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
     width: 35rem;
     height: 40rem;
     z-index: 2;
+    display: none;
   }
 
   .pop-up-title {
