@@ -22,6 +22,7 @@ $(document).ready(function () {
                                                 <h1>${element.product.title}</h1>
                                                 <p>가격: ${element.product.price}원</p>
                                             </div>
+                                            <img src="/img/X.png" alt="취소 버튼" class="x_btn"/>
                                         </div>
                                         `);
                     if (element.product.category.name === "강의") {
