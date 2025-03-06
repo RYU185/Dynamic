@@ -42,7 +42,6 @@ $(document).ready(function () {
                     } else {
                         $("#subscCartList").append($row1);
                     }
-
                     const delete_course = $row.find('.x_btn');
                     delete_course.on('click', function (e) {
                         const button = e.target;
@@ -125,22 +124,6 @@ $(".btn-purchase").on("click", function () {
         },
     })
 })
-
-// function updateCartSummary() {
-//     let totalCount = cartItem.length;
-//     let totalPrice = 0;
-
-
-//     for (let i = 0; i < cartItem.length; i++) {
-//         let product = productData[cartItem[i].productId];
-//         if (product) {
-//             totalPrice += product.price;
-//         }
-//     }
-
-//     $(".calc-all p").text(`총${totalCount}개`);
-//     $(".calc-all h1").text(`${totalPrice}원`);
-// }
 
 
 
