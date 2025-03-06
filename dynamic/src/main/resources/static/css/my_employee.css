@@ -186,6 +186,7 @@ main .inner .upper .searchBar .write:hover {
   padding: 5px;
   font-size: 20px;
   border-bottom: 2px solid #6d6d6d;
+  pointer-events: none;
 }
 
 .table_wrap .employee_table tr {
@@ -196,7 +197,7 @@ main .inner .upper .searchBar .write:hover {
   background-color: rgb(244, 243, 243);
 }
 
-.table_wrap .employee_table tr:not(:first-child):hover {
+.table_wrap .employee_table tr:hover {
   background-color: #c5d9ff;
   border: 2px solid #fff;
   color: black;
