@@ -253,10 +253,11 @@ main .inner .upper .searchBar p input:focus::placeholder {
   border-radius: 5px;
   border: 1px solid rgb(174, 174, 174);
   cursor: pointer;
+  transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
 }
 
 .main_box #course_box .box1 .cart:hover {
-  border: none;
+  border: white;
   color: white;
   background-color: #939393;
   cursor: pointer;
@@ -284,10 +285,10 @@ main .inner .upper .searchBar p input:focus::placeholder {
 }
 
 .main_box .subscription_box .box2 .img {
-  width: 100%;
-  padding-top: 56.25%;
-  margin: 1rem;
+  width: 10rem;
+  height: 4rem;
   position: relative;
+  margin-bottom: 30px;
 }
 
 
@@ -303,26 +304,41 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 .main_box .subscription_box .box2 .title {
   color: #000000;
-  font-size: 25px;
-  margin: 1rem 0 1rem 0;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  margin-left: 30px;
+  justify-content: start;
+  width: 100%;
 
 }
 
 .main_box .subscription_box .box2 .amount {
   display: flex;
-  font-size: 25px;
+  font-size: 1rem;
   color: #000000;
+  margin-left: 30px;
+  justify-content: start;
+  width: 100%;
 }
 
 .main_box .subscription_box .box2 .cart1 {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  font-size: 18px;
+  font-size: 1rem;
   background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  color: rgb(57, 57, 57);
   padding: 0.5rem 1rem;
+  border: 1px solid rgb(174, 174, 174);
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+}
+
+.main_box .subscription_box .box2 .cart1:hover{
+  border: white;
+  color: white;
+  background-color: #939393;
   cursor: pointer;
 }
 
