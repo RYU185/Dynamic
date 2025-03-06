@@ -253,7 +253,7 @@ main .pop-up1 {
   padding-top: 15px;
 
   background-color: #f1f6f7;
-  width: 43%;
+  width: 400px;
   height: 530px;
   text-align: center;
   position: relative;
@@ -282,21 +282,19 @@ main .pop-up1 {
 }
 
 main .content_box {
-  margin: 20px;
-  /* border: 1px solid rgb(236, 236, 236); */
+  margin: 0 auto;
   width: 90%;
-  height: 400px;
+  height: 80%;
   position: relative;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 1.2rem;
   font-weight: 500;
   background-color: white;
-  /* border-radius: 30px; */
 }
 
 main .content_box .content {
   /* border: 1px solid black; */
   width: 100%;
-  height: 30px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -306,6 +304,9 @@ main .content_box .content div {
   padding-left: 10px;
   border: none;
   outline: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: left;
 }
 
 main .content_box .content .text {
@@ -317,7 +318,7 @@ main .content_box .content .text {
 
 main .content_box .date {
   position: absolute;
-  bottom: 10px;
+  bottom: 35px;
   /* border: 1px solid black; */
   display: flex;
   flex-wrap: wrap;
@@ -338,13 +339,13 @@ main .content_box .date div:nth-child(2) {
 }
 
 main .content_box .date .add {
-  width: 150px;
+  width: 100px;
   height: 40px;
-  margin-left: 150px;
-  font-size: 25px;
+  margin-left: 200px;
+  font-size: 1.2rem;
   font-weight: 400;
   background-color: rgba(58, 58, 58, 0.1);
-  border-radius: 15px;
+  border-radius: 10px;
   color: rgb(117, 117, 117);
   margin-top: 50px;
   border: none;

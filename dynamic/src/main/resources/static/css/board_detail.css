@@ -365,13 +365,13 @@ main .pop-up1 {
   padding-top: 15px;
   /* border: 1px solid black; */
   background-color: #f1f6f7;
-  width: 43%;
+  width: 400px;
   height: 530px;
   text-align: center;
   position: relative;
   display: none;
-  margin-left: 300px;
 }
+
 
 main .pop-up1>img {
   width: 15px;
@@ -395,12 +395,12 @@ main .pop-up1 {
 }
 
 main .content_box {
-  margin: 20px;
-
+  margin: 0 auto;
   width: 90%;
-  height: 450px;
+  height: 80%;
   position: relative;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 1.2rem;
   font-weight: 500;
   background-color: white;
 }
@@ -408,7 +408,6 @@ main .content_box {
 main .content_box .content {
   /* border: 1px solid black; */
   width: 100%;
-  height: 30px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -418,6 +417,9 @@ main .content_box .content div {
   padding-left: 10px;
   border: none;
   outline: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: left;
 }
 
 main .content_box .content .text {
@@ -451,12 +453,12 @@ main .content_box .date div:nth-child(2) {
 
 main .content_box .date .add {
   width: 100px;
-  height: 35px;
-  margin-left: 170px;
-  font-size: 20px;
-  font-weight: 500;
+  height: 40px;
+  margin-left: 200px;
+  font-size: 1.2rem;
+  font-weight: 400;
   background-color: rgba(58, 58, 58, 0.1);
-  border-radius: 15px;
+  border-radius: 10px;
   color: rgb(117, 117, 117);
   margin-top: 50px;
   border: none;
