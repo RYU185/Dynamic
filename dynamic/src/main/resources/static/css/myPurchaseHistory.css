@@ -89,7 +89,7 @@ section .myCoursePurchaseHistory .wrapCourse h1 {
   font-family: "GmarketSansMedium";
   font-size: 45px;
   color: #0241b6;
-  padding: 16px 0 16px 0;
+  margin-top: 25px;
   margin-left: 100px;
 }
 
