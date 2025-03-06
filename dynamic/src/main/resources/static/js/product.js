@@ -20,8 +20,8 @@ $(document).ready(function () {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                      <div class ="title_wrap">제목 : </div><span class="title">${element.title}</span>
-                      <div class "price_wrap">가격 : </div><span class="price"> ${element.price}</span>
+                      <div class ="title_wrap"><div>제목 : </div><span class="title">${element.title}</span></div>
+                      <div class ="price_wrap"><div>가격 : </div><span class="price"> ${element.price}</span></div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
@@ -217,8 +217,8 @@ document
                     alert('제품이 정상 등록되었습니다.');
                     var $row = $(`<div class="box1" id="${response.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                        <div class ="title_wrap">제목 : </div><div class="title">${response.title}</div>
-                        <div class ="price_wrap">가격 : </div><div class="price">${response.price}</div>
+                      <div class ="title_wrap"><div>제목 : </div><span class="title">${response.title}</span></div>
+                      <div class ="price_wrap"><div>가격 : </div><span class="price"> ${response.price}</span></div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row);
@@ -242,8 +242,8 @@ function submit_go() {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                      <div class ="title_wrap">제목 : </div><span class="title">${element.title}</span>
-                      <div class "price_wrap">가격 : </div><span class="price"> ${element.price}</span>
+                      <div class ="title_wrap"><div>제목 : </div><span class="title">${element.title}</span></div>
+                      <div class ="price_wrap"><div>가격 : </div><span class="price"> ${element.price}</span></div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row);

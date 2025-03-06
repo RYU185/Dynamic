@@ -213,47 +213,41 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 .main_box #course_box .box1 .img {
   width: 90%;
-  padding-top: 56.25%;
   margin: 1rem;
+  padding-top: 56.25%;
   position: relative;
   object-fit: cover;
 }
 
 .main_box #course_box .box1 .img img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .main_box #course_box .box1 .title_wrap {
-  margin-bottom: 1rem;
-  justify-content: flex-start;
-  text-align: left;
-  display: flex;
   width: 100%;
   margin-left: 30px;
-  display: inline-block;
-  width: 15%;
-
+  margin-bottom: 1rem;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .main_box #course_box .box1 .title {
   color: #000;
-  font-size: 1.2rem;
-
 }
 
 .main_box #course_box .box1 .price_wrap {
+  width: 100%;
   margin-bottom: 1rem;
-  justify-content: flex-start;
   text-align: left;
   display: flex;
-  width: 100%;
+  justify-content: flex-start;
   margin-left: 30px;
-  display: inline-block;
 }
 
 .main_box #course_box .box1 .price {
@@ -282,6 +276,89 @@ main .inner .upper .searchBar p input:focus::placeholder {
   cursor: pointer;
 }
 
+.main_box .subscription_box {
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+}
+
+.main_box .subscription_box .subtitle {
+  display: inline-block;
+
+}
+
+.main_box .subscription_box .box2 {
+  width: 21.875rem;
+  height: 11rem;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #9f9f9f;
+  border-radius: .3125rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main_box .subscription_box .box2 .img {
+  width: 10rem;
+  height: 4rem;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+
+.main_box .subscription_box .box2 .img img {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.main_box .subscription_box .box2 .title_wrap {
+  color: #000000;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  margin-left: 30px;
+  justify-content: start;
+  width: 100%;
+  display: flex ;
+}
+
+.main_box .subscription_box .box2 .price_wrap {
+  display: flex;
+  font-size: 1rem;
+  color: #000000;
+  margin-left: 30px;
+  justify-content: start;
+  width: 100%;
+}
+
+.main_box .subscription_box .box2 .cart1 {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: rgb(57, 57, 57);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(174, 174, 174);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+}
+
+.main_box .subscription_box .box2 .cart1:hover{
+  border: white;
+  color: white;
+  background-color: #939393;
+  cursor: pointer;
+}
 
 
 
