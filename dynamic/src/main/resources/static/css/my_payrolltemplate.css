@@ -89,6 +89,7 @@ section {
 section .title-wrap .title h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
+  margin-left: 20px;
   text-align: center;
   font-weight: 900;
   color: #0241b6;
@@ -242,8 +243,8 @@ main .inner .main_box .day_box .day_content .description {
   padding: 5px;
 }
 
-.table_wrap .employee_table tr:nth-child(2n){
-    background-color: rgb(244, 243, 243);
+.table_wrap .employee_table tr:nth-child(2n) {
+  background-color: rgb(244, 243, 243);
 }
 
 .table_wrap .employee_table tr:hover {
@@ -252,10 +253,8 @@ main .inner .main_box .day_box .day_content .description {
   color: black;
 }
 
-
-
 .table_wrap .employee_table tr {
-  transition: background 0.3s, color 0.3s;  
+  transition: background 0.3s, color 0.3s;
 }
 
 .table_wrap .employee_table td:nth-child(1) {
