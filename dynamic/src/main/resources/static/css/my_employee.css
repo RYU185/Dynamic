@@ -145,6 +145,7 @@ main .inner .upper .searchBar p input::placeholder {
   color: #465c6b;
   font-size: 16px;
   font-weight: 500;
+  padding-left: .9375rem;
 }
 
 main .inner .upper .searchBar p input:focus::placeholder {
