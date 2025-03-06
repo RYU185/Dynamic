@@ -4,6 +4,10 @@ const existBusinessOperator = sessionStorage.getItem('existBusinessOperator');
 if (userRole === 'admin') {
     document.querySelector('#add_course').style.display = 'inline';
 }
+
+
+
+
 // db랑 front랑 연결하는 코드
 $(document).ready(function () {
     $.ajax({
@@ -16,8 +20,8 @@ $(document).ready(function () {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                      <div class="title">제목 : ${element.title}</div>
-                      <div class="amount">가격 : ${element.price}</div>
+                      <div >제목 : </div> <div class="title">${element.title}</div>
+                      <div>가격 : </div> <div class="amount"> ${element.price}</div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
@@ -25,12 +29,23 @@ $(document).ready(function () {
                     cart.on('click', function (e) {
                         const button = e.target;
                         const parent = button.closest('.box1');
+                        const div = button.closest('div');
+                        const title = div.querySelector('.title');
+                        const price = div.querySelector('.price');
                         console.log(parent.id);
+
+                        var sendData = {
+                            type: 'course',
+                            id: parent.id,
+                            price: price.innerText,
+                            category: '강의',
+                            title: title.innerText,
+                        };
 
                         var sendData = {
                             cartId: 0,
                             userName: userRole,
-                            productId: parent.id,
+                            product: sendData,
                         };
                         $.ajax({
                             url: 'api/cart/product-id/' + parent.id,
