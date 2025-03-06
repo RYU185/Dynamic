@@ -265,7 +265,7 @@ function AllData(response) {
             </td>
         </tr>`);
           $('tbody').append($row);
-          window.location.href = '/my_employee.html';
+          window.location.href = 'my_employee.html';
         },
       });
     }
