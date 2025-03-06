@@ -147,15 +147,33 @@
                 <div class="content_box">
                     <div class="content">
                         <div><b>제목 :</b></div>
-                        <div contenteditable="true" class="write"></div>
+                        <div>
+                            <input type="text" name="title" id="title" class="write" />
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div><b>설명 :</b></div>
+                        <div>
+                            <input type="text" name="description" id="description" class="write" />
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div><b>가격 :</b></div>
+                        <div>
+                            <input type="text" name="price" id="price" class="write" />
+                        </div>
                     </div>
                     <div class="content">
                         <div><b>동영상 :</b></div>
-                        <div contenteditable="true" class="text_content"></div>
+                        <div>
+                            <input type="file" name="video" id="video" class="write" accept="video/*" />
+                        </div>
                     </div>
                     <div class="date">
                         <div><b>등록일자 : </b></div>
-                        <div class="add_date"></div>
+                        <div>
+                            <input type="text" name="add_date" id="add_date" class="date" />
+                        </div>
                         <input type="button" value="등록" class="add_product" />
                     </div>
                 </div>

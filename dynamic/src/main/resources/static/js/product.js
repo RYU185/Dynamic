@@ -19,7 +19,6 @@ $(document).ready(function () {
                         <div class="title">제목 : ${element.title}</div>
                         <div class="amount">가격 : ${element.price}</div>
                        <button class="cart">장바구니</button>
-  <button class="buy">구매</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
 
@@ -158,3 +157,14 @@ document.querySelector('.x_btn').addEventListener('click', function () {
     pop_up.style.display = 'none';
     background.style.display = 'none';
 });
+
+document
+    .querySelector("input[type='button']")
+    .addEventListener('click', function () {
+
+        const title = document.querySelector('#title').value.trim();
+        const text = document.querySelector('#price').value.trim().replace(/,/g, '') ||
+            0;
+        const date = document.querySelector('#add_date').value.trim();
+
+    })
