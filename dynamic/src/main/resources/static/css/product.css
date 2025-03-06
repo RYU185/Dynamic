@@ -115,7 +115,6 @@ main .inner {
 .searchBar {
     width: auto;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     gap: 10px;
 }
@@ -171,177 +170,40 @@ main .inner .upper .searchBar p input:focus::placeholder {
     color: transparent;
 }
 
-  .allCourse .courseList {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    margin: 0px auto;
-  }
-  
-    .allCourse .courseList .course {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .arrow {
-    width: 50px;
-    height: 50px;
-    background-color: #c1d3f3;
-    line-height: 320px;
-    margin: 20px 20px;
-    border: none;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-    .allCourse .courseList .course .arrow img {
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  
-    .allCourse .courseList .course article {
-    width: 280px;
-    height: 390px;
-    background: #ffffff;
-    border-radius: 20px;
-    border: 2px solid #25a8ff;
-    justify-content: center;
-  }
-  
-    .allCourse .courseList .course article .thumbnail {
-    width: 100%;
-    height: 160px;
-    padding-top: 10px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-    .allCourse .courseList .course article .thumbnail img {
-    object-fit: cover;
-    width: 100%;
-    height: auto;
-    max-height: 150px;
-  }
-  
-    .allCourse .courseList .course article h2 {
-    font: bold 20px/1 "arial";
-  
-    text-align: left;
-    margin-left: 15px;
-  }
-  
-    .allCourse .courseList .course article div span {
-    text-align: left;
-  }
-  
-    .allCourse .courseList .course article p {
-    font: small 9px/1 "arial";
-    text-align: left;
-    margin-left: 15px;
-  }
-  
-  article button {
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-    background-color: #000149;
-    opacity: 0.7;
-    cursor: pointer;
-  }
-  
-  .btnInCart,
-  .btnPurchase {
-    margin: 20px;
-    width: 80px;
-    height: 50px;
-    font: bold 15px black;
-  }
-  
-  article button:hover {
-    background-color: #0064a7;
-  }
-  
-  .allSubsc {
-    width: 100%;
-  }
-  
-  .allSubsc .subscList {
-    width: 100%;
-    margin: 0px auto;
-    padding: 25px 0 25px 0;
-  }
-  
-  .allSubsc .subscList .subsc {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .allSubsc .subscList .subsc .arrow img {
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  
-  .allSubsc .subscList .subsc article {
-    width: 280px;
-    height: 390px;
-    background: #ffffff;
-    border-radius: 20px;
-    border: 2px solid #25a8ff;
-    justify-content: center;
-  }
-  
-  .allSubsc .subscList .subsc article .thumbnail {
-    width: 100%;
-    height: 160px;
-    padding-top: 10px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  .allSubsc .subscList .subsc article .thumbnail img {
-    object-fit: cover;
-    border: 2px solid #0241b6;
-    border-radius: 20px;
-    width: 90%;
-    height: 90%;
-  }
-  
-  .subsc article .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .subsc article h2 {
-    text-align: center;
-    clear: both;
-  }
-  
-  .subsc article p {
-    text-align: left;
-    padding: 15px;
-  }
+/* main box */
+
+.main_box {
+  width: 96%;
+  height: auto;
+  border-top: 3px solid black;
+  margin-top: 1rem;
+}
+
+.main_box #course_box{
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main_box #course_box .box1{
+    
+  width: 21.875rem;
+  border: none;
+  background-color: #75c3ff;
+  border-radius: .3125rem;
+}
+
+.main_box #course_box .box1 .img {
+  width: 7.5rem;
+  height: 4.5rem;
+}
+
+.main_box #course_box .box1 .img img {
+  object-fit: cover;
+}
+
+
   
   footer {
     position: relative;
