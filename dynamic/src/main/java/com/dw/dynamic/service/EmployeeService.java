@@ -44,13 +44,9 @@ public class EmployeeService {
     public List<EmployeeDTO> getAllEmployees(HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         try {
-            if (employeeRepository.findByUser(currentUser).isEmpty()) {
-                throw new ResourceNotFoundException("작성한 직원 정보가 없습니다");
-            } else {
-                return employeeRepository.findByUser(currentUser).stream()
-                        .map(Employee::toDTO).toList();
-            }
-        } catch (InvalidRequestException e) {
+            return employeeRepository.findByUser(currentUser).stream()
+                    .map(Employee::toDTO).toList();
+            }catch (InvalidRequestException e) {
             throw new InvalidRequestException("정상적인 요청이 아닙니다");
         }
 
