@@ -16,8 +16,8 @@ $(document).ready(function () {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                        <div class="title">제목 : ${element.title}</div>
-                        <div class="amount">가격 : ${element.price}</div>
+                      <div class="title">제목 : ${element.title}</div>
+                      <div class="amount">가격 : ${element.price}</div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
