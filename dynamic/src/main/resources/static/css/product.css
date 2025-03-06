@@ -20,6 +20,12 @@
     font-family: "NanumHumanTTFBold", "GmarketSansMedium";
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 ul,
 li {
     list-style: none;
@@ -40,6 +46,8 @@ hr {
 
 body {
     position: relative;
+    flex-direction: column;
+    
 }
 
 .wrap > h1 {
@@ -67,6 +75,8 @@ main {
     margin-top: 50px;
     width: 100%;
     position: relative;
+    flex-grow: 1;
+    min-height: 160vh;
 }
 
 main .inner {
@@ -157,7 +167,7 @@ main .inner .upper .searchBar img:hover {
 main .inner .upper .searchBar #modify_notice,
 #add_notice,
 #delete_notice {
-    display: none;
+  display: none;
 }
 
 main .inner .upper .searchBar p input::placeholder {
@@ -189,7 +199,6 @@ main .inner .upper .searchBar p input:focus::placeholder {
 .subtitle {
     grid-column: span 3;
     text-align: start;
-    margin-bottom: 1rem;
 }
 
 .subtitle h1 {
@@ -201,7 +210,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   width: 21.875rem;
   height: 23.25rem;
   align-items: center;
-  background-color: #3563d0;
+  border: 1px solid #9f9f9f;
   border-radius: .3125rem;
   display: flex;
   flex-direction: column;
@@ -225,7 +234,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
 }
 
 .main_box #course_box .box1 .title {
-  color: #ffffff;
+  color: #000;
   font-size: 25px;
   margin-bottom: 1rem;
 }
@@ -233,7 +242,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 .main_box #course_box .box1 .amount {
   font-size: 25px;
-  color: #ffffff;
+  color: #000;
 }
 
 .main_box #course_box .box1 .cart {
@@ -258,9 +267,10 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 .main_box .subscription_box .box2{
   width: 21.875rem;
-  height: 23.25rem;
+  height: 11rem;
   align-items: center;
-  background-color: #3563d0;
+  background-color: #ffffff;
+  border: 1px solid #9f9f9f ;
   border-radius: .3125rem;
   display: flex;
   flex-direction: column;
@@ -286,14 +296,16 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 
 .main_box .subscription_box .box2 .title{
-    color: #ffffff;
+  color: #000000;
   font-size: 25px;
-  margin-bottom: 1rem;
+  margin: 1rem 0 1rem 0;
+
 }
 
 .main_box .subscription_box .box2 .amount{
+  display: flex;
   font-size: 25px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .main_box .subscription_box .box2 .cart1 {
@@ -315,10 +327,11 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
   
   footer {
-    position: relative;
-    margin-top: 5rem;
-    border-top: 1px solid #888;
+    display: block;
     width: 100%;
+    border-top: 1px solid #888;
+    padding: 20px;
+    background-color: #f4f4f4;
   }
   
   footer .inner {
@@ -388,52 +401,6 @@ main .inner .upper .searchBar p input:focus::placeholder {
     color: #777;
   }
   
-  .purchaseConfirm {
-    position: fixed;
-    top: 30%;
-    left: 30%;
-    width: 300px;
-    background: rgb(119, 38, 38);
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 8px;
-    display: none;
-  }
-  
-  .purchaseConfirm .close {
-    display: flex;
-    width: 30px;
-    height: 30px;
-  }
-  
-  .purchaseConfirm .close img {
-    object-fit: cover;
-    width: 90%;
-    height: 90%;
-  }
-  
-  .product_detail {
-    position: absolute;
-    background: rgba(168, 168, 168, 0.8);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    display: block;
-  }
-  
-  .product_add {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    background-color: white;
-    border: 1px solid #000;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    width: 300px;
-    border-radius: 5px;
-  }
 
   .pop-up {
     position: absolute;
@@ -446,7 +413,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
     width: 35rem;
     height: 40rem;
     z-index: 2;
-    display: none;
+    /* display: none; */
   }
 
   .pop-up-title {
