@@ -69,9 +69,7 @@ $(document).ready(function () {
       AllData(response);
       formatSpecificCells();
     },
-    error: function () {
-      $('tbody').empty();
-    }
+
   });
 });
 
@@ -255,7 +253,7 @@ function AllData(response) {
         contentType: 'application/json',
         success: function (response) {
           alert('직원이 정상 등록되었습니다.');
-          var $row = $(`<tr  class="row" id="${element.id}">
+          var $row = $(`<tr  class="row" id="${response.id}">
           <td >${response.name}</td>
           <td class="birthday">${response.birthday}</td>
           <td class="hire_date">${response.hireDate}</td>
@@ -268,7 +266,7 @@ function AllData(response) {
             </td>
         </tr>`);
           $('tbody').append($row);
-          window.location.href = 'my_employee.html';
+          window.location.href = '/my_employee.html';
         },
       });
     }
