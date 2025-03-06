@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+// 나의 강의 구매내역 검색
 function submit_go_course(){
   let title = document.querySelector("input[id='courseSearch']");
   var sendData = title.value;
@@ -97,11 +97,12 @@ function submit_go_course(){
         }
       })
     }
-
 $(document).on("click", "#courseSearch", function () {
   submit_go_course();
 });
 
+
+// 나의 구매기록 구독권 조회
 function submit_go_subsc(){
   let title = document.querySelector("input[id='subscSearch']");
   var sendData = title.value;
