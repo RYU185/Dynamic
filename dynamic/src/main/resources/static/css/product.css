@@ -196,6 +196,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
   margin-top: 30px;
 }
 
