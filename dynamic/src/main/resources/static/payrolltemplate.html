@@ -1,235 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>급여명세서</title>
-    <link rel="stylesheet" href="./css/payrolltemplate.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-  </head>
 
-  <body>
-    <div class="wrap">
-      <!-- header -->
-      <header>
-      </header>
-      <hr />
-      <section>
-        <div class="titlewrap">
-          <h1>
-            DO YOURSELF <br />
-            USE SERVICE
-          </h1>
-        </div>
-      </section>
-      <div class="inner">
-        <div class="payrolltemplate">
-          <div contenteditable="true" class="month">2</div>
-          <div class="title">월 급여명세서</div>
-          <table class="template">
-            <tr>
-              <td>성함</td>
-              <td class="element" id="employee_name"></td>
-              <td>직위</td>
-              <td class="element" id="position" colspan="2"></td>
-            </tr>
-            <tr>
-              <td>입사일</td>
-              <td class="element" id="hiredate"></td>
-              <td>부서</td>
-              <td class="element" id="department" colspan="2"></td>
-            </tr>
-            <tr>
-              <td>전화번호</td>
-              <td class="element" id="phone"></td>
-              <td>측정일자</td>
-              <td class="element" id="start_date"></td>
-              <td class="element" id="last_date"></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="division">지급 항목</td>
-              <td colspan="3" class="division">공제 항목</td>
-            </tr>
-            <tr>
-              <td>급여</td>
-              <td>
-                <input type="text" id="salary" name="salary" class="element" />
-              </td>
-              <td>건강보험</td>
-              <td colspan="2">
-                <input
-                  type="text"
-                  id="health_insurance"
-                  name="health_insurance"
-                  class="element"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>인센티브</td>
-              <td>
-                <input type="text" id="bonus" name="bonus" class="element" />
-              </td>
-              <td>국민연금</td>
-              <td colspan="2">
-                <input
-                  type="text"
-                  id="national_pension"
-                  name="national_pension"
-                  class="element"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>식대</td>
-              <td>
-                <input type="text" id="meal" name="meal" class="element" />
-              </td>
-              <td>고용보험</td>
-              <td colspan="2">
-                <input
-                  type="text"
-                  id="employeement_insurance"
-                  name="employeement_insurance"
-                  class="element"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>교통비</td>
-              <td>
-                <input
-                  type="text"
-                  id="transfer"
-                  name="transfer"
-                  class="element"
-                />
-              </td>
-              <td>소득세</td>
-              <td colspan="2">
-                <input
-                  type="text"
-                  id="income_tax"
-                  name="income_tax"
-                  class="element"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>야간수당</td>
-              <td>
-                <input type="text" id="night" name="night" class="element" />
-              </td>
-              <td>지방세</td>
-              <td colspan="2">
-                <input
-                  type="text"
-                  id="local_tax"
-                  name="local_tax"
-                  class="element"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>휴일수당</td>
-              <td>
-                <input
-                  type="text"
-                  id="holiday"
-                  name="holiday"
-                  class="element"
-                />
-              </td>
-              <td>3%</td>
-              <td colspan="2">
-                <input
-                  type="text"
-                  id="freelancer_income"
-                  name="freelancer_income"
-                  class="element"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>기타</td>
-              <td>
-                <input
-                  type="text"
-                  id="other_allowance"
-                  name="other_allowance"
-                  class="element"
-                />
-              </td>
-              <td>0.3%</td>
-              <td colspan="2">
-                <input
-                  type="text"
-                  id="freelancer_local"
-                  name="freelancer_local"
-                  class="element"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2"></td>
-              <td>기타</td>
-              <td colspan="2">
-                <input type="text" id="other" name="other" class="element" />
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2"></td>
-              <td>총 공제액</td>
-              <td >
-                <input
-                type="text"
-                id="total_insurance"
-                name="total_insurance"
-                class="element"
-                readonly
-              />
-              </td>
-            </tr>
-            <tr>
-              <td>총 급여액</td>
-              <td>
-                <input
-                  type="text"
-                  id="total_amount"
-                  name="total_amount"
-                  class="element"
-                  readonly
-          
-                />
-              </td>
-              <td>차인 지급액</td>
-              <td >
-                <input
-                type="text"
-                id="final_payment"
-                name="final_payment"
-                class="element"
-                readonly
-              />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>급여명세서</title>
+  <link rel="stylesheet" href="./css/payrolltemplate.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- header -->
+    <header>
+    </header>
+    <hr />
+    <section>
+      <div class="titlewrap">
+        <h1>
+          DO YOURSELF <br />
+          USE SERVICE
+        </h1>
+      </div>
+    </section>
+    <div class="inner">
+      <div class="payrolltemplate">
+        <div contenteditable="true" class="month">2</div>
+        <div class="title">월 급여명세서</div>
+        <table class="template">
+          <tr>
+            <td>성함</td>
+            <td class="element" id="employee_name" colspan="2"></td>
+            <td>직위</td>
+            <td class="element" id="position" colspan="2"></td>
+          </tr>
+          <tr>
+            <td>입사일</td>
+            <td class="element" id="hiredate" colspan="2"></td>
+            <td>부서</td>
+            <td class="element" id="department" colspan="2"></td>
+          </tr>
+          <tr>
+            <td>전화번호</td>
+            <td class="element" id="phone" colspan="2"></td>
+            <td>측정일자</td>
+            <td class="element" id="start_date"></td>
+            <td class="element" id="last_date"></td>
+          </tr>
+          <tr>
+            <td colspan="3" class="division">지급 항목</td>
+            <td colspan="3" class="division">공제 항목</td>
+          </tr>
+          <tr>
+            <td>급여</td>
+            <td colspan="2">
+              <input type="text" id="salary" name="salary" class="element" />
             </td>
-              </td>
-            </tr>
-            <tr>
-              <td>회사명</td>
-              <td class="total" id="company_name"></td>
-              <td>지급일</td>
-              <td class="total" id="payment_date" colspan="2" readonly></td>
-            </tr>
-          </table>
-          <div class="buttom">
-            <input type="button" id="send" value="저장" />
-            <input type="button" id="reset" value="취소" />
-            <span id="limit_name" style="display: inline">
-              무료횟수
-              <p id="limit_num" style="display: block"></p
-            ></span>
-          </div>
+            <td>건강보험</td>
+            <td colspan="2">
+              <input type="text" id="health_insurance" name="health_insurance" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td>인센티브</td>
+            <td colspan="2">
+              <input type="text" id="bonus" name="bonus" class="element" />
+            </td>
+            <td>국민연금</td>
+            <td colspan="2">
+              <input type="text" id="national_pension" name="national_pension" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td>식대</td>
+            <td colspan="2">
+              <input type="text" id="meal" name="meal" class="element" />
+            </td>
+            <td>고용보험</td>
+            <td colspan="2">
+              <input type="text" id="employeement_insurance" name="employeement_insurance" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td>교통비</td>
+            <td colspan="2">
+              <input type="text" id="transfer" name="transfer" class="element" />
+            </td>
+            <td>소득세</td>
+            <td colspan="2">
+              <input type="text" id="income_tax" name="income_tax" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td>야간수당</td>
+            <td colspan="2">
+              <input type="text" id="night" name="night" class="element" />
+            </td>
+            <td>지방세</td>
+            <td colspan="2">
+              <input type="text" id="local_tax" name="local_tax" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td>휴일수당</td>
+            <td colspan="2">
+              <input type="text" id="holiday" name="holiday" class="element" />
+            </td>
+            <td>3%</td>
+            <td colspan="2">
+              <input type="text" id="freelancer_income" name="freelancer_income" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td>기타</td>
+            <td colspan="2">
+              <input type="text" id="other_allowance" name="other_allowance" class="element" />
+            </td>
+            <td>0.3%</td>
+            <td colspan="2">
+              <input type="text" id="freelancer_local" name="freelancer_local" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3"></td>
+            <td>기타</td>
+            <td colspan="2">
+              <input type="text" id="other" name="other" class="element" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3"></td>
+            <td>총 공제액</td>
+            <td>
+              <input type="text" id="total_insurance" name="total_insurance" class="element" readonly />
+            </td>
+          </tr>
+          <tr>
+            <td>총 급여액</td>
+            <td colspan="2">
+              <input type="text" id="total_amount" name="total_amount" class="element" readonly />
+            </td>
+            <td>차인 지급액</td>
+            <td>
+              <input type="text" id="final_payment" name="final_payment" class="element" readonly />
+            </td>
+            </td>
+          </tr>
+          <tr>
+            <td>회사명</td>
+            <td class="total" id="company_name" colspan="2"></td>
+            <td>지급일</td>
+            <td class="total" id="payment_date" colspan="2" readonly></td>
+          </tr>
+        </table>
+        <div class="buttom">
+          <input type="button" id="send" value="저장" />
+          <input type="button" id="reset" value="취소" />
+          <span id="limit_name" style="display: inline">
+            무료횟수
+            <p id="limit_num" style="display: block"></p>
+          </span>
         </div>
+      </div>
       <!-- footer -->
       <footer>
         <div class="inner">
@@ -254,5 +186,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/js/payrolltemplate.js"></script>
     <script src="/js/header.js"></script>
-  </body>
+</body>
+
 </html>
