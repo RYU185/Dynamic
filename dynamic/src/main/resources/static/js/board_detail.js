@@ -271,3 +271,8 @@ $(document).on('click', '#delete_board', function () {
     alert('삭제 처리가 취소되었습니다');
   }
 });
+
+
+document.querySelector(".home").addEventListener('click', function () {
+  window.location.href = 'main_board.html';
+});

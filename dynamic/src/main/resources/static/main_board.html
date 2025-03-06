@@ -1,167 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>게시판</title>
-    <link rel="stylesheet" href="css/main_board.css" />
-    <link rel="stylesheet" href="css/header.css" />
-  </head>
 
-  <body>
-    <div class="wrap">
-      <!-- header -->
-      <header></header>
-      <hr />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>게시판</title>
+  <link rel="stylesheet" href="css/main_board.css" />
+  <link rel="stylesheet" href="css/header.css" />
+</head>
 
-      <h1>
-        DO YOURSELF <br />
-        USE SERVICE
-      </h1>
+<body>
+  <div class="wrap">
+    <!-- header -->
+    <header></header>
+    <hr />
 
-      <!-- section -->
-      <section></section>
+    <h1>
+      DO YOURSELF <br />
+      USE SERVICE
+    </h1>
 
-      <main>
-        <div class="inner">
-          <div class="upper">
-            <div class="title-wrap">
-              <div class="main_title">
-                <h1>게시판</h1>
-              </div>
-            </div>
-            <div class="searchBar">
-              <p>
-                <input
-                  type="text"
-                  placeholder="제목을 입력해주세요"
-                  id="search_board"
-                />
-              </p>
-              <img src="./img/search.png" onclick="submit_go()" /><img
-                src="/img/add.png"
-                alt="추가 버튼"
-                id="add_board"
-                style="display: none"
-              />
+    <!-- section -->
+    <section></section>
+
+    <main>
+      <div class="inner">
+        <div class="upper">
+          <div class="title-wrap">
+            <div class="main_title">
+              <h1>게시판</h1>
             </div>
           </div>
-          <div class="main_box">
-            <table>
-              <thead>
-                <tr>
-                  <th>NO.</th>
-                  <th>본문</th>
-                  <th>등록일자</th>
-                  <th>관리자 답변 여부</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-                <tr>
-                  <td class="bold"></td>
-                  <td class="title"></td>
-                  <td class="date"></td>
-                  <td class="answer"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- 공지사항 등록 박스(pop-up) -->
-        <div class="pop-up1">
-          <h1>본문 작성</h1>
-          <img src="/img/X.png" alt="취소 버튼" class="x_btn" />
-          <div class="content_box">
-            <div class="content">
-              <div><b>내용 :</b></div>
-              <div contenteditable="true" class="text_content"></div>
-            </div>
-            <div class="date">
-              <div><b>작성일자 : </b></div>
-              <div class="add_date"></div>
-              <input type="button" value="등록" class="add" />
-            </div>
-          </div>
-        </div>
-      </main>
-      <footer>
-        <div class="inner">
-          <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
-          </div>
-          <div class="lower">
-            <address>
-              대전광역시 서구 둔산동 1524 <br />
-              TEL : 03-111-1234 C.P : 010-1234-5678
-            </address>
+          <div class="searchBar">
             <p>
-              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-              reserved.
+              <input type="text" placeholder="제목을 입력해주세요" id="search_board" />
             </p>
+            <img src="./img/search.png" onclick="submit_go()" /><img src="/img/add.png" alt="추가 버튼" id="add_board"
+              style="display: none" />
           </div>
         </div>
-      </footer>
-    </div>
+        <div class="main_box">
+          <table>
+            <thead>
+              <tr>
+                <th>NO.</th>
+                <th>본문</th>
+                <th>등록일자</th>
+                <th>관리자 답변</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+              <tr>
+                <td class="bold"></td>
+                <td class="title"></td>
+                <td class="date"></td>
+                <td class="answer"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-    <div class="pop-up-background1"></div>
+      <!-- 공지사항 등록 박스(pop-up) -->
+      <div class="pop-up1">
+        <h1>본문 작성</h1>
+        <img src="/img/X.png" alt="취소 버튼" class="x_btn" />
+        <div class="content_box">
+          <div class="content">
+            <div><b>내용 :</b></div>
+            <div contenteditable="true" class="text_content"></div>
+          </div>
+          <div class="date">
+            <div><b>작성일자 : </b></div>
+            <div class="add_date"></div>
+            <input type="button" value="등록" class="add" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
+        </div>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/main_board.js"></script>
-    <script src="/js/header.js"></script>
-  </body>
+  <div class="pop-up-background1"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/main_board.js"></script>
+  <script src="/js/header.js"></script>
+</body>
+
 </html>

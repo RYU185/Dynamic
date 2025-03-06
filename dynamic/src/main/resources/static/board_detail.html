@@ -1,138 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>세부 게시판</title>
-    <link rel="stylesheet" href="css/board_detail.css" />
-    <link rel="stylesheet" href="css/header.css" />
-  </head>
 
-  <body>
-    <div class="wrap">
-      <!-- header -->
-      <header></header>
-      <hr />
-      <h1>
-        DO YOURSELF <br />
-        USE SERVICE
-      </h1>
-      <!-- section -->
-      <section></section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>세부 게시판</title>
+  <link rel="stylesheet" href="css/board_detail.css" />
+  <link rel="stylesheet" href="css/header.css" />
+</head>
 
-      <main>
-        <div class="inner">
-          <div class="main_title">
-            <h1>게시판</h1>
-          </div>
+<body>
+  <div class="wrap">
+    <!-- header -->
+    <header></header>
+    <hr />
+    <h1>
+      DO YOURSELF <br />
+      USE SERVICE
+    </h1>
+    <!-- section -->
+    <section></section>
 
-          <div class="main_box">
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="2">목록</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="detail_box">
-            <div class="upper">
-              <div class="searchBar">
-                <img src="/img/writing.png" alt="수정 버튼" id="modify_board" />
-                <img
-                  src="/img/쓰레기통 새로운거.png"
-                  alt="삭제 버튼"
-                  id="delete_board"
-                />
-              </div>
-            </div>
-            <div class="title">본문 상세 내용</div>
-            <div class="date">
-              <div>등록일 :</div>
-              <div class="add_date"></div>
-              <div>수정일 :</div>
-              <div class="modified_date"></div>
-            </div>
-            <div class="description"></div>
-            <div class="comment_list">
-              <div class="list">
-                <div class="comment_box">
-                  <div class="name"></div>
-                  <div class="push_date"></div>
-                  <div class="comment"></div>
-                  <div class="delete_comment"></div>
-                </div>
-              </div>
-              <div class="write_box">
-                <div class="write">
-                  <!-- <div class="name">유서영</div>
-                  <div class="push_date">2025-02-02</div> -->
-                  <div contenteditable="true" class="write_comment"></div>
-                  <img src="/img/up.png" alt="전송하기" class="press" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="pop-up1">
-            <img src="/img/X.png" alt="취소 버튼" class="x_btn1" />
-            <h1>나의 게시글 수정</h1>
-            <div class="content_box">
-              <div class="content">
-                <div><b>본문 내용 :</b></div>
-                <div contenteditable="true" class="modify_text"></div>
-              </div>
-              <div class="date">
-                <div><b>수정일자 : </b></div>
-                <div class="modify_date"></div>
-                <input type="button" value="등록" class="add" />
-              </div>
-            </div>
-          </div>
+    <main>
+      <div class="inner">
+        <div class="main_title">
+          <h1 class="home">게시판</h1>
         </div>
-      </main>
-      <footer>
-        <div class="inner">
+
+        <div class="main_box">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2">목록</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="detail_box">
           <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
+            <div class="searchBar">
+              <img src="/img/writing.png" alt="수정 버튼" id="modify_board" />
+              <img src="/img/쓰레기통 새로운거.png" alt="삭제 버튼" id="delete_board" />
+            </div>
           </div>
-          <div class="lower">
-            <address>
-              대전광역시 서구 둔산동 1524 <br />
-              TEL : 03-111-1234 C.P : 010-1234-5678
-            </address>
-            <p>
-              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-              reserved.
-            </p>
+          <div class="title">본문 상세 내용</div>
+          <div class="date">
+            <div>등록일 :</div>
+            <div class="add_date"></div>
+            <div>수정일 :</div>
+            <div class="modified_date"></div>
+          </div>
+          <div class="description"></div>
+          <div class="comment_list">
+            <div class="list">
+              <div class="comment_box">
+                <div class="name"></div>
+                <div class="push_date"></div>
+                <div class="comment"></div>
+                <div class="delete_comment"></div>
+              </div>
+            </div>
+            <div class="write_box">
+              <div class="write">
+                <!-- <div class="name">유서영</div>
+                  <div class="push_date">2025-02-02</div> -->
+                <div contenteditable="true" class="write_comment"></div>
+                <img src="/img/up.png" alt="전송하기" class="press" />
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
-    <div class="pop-up-background1"></div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/board_detail.js"></script>
-    <script src="/js/header.js"></script>
-  </body>
+        <div class="pop-up1">
+          <img src="/img/X.png" alt="취소 버튼" class="x_btn1" />
+          <h1>나의 게시글 수정</h1>
+          <div class="content_box">
+            <div class="content">
+              <div><b>본문 내용 :</b></div>
+              <div contenteditable="true" class="modify_text"></div>
+            </div>
+            <div class="date">
+              <div><b>수정일자 : </b></div>
+              <div class="modify_date"></div>
+              <input type="button" value="등록" class="add" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
+        </div>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="pop-up-background1"></div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/board_detail.js"></script>
+  <script src="/js/header.js"></script>
+</body>
+
 </html>

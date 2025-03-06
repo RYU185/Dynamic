@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
-    format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-    format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -43,7 +41,8 @@ hr {
 body {
   position: relative;
 }
-.wrap > h1 {
+
+.wrap>h1 {
   width: auto;
   height: 9rem;
   padding: 20px;
@@ -58,6 +57,7 @@ body {
   text-align: center;
   align-content: center;
 }
+
 /* section */
 
 section {
@@ -92,6 +92,7 @@ main .inner {
   height: 900px;
   position: relative;
 }
+
 main .inner .main_title {
   /* display: block; */
   text-align: left;
@@ -140,7 +141,7 @@ main .inner .main_box table tr {
 main .inner .main_box table tr th {
   border: 1px solid rgba(0, 0, 0, 0.3);
   outline: none;
-  font-size: 30px;
+  font-size: 1.1rem;
   font-weight: 400;
   background-color: #eaf1ff;
   height: 20px;
@@ -155,12 +156,13 @@ main .inner .main_box table tr td {
   text-overflow: ellipsis;
   padding-left: 5px;
   padding-right: 5px;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 main .inner .main_box table tr td:hover {
-  color: #777;
+  color: #040b8e;
+  opacity: 0.7;
   cursor: pointer;
 }
 
@@ -372,7 +374,7 @@ main .pop-up1 {
   margin-left: 300px;
 }
 
-main .pop-up1 > img {
+main .pop-up1>img {
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -381,7 +383,7 @@ main .pop-up1 > img {
   right: 10px;
 }
 
-main .pop-up1 > img:hover {
+main .pop-up1>img:hover {
   background-color: rgb(126, 126, 126);
   color: white;
 }

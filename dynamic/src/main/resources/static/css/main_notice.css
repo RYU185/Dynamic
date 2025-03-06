@@ -228,6 +228,10 @@ main .inner .main_box table tr td:nth-child(3) {
   width: 10px;
 }
 
+main .inner .main_box table tr td:nth-child(1) {
+  width: 100px;
+}
+
 .pop-up-background1,
 .pop-up-background2 {
   width: 100%;
