@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>find id</title>
-    <link rel="stylesheet" href="./css/find_id.css" />
-  </head>
-  <body>
-    <div class="wrap">
-      <div class="main_title">
-        <h1>아이디 찾기</h1>
-      </div>
-      <div class="box">
-        <h1>DO YOURSELF</h1>
-        <h1>USE SERVICE</h1>
-        <div class="informtion_box">
-          <div class="informtion email">
-            <p class="left">이메일</p>
-            <input
-              type="text"
-              class="email_input middle"
-              id="email"
-              placeholder="_ _ _ _ _@_ _ _ _ _.com"
-            />
-            <p class="right" id="duplicate">인증하기</p>
-          </div>
-          <!-- <div class="informtion id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>find id</title>
+  <link rel="stylesheet" href="./css/find_id.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="main_title">
+      <h1>아이디 찾기</h1>
+    </div>
+    <div class="box">
+      <h1>DO YOURSELF</h1>
+      <h1>USE SERVICE</h1>
+      <div class="informtion_box">
+        <div class="informtion email">
+          <p class="left">이메일</p>
+          <input type="text" class="email_input middle" id="email" placeholder="    _ _ _ _ _@_ _ _ _ _.com" />
+          <p class="right" id="duplicate">인증하기</p>
+        </div>
+        <!-- <div class="informtion id">
             <p class="left">인증번호</p>
             <input
               type="text"
@@ -35,16 +32,11 @@
             />
             <p class="right" id="finish">인증완료</p>
           </div> -->
-          <div class="informtion id" id="id_box">
-            <p class="left">나의 아이디</p>
-            <input
-              type="text"
-              class="myid middle"
-              id="myid"
-            readonly
-            />
-            <p class="right" id="copy">복사</p>
-          </div>
+        <div class="informtion id" id="id_box">
+          <p class="left">나의 아이디</p>
+          <input type="text" class="myid middle" id="myid" readonly />
+          <p class="right" id="copy">복사</p>
+        </div>
 
         <div class="last_box">
           <div class="button cancel" id="reset">취소</div>
@@ -55,6 +47,6 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/js/find_id.js"></script>
-  </body>
-  
-  </html>
+</body>
+
+</html>

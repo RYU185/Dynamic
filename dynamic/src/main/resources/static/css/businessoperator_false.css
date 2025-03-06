@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
-    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -22,16 +20,20 @@
   font-family: "NanumHumanTTFBold", "GmarketSansMedium";
   box-sizing: border-box;
 }
+
 ul,
 li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }
+
 input:focus {
   outline: none;
 }
+
 .wrap {
   margin: 20px 20%;
 }
@@ -40,7 +42,8 @@ input:focus {
   width: 100%;
   text-align: center;
 }
-.wrap .main_title > h1 {
+
+.wrap .main_title>h1 {
   margin-bottom: 30px;
   font-size: 50px;
   color: #353535;
@@ -55,7 +58,7 @@ input:focus {
   background-image: linear-gradient(45deg, #a4d2f8, #7c93be, #fff);
 }
 
-.wrap .box > h1 {
+.wrap .box>h1 {
   width: 100%;
   font-family: "GmarketSansMedium";
   font-size: 45px;
@@ -118,6 +121,7 @@ input:focus {
 .wrap .box .informtion_box form .female {
   width: 50%;
 }
+
 .wrap .box .informtion_box form .male {
   width: 50%;
 }
@@ -151,20 +155,24 @@ input:focus {
   border-radius: 5px;
   padding: 3px;
 }
+
 .wrap .box .informtion_box .id .right:hover {
   border-radius: 5px;
   background: rgb(178, 178, 178);
   cursor: pointer;
   color: #fff;
 }
+
 .wrap .box .informtion_box .planBusiness {
   position: relative;
 }
+
 .wrap .box .informtion_box .planBusiness .box_icon {
   position: absolute;
   font-size: 0.8rem;
   right: 0px;
 }
+
 .wrap .box .informtion_box .planBusiness .box_icon:hover {
   cursor: pointer;
 }
@@ -187,6 +195,7 @@ input:focus {
   margin: 0 auto;
   margin-top: 20px;
 }
+
 .button {
   width: 50%;
   border-radius: 5px;
@@ -196,8 +205,9 @@ input:focus {
   padding: 10px;
   color: rgb(117, 117, 117);
 }
+
 .button:hover {
   cursor: pointer;
-  background-color: dodgerblue;
+  background-color: rgb(110, 110, 110);
   color: white;
 }
