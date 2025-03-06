@@ -21,7 +21,6 @@ $(document).ready(function () {
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
-
                     const cart = $row.find('.cart');
                     cart.on('click', function (e) {
                         const button = e.target;
@@ -157,14 +156,59 @@ document.querySelector('.x_btn').addEventListener('click', function () {
     pop_up.style.display = 'none';
     background.style.display = 'none';
 });
+$(document).on('input', '#price', function () {
+    let value = $(this)
+        .val()
+        .replace(/[^0-9]/g, ''); // 숫자 외의 문자 제거
+    if (value) {
+        // 3자리마다 ',' 추가
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    $(this).val(value); // 포맷팅된 값을 input에 설정
+});
 
 document
     .querySelector("input[type='button']")
     .addEventListener('click', function () {
 
         const title = document.querySelector('#title').value.trim();
-        const text = document.querySelector('#price').value.trim().replace(/,/g, '') ||
+        const price = document.querySelector('#price').value.trim().replace(/,/g, '') ||
             0;
-        const date = document.querySelector('#add_date').value.trim();
+        const currentDate = (document.querySelector('#add_date').value =
+            new Date().toLocaleString());
+        const description = document.querySelector('#description').value.trim();
 
+        console.log(title, price, description);
+        let count = 7;
+        var sendData = {
+            "type": "course",
+            "id": "C" + count++,
+            "price": price,
+            "category": "강의",
+            "title": title,
+            "description": description
+        }
+        if (
+            price &&
+            title &&
+            description
+        ) {
+            $.ajax({
+                url: '/api/product/save',
+                method: 'POST',
+                data: JSON.stringify(sendData),
+                contentType: 'application/json',
+                success: function (response) {
+                    alert('제품이 정상 등록되었습니다.');
+                    var $row = $(`<div class="box1" id="${response.id}">
+                        <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
+                        <div class="title">제목 : ${response.title}</div>
+                        <div class="amount">가격 : ${response.price}</div>
+                       <button class="cart">장바구니</button>
+                      </div>`);
+                    $('#course_box').append($row);
+                    window.location.href = '/product.html';
+                },
+            });
+        }
     })
