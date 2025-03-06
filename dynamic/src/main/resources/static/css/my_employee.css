@@ -99,11 +99,12 @@ main .inner .upper {
 }
 
 main .inner .upper .searchBar {
-  width: 60%;
+  width: 70%;
   height: 40px;
   display: flex;
   gap: 10px;
   margin-left: auto;
+  align-items: center;
   justify-content: right;
   padding-left: 7.25rem;
 }
@@ -115,17 +116,14 @@ main .inner .upper div img {
 }
 
 main .inner .upper .searchBar p {
-  margin: 0;
-  font-size: 30px;
-  font-weight: 500;
   color: #0241b6;
+  height: 40px;
 }
 
 main .inner .upper .searchBar p input {
   width: 250px;
   height: 40px;
   font-family: "GmarketSansMedium";
-  padding: 0 0 0 15px;
   border: 2px solid #0241b6;
   border-radius: 8px;
   font-size: 10px;
@@ -161,6 +159,8 @@ main .inner .upper .searchBar .write {
   background-color: #0241b6;
   border-radius: 10px;
   color: #ffffff;
+  padding-left: 5px;
+  padding-right: 5px;
   border: none;
 }
 
