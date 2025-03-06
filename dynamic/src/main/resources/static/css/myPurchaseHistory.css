@@ -94,10 +94,10 @@ section .myCoursePurchaseHistory .wrapCourse h1 {
 }
 
 section .myCoursePurchaseHistory .wrapCourse .searchBar {
+  height: 40px;
   display: flex; /* 가로 정렬 */
-  justify-content: center; /* 가운데 정렬 */
-  align-items: ;
-  margin-right: 10px;
+  align-items: center;
+  margin-top: 35px;
   gap: 10px;
 }
 
