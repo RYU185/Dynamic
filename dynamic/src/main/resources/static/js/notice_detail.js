@@ -160,3 +160,13 @@ $(document).on('click', "#delete_notice", function () {
 })
 
 
+
+// 모든 tr 태그를 선택
+const rows = document.querySelectorAll('tbody tr');
+// 각 tr에 클릭 이벤트 리스너 추가
+rows.forEach(row => {
+    row.addEventListener('click', function () {
+        // 클릭된 tr에 .selected 클래스 추가/제거
+        this.classList.toggle('selected');
+    });
+});

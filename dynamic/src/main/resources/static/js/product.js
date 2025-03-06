@@ -20,8 +20,8 @@ $(document).ready(function () {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                      <div >제목 : </div><div class="title">${element.title}</div>
-                      <div>가격 : </div><div class="price"> ${element.price}</div>
+                      <div class ="title_wrap">제목 : </div><div class="title">${element.title}</div>
+                      <div class "price_wrap">가격 : </div><div class="price"> ${element.price}</div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
@@ -217,8 +217,8 @@ document
                     alert('제품이 정상 등록되었습니다.');
                     var $row = $(`<div class="box1" id="${response.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                        <div >제목 : </div><div class="title">${response.title}</div>
-                        <div >가격 : </div><div class="price">${response.price}</div>
+                        <div class ="title_wrap">제목 : </div><div class="title">${response.title}</div>
+                        <div class ="price_wrap">가격 : </div><div class="price">${response.price}</div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row);
@@ -228,6 +228,37 @@ document
         }
     })
 
+
+function submit_go() {
+    let name = document.querySelector("input[id='search_product']");
+    var sendData = name.value; // title 값만 사용
+    $.ajax({
+        url: '/api/product/title/' + encodeURIComponent(sendData), // URL에 검색어(title) 추가
+        method: 'get',
+        contentType: 'application/json',
+        success: function (response) {
+            $('#course_box').empty();
+            response.forEach((element) => {
+                if (element.category === '강의') {
+                    var $row = $(`<div class="box1" id="${element.id}">
+                        <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
+                      <div class ="title_wrap">제목 : </div><div class="title">${element.title}</div>
+                      <div class "price_wrap">가격 : </div><div class="price"> ${element.price}</div>
+                       <button class="cart">장바구니</button>
+                      </div>`);
+                    $('#course_box').append($row);
+                }
+            })
+        },
+        error: function () {
+            $('#course_box').empty();
+        },
+    });
+}
+
+$(document).on('click', '#home', function () {
+    window.location.href = "/product.html";
+})
 
 // function formatSpecificCells() {
 //     // 'price' 클래스를 가진 td 요소만 선택
