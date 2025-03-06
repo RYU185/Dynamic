@@ -228,7 +228,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   height: 100%;
 }
 
-.main_box #course_box .box1 .title_wrap {
+/* .main_box #course_box .box1 .title_wrap {
   margin-bottom: 1rem;
   justify-content: flex-start;
   text-align: left;
@@ -236,7 +236,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   width: 100%;
   margin-left: 30px;
   display: inline-block;
-}
+} */
 
 .main_box #course_box .box1.title {
   color: #000;
@@ -244,12 +244,15 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 }
 
-.main_box #course_box .box1 .price_wrap {
-  justify-content: start;
+/* .main_box #course_box .box1 .price_wrap {
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+  text-align: left;
+  display: flex;
   width: 100%;
   margin-left: 30px;
-  display: flex;
-}
+  display: inline-block;
+} */
 
 .main_box #course_box .box1 .price{
   font-size: 1rem;
