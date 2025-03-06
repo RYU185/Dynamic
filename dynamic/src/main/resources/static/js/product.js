@@ -142,5 +142,19 @@ document.querySelectorAll('.cart1').forEach(function (cart) {
 const add_button = document.querySelector("#add_course");
 const pop_up = document.querySelector(".pop-up");
 const background = document.querySelector("#pop-up-background");
-
-add_button.addEventListener('click',)
+if (userRole === 'admin') {
+    add_button.style.display = 'inline';
+}
+add_button.addEventListener('click', function () {
+    if (pop_up.style.display === 'none' || pop_up.style.display === '') {
+        pop_up.style.display = 'block'; // display: block 으로 변경
+        background.style.display = 'block';
+    } else {
+        pop_up.style.display = 'none'; // display: none 으로 다시 변경
+        background.style.display = 'block';
+    }
+})
+document.querySelector('.x_btn').addEventListener('click', function () {
+    pop_up.style.display = 'none';
+    background.style.display = 'none';
+});
