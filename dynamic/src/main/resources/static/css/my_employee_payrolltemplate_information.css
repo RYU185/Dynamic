@@ -192,7 +192,7 @@ main .inner .detail_box {
 main .inner .detail_box .box2 {
   width: 60%;
   height: 250px;
-  border: 1px solid rgb(141, 141, 141);
+  border-radius: 5px;
   background-color: rgb(203, 203, 203);
   margin: 0 auto;
 }
@@ -205,9 +205,9 @@ main .inner .detail_box .box2 .title {
 }
 
 main .inner .detail_box .box2 .information {
-  border: 1px solid rgb(136, 136, 136);
   width: 80%;
   margin: 0 auto;
+  border-radius: 5px;
   height: 180px;
   display: flex;
   flex-wrap: wrap;
@@ -240,7 +240,6 @@ main .inner .show_calendar {
   font-size: 20px;
   font-weight: 400;
   margin-top: 10px;
-  border: 1px solid black;
   border-radius: 10px;
   color: rgb(117, 117, 117);
   border: none;
@@ -266,7 +265,6 @@ main .inner .detail_box .buttons {
 main .inner .detail_box .buttons .calender {
   width: 100%;
   height: 300px;
-  border: 1px solid rgb(201, 200, 200);
 }
 
 main .inner .detail_box .buttons .apply {
@@ -289,7 +287,7 @@ main .inner .detail_box .buttons .apply:hover {
 main .inner .detail_box .down {
   width: 60%;
   height: 250px;
-  border: 1px solid rgb(141, 141, 141);
+  border-radius: 5px;
   background-color: rgb(203, 203, 203);
   margin: 0 auto;
   position: absolute;
