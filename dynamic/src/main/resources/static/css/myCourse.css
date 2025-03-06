@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
-    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -51,7 +49,7 @@ body {
   min-height: 100%;
 }
 
-.wrap > h1 {
+.wrap>h1 {
   width: auto;
   height: 9rem;
   padding: 20px;
@@ -114,7 +112,7 @@ section .titlewrap .searchBar p input {
   width: 250px;
   height: 40px;
   font-family: "GmarketSansMedium";
-  padding: 0 15px 0 15px;
+  /* padding: 0 15px 0 15px; */
   border: 2px solid #0241b6;
   border-radius: 8px;
   font-size: 15px;
@@ -128,7 +126,9 @@ section .titlewrap .searchBar img {
 
 section .titlewrap .searchBar p input::placeholder {
   color: #465c6b;
-  font: 20px/1 "arial";
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 0.9375rem;
 }
 
 section .titlewrap .searchBar p input:focus::placeholder {
@@ -211,6 +211,7 @@ section .cardwrap .card .pic img {
   width: 20px;
   height: 20px;
 }
+
 #pop-up:target {
   display: flex;
 }
@@ -265,7 +266,8 @@ footer .inner {
   width: 100%;
   margin: 0px auto;
   display: flex;
-  justify-content: space-between; /* 좌우로 정렬 */
+  justify-content: space-between;
+  /* 좌우로 정렬 */
   align-items: center;
   margin: 0 auto;
   height: 100px;
