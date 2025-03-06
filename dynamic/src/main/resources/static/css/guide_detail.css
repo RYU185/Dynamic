@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
-    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -43,7 +41,8 @@ hr {
 body {
   position: relative;
 }
-.wrap > h1 {
+
+.wrap>h1 {
   width: auto;
   height: 9rem;
   padding: 20px;
@@ -58,6 +57,7 @@ body {
   text-align: center;
   align-content: center;
 }
+
 /* section */
 
 section {
@@ -128,6 +128,7 @@ main .inner .upper_box .upper div img {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 main .inner .main_box {
@@ -145,16 +146,14 @@ main .inner .main_box table {
 main .inner .main_box table tr {
   border: 1px solid #6d6d6d;
   text-align: center;
-  height: 60px;
+  height: 40px;
   margin: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 main .inner .main_box table tr th {
   border: 1px solid rgba(0, 0, 0, 0.3);
   outline: none;
-  font-size: 30px;
+  font-size: 1.1rem;
   font-weight: 400;
   background-color: #eaf1ff;
   height: 20px;
@@ -169,36 +168,22 @@ main .inner .main_box table tr td {
   text-overflow: ellipsis;
   padding-left: 5px;
   padding-right: 5px;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-main .inner .main_box table tr td:first-child {
-  font-size: 20px;
-  font-weight: 500;
+main .inner .main_box table tbody tr:hover {
+  color: #040b8e;
+  opacity: 0.7;
+  cursor: pointer;
 }
 
-main .inner .main_box table tr:hover {
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
-  transform: translateY(-3px);
-}
-
-main .inner .main_box table tr:hover td {
-  background-color: #fff;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-main .inner .main_box table tr:first-child:hover {
-  transform: none;
-  box-shadow: none;
-}
 
 main .inner .detail_box {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
+  border-radius: 10px;
   width: 60%;
-  height: 400px;
+  height: 450px;
   position: relative;
   background-color: #eaf1ff;
   position: absolute;
@@ -207,25 +192,27 @@ main .inner .detail_box {
 }
 
 main .inner .detail_box .title {
-  margin: 20px;
+  margin: 20px 20px 0px 20px;
   text-align: center;
-  font-size: 3.44em;
+  font-size: 3em;
   font-weight: 500;
   color: rgb(22, 22, 22);
 }
 
+
 main .inner .detail_box .description {
   width: 80%;
-  height: 200px;
+  height: 260px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 10px;
   position: absolute;
   right: 50px;
   background-color: white;
   padding: 20px;
   color: rgb(22, 22, 22);
-  font-size: 25px;
+  font-size: 1.3rem;
   font-weight: 500;
+  margin-top: 10px;
 }
 
 main .inner .detail_box .buttom {
@@ -268,7 +255,8 @@ footer .inner {
   width: 100%;
   margin: 0px auto;
   display: flex;
-  justify-content: space-between; /* 좌우로 정렬 */
+  justify-content: space-between;
+  /* 좌우로 정렬 */
   align-items: center;
   margin: 0 auto;
   height: 100px;
