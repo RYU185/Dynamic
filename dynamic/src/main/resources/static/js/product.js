@@ -31,13 +31,14 @@ $(document).ready(function () {
                         const parent = button.closest('.box1');
                         const div = button.closest('div');
                         const title = div.querySelector('.title');
-                        const price = div.querySelector('.price');
+                        const price = div.querySelector('.price').innerText.replace(/,/g, '') ||
+                            0;
                         console.log(parent.id);
 
                         var sendData = {
                             type: 'course',
                             id: parent.id,
-                            price: price.innerText,
+                            price: price,
                             category: '강의',
                             title: title.innerText,
                         };
@@ -66,13 +67,14 @@ $(document).ready(function () {
                                     contentType: 'application/json',
                                     success: function () {
                                         alert('장바구니에 담겼습니다');
-                                        window.location.href = '/product!.html';
+                                        window.location.href = '/product.html';
                                     },
                                 });
                             },
                         });
                     });
                 }
+                formatSpecificCells();
             });
         },
     });
@@ -96,13 +98,13 @@ document.querySelectorAll('.cart1').forEach(function (cart) {
         console.log(parent.id);
         const div = button.closest('div');
         const title = div.querySelector('.title');
-        const price = div.querySelector('.price');
+        const price = div.querySelector('.price').innerText.replace(/,/g, '');
         console.log(title.innerText, price.innerText);
         let count = 1;
         var sendData = {
             type: 'payrollsubscription',
             id: 'S' + count++,
-            price: price.innerText,
+            price: price,
             category: '정기 구독권',
             title: title.innerText,
         };
@@ -144,7 +146,7 @@ document.querySelectorAll('.cart1').forEach(function (cart) {
                     contentType: 'application/json',
                     success: function () {
                         alert('장바구니에 담겼습니다');
-                        window.location.href = '/product!.html';
+                        window.location.href = '/product.html';
                     },
                 });
             },
@@ -260,18 +262,19 @@ $(document).on('click', '#home', function () {
     window.location.href = "/product.html";
 })
 
-// function formatSpecificCells() {
-//     // 'price' 클래스를 가진 td 요소만 선택
-//     const priceCells = document.querySelectorAll('.hourly_rate');
+function formatSpecificCells() {
+    const priceCells = document.querySelectorAll('.price');
 
-//     priceCells.forEach(cell => {
-//         const price = parseInt(cell.textContent, 10); // 텍스트를 숫자로 변환
+    priceCells.forEach(cell => {
+        let price = cell.textContent.trim();
 
-//         if (!isNaN(price)) {
-//             // 천 단위 구분 기호 추가
-//             cell.textContent = price.toLocaleString();
-//         }
-//     });
-// }
+        // "0"으로 시작하는 값을 그대로 보여주기 위해 숫자가 아닌 문자열을 그대로 처리
+        if (!isNaN(price) && price !== "") {
+            // 숫자 부분만 천 단위로 구분하고, 나머지 부분은 그대로 유지
+            price = parseInt(price, 10).toLocaleString();
+            cell.textContent = price;
+        }
+    });
+}
 
 

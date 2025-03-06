@@ -74,3 +74,6 @@ $(document).on('click', "#delete_guide", function () {
 })
 
 
+document.querySelector(".home").addEventListener('click', function () {
+    window.location.href = 'main_guide.html';
+});

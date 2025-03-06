@@ -52,49 +52,6 @@ $(document).ready(function () {
           delete_board.style.display = 'block';
         }
       }
-
-      // $.ajax({
-      //   url: '/api/comment/board-id/' + encodeURIComponent(id),
-      //   method: 'get',
-      //   contentType: 'application/json',
-      //   success: function (response) {
-      //     $('.list').empty();
-      //     response.forEach((element) => {
-      //       console.log(element.isActive);
-      //       if (element.isActive === true) {
-      //         var $row = $(`
-      //           <div class="comment_box" id="${element.id}">
-      //           <div class="name">${element.userName}</div>
-      //            <div class="push_date">${element.addDate}</div>
-      //             <div class="comment">${element.text}</div>
-      //              <div  class="delete_comment"><img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
-      //            </div>
-      //              `);
-      //         if (userRole === element.userName) {
-      //           $row.find('.delete_comment').css('display', 'block');
-      //         }
-      //         const delete_comment = $row.find('.delete_comment');
-      //         delete_comment.on('click', function (e) {
-      //           const button = e.target;
-      //           const parent = button.closest('.comment_box');
-      //           console.log(parent.id);
-      //           const isConfirmed = confirm('해당 댓글을 삭제 처리하도록 할까요 ?');
-      //           if (isConfirmed) {
-      //             $.ajax({
-      //               url: '/api/comment/delete/' + parent.id,
-      //               method: 'POST',
-      //               contentType: 'application/json',
-      //               success: function () {
-      //                 window.location.href = "board_detail.html?id=" + encodeURIComponent(id);
-      //               },
-      //             });
-      //           }
-      //         });
-      //         $('.list').append($row);
-      //       }
-      //     });
-      //   },
-      // });
       $.ajax({
         url: '/api/comment/board-id/' + encodeURIComponent(id),
         method: 'get',
@@ -348,3 +305,13 @@ $(document).on('click', '#delete_board', function () {
 document.querySelector(".home").addEventListener('click', function () {
   window.location.href = 'main_board.html';
 });
+
+$(document).on('input', '#write_comment', function () {
+  const text = this.textContent;  // div에 입력된 텍스트
+  const charCount = text.length;  // 텍스트의 길이
+
+  if (charCount > 130) {
+    this.textContent = text.substring(0, 130);  // 130자까지만 남기고 잘라냄
+  }
+
+})
