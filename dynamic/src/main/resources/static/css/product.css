@@ -108,16 +108,13 @@ main .inner .upper {
 }
 
 .main_title h1 {
-  width: 100%;
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
   color: #050505ee;
-  position: relative;
-  z-index: 1;
-  display: block;
-  text-align: center;
   margin: 0 40px 0px 40px;
+  position: absolute;
+  z-index: 1;
 }
 
 .searchBar {
@@ -197,7 +194,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   gap: 1.5rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: row;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .main_box #course_box .box1 {
@@ -352,7 +349,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
 }
 
-.main_box .subscription_box .box2 .cart1:hover{
+.main_box .subscription_box .box2 .cart1:hover {
   border: white;
   color: white;
   background-color: #939393;
