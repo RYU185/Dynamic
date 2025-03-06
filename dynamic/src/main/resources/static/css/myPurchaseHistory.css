@@ -94,11 +94,10 @@ section .myCoursePurchaseHistory .wrapCourse h1 {
 }
 
 section .myCoursePurchaseHistory .wrapCourse .searchBar {
-  width: 60%;
-  margin: 0 auto;
   display: flex; /* 가로 정렬 */
   align-items: center; /* 세로 정렬 */
   justify-content: center; /* 가운데 정렬 */
+  margin-right: 10px;
   gap: 10px;
 }
 
@@ -115,19 +114,19 @@ section .myCoursePurchaseHistory .wrapCourse .searchBar img {
 }
 
 section .myCoursePurchaseHistory .wrapCourse p input {
-  width: 500px;
-  height: 45px;
-  border: 5px solid #0241b6;
-  font-size: 30px;
-  outline: none;
-  text-align: center;
-  color: #465c6b;
+  width: 250px;
+  height: 40px;
+  font-family: "GmarketSansMedium";
+  padding: 0 15px 0 15px;
+  border: 2px solid #0241b6;
+  border-radius: 8px;
+  font-size: 15px;
 }
 
 section .myCoursePurchaseHistory .wrapCourse p input::placeholder {
   color: #465c6b;
   opacity: 0.5;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 section .myCoursePurchaseHistory .wrapCourse p input:focus::placeholder {
@@ -225,26 +224,27 @@ section .myCoursePurchaseHistory .courseList {
 .mySubscPurchaseHistory .wrapSubsc {
   width: auto;
   padding-bottom: 20px;
-  padding-right: 50px;
+  padding-right: 10px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar {
-  margin-top: 5rem;
-  display: flex; /* 가로 정렬 */
-  align-items: center; /* 세로 정렬 */
-  justify-content: right; /* 가운데 정렬 */
+  width: 60%;
+  height: 40px;
+  display: flex;
   gap: 10px;
-  padding-right: 60px;
+  margin-left: auto;
+  justify-content: right;
+  padding-left: 7.25rem;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar input {
-  width: 500px;
-  height: 45px;
-  border: 5px solid #0241b6;
-  font-size: 30px;
-  outline: none;
-  text-align: center;
-  color: #465c46;
+  width: 250px;
+  height: 40px;
+  font-family: "GmarketSansMedium";
+  padding: 0 0 0 15px;
+  border: 2px solid #0241b6;
+  border-radius: 8px;
+  font-size: 10px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar img {
@@ -256,7 +256,7 @@ section .myCoursePurchaseHistory .courseList {
 .mySubscPurchaseHistory .wrapSubsc .searchBar input::placeholder {
   color: #465c46;
   opacity: 0.5;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 .mySubscPurchaseHistory .wrapSubsc .searchBar input:focus::placeholder {
