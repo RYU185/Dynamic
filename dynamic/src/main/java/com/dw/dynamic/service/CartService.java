@@ -83,14 +83,14 @@ public class CartService {
         User currentUser = userService.getCurrentUser(request);
         Cart cart = cartRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("id를 찾을 수 없습니다"));
-        if (!cart.getIsActive()) {
-            throw new InvalidRequestException("이미 삭제된 장바구니입니다");
-        }
+//        if (cart.is) {
+//            throw new InvalidRequestException("이미 삭제된 장바구니입니다");
+//        }
         if (!cart.getUser().getUserName().equals(currentUser.getUserName())) {
             throw new InvalidRequestException("장바구니는 로그인이 필요합니다.");
         }
-        cart.setIsActive(false);
-        cartRepository.save(cart);
+//        cart.setIsActive(false);
+        cartRepository.delete(cart);
 
         return id + "가 정상적으로 삭제되었습니다.";
     }

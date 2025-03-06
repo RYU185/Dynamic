@@ -14,7 +14,7 @@ $(document).ready(function () {
                 if (element.isActive === true) {
                     console.log(element);
                     var $row = $(`
-                                     <div class="cart-item"">               
+                                     <div class="cart-item" id=${element.cartId}>               
                                             <div class="pic">
                                                  <img src="./img/courseThumnail1.png" alt="${element.product.title}">
                                              </div>
@@ -25,11 +25,54 @@ $(document).ready(function () {
                                             <img src="/img/X.png" alt="취소 버튼" class="x_btn"/>
                                         </div>
                                         `);
+                    var $row1 = $(`
+                                    <div class="cart-item" id=${element.cartId}>               
+                                         <div class="pic">
+                                              <img src="./img/구독권 이미지.png" alt="${element.product.title}">
+                                               </div>
+                                                <div class="description">
+                                                <h1>${element.product.title}</h1>
+                                                 <p>가격: ${element.product.price}원</p>
+                                                </div>
+                                                <img src="/img/X.png" alt="취소 버튼" class="x_btn"/>
+                                               </div>
+                                               `);
                     if (element.product.category.name === "강의") {
                         $("#courseCartList").append($row);
                     } else {
-                        $("#subscCartList").append($row);
+                        $("#subscCartList").append($row1);
                     }
+
+                    const delete_course = $row.find('.x_btn');
+                    delete_course.on('click', function (e) {
+                        const button = e.target;
+                        const parent = button.closest('.cart-item');
+                        console.log(parent.id);
+                        $.ajax({
+                            url: 'api/cart/delete/' + parent.id,
+                            method: 'DELETE',
+                            contentType: 'application/json',
+                            success: function () {
+                                window.location.href = '/cart.html';
+                            }
+                        });
+                    });
+                    const delete_subscription = $row1.find('.x_btn');
+                    delete_subscription.on('click', function (e) {
+                        const button = e.target;
+                        const parent = button.closest('.cart-item');
+                        console.log(parent.id);
+                        $.ajax({
+                            url: 'api/cart/delete/' + parent.id,
+                            method: 'DELETE',
+                            contentType: 'application/json',
+                            success: function () {
+                                window.location.href = '/cart.html';
+                            }
+                        });
+                    });
+
+
                 }
                 let item = {
                     cartId: element.cartId,
@@ -82,6 +125,22 @@ $(".btn-purchase").on("click", function () {
         },
     })
 })
+
+// function updateCartSummary() {
+//     let totalCount = cartItem.length;
+//     let totalPrice = 0;
+
+
+//     for (let i = 0; i < cartItem.length; i++) {
+//         let product = productData[cartItem[i].productId];
+//         if (product) {
+//             totalPrice += product.price;
+//         }
+//     }
+
+//     $(".calc-all p").text(`총${totalCount}개`);
+//     $(".calc-all h1").text(`${totalPrice}원`);
+// }
 
 
 
