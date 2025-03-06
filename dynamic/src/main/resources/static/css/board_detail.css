@@ -233,7 +233,6 @@ main .inner .detail_box .comment_list .list {
 
 main .inner .detail_box .comment_list .comment_box {
   width: 100%;
-  height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   margin-top: 10px;
@@ -241,6 +240,7 @@ main .inner .detail_box .comment_list .comment_box {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
+  height: 60px;
 }
 
 main .inner .detail_box .comment_list .comment_box .name {
@@ -282,7 +282,7 @@ main .inner .detail_box .comment_list .write_box {
   width: 100%;
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 15px;
   margin-top: 20px;
   background-color: rgb(237, 236, 236);
 }
@@ -296,6 +296,7 @@ main .inner .detail_box .comment_list .write_box .write {
   flex-wrap: nowrap;
   position: relative;
 }
+
 
 main .inner .detail_box .comment_list .write_box .write .press:hover {
   background-color: #bebebe;
@@ -349,7 +350,7 @@ main .inner .detail_box .upper .searchBar img:hover {
 
 main .inner .detail_box .upper .searchBar #modify_board,
 #delete_board {
-  /* display: none; */
+  display: none;
 }
 
 .pop-up-background1 {

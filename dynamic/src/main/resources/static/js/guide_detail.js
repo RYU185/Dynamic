@@ -16,8 +16,11 @@ $(document).ready(function () {
           <td>${count++}</td>
           <td>${element.title}</td>
         </tr>`);
+                $row.on("click", () => {
+                    console.log(element.id + " " + element.title);
+                    window.location.href = "/guide_detail.html?id=" + element.id;
+                });
                 $('tbody').append($row); // 테이블에 새 행 추가
-
             });
         }
     })
@@ -46,30 +49,6 @@ $(document).ready(function () {
 });
 
 
-$(document).on('click', 'tbody tr', function () {
-    $.ajax({
-        url: "/api/guide/all",
-        method: "get",
-        contentType: "application/json",
-        success: function (response) {
-            $("tbody").empty();
-            let count = 1;
-            response.forEach((element) => {
-                // 공지사항 제목, ID, 작성일만 표시
-                var $row = $(`<tr class="row">
-                    <td>${count++}</td>
-                    <td>${element.title}</td>
-                  </tr>`);
-                $("tbody").append($row); // 테이블에 새 행 추가
-                $row.on("click", () => {
-                    console.log(element.id + " " + element.title);
-                    window.location.href = "/guide_detail.html?id=" + element.id;
-                });
-            });
-        },
-    });
-
-});
 
 // admin일 경우에만 삭제 버튼 보이도록
 const userRole = JSON.parse(sessionStorage.getItem('userName'));

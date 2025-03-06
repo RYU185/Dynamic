@@ -17,6 +17,10 @@ $(document).ready(function () {
           <td>${count++}</td>
           <td>${element.noticeTitle}</td>
         </tr>`);
+                $row.on("click", () => {
+                    console.log(element.noticeId + " " + element.noticeTitle);
+                    window.location.href = "/notice_detail.html?id=" + element.noticeId;
+                });
                 $('tbody').append($row); // 테이블에 새 행 추가
 
             });
@@ -53,29 +57,29 @@ $(document).ready(function () {
     });
 });
 
-$(document).on('click', 'tbody tr', function () {
-    $.ajax({
-        url: "/api/notice/all",
-        method: "get",
-        contentType: "application/json",
-        success: function (response) {
-            $("tbody").empty();
-            let count = 1;
-            response.forEach((element) => {
-                // 공지사항 제목, ID, 작성일만 표시
-                var $row = $(`<tr class="row">
-                    <td>${count++}</td>
-                    <td>${element.noticeTitle}</td>
-                  </tr>`);
-                $("tbody").append($row); // 테이블에 새 행 추가
-                $row.on("click", () => {
-                    console.log(element.noticeId + " " + element.noticeTitle);
-                    window.location.href = "/notice_detail.html?id=" + element.noticeId;
-                });
-            });
-        },
-    });
-});
+// $(document).on('click', 'tbody tr', function () {
+//     $.ajax({
+//         url: "/api/notice/all",
+//         method: "get",
+//         contentType: "application/json",
+//         success: function (response) {
+//             $("tbody").empty();
+//             let count = 1;
+//             response.forEach((element) => {
+//                 // 공지사항 제목, ID, 작성일만 표시
+//                 var $row = $(`<tr class="row">
+//                     <td>${count++}</td>
+//                     <td>${element.noticeTitle}</td>
+//                   </tr>`);
+//                 $("tbody").append($row); // 테이블에 새 행 추가
+//                 $row.on("click", () => {
+//                     console.log(element.noticeId + " " + element.noticeTitle);
+//                     window.location.href = "/notice_detail.html?id=" + element.noticeId;
+//                 });
+//             });
+//         },
+//     });
+// });
 
 
 // admin일 경우에만 추가 수정 삭제 버튼 보이도록

@@ -53,53 +53,125 @@ $(document).ready(function () {
         }
       }
 
+      // $.ajax({
+      //   url: '/api/comment/board-id/' + encodeURIComponent(id),
+      //   method: 'get',
+      //   contentType: 'application/json',
+      //   success: function (response) {
+      //     $('.list').empty();
+      //     response.forEach((element) => {
+      //       console.log(element.isActive);
+      //       if (element.isActive === true) {
+      //         var $row = $(`
+      //           <div class="comment_box" id="${element.id}">
+      //           <div class="name">${element.userName}</div>
+      //            <div class="push_date">${element.addDate}</div>
+      //             <div class="comment">${element.text}</div>
+      //              <div  class="delete_comment"><img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
+      //            </div>
+      //              `);
+      //         if (userRole === element.userName) {
+      //           $row.find('.delete_comment').css('display', 'block');
+      //         }
+      //         const delete_comment = $row.find('.delete_comment');
+      //         delete_comment.on('click', function (e) {
+      //           const button = e.target;
+      //           const parent = button.closest('.comment_box');
+      //           console.log(parent.id);
+      //           const isConfirmed = confirm('해당 댓글을 삭제 처리하도록 할까요 ?');
+      //           if (isConfirmed) {
+      //             $.ajax({
+      //               url: '/api/comment/delete/' + parent.id,
+      //               method: 'POST',
+      //               contentType: 'application/json',
+      //               success: function () {
+      //                 window.location.href = "board_detail.html?id=" + encodeURIComponent(id);
+      //               },
+      //             });
+      //           }
+      //         });
+      //         $('.list').append($row);
+      //       }
+      //     });
+      //   },
+      // });
       $.ajax({
         url: '/api/comment/board-id/' + encodeURIComponent(id),
         method: 'get',
         contentType: 'application/json',
         success: function (response) {
-          $('.list').empty();
+          // 댓글들을 저장할 배열
+          let adminComments = [];
+          let otherComments = [];
+
+          // 댓글을 구분하여 배열에 나누기
           response.forEach((element) => {
-            console.log(element.isActive);
             if (element.isActive === true) {
-              var $row = $(`
-                <div class="comment_box" id="${element.id}">
-                <div class="name">${element.userName}</div>
-                 <div class="push_date">${element.addDate}</div>
-                  <div class="comment">${element.text}</div>
-                   <div  class="delete_comment"><img src="img/쓰레기통 새로운거.png" alt="삭제버튼"></div>
-                 </div>
-                   `);
-              if (userRole === element.userName) {
-                $row.find('.delete_comment').css('display', 'block');
+              if (element.userName === 'admin') {
+                // admin 댓글은 adminComments 배열에 추가
+                adminComments.push(element);
+              } else {
+                // 나머지 댓글은 otherComments 배열에 추가
+                otherComments.push(element);
               }
-              const delete_comment = $row.find('.delete_comment');
-              delete_comment.on('click', function (e) {
-                const button = e.target;
-                const parent = button.closest('.comment_box');
-                console.log(parent.id);
-                const isConfirmed = confirm('해당 댓글을 삭제 처리하도록 할까요 ?');
-                if (isConfirmed) {
-                  $.ajax({
-                    url: '/api/comment/delete/' + parent.id,
-                    method: 'POST',
-                    contentType: 'application/json',
-                    success: function () {
-                      window.location.href = "board_detail.html?id=" + encodeURIComponent(id);
-                    },
-                  });
-                }
-              });
-              $('.list').append($row);
             }
           });
-        },
+
+          // 빈 리스트를 비우고, 먼저 admin 댓글을 화면에 추가
+          $('.list').empty();
+
+          // admin 댓글을 먼저 추가
+          adminComments.forEach((element) => {
+            const $row = createCommentRow(element);
+            $('.list').append($row);
+          });
+
+          // 그 다음에 일반 댓글을 추가
+          otherComments.forEach((element) => {
+            const $row = createCommentRow(element);
+            $('.list').append($row);
+          });
+
+          // 댓글 생성 함수
+          function createCommentRow(element) {
+            var $row = $(`
+                    <div class="comment_box" id="${element.id}">
+                        <div class="name">${element.userName}</div>
+                        <div class="push_date">${element.addDate}</div>
+                        <div class="comment">${element.text}</div>
+                        <div class="delete_comment">
+                            <img src="img/쓰레기통 새로운거.png" alt="삭제버튼">
+                        </div>
+                    </div>
+                `);
+
+            if (userRole === element.userName) {
+              $row.find('.delete_comment').css('display', 'block');
+            }
+
+            const delete_comment = $row.find('.delete_comment');
+            delete_comment.on('click', function (e) {
+              const button = e.target;
+              const parent = button.closest('.comment_box');
+              const isConfirmed = confirm('해당 댓글을 삭제 처리하도록 할까요 ?');
+              if (isConfirmed) {
+                $.ajax({
+                  url: '/api/comment/delete/' + parent.id,
+                  method: 'POST',
+                  contentType: 'application/json',
+                  success: function () {
+                    window.location.href = "board_detail.html?id=" + encodeURIComponent(id);
+                  },
+                });
+              }
+            });
+            return $row;
+          }
+        }
       });
-    },
+    }
   });
 });
-
-
 
 // 제목 클릭 시 해당 내용으로 본문 상세 내용 변경
 $(document).on('click', 'tbody tr', function () {
