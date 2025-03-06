@@ -106,10 +106,7 @@ public class PurchaseHistoryService {
         }catch (ResourceNotFoundException e){
             throw new ResourceNotFoundException("존재하는 정기구독권이 없습니다");
         }
-
     }
-
-
     public List<PurchaseHistoryDTO> getPurchaseHistoryByProductName(String productName, HttpServletRequest request) {
         User currentUser = userService.getCurrentUser(request);
         if (currentUser == null) {

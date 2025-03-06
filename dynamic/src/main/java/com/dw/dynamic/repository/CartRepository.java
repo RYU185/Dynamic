@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CartRepository extends JpaRepository<Cart, Long> {
+    @Query("select c from Cart c where c.user=:user and isActive=true")
     List<Cart> findByUser(User user);
 
 
