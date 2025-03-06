@@ -26,25 +26,24 @@
             <h1>나의 직원 정보</h1>
           </div>
         </div>
+        <div class="searchBar">
+          <input type="button" value="급여명세서 작성" class="write" />
+          <p>
+            <input
+              type="text"
+              placeholder="이름을 입력해주세요"
+              id="search_employee"
+            />
+          </p>
+          <img src="./img/search.png" onclick="submit_go()" />
+          <img src="/img/add.png" alt="추가 버튼" id="add_employee" />
+        </div>
       </section>
 
       <!-- main -->
       <main>
         <div class="inner">
-          <div class="upper">
-            <div class="searchBar">
-              <input type="button" value="급여명세서 작성" class="write" />
-              <p>
-                <input
-                  type="text"
-                  placeholder="이름을 입력해주세요"
-                  id="search_employee"
-                />
-              </p>
-              <img src="./img/search.png" onclick="submit_go()" />
-              <img src="/img/add.png" alt="추가 버튼" id="add_employee" />
-            </div>
-          </div>
+          <div class="upper"></div>
           <div class="table_wrap">
             <table class="employee_table">
               <thead>

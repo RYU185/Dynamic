@@ -67,60 +67,44 @@ body {
   font-size: 45px;
   text-align: center;
 }
+section {
+  display: flex;
+  margin-top: 5px;
+}
 
 section .title-wrap .title h1 {
+  width: 350px;
   font-family: "GmarketSansMedium";
   font-size: 3rem;
-  font-weight: 900;
+  text-align: left;
+  margin-left: 100px;
   color: #0241b6;
 }
 
-main {
-  width: 100%;
-  height: auto;
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  margin-top: 100px;
-}
-
-main .inner {
-  width: 100%;
-  height: 500px;
-  margin: 0px 50px 0 50px;
-}
-
-main .inner .upper {
-  width: 90%;
-  height: 50px;
-  /* border: 1px solid black; */
-  display: flex;
-  justify-content: end;
-}
-
-main .inner .upper .searchBar {
-  width: 70%;
+.wrap .searchBar {
   height: 40px;
   display: flex;
   gap: 10px;
-  margin-left: auto;
+
   align-items: center;
   justify-content: right;
-  padding-left: 7.25rem;
 }
 
-main .inner .upper div img {
+.wrap div img {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
+.wrap .searchBar {
+  margin-top: 35px;
+}
 
-main .inner .upper .searchBar p {
+.wrap .searchBar p {
   color: #0241b6;
   height: 40px;
 }
 
-main .inner .upper .searchBar p input {
+.wrap .searchBar p input {
   width: 250px;
   height: 40px;
   font-family: "GmarketSansMedium";
@@ -129,30 +113,30 @@ main .inner .upper .searchBar p input {
   font-size: 10px;
 }
 
-main .inner .upper .searchBar img {
+.wrap .searchBar img {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
 
-main .inner .upper .searchBar img:hover {
+.wrap .searchBar img:hover {
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
 
-main .inner .upper .searchBar p input::placeholder {
+.wrap .searchBar p input::placeholder {
   color: #465c6b;
   font-size: 16px;
   font-weight: 500;
-  padding-left: .9375rem;
+  padding-left: 0.9375rem;
 }
 
-main .inner .upper .searchBar p input:focus::placeholder {
+.wrap .searchBar p input:focus::placeholder {
   color: transparent;
 }
 
-main .inner .upper .searchBar .write {
+.wrap .searchBar .write {
   width: 130px;
   height: 40px;
   font-size: 16px;
@@ -165,9 +149,23 @@ main .inner .upper .searchBar .write {
   border: none;
 }
 
-main .inner .upper .searchBar .write:hover {
+.wrap .searchBar .write:hover {
   background-color: rgba(58, 58, 58, 0.3);
   color: rgb(240, 240, 240);
+}
+
+/*  */
+main {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+main .inner {
+  width: 100%;
+  height: 500px;
 }
 
 .table_wrap {

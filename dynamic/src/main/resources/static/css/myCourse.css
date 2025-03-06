@@ -79,7 +79,6 @@ section .titlewrap {
   width: 100%;
   text-align: left;
   display: flex;
-  padding-bottom: 1rem;
   border-bottom: 5px solid #0241b6;
 }
 
@@ -93,7 +92,7 @@ section .titlewrap .coursetitle h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   color: #0241b6;
-  padding-left: 3rem;
+  padding-left: 100px;
 }
 
 section .titlewrap .searchBar {
