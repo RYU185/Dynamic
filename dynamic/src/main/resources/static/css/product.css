@@ -68,31 +68,26 @@ main .inner {
     width: 100%;
     height: 900px;
     /* border: 1px solid black; */
-    display: flex;
-    justify-content: center;
-    position: relative;
 }
 
 .upper {
+    width: auto;
+    height: 10rem;
     margin-top: 5px;
-    height: 50px;
     /* border: 1px solid black; */
     display: flex;
-    justify-content: space-between;
-    align-items:center;
+    justify-content: center;
 }
 
 .title-wrap {
   display: flex;
-  justify-content: space-between;
-
-
   width: 100%;
+  justify-content: space-between;
 }
 
 .title-wrap .main_title {
-  flex-grow: 1;
   text-align: center;
+
 }
 
 .main_title h1 {
@@ -109,13 +104,10 @@ main .inner {
 
 .searchBar {
     width: auto;
-    margin: 0 auto;
     display: flex;
-    /* 가로 정렬 */
     align-items: center;
     /* 세로 정렬 */
     justify-content: flex-end;
-    /* 가운데 정렬 */
     gap: 10px;
 }
 
@@ -362,6 +354,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   
   footer .inner .upper {
     width: 100%;
+
     padding-bottom: 20px;
   }
   
