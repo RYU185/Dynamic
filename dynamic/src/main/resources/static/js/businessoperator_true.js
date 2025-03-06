@@ -126,7 +126,7 @@ $(document).on('click', '#regist', function () {
     phoneNumber: phoneNumber,
     businessNumber: businessNumber,
     businessType: businessType,
-    existBusinessOperator: data,
+    existBusinessOperator: true,
   };
   console.log(sendData);
 

@@ -104,7 +104,7 @@ $(document).on('click', '#regist', function () {
     phoneNumber: phoneNumber,
     businessNumber: '',
     businessType: '',
-    existBusinessOperator: data,
+    existBusinessOperator: false,
   };
   console.log(sendData);
 

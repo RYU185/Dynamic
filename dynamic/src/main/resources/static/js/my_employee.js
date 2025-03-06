@@ -115,9 +115,8 @@ function AllData(response) {
         </tr>`);
       $('tbody').append($row);
       // 나의 직원 급여명세서 작성 페이지로 이동
-      const write = document.querySelector('.write');
-      $(write).on('click', () => {
-        console.log(element.id + ' ' + element.name);
+
+      document.querySelector('.write').addEventListener('click', () => {
         window.location.href = '/my_employee_payrolltemplate_information.html';
       });
       // 연결하는 동시에 직원 수정 버튼 클릭 될 수있도록 처리
