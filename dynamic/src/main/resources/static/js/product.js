@@ -20,8 +20,8 @@ $(document).ready(function () {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                      <div >제목 : </div> <div class="title">${element.title}</div>
-                      <div>가격 : </div> <div class="amount"> ${element.price}</div>
+                      <div >제목 : </div><div class="title">${element.title}</div>
+                      <div>가격 : </div><div class="price"> ${element.price}</div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
@@ -217,8 +217,8 @@ document
                     alert('제품이 정상 등록되었습니다.');
                     var $row = $(`<div class="box1" id="${response.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                        <div class="title">제목 : ${response.title}</div>
-                        <div class="amount">가격 : ${response.price}</div>
+                        <div >제목 : </div><div class="title">${response.title}</div>
+                        <div >가격 : </div><div class="price">${response.price}</div>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row);
@@ -227,3 +227,20 @@ document
             });
         }
     })
+
+
+// function formatSpecificCells() {
+//     // 'price' 클래스를 가진 td 요소만 선택
+//     const priceCells = document.querySelectorAll('.hourly_rate');
+
+//     priceCells.forEach(cell => {
+//         const price = parseInt(cell.textContent, 10); // 텍스트를 숫자로 변환
+
+//         if (!isNaN(price)) {
+//             // 천 단위 구분 기호 추가
+//             cell.textContent = price.toLocaleString();
+//         }
+//     });
+// }
+
+
