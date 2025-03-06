@@ -54,7 +54,7 @@ function submit_go() {
       formatSpecificCells();
     },
     error: function () {
-      alert('검색 오류가 발생했습니다.');
+      $('tbody').empty();
     },
   });
 }
@@ -265,7 +265,6 @@ function AllData(response) {
             </td>
         </tr>`);
           $('tbody').append($row);
-
           window.location.href = '/my_employee.html';
         },
       });

@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: 'NanumHumanTTFBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2')
-    format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
-    format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -44,7 +42,7 @@ body {
   position: relative;
 }
 
-.wrap > h1 {
+.wrap>h1 {
   width: auto;
   height: 9rem;
   padding: 20px;
@@ -59,6 +57,7 @@ body {
   text-align: center;
   align-content: center;
 }
+
 /* section */
 
 section {
@@ -91,12 +90,14 @@ main .inner {
   height: 900px;
   position: relative;
 }
+
 main .inner .main_title {
   /* display: block; */
   text-align: left;
   margin: 0 auto;
   width: 100%;
 }
+
 /* 다시... */
 main .inner .upper {
   text-align: right;
@@ -111,6 +112,7 @@ main .inner .upper div img {
   height: 30px;
   cursor: pointer;
 }
+
 main .inner .upper .searchBar img {
   width: 30px;
   height: 30px;
@@ -124,7 +126,7 @@ main .inner .upper .searchBar img:hover {
 
 main .inner .upper .searchBar #modify_notice,
 #delete_notice {
-  /* display: none; */
+  display: none;
 }
 
 main .inner .main_title h1 {
@@ -244,7 +246,7 @@ main .pop-up1 {
   margin-left: 300px;
 }
 
-main .pop-up1 > img {
+main .pop-up1>img {
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -253,7 +255,7 @@ main .pop-up1 > img {
   right: 10px;
 }
 
-main .pop-up1 > img:hover {
+main .pop-up1>img:hover {
   background-color: rgb(126, 126, 126);
   color: white;
 }

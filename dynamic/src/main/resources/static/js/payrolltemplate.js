@@ -88,7 +88,8 @@ $(document).on('click', '#send', function () {
     data: JSON.stringify(sendData),
     contentType: 'application/json',
     success: function (response) {
-      window.location.href = '/payrolltemplate.html';
+      alert('발급하신 급여명세서는 나의 급여명세서 목록에서 조회 가능합니다')
+      window.location.href = '/mypage.html';
     },
   });
 });
