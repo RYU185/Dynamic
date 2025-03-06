@@ -46,6 +46,7 @@ $(document).on('click', '#save', function () {
       data: JSON.stringify(sendData),
       contentType: 'application/json',
       success: function (response) {
+        alert('프로필 정보가 정상적으로 수정되었습니다');
         window.location.href = '/edit_profile.html';
       },
     });
@@ -129,11 +130,11 @@ $(document).on('click', '#modify_pwd', function () {
   });
 });
 
-const button1 = document.querySelector('#company');
+const button1 = document.querySelector('#add_button');
 const content1 = document.querySelector('.pop-up1');
 const content2 = document.querySelector('.pop-up2');
 
-$(document).on('click', '#company', function () {
+$(document).on('click', '#add_button', function () {
   const isexist = existBusinessOperator === 'true';
   console.log(isexist);
   if (!isexist) {

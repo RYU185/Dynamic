@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
-    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -51,7 +49,7 @@ body {
   min-height: 100%;
 }
 
-.wrap > h1 {
+.wrap>h1 {
   width: auto;
   height: 9rem;
   padding: 20px;
@@ -66,6 +64,7 @@ body {
   text-align: center;
   align-content: center;
 }
+
 /* section */
 .title-wrap {
   width: 100%;
@@ -74,16 +73,25 @@ body {
   text-align: center;
 }
 
+section .title-wrap .title {
+  width: 100%;
+
+}
+
 section .title-wrap .title h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   font-weight: 900;
   color: #0241b6;
+  text-align: start;
+  margin-left: 80px;
+
 }
 
 .table_wrap {
-  width: 100%;
+  width: 90%;
   padding: 0 3.125rem 0 3.125rem;
+  margin: 0 auto;
 }
 
 .table_wrap .employee_table {
@@ -99,19 +107,29 @@ section .title-wrap .title h1 {
   padding: 5px;
   font-size: 20px;
   border-bottom: 4px solid #0241b6;
+  pointer-events: none;
 }
 
 .table_wrap .employee_table tr {
   transition: background 0.3s, color 0.3s;
 }
+
 .table_wrap .employee_table tr:hover {
   cursor: pointer;
 }
 
-.table_wrap .employee_table tr:not(:first-child):hover {
+.table_wrap .employee_table tr:nth-child(2n) {
+  background-color: rgb(244, 243, 243);
+}
+
+.table_wrap .employee_table tr:hover {
   background-color: #c5d9ff;
   border: 2px solid #fff;
   color: black;
+}
+
+.table_wrap .employee_table td:nth-child(4) {
+  border-right: none;
 }
 
 .table_wrap .employee_table td {
@@ -123,9 +141,6 @@ section .title-wrap .title h1 {
   cursor: pointer;
 }
 
-.table_wrap .employee_table td:nth-child(5) {
-  border-right: none;
-}
 
 footer {
   margin-top: 5rem;
@@ -137,7 +152,8 @@ footer .inner {
   width: 100%;
   margin: 0px auto;
   display: flex;
-  justify-content: space-between; /* 좌우로 정렬 */
+  justify-content: space-between;
+  /* 좌우로 정렬 */
   align-items: center;
   margin: 0 auto;
   height: 100px;
