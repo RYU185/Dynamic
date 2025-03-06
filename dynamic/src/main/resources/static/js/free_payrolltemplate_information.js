@@ -74,8 +74,7 @@ $(document).on("click", ".show_calendar", function () {
   const calendar = document.querySelector(".down"); // 달력 요소
 
   // 모든 필드가 입력되었는지 확인
-  if (
-    name &&
+  if (name &&
     birthday &&
     position &&
     department &&
@@ -84,17 +83,19 @@ $(document).on("click", ".show_calendar", function () {
     start_date &&
     last_date &&
     hourly_rate &&
-    payment_date
-  ) {
+    payment_date) {
     // 모든 필드가 입력되었으면 달력 보이기
-    if (calendar.style.display !== "block") {
-      calendar.style.display = "block"; // 달력 보이기
+    if (!calendar.classList.contains("active")) {
+      calendar.classList.add("active");
+    } else {
+      calendar.classList.remove("active");
     }
   } else {
     alert("모든 정보를 입력해야 달력을 생성할 수 있습니다.");
-    calendar.style.display = "none"; // 필드가 다 입력되지 않으면 달력 숨기기
   }
+
 });
+
 
 // 입력된 값을 세션에 저장하고 급여명세서 양식 페이지로 이동
 $(document).on("click", ".apply", function () {

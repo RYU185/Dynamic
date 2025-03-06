@@ -20,8 +20,8 @@ $(document).ready(function () {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                      <div class ="title_wrap">제목 : </div><div class="title">${element.title}</div>
-                      <div class "price_wrap">가격 : </div><div class="price"> ${element.price}</div>
+                      <div class ="title_wrap">제목 : </div><span class="title">${element.title}</span>
+                      <div class "price_wrap">가격 : </div><span class="price"> ${element.price}</span>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row); // 테이블에 새 행 추가
@@ -242,8 +242,8 @@ function submit_go() {
                 if (element.category === '강의') {
                     var $row = $(`<div class="box1" id="${element.id}">
                         <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
-                      <div class ="title_wrap">제목 : </div><div class="title">${element.title}</div>
-                      <div class "price_wrap">가격 : </div><div class="price"> ${element.price}</div>
+                      <div class ="title_wrap">제목 : </div><span class="title">${element.title}</span>
+                      <div class "price_wrap">가격 : </div><span class="price"> ${element.price}</span>
                        <button class="cart">장바구니</button>
                       </div>`);
                     $('#course_box').append($row);

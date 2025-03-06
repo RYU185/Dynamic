@@ -2,16 +2,14 @@
 
 @font-face {
   font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
-    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -59,7 +57,7 @@ section .titlewrap {
   text-align: center;
 }
 
-section .titlewrap > h1 {
+section .titlewrap>h1 {
   font-size: 30px;
   font-weight: 800;
   font-family: "GmarketSansMedium";
@@ -96,14 +94,15 @@ main .inner {
 
 main .inner .upper {
   width: 100%;
-  height: 300px;
+  height: 250px;
   display: flex;
   justify-content: space-between;
 }
 
 main .inner .upper .box1,
 .box2 {
-  width: 30%;
+  width: 35%;
+  height: 100%;
   border: 1px solid rgb(141, 141, 141);
   background-color: rgb(203, 203, 203);
 }
@@ -118,8 +117,9 @@ main .inner .upper .title {
 main .inner .upper .information {
   border: 1px solid rgb(136, 136, 136);
   width: 80%;
+  /* height: 500%; */
   margin: 0 auto;
-  height: 250px;
+  height: 180px;
   display: flex;
   flex-wrap: wrap;
   background-color: white;
@@ -127,7 +127,7 @@ main .inner .upper .information {
 
 main .inner .upper .information .info {
   text-align: right;
-  height: 15%;
+  height: 5%;
   line-height: 37.5px;
   width: 40%;
   margin-right: 10px;
@@ -136,63 +136,143 @@ main .inner .upper .information .info {
 
 main .inner .upper .information div {
   width: 50%;
-  height: 15%;
+  height: 5%;
   line-height: 37.5px;
 }
-main .inner .upper .information div > input {
+
+main .inner .upper .information div>input {
   width: 90%;
   outline: none;
   border: none;
 }
 
-main .inner .upper .show_calendar {
-  width: 150px;
-  height: 40px;
-  font-size: 20px;
-  font-weight: 400;
-  border: 1px solid black;
-  border-radius: 15px;
-  color: rgb(117, 117, 117);
-  margin-top: 50px;
+
+
+main .inner .detail_box {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+
+main .inner .detail_box .box2 {
+  width: 60%;
+  height: 250px;
+  border: 1px solid rgb(141, 141, 141);
+  background-color: rgb(203, 203, 203);
+  margin: 0 auto;
+}
+
+main .inner .detail_box .box2 .title {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 17px;
+}
+
+main .inner .detail_box .box2 .information {
+  border: 1px solid rgb(136, 136, 136);
+  width: 80%;
+  margin: 0 auto;
+  height: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+main .inner .box2 .information .info {
+  text-align: right;
+  height: 15%;
+  line-height: 37.5px;
+  width: 40%;
+  margin-right: 10px;
+  margin-left: 15px;
+}
+
+main .inner .box2 .information div>input {
+  width: 90%;
+  outline: none;
   border: none;
 }
 
-main .inner .upper .show_calendar:hover {
+main .inner .box2 .information div {
+  width: 50%;
+  height: 15%;
+  line-height: 37.5px;
+}
+
+main .inner .show_calendar {
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: rgb(117, 117, 117);
+  border: none;
+}
+
+main .inner .show_calendar:hover {
   background-color: rgba(58, 58, 58, 0.3);
   color: rgb(240, 240, 240);
 }
 
-main .inner .down {
-  margin-top: 30px;
-  width: 100%;
+main .inner .detail_box .buttons {
+  width: 60%;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  background-color: white;
   position: relative;
-  display: none;
+  z-index: 10;
 }
 
-main .inner .down .calender {
+main .inner .detail_box .buttons .calender {
   width: 100%;
-  height: 600px;
+  height: 300px;
   border: 1px solid rgb(201, 200, 200);
 }
 
-main .inner .down .apply {
-  width: 150px;
+main .inner .detail_box .buttons .apply {
+  width: 100px;
   height: 40px;
   font-size: 20px;
   font-weight: 400;
   border: 1px solid black;
-  border-radius: 15px;
+  border-radius: 10px;
   color: rgb(117, 117, 117);
   margin-top: 10px;
   border: none;
-  position: absolute;
-  right: 0px;
 }
 
-main .inner .apply:hover {
+main .inner .detail_box .buttons .apply:hover {
   background-color: rgba(58, 58, 58, 0.3);
   color: rgb(240, 240, 240);
 }
+
+main .inner .detail_box .down {
+  width: 60%;
+  height: 250px;
+  border: 1px solid rgb(141, 141, 141);
+  background-color: rgb(203, 203, 203);
+  margin: 0 auto;
+  position: absolute;
+  top: 250px;
+  left: 20%;
+  transition: all 0.3s ease-in-out;
+}
+
+main .inner .detail_box .down.active {
+  top: 0;
+}
+
+
+
 
 /* footer */
 
