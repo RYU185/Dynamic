@@ -54,6 +54,15 @@ document
         value.slice(0, 3) + '-' + value.slice(3, 5) + '-' + value.slice(5, 10); // 3자리-2자리-5자리
     }
   });
+$(document).on('click', '#add', function () {
+  const infoBox = document.querySelector(".informtion_box");
+
+  if (infoBox.style.height === '410px') {
+    infoBox.style.height = '';  // 기본 값으로 되돌리기
+  } else {
+    infoBox.style.height = '410px';  // 410px로 설정
+  }
+})
 
 $(document).on('click', '#regist', function () {
   const realName = document.querySelector('#name').value.trim();

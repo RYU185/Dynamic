@@ -109,8 +109,10 @@ input:focus {
   transition: height 0.3s ease-in-out;
 }
 
-.wrap .box .informtion_box:hover {
-  height: 460px;
+.wrap .box .informtion_box #add {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .wrap .box .informtion_box form {
