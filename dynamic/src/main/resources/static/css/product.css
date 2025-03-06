@@ -182,27 +182,73 @@ main .inner .upper .searchBar p input:focus::placeholder {
 .main_box #course_box{
   padding: 1rem;
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+}
+
+.subtitle {
+    grid-template-columns: 1fr;
+    text-align: start;
+    margin-bottom: 1rem;
+}
+
+.subtitle h1 {
+    font-size: 2rem;
+    color: #333;
 }
 
 .main_box #course_box .box1{
-    
+  
   width: 21.875rem;
-  border: none;
-  background-color: #75c3ff;
+  height: 23.25rem;
+  align-items: center;
+  background-color: #3563d0;
   border-radius: .3125rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .main_box #course_box .box1 .img {
-  width: 7.5rem;
-  height: 4.5rem;
+  width: 100%;
+  padding-top: 56.25%; 
+  margin: 1rem;
+  position: relative;
 }
 
 .main_box #course_box .box1 .img img {
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
+.main_box #course_box .box1 .title {
+  color: #ffffff;
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
+
+
+.main_box #course_box .box1 .amount {
+  font-size: 25px;
+  color: #ffffff;
+}
+
+.main_box #course_box .box1 .cart {
+  position: absolute; 
+  bottom: 1rem; 
+  right: 1rem; 
+  font-size: 18px; 
+  background-color: #ffffff;
+  color: rgb(0, 0, 0); 
+  padding: 0.5rem 1rem; 
+  border-radius: 5px; 
+  cursor: pointer;
+}
 
   
   footer {
