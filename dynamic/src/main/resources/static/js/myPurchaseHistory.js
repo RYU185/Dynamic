@@ -63,63 +63,138 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     console.log('화면 업데이트 완료');
   }
+});
 
-  courseSearchInput.addEventListener('input', function () {
-    const query = courseSearchInput.value;
 
-    if (query === '') {
-      renderPurchaseHistory(purchaseData);
-      return;
-    }
 
-    const filteredCourses = purchaseData.filter(
-      (item) =>
-        item.product.isActive &&
-        item.product.title.toLowerCase().includes(query)
-    );
+function submit_go_course(){
+  let title = document.querySelector("input[id='courseSearch']");
+  var sendData = title.value;
 
-    courseList.innerHTML = '';
-    filteredCourses.forEach((item) => {
-      const product = item.product;
-      courseList.innerHTML += `
-            <article>
+  $.ajax({
+    url: `/api/purchase-history/product-name/`+ encodeURIComponent(sendData),
+    method: "GET",
+    contentType:"application/json",
+    success: function(response){
+      $('.course').empty();
+      response.forEach((element)=>{
+        const product = element.product;
+        if(element.category === "강의"){
+          var $row =$(`
+                  <article>
                     <h2>${product.title}</h2>
-                    <p>구매날짜: ${formatDate(item.purchaseDate)}</p>
+                    <p>구매날짜: ${formatDate(element.purchaseDate)}</p>
                     <p>구매금액: ${product.price.toLocaleString()}원</p>
-                </article>
-            `;
-    });
-  });
-
-  subscSearchInput.addEventListener('input', function () {
-    const query = subscSearchInput.value;
-
-    if (query === '') {
-      renderPurchaseHistory(purchaseData);
-      return;
+                  </article>
+            `);
+            $('.course').append($row);
+            }
+          }
+        )},
+        error: function(){
+          $('.course').empty();
+          alert("검색 결과가 없습니다.")
+        }
+      })
     }
 
-    const filteredSubscriptions = purchaseData.filter(
-      (item) =>
-        item.product.isActive &&
-        item.product.type === 'payrollsubscription' &&
-        item.product.title.toLowerCase().includes(query)
-    );
+$(document).on("click", "#courseSearch", function () {
+  submit_go_course();
+});
 
-    subscList.innerHTML = '';
-    filteredSubscriptions.forEach((item) => {
-      const product = item.product;
-      subscList.innerHTML += `
-                <article>
-                    <h2>${product.title}</h2>
-                    <p>시작일: ${formatDate(product.startDate)}</p>
-                    <p>종료일: ${formatDate(product.expireDate)}</p>
-                </article>
-            `;
+function submit_go_subsc(){
+  let title = document.querySelector("input[id='subscSearch']");
+  var sendData = title.value;
+
+  $.ajax({
+    url: `/api/purchase-history/product-name/`+ encodeURIComponent(sendData),
+    method: "GET",
+    contentType:"application/json",
+    success: function(response){
+      $('.subsc').empty();
+      response.forEach((element)=>{
+        const product = element.product;
+        if(element.category === "정기 구독권"){
+          var $row = $(`
+                  <article>
+                      <h2>${product.title}</h2>
+                      <p>시작일: ${formatDate(product.startDate)}</p>
+                      <p>종료일: ${formatDate(product.expireDate)}</p>
+                  </article>
+            `);
+            $('.subsc').append($row);
+            }
+          }
+        )},
+        error: function(){
+          $('.subsc').empty();
+          alert("검색 결과가 없습니다.")
+        }
+      })
+    }
+
+    $(document).on("click", "#subscSearch", function () {
+      submit_go_course();
     });
-  });
 
-  loadingPurchaseHistory();
+
+
+  // courseSearchInput.addEventListener('input', function () {
+  //   const query = courseSearchInput.value;
+
+  //   if (query === '') {
+  //     renderPurchaseHistory(purchaseData);
+  //     return;
+  //   }
+
+  //   const filteredCourses = purchaseData.filter(
+  //     (item) =>
+  //       item.product.isActive &&
+  //       item.product.title.toLowerCase().includes(query)
+  //   );
+
+  //   courseList.innerHTML = '';
+  //   filteredCourses.forEach((item) => {
+  //     const product = item.product;
+  //     courseList.innerHTML += `
+  //           <article>
+  //                   <h2>${product.title}</h2>
+  //                   <p>구매날짜: ${formatDate(item.purchaseDate)}</p>
+  //                   <p>구매금액: ${product.price.toLocaleString()}원</p>
+  //               </article>
+  //           `;
+  //   });
+  // });
+
+  // subscSearchInput.addEventListener('input', function () {
+  //   const query = subscSearchInput.value;
+
+  //   if (query === '') {
+  //     renderPurchaseHistory(purchaseData);
+  //     return;
+  //   }
+
+  //   const filteredSubscriptions = purchaseData.filter(
+  //     (item) =>
+  //       item.product.isActive &&
+  //       item.product.type === 'payrollsubscription' &&
+  //       item.product.title.toLowerCase().includes(query)
+  //   );
+
+  //   subscList.innerHTML = '';
+  //   filteredSubscriptions.forEach((item) => {
+  //     const product = item.product;
+  //     subscList.innerHTML += `
+  //               <article>
+  //                   <h2>${product.title}</h2>
+  //                   <p>시작일: ${formatDate(product.startDate)}</p>
+  //                   <p>종료일: ${formatDate(product.expireDate)}</p>
+  //               </article>
+  //           `;
+  //   });
+  // });
+
+  // loadingPurchaseHistory();
 
   // 날짜 포맷 함수 (YYYY-MM-DD 형식)
   function formatDate(dateStr) {
@@ -127,4 +202,4 @@ document.addEventListener('DOMContentLoaded', function () {
     const date = new Date(dateStr);
     return date.toISOString().split('T')[0];
   }
-});
+
