@@ -239,11 +239,12 @@ main .inner .show_calendar {
   height: 40px;
   font-size: 20px;
   font-weight: 400;
+  margin-top: 10px;
   border: 1px solid black;
-  border-radius: 15px;
+  border-radius: 10px;
   color: rgb(117, 117, 117);
   border: none;
-  margin-left: 270px;
+  margin-left: 300px;
 }
 
 main .inner .show_calendar:hover {
@@ -270,7 +271,7 @@ main .inner .detail_box .down .apply {
   font-size: 20px;
   font-weight: 400;
   border: 1px solid black;
-  border-radius: 15px;
+  border-radius: 10px;
   color: rgb(117, 117, 117);
   margin-top: 10px;
   border: none;
