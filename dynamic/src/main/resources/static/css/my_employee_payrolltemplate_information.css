@@ -171,8 +171,6 @@ main .inner .main_box table tr:hover {
 
 main .inner .main_box table tr:hover td {
   background-color: #fff;
-  font-size: 24px;
-  font-weight: 500;
 }
 
 main .inner .main_box table tr:first-child:hover {
