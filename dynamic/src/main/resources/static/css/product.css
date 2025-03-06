@@ -240,6 +240,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
 
 .main_box #course_box .box1 .title {
   color: #000;
+
 }
 
 .main_box #course_box .box1 .price_wrap {
@@ -321,7 +322,7 @@ main .inner .upper .searchBar p input:focus::placeholder {
   color: #000000;
   font-size: 1.2rem;
   margin-bottom: 16px;
-  margin-left: 30px;
+  margin-left: 70px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -329,12 +330,12 @@ main .inner .upper .searchBar p input:focus::placeholder {
 }
 
 .main_box .subscription_box .box2 .price_wrap {
+  display: inline;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-left: 65px;
+  font-size: 1rem;
+  color: #000000;
   text-align: left;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 30px;
 }
 
 .main_box .subscription_box .box2 .cart1 {

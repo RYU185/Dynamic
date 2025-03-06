@@ -2,14 +2,16 @@
 
 @font-face {
   font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2") format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -57,7 +59,7 @@ section .titlewrap {
   text-align: center;
 }
 
-section .titlewrap>h1 {
+section .titlewrap > h1 {
   font-size: 30px;
   font-weight: 800;
   font-family: "GmarketSansMedium";
@@ -143,13 +145,11 @@ main .inner .upper .information div {
   line-height: 37.5px;
 }
 
-main .inner .upper .information div>input {
+main .inner .upper .information div > input {
   width: 90%;
   outline: none;
   border: none;
 }
-
-
 
 main .inner .detail_box {
   width: 60%;
@@ -194,7 +194,7 @@ main .inner .box2 .information .info {
   margin-left: 15px;
 }
 
-main .inner .box2 .information div>input {
+main .inner .box2 .information div > input {
   width: 90%;
   outline: none;
   border: none;
@@ -273,9 +273,6 @@ main .inner .detail_box .down {
 main .inner .detail_box .down.active {
   top: 0;
 }
-
-
-
 
 /* footer */
 
