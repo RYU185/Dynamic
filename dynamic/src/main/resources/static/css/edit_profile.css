@@ -264,6 +264,7 @@ section .title-wrap .title h1 {
   position: relative;
   display: none;
   z-index: 15;
+  border-radius: 10px;
 }
 
 .pop-up1 {
@@ -337,6 +338,7 @@ section .title-wrap .title h1 {
   font-weight: 500;
   background-color: white;
   /* border-radius: 30px; */
+  border-radius: 10px;
 }
 
 .content_box .content {

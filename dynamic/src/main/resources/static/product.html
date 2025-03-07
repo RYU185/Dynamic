@@ -1,51 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>제품</title>
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="/css/product.css" />
-  </head>
 
-  <body>
-    <div class="wrap">
-      <!-- header -->
-      <header></header>
-      <hr />
-      <h1>
-        DO YOURSELF <br />
-        USE SERVICE
-      </h1>
-      <!-- section -->
-      <section></section>
-      <main>
-        <div class="inner">
-          <div class="upper">
-            <div class="title-wrap">
-              <div class="main_title">
-                <h1 id="home">제품</h1>
-              </div>
-              <div class="searchBar">
-                <p>
-                  <input
-                    type="text"
-                    placeholder="강의 제목을 입력해주세요"
-                    id="search_product"
-                  />
-                </p>
-                <img src="./img/search.png" onclick="submit_go()" /><img
-                  src="/img/add.png"
-                  alt="추가 버튼"
-                  id="add_course"
-                  style="display: none"
-                />
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제품</title>
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="/css/product.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- header -->
+    <header></header>
+    <hr />
+    <h1>
+      DO YOURSELF <br />
+      USE SERVICE
+    </h1>
+    <!-- section -->
+    <section></section>
+    <main>
+      <div class="inner">
+        <div class="upper">
+          <div class="title-wrap">
+            <div class="main_title">
+              <h1 id="home">제품</h1>
+            </div>
+            <div class="searchBar">
+              <p>
+                <input type="text" placeholder="강의 제목을 입력해주세요" id="search_product" />
+              </p>
+              <img src="./img/search.png" onclick="submit_go()" /><img src="/img/add.png" alt="추가 버튼" id="add_course"
+                style="display: none" />
             </div>
           </div>
-          <div class="main_box">
-            <div id="course_box">
-              <!-- <h1 class="subtitle">강의</h1>
+        </div>
+        <div class="main_box">
+          <div id="course_box">
+            <!-- <h1 class="subtitle">강의</h1>
                         <div class="box1">
                             <div class="img"><img src="img/courseThumnail1.png" alt="이미지"></div>
                             <div class="title_wrap">제목 : </div>
@@ -70,222 +63,206 @@
                             <div class="price">가격</div>
                             <button class="cart">장바구니</button>
                         </div> -->
-            </div>
+          </div>
 
-            <div class="subscription_box">
-              <div class="box2" id="1">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">1개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">20000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+          <div class="subscription_box">
+            <div class="box2" id="1">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
               </div>
-              <div class="box2" id="2">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">2개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">40000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <div class="title_wrap">1개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">20000</span></div>
               </div>
-              <div class="box2" id="3">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">3개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">57000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="2">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
               </div>
-              <div class="box2" id="4">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">4개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">76000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <div class="title_wrap">2개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">40000</span></div>
               </div>
-              <div class="box2" id="5">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">5개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">95000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="3">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
               </div>
-              <div class="box2" id="6">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">6개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">108000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <div class="title_wrap">3개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">57000</span></div>
               </div>
-              <div class="box2" id="7">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">7개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">126000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="4">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
               </div>
-              <div class="box2" id="8">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">8개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">144000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <div class="title_wrap">4개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">76000</span></div>
               </div>
-              <div class="box2" id="9">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">9개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">162000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="5">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
               </div>
-              <div class="box2" id="10">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">10개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">180000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <div class="title_wrap">5개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">95000</span></div>
               </div>
-              <div class="box2" id="11">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">11개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">198000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="6">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
               </div>
-              <div class="box2" id="12">
-                <div class="img">
-                  <img src="img/구독권 이미지.png" alt="이미지" />
-                </div>
-                <div class="title_wrap">12개월 구독권</div>
-                <div class="title"></div>
-                <div class="price_wrap">
-                  <div>가격 : <span class="price">192000</span></div>
-                </div>
-                <button class="cart1">장바구니</button>
+              <div class="title_wrap">6개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">108000</span></div>
               </div>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="7">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
+              </div>
+              <div class="title_wrap">7개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">126000</span></div>
+              </div>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="8">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
+              </div>
+              <div class="title_wrap">8개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">144000</span></div>
+              </div>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="9">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
+              </div>
+              <div class="title_wrap">9개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">162000</span></div>
+              </div>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="10">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
+              </div>
+              <div class="title_wrap">10개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">180000</span></div>
+              </div>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="11">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
+              </div>
+              <div class="title_wrap">11개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">198000</span></div>
+              </div>
+              <button class="cart1">장바구니</button>
+            </div>
+            <div class="box2" id="12">
+              <div class="img">
+                <img src="img/구독권 이미지.png" alt="이미지" />
+              </div>
+              <div class="title_wrap">12개월 구독권</div>
+              <div class="title"></div>
+              <div class="price_wrap">
+                <div>가격 : <span class="price">192000</span></div>
+              </div>
+              <button class="cart1">장바구니</button>
             </div>
           </div>
         </div>
-        <div class="pop-up" style="display: none">
-          <div class="pop-up-title">
-            <h1>제품 추가</h1>
-            <img src="/img/X.png" alt="취소 버튼" class="x_btn" />
+      </div>
+      <div class="pop-up">
+        <div class="pop-up-title">
+          <h1>제품 추가</h1>
+          <img src="/img/X.png" alt="취소 버튼" class="x_btn" />
+        </div>
+        <div class="content_box">
+          <div class="content">
+            <div><b>제목 :</b></div>
+            <div>
+              <input type="text" name="title" id="title" class="write" />
+            </div>
           </div>
-          <div class="content_box">
-            <div class="content">
-              <div><b>제목 :</b></div>
-              <div>
-                <input type="text" name="title" id="title" class="write" />
-              </div>
+          <div class="content">
+            <div><b>설명 :</b></div>
+            <div>
+              <textarea name="description" id="description" class="write"></textarea>
             </div>
-            <div class="content">
-              <div><b>설명 :</b></div>
-              <div>
-                <input
-                  type="text"
-                  name="description"
-                  id="description"
-                  class="write"
-                />
-              </div>
+          </div>
+          <div class="content">
+            <div><b>가격 :</b></div>
+            <div>
+              <input type="text" name="price" id="price" class="write" />
             </div>
-            <div class="content">
-              <div><b>가격 :</b></div>
-              <div>
-                <input type="text" name="price" id="price" class="write" />
-              </div>
+          </div>
+          <div class="content">
+            <div><b>동영상 :</b></div>
+            <div>
+              <input type="file" name="video" id="video" class="write" accept="video/*" />
             </div>
-            <div class="content">
-              <div><b>동영상 :</b></div>
-              <div>
-                <input
-                  type="file"
-                  name="video"
-                  id="video"
-                  class="write"
-                  accept="video/*"
-                />
-              </div>
+          </div>
+          <div class="date">
+            <div><b>등록일자 : </b></div>
+            <div>
+              <input type="text" name="add_date" id="add_date" class="date" readonly />
             </div>
-            <div class="date">
-              <div><b>등록일자 : </b></div>
-              <div>
-                <input
-                  type="text"
-                  name="add_date"
-                  id="add_date"
-                  class="date"
-                  readonly
-                />
-              </div>
-              <input type="button" value="등록" class="add_product" />
-            </div>
+            <input type="button" value="등록" class="add_product" />
           </div>
         </div>
-      </main>
-      <footer>
-        <div class="inner">
-          <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
-          </div>
-          <div class="lower">
-            <address>
-              대전광역시 서구 둔산동 1524 <br />
-              TEL : 03-111-1234 C.P : 010-1234-5678
-            </address>
-            <p>
-              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-              reserved.
-            </p>
-          </div>
+      </div>
+    </main>
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
         </div>
-      </footer>
-    </div>
-    <div class="pop-up-background" style="display: none"></div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/header.js"></script>
-    <script src="/js/product.js"></script>
-  </body>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="pop-up-background"></div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/product.js"></script>
+</body>
+
 </html>

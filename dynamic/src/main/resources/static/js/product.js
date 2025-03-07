@@ -153,7 +153,7 @@ document.querySelectorAll('.cart1').forEach(function (cart) {
 
 const add_button = document.querySelector('#add_course');
 const pop_up = document.querySelector('.pop-up');
-const background = document.querySelector('#pop-up-background');
+const background = document.querySelector('.pop-up-background');
 if (userRole === 'admin') {
   add_button.style.display = 'inline';
 }
