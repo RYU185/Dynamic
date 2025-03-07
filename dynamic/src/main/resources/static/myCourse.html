@@ -1,178 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>나의 강의</title>
-    <link rel="stylesheet" href="./css/myCourse.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-  </head>
 
-  <body>
-    <div class="wrap">
-      <!-- header -->
-      <header></header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나의 강의</title>
+  <link rel="stylesheet" href="./css/myCourse.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- header -->
+    <header></header>
+    <hr />
+
+    <h1>
+      DO YOURSELF <br />
+      USE SERVICE
+    </h1>
+
+    <section>
+      <div class="titlewrap">
+        <div class="coursetitle">
+          <h1 class="home">나의 강의</h1>
+        </div>
+        <br />
+        <div class="searchBar">
+          <p>
+            <input type="text" placeholder="강의명을 입력해주세요" id="search_mycourse" />
+          </p>
+          <img src="./img/search.png" alt="검색" onclick="submit_go()" style="cursor: pointer" />
+        </div>
+      </div>
+      <div class="cardwrap">
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+        <div class="card">
+          <div class="pic">
+            <a href="#"><img src="./img/courseThumnail1.png" /></a>
+          </div>
+
+          <p>강의 제목:</p>
+          <br />
+          <p>&nbsp;</p>
+          <p>강의 설명:</p>
+        </div>
+      </div>
+
+
+    </section>
+
+    <footer>
+      <div class="inner">
+        <div class="upper">
+          <h1>DO YOURSELF or USE SERVICE</h1>
+        </div>
+        <div class="lower">
+          <address>
+            대전광역시 서구 둔산동 1524 <br />
+            TEL : 03-111-1234 C.P : 010-1234-5678
+          </address>
+          <p>
+            2020 DO YOURSELF or USE SERVICE &copy; copyright all right
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- 팝업 모달 -->
+  <div class="modal-overlay"></div>
+  <div id="pop-up" class="modal">
+    <div class="course-content">
+      <div class="close" onclick="close">
+        <img src="/img/X.png" />
+      </div>
+      <div class="title">
+        <p>강의 제목</p>
+      </div>
       <hr />
 
-      <h1>
-        DO YOURSELF <br />
-        USE SERVICE
-      </h1>
+      <div class="video">
+        <img src="./img/courseThumnail3.png" />
+      </div>
 
-      <section>
-        <div class="titlewrap">
-          <div class="coursetitle">
-            <h1 class="home">나의 강의</h1>
-          </div>
-          <br />
-          <div class="searchBar">
-            <p>
-              <input
-                type="text"
-                placeholder="강의명을 입력해주세요"
-                id="search_mycourse"
-              />
-            </p>
-            <img
-              src="./img/search.png"
-              alt="검색"
-              onclick="submit_go()"
-              style="cursor: pointer"
-            />
-          </div>
-        </div>
-        <div class="cardwrap">
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="#"><img src="./img/courseThumnail1.png" /></a>
-            </div>
-
-            <p>강의 제목:</p>
-            <br />
-            <p>&nbsp;</p>
-            <p>강의 설명:</p>
-          </div>
-        </div>
-
-        <!-- 팝업 모달 -->
-        <div id="pop-up" class="modal">
-          <div class="course-content">
-            <div class="close" onclick="close">
-              <img src="/img/X.png" />
-            </div>
-            <div class="title">
-              <p>강의 제목</p>
-            </div>
-            <hr />
-
-            <div class="video">
-              <img src="./img/courseThumnail3.png" />
-            </div>
-
-            <div class="description">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                unde corporis libero qui illo ducimus nemo ut voluptates
-                consectetur officiis.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div class="inner">
-          <div class="upper">
-            <h1>DO YOURSELF or USE SERVICE</h1>
-          </div>
-          <div class="lower">
-            <address>
-              대전광역시 서구 둔산동 1524 <br />
-              TEL : 03-111-1234 C.P : 010-1234-5678
-            </address>
-            <p>
-              2020 DO YOURSELF or USE SERVICE &copy; copyright all right
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <div class="description">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+          unde corporis libero qui illo ducimus nemo ut voluptates
+          consectetur officiis.
+        </p>
+      </div>
     </div>
-    <div class="pop-up-background2"></div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/header.js"></script>
-    <script src="./js/myCourse.js"></script>
-  </body>
+  </div>
+  <div class="pop-up-background2"></div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="./js/myCourse.js"></script>
+</body>
+
 </html>
