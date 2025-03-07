@@ -16,7 +16,7 @@ $(document).on('click', '#employee_box', function () {
     alert('정기 구독권 구매 후 이용 가능합니다.');
     return;
   } else {
-    if (expireDate < currentDate) {
+    if (expireDate > currentDate) {
       alert('정기 구독권 만료일이 지났습니다. 구매 후 이용 바랍니다.');
       return;
     } else {

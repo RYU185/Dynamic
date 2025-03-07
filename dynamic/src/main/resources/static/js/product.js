@@ -112,7 +112,7 @@ document.querySelectorAll('.cart1').forEach(function (cart) {
       success: function (response) {
         console.log(response);
         response.forEach((element) => {
-          alert('이미 장바구니에 담긴 제품입니다');
+          alert('이미 장바구니에 담긴 혹은 구매한 제품 입니다');
           return;
         });
       },

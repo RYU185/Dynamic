@@ -98,7 +98,8 @@ function submit_go() {
       formatSpecificCells();
     },
     error: function () {
-      alert('검색 오류가 발생했습니다.');
+      alert('검색된 직원이 없습니다');
+      $('tbody').empty();
     },
   });
 }
@@ -116,3 +117,7 @@ function formatSpecificCells() {
     }
   });
 }
+
+document.querySelector(".home").addEventListener("click", function () {
+  window.location.href = "my_payrolltemplate.html";
+});

@@ -34,7 +34,7 @@ $(document).ready(function () {
         success: function (response) {
             $('.detail_box').empty();
             var row = `
-            <div class='title'>공지 상세 내용 </div>
+            <div class='title'>가이드 상세 내용 </div>
             <div class='description'>${response.text}</div>
             <div class="buttom">
                 <div class="content">
@@ -57,7 +57,7 @@ if (userRole === 'admin') {
 }
 
 $(document).on('click', "#delete_guide", function () {
-    const isConfirmed = confirm('공지사항 삭제 처리하도록 할까요 ?')
+    const isConfirmed = confirm('가이드 삭제 처리하도록 할까요 ?')
 
     if (isConfirmed) {
         $.ajax({

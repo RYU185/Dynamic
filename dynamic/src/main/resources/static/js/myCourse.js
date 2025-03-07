@@ -96,5 +96,5 @@ function submit_go() {
 }
 
 document.querySelector(".home").addEventListener("click", function () {
-  window.location.href = "main_notice.html";
+  window.location.href = "myCourse.html";
 });

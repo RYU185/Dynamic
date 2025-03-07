@@ -4,14 +4,16 @@ INSERT INTO authority(authority_name) VALUES ('NON-USER');
 
  INSERT INTO user(user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
     VALUES
-        ('admin', '없음','관리자', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','admin@gmail.com', '010-1111-1111', '없음','없음',false , 0, 'ADMIN');
+        ('admin', '관리자상사','관리자', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','admin@gmail.com', '010-1111-1111', '123-12-45678','도소매업',true , 0, 'ADMIN');
 
 INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
 VALUES
-    ('sangsu1234', '좋은상사', '이상수', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','sangsu@gmail.com', '010-9123-4567', '123-45-67890','도소매업', true, 0, 'USER');
-INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
-VALUES
-    ('dynamic', '없음', '다이나믹', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','dynamic@gmail.com', '010-1234-4567', '없음','없음', false, 0, 'USER');
+    ('sangsu1234', '없음', '이상수', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','sangsu@gmail.com', '010-9123-4567', '없음','없음', false, 0, 'USER');
+ 'USER');
+ INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
+ VALUES
+     ('dynamic', '없음', '다이나믹', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','dynamic@gmail.com', '010-1234-1234', '없음','없음', false, 0, 'USER');
+  'USER');
 
 
 INSERT INTO notice (notice_title, text, add_date,modified_date)
@@ -71,9 +73,8 @@ INSERT INTO course(title,add_date,description,id) VALUES('세금의 최소화를
 
 INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('급여명세서 양식은 어떻게 작성하나요 ?', false,'2025-01-13','2025-01-16',true,'sangsu1234');
 INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('직원 등록이 원활하게 이뤄지지 않는 것같은데 어떻게 해야될까요?', false,'2025-01-13','2025-01-16',true,'sangsu1234');
-INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('간편하게 이용할 수 있는 사이트인 것 같습니다', false,'2025-01-13','2025-01-16',false,'dynamic');
+INSERT INTO board(title,answer,add_date,modify_date,is_active,user_name) VALUES('간편하게 이용할 수 있는 사이트인 것 같습니다', false,'2025-01-13','2025-01-16',true,'dynamic');
 INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'저도 궁금해요','2025-01-13',true,'dynamic');
-INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(1,'이용 가이드를 확인하시면 상세한 설명이 되어있어 참조 부탁드립니다.','2025-01-15',true,'admin');
 INSERT INTO comment(board_id,text,add_date,is_active,user_name) VALUES(3,'저도요~ 자주 이용할 것같습니다','2025-01-13',true,'sangsu1234');
 
 --INSERT INTO cart(user_name,product_id,is_active) VALUES ('sangsu1234','S1',true);
