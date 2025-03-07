@@ -3,31 +3,31 @@ $(document).ready(function () {
 
   function fetchUserCourses() {
     $.ajax({
-      url: '/api/user-product/all',
-      method: 'GET',
-      contentType: 'application/json',
+      url: "/api/user-product/all",
+      method: "GET",
+      contentType: "application/json",
       success: function (data) {
-        console.log('서버 응답 데이터:', data);
+        console.log("서버 응답 데이터:", data);
 
-        console.log('담긴 강의: ', courses);
+        console.log("담긴 강의: ", courses);
         renderCourses(data);
       },
       error: function (xhr, status, error) {
-        console.error('데이터 불러오기 실패:', error);
+        console.error("데이터 불러오기 실패:", error);
       },
     });
   }
 
-  $('.modal .close', 'pop-up-background2').on('click', function () {
-    $('.modal').css('display', 'none');
-    $('.pop-up-background2').css('display', 'none');
+  $(".modal .close", ".pop-up-background2").on("click", function () {
+    $(".modal").css("display", "none");
+    $(".pop-up-background2").css("display", "none");
   });
 
   fetchUserCourses();
 });
 function renderCourses(data) {
-  courses = data.filter((item) => item.product.type === 'course');
-  const cardWrap = $('.cardwrap');
+  courses = data.filter((item) => item.product.type === "course");
+  const cardWrap = $(".cardwrap");
   cardWrap.empty();
 
   courses.forEach((course) => {
@@ -51,22 +51,22 @@ function renderCourses(data) {
 }
 
 function viewCourseDetail() {
-  $('.card').on('click', function () {
-    const productId = $(this).data('product-id');
+  $(".card").on("click", function () {
+    const productId = $(this).data("product-id");
     if (!productId) return;
 
     $.ajax({
       url: `/api/course/id/${productId}`,
-      method: 'get',
-      contentType: 'application/json',
+      method: "get",
+      contentType: "application/json",
       success: function (course) {
-        $('.modal .title p').text(course.title);
-        $('.modal .description p').text(course.description);
-        $('.modal').css('display', 'block');
-        $('.pop-up-background2').css('display', 'block');
+        $(".modal .title p").text(course.title);
+        $(".modal .description p").text(course.description);
+        $(".modal").css("display", "block");
+        $(".pop-up-background2").css("display", "block");
       },
       error: function (xhr, status, error) {
-        console.error('강의 정보 불러오기 실패:', error);
+        console.error("강의 정보 불러오기 실패:", error);
       },
     });
   });
@@ -77,24 +77,24 @@ function submit_go() {
   let title = document.querySelector("input[id='search_mycourse']");
   var sendData = title.value;
 
-  if (sendData === '') {
-    alert('검색어를 입력해주세요');
+  if (sendData === "") {
+    alert("검색어를 입력해주세요");
     return;
   }
 
   $.ajax({
-    url: '/api/user-product/product-name/' + encodeURIComponent(sendData),
-    method: 'get',
-    contentType: 'application/json',
+    url: "/api/user-product/product-name/" + encodeURIComponent(sendData),
+    method: "get",
+    contentType: "application/json",
     success: function (response) {
       renderCourses(response);
     },
     error: function (xhr, status, error) {
-      console.error('검색 요청 실패:', error);
+      console.error("검색 요청 실패:", error);
     },
   });
 }
 
-document.querySelector('.home').addEventListener('click', function () {
-  window.location.href = 'main_notice.html';
+document.querySelector(".home").addEventListener("click", function () {
+  window.location.href = "main_notice.html";
 });
