@@ -264,6 +264,7 @@ main .pop-up1 {
   text-align: center;
   position: relative;
   display: none;
+  border-radius: 10px;
 }
 
 main .pop-up1 > img {
@@ -296,6 +297,7 @@ main .content_box {
   font-size: 1.2rem;
   font-weight: 500;
   background-color: white;
+  border-radius: 10px;
 }
 
 main .content_box .content {

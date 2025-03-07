@@ -300,6 +300,7 @@ main .pop-up2 {
   z-index: 12;
   top: 120px;
   right: 20px;
+  border-radius: 10px;
 }
 
 main .content_box {
@@ -311,6 +312,7 @@ main .content_box {
   font-size: 1.2rem;
   font-weight: 500;
   background-color: white;
+  border-radius: 10px;
 }
 
 main .content_box .content {
