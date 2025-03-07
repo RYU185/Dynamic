@@ -2,14 +2,16 @@
 
 @font-face {
   font-family: "NanumHumanTTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2") format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2")
+    format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -42,7 +44,7 @@ body {
   position: relative;
 }
 
-.wrap>h1 {
+.wrap > h1 {
   width: auto;
   height: 9rem;
   padding: 20px;
@@ -217,12 +219,15 @@ main .inner .main_box table tr td {
   font-weight: 500;
   height: 40px;
 }
+main .inner .main_box table tr td:hover {
+  cursor: pointer;
+  color: #040b8e;
+}
 
 main .inner .main_box table tr .bold {
   font-size: 1.2rem;
   font-weight: 800;
 }
-
 
 main .inner .main_box table tr td:nth-child(3) {
   width: 10px;
@@ -255,7 +260,7 @@ main .pop-up1,
   display: none;
 }
 
-main .pop-up1>img {
+main .pop-up1 > img {
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -264,7 +269,7 @@ main .pop-up1>img {
   right: 10px;
 }
 
-main .pop-up2>img {
+main .pop-up2 > img {
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -273,12 +278,12 @@ main .pop-up2>img {
   right: 10px;
 }
 
-main .pop-up1>img:hover {
+main .pop-up1 > img:hover {
   background-color: rgb(126, 126, 126);
   color: white;
 }
 
-main .pop-up2>img:hover {
+main .pop-up2 > img:hover {
   background-color: rgb(126, 126, 126);
   color: white;
 }
@@ -347,7 +352,6 @@ main .content_box .date div {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 main .content_box .date div:nth-child(2) {
