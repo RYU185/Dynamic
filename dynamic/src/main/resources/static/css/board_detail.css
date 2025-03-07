@@ -160,7 +160,7 @@ main .inner .main_box table tr td {
   font-weight: 500;
 }
 
-main .inner .main_box table tr td:hover {
+main .inner .main_box table tr:hover {
   color: #040b8e;
   opacity: 0.7;
   cursor: pointer;

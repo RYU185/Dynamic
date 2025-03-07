@@ -5,6 +5,25 @@ if (userRole === 'admin') {
   document.querySelector('#delete_formation_data').style.display = 'inline';
 }
 
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
+$(document).on('click', '#delete_formation_data', function () {
+  const isConfirmed = confirm('공지사항 삭제 처리하도록 할까요 ?')
+
+  if (isConfirmed) {
+    $.ajax({
+      url: '/api/formationdata/id/' + encodeURIComponent(id), // URL에 검색어(title) 추가
+      method: 'DELETE',
+      contentType: 'application/json',
+      success: function () {
+        window.location.href = '/formation_data.html';
+      }
+    })
+  }
+
+})
+
 // 버튼을 클릭하면 가이드 추가 팝업 보이게 처리
 const button = document.querySelector('#add_formation_data');
 const content = document.querySelector('.pop-up1');
@@ -115,10 +134,9 @@ $(document).ready(function () {
                   <td>${element.addDate}</td>
                 </tr>`);
         $('tbody').append($row); // 테이블에 새 행 추가
-        // $row.on("click", () => {
-        //     console.log(element.id + " " + element.title);
-        //     window.location.href = "/formation.html?id=" + element.id;
-        // });
+        $row.on("click", () => {
+          window.location.href = "/formation_data.html?id=" + element.id;
+        });
       });
     },
   });

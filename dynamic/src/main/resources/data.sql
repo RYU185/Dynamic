@@ -9,11 +9,9 @@ INSERT INTO authority(authority_name) VALUES ('NON-USER');
 INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
 VALUES
     ('sangsu1234', '없음', '이상수', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','sangsu@gmail.com', '010-9123-4567', '없음','없음', false, 0, 'USER');
- 'USER');
  INSERT INTO user (user_name, company_name, real_name, password, gender, email,phone_number, business_number,business_type, exist_business_operator, point, user_authority)
  VALUES
      ('dynamic', '없음', '다이나믹', '$2b$12$A0kgVpplgbH3ZZ1E89441eacUXljTTt7nP8I3RdLtW0P6/CXdEnCm', 'MALE','dynamic@gmail.com', '010-1234-1234', '없음','없음', false, 0, 'USER');
-  'USER');
 
 
 INSERT INTO notice (notice_title, text, add_date,modified_date)

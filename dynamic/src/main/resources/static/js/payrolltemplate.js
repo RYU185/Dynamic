@@ -89,7 +89,7 @@ $(document).on('click', '#send', function () {
     contentType: 'application/json',
     success: function (response) {
       alert('발급하신 급여명세서는 나의 급여명세서 목록에서 조회 가능합니다')
-      window.location.href = '/mypage.html';
+      window.location.href = '/payrolltemplate.html';
     },
   });
 });

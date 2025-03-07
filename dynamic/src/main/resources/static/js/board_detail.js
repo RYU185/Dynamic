@@ -43,7 +43,7 @@ $(document).ready(function () {
       const writeUser = response.userName;
       console.log(writeUser);
       console.log(userRole);
-      if (userRole === writeUser) {
+      if (userRole === writeUser || userRole === 'admin') {
         if (
           modify_board.style.display != 'block' &&
           delete_board.style.display != 'block'
@@ -102,7 +102,7 @@ $(document).ready(function () {
                     </div>
                 `);
 
-            if (userRole === element.userName) {
+            if (userRole === element.userName || userRole === 'admin') {
               $row.find('.delete_comment').css('display', 'block');
             }
 
