@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
   }
 
-  $(".modal .close", ".pop-up-background2").on("click", function () {
+  $(".modal .close, .pop-up-background2").on("click", function () {
     $(".modal").css("display", "none");
     $(".pop-up-background2").css("display", "none");
   });
