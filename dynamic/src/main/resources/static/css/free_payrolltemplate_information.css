@@ -62,15 +62,15 @@ body {
 /* section */
 section {
   width: 100%;
-  padding-top: 20px;
+  height: 72px;
+  margin-top: 65px;
 }
 
-.wrap section .titlewrap .main_title {
+.wrap section .main_title {
   display: block;
-  margin: 0 auto;
 }
 
-.wrap section .titlewrap .main_title h1 {
+.wrap section .main_title h1 {
   font-family: "GmarketSansMedium";
   font-size: 3rem;
   color: #050505ee;
@@ -82,7 +82,6 @@ section {
 /* main */
 main {
   width: 100%;
-  margin-top: 100px;
 }
 
 main .inner {

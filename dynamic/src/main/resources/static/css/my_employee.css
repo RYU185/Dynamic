@@ -270,6 +270,7 @@ main .pop-up1 {
   z-index: 12;
   top: 120px;
   right: 330px;
+  border-radius: 10px;
 }
 
 main .pop-up2 > img {
